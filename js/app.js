@@ -5,6 +5,7 @@
  * Step 5: クイズ診断 (仕様書 9.4, 13.2)
  * Step 6: 結果算出ロジック (仕様書 10, 11, 9.7, 17.2)
  * Step 7: ガイド表示 (仕様書 9.8, 12, 13.4, 16.3)
+ * Step 8: おすすめルート表示 (仕様書 9.9, 13.5)
  */
 'use strict';
 
@@ -203,6 +204,7 @@
         showScreen('guide');
         break;
       case 'routes':
+        renderRoutesScreen();
         showScreen('routes');
         break;
       case 'result':
@@ -226,6 +228,7 @@
       case 'routes':
         // 15.1: 結果未確定なら目的選択画面へ
         if (hasResult) {
+          renderRoutesScreen();
           showScreen('routes');
         } else {
           showScreen('purpose');
@@ -640,6 +643,72 @@
     setText('guide-translation', guide.learning_translation || '');
     setText('guide-action', guide.one_min_action || '');
     renderListInto('guide-topics', guide.related_topics || []);
+  }
+
+  // ===== おすすめルート表示 (9.9, 13.5) =====
+
+  function matchingRoutes(resultId) {
+    const routes = (window.manatane.data && window.manatane.data.routes) || [];
+    return routes.filter(function (r) {
+      if (!Array.isArray(r.target_results)) return false;
+      return r.target_results.indexOf(resultId) !== -1;
+    });
+  }
+
+  function renderRoutesScreen() {
+    const listEl = document.getElementById('route-list');
+    if (!listEl) return;
+    const matched = STATE.resultId ? matchingRoutes(STATE.resultId) : [];
+
+    listEl.innerHTML = '';
+
+    if (matched.length === 0) {
+      const empty = document.createElement('p');
+      empty.className = 'desc';
+      empty.textContent = '該当するルートが見つかりませんでした。診断をやり直してみてください。';
+      listEl.appendChild(empty);
+      return;
+    }
+
+    matched.forEach(function (r) {
+      const card = document.createElement('article');
+      card.className = 'route-card';
+
+      const title = document.createElement('p');
+      title.className = 'route-title';
+      title.textContent = r.title || '';
+      card.appendChild(title);
+
+      if (r.description) {
+        const desc = document.createElement('p');
+        desc.className = 'route-desc';
+        desc.textContent = r.description;
+        card.appendChild(desc);
+      }
+      if (r.suitable_for) {
+        const m = document.createElement('p');
+        m.className = 'route-meta';
+        m.textContent = '向いている状態：' + r.suitable_for;
+        card.appendChild(m);
+      }
+      if (r.estimated_time) {
+        const m = document.createElement('p');
+        m.className = 'route-meta';
+        m.textContent = '想定時間：' + r.estimated_time;
+        card.appendChild(m);
+      }
+
+      const link = document.createElement('a');
+      link.className = 'btn btn-primary';
+      link.href = r.url || 'https://example.com';
+      // 9.9: リンククリック時には別タブで開く
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = '見てみる';
+      card.appendChild(link);
+
+      listEl.appendChild(card);
+    });
   }
 
   function attachListeners() {
