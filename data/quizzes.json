@@ -8,25 +8,75 @@
         "answer_id": "A1",
         "label": "すべて正しいと信じる",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A2",
         "label": "出力を確認しながら使う",
         "is_correct": true,
-        "scores": { "life_practical": 2 }
+        "axis_scores": {
+          "A": {
+            "A1": 2
+          },
+          "B": {
+            "B1": 2
+          },
+          "C": {
+            "C3": 2
+          },
+          "D": {
+            "D2": 2
+          }
+        },
+        "behavior_tag": "cautious"
       },
       {
         "answer_id": "A3",
         "label": "長い文章だけ入力する",
         "is_correct": false,
-        "scores": { "deep_understanding": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A4",
         "label": "使わない方がよい",
         "is_correct": false,
-        "scores": { "free_explore": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       }
     ],
     "explanation": "生成AIは便利ですが、出力内容を確認しながら使うことが重要です。"
@@ -40,25 +90,73 @@
         "answer_id": "A1",
         "label": "「いい感じにして」と短く頼む",
         "is_correct": false,
-        "scores": { "free_explore": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": "quick_action"
       },
       {
         "answer_id": "A2",
         "label": "目的・前提・形式を伝える",
         "is_correct": true,
-        "scores": { "step_by_step": 2 }
+        "axis_scores": {
+          "A": {
+            "A2": 2
+          },
+          "B": {},
+          "C": {
+            "C2": 2
+          },
+          "D": {
+            "D2": 2
+          }
+        },
+        "behavior_tag": "cautious"
       },
       {
         "answer_id": "A3",
         "label": "感情をこめてお願いする",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A4",
         "label": "とにかく長文で頼む",
         "is_correct": false,
-        "scores": { "deep_understanding": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       }
     ],
     "explanation": "目的・前提・出力形式を具体的に伝えるほど、AIの出力は安定しやすくなります。"
@@ -72,25 +170,73 @@
         "answer_id": "A1",
         "label": "そのまま貼り付ける",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A2",
         "label": "利用規約とデータ取り扱いを確認する",
         "is_correct": true,
-        "scores": { "deep_understanding": 2 }
+        "axis_scores": {
+          "A": {
+            "A1": 2
+          },
+          "B": {},
+          "C": {
+            "C1": 2
+          },
+          "D": {
+            "D2": 2
+          }
+        },
+        "behavior_tag": "cautious"
       },
       {
         "answer_id": "A3",
         "label": "回答スピードを比較する",
         "is_correct": false,
-        "scores": { "free_explore": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A4",
         "label": "とりあえずAIに聞いてみる",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       }
     ],
     "explanation": "AIサービスごとに入力データの扱いが異なります。利用規約とデータの取り扱い方針を先に確認するのが基本です。"
@@ -104,25 +250,75 @@
         "answer_id": "A1",
         "label": "投資先のランキング",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A2",
         "label": "毎月の固定費の内訳",
         "is_correct": true,
-        "scores": { "life_practical": 2 }
+        "axis_scores": {
+          "A": {
+            "A1": 2
+          },
+          "B": {
+            "B1": 2
+          },
+          "C": {
+            "C3": 2
+          },
+          "D": {
+            "D2": 2
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A3",
         "label": "外食の頻度だけ",
         "is_correct": false,
-        "scores": { "step_by_step": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A4",
         "label": "周りの人の年収",
         "is_correct": false,
-        "scores": { "free_explore": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       }
     ],
     "explanation": "家計改善は変動費より固定費の見直しから始めると、効果が継続しやすくなります。"
@@ -136,25 +332,75 @@
         "answer_id": "A1",
         "label": "短期間で大きく増える",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A2",
         "label": "時間を分散して買い続ける方法",
         "is_correct": true,
-        "scores": { "step_by_step": 2 }
+        "axis_scores": {
+          "A": {
+            "A2": 2
+          },
+          "B": {},
+          "C": {
+            "C2": 2
+          },
+          "D": {
+            "D2": 2
+          }
+        },
+        "behavior_tag": "persistence"
       },
       {
         "answer_id": "A3",
         "label": "必ず元本が保証される",
         "is_correct": false,
-        "scores": { "life_practical": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {
+            "B1": 1
+          },
+          "C": {
+            "C3": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A4",
         "label": "毎日タイミングを判断する",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": "persistence"
       }
     ],
     "explanation": "つみたて投資は時間を分散して買い続けることで、購入価格の振れを平均化していく方法です。"
@@ -168,25 +414,75 @@
         "answer_id": "A1",
         "label": "月収の半分",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A2",
         "label": "生活費の3〜6ヶ月分",
         "is_correct": true,
-        "scores": { "life_practical": 2 }
+        "axis_scores": {
+          "A": {
+            "A1": 2
+          },
+          "B": {
+            "B1": 2
+          },
+          "C": {
+            "C3": 2
+          },
+          "D": {
+            "D2": 2
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A3",
         "label": "貯金は不要",
         "is_correct": false,
-        "scores": { "free_explore": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A4",
         "label": "年収の2倍",
         "is_correct": false,
-        "scores": { "deep_understanding": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       }
     ],
     "explanation": "急な出費や収入減に備える生活防衛資金は、一般に生活費の3〜6ヶ月分が目安とされます。"
@@ -200,25 +496,73 @@
         "answer_id": "A1",
         "label": "とにかく専門用語を使う",
         "is_correct": false,
-        "scores": { "deep_understanding": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A2",
         "label": "結論を先に書く",
         "is_correct": true,
-        "scores": { "first_try": 2 }
+        "axis_scores": {
+          "A": {
+            "A2": 2
+          },
+          "B": {},
+          "C": {
+            "C2": 2
+          },
+          "D": {
+            "D1": 2
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A3",
         "label": "形容詞をたくさん入れる",
         "is_correct": false,
-        "scores": { "free_explore": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A4",
         "label": "句読点を打たない",
         "is_correct": false,
-        "scores": { "step_by_step": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       }
     ],
     "explanation": "結論を先に書くと、読み手が短い時間で要点を把握できます。"
@@ -232,25 +576,73 @@
         "answer_id": "A1",
         "label": "依頼内容は最後にまとめる",
         "is_correct": false,
-        "scores": { "deep_understanding": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A2",
         "label": "目的・依頼内容・期限を明記する",
         "is_correct": true,
-        "scores": { "step_by_step": 2 }
+        "axis_scores": {
+          "A": {
+            "A2": 2
+          },
+          "B": {},
+          "C": {
+            "C2": 2
+          },
+          "D": {
+            "D2": 2
+          }
+        },
+        "behavior_tag": "cautious"
       },
       {
         "answer_id": "A3",
         "label": "とにかく丁寧な前置きを長く書く",
         "is_correct": false,
-        "scores": { "free_explore": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A4",
         "label": "件名は空欄にしておく",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       }
     ],
     "explanation": "目的・依頼内容・期限を具体的に書くと、相手は判断と行動がしやすくなります。"
@@ -264,25 +656,73 @@
         "answer_id": "A1",
         "label": "1文をできるだけ長くする",
         "is_correct": false,
-        "scores": { "deep_understanding": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A2",
         "label": "1文1メッセージを意識する",
         "is_correct": true,
-        "scores": { "step_by_step": 2 }
+        "axis_scores": {
+          "A": {
+            "A2": 2
+          },
+          "B": {},
+          "C": {
+            "C2": 2
+          },
+          "D": {
+            "D2": 2
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A3",
         "label": "受動態だけで書く",
         "is_correct": false,
-        "scores": { "free_explore": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A4",
         "label": "改行を一切入れない",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       }
     ],
     "explanation": "1文に情報を詰め込みすぎないことで、読み手の負担が減り誤解も生まれにくくなります。"
@@ -296,25 +736,75 @@
         "answer_id": "A1",
         "label": "1人あたり1日500ml",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A2",
         "label": "1人あたり1日3リットル",
         "is_correct": true,
-        "scores": { "life_practical": 2 }
+        "axis_scores": {
+          "A": {
+            "A1": 2
+          },
+          "B": {
+            "B1": 2
+          },
+          "C": {
+            "C3": 2
+          },
+          "D": {
+            "D2": 2
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A3",
         "label": "水は備蓄不要",
         "is_correct": false,
-        "scores": { "free_explore": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": "cautious"
       },
       {
         "answer_id": "A4",
         "label": "家族で合計1リットル",
         "is_correct": false,
-        "scores": { "step_by_step": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       }
     ],
     "explanation": "飲料水と生活用水を合わせて、1人あたり1日3リットルを3日分以上備える目安が広く紹介されています。"
@@ -328,25 +818,75 @@
         "answer_id": "A1",
         "label": "寝る直前まで強い光を浴びる",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A2",
         "label": "就寝前に部屋の照明を落とす",
         "is_correct": true,
-        "scores": { "life_practical": 2 }
+        "axis_scores": {
+          "A": {
+            "A1": 2
+          },
+          "B": {
+            "B1": 2
+          },
+          "C": {
+            "C3": 2
+          },
+          "D": {
+            "D2": 2
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A3",
         "label": "夜遅くに濃いコーヒーを飲む",
         "is_correct": false,
-        "scores": { "free_explore": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A4",
         "label": "寝る直前に激しい運動をする",
         "is_correct": false,
-        "scores": { "step_by_step": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       }
     ],
     "explanation": "就寝前に明るい光を弱めることで、体が休息モードに入りやすくなると言われています。"
@@ -360,25 +900,75 @@
         "answer_id": "A1",
         "label": "詰め込みすぎて冷気の通り道をなくす",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A2",
         "label": "見える位置に消費期限が近い食品を置く",
         "is_correct": true,
-        "scores": { "life_practical": 2 }
+        "axis_scores": {
+          "A": {
+            "A1": 2
+          },
+          "B": {
+            "B1": 2
+          },
+          "C": {
+            "C3": 2
+          },
+          "D": {
+            "D2": 2
+          }
+        },
+        "behavior_tag": "cautious"
       },
       {
         "answer_id": "A3",
         "label": "中身を確認せずに買い足す",
         "is_correct": false,
-        "scores": { "free_explore": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": "cautious"
       },
       {
         "answer_id": "A4",
         "label": "扉を頻繁に長く開ける",
         "is_correct": false,
-        "scores": { "step_by_step": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       }
     ],
     "explanation": "期限の近い食品を「見える化」して使い切る仕組みを作ると、家庭の食品ロスを減らしやすくなります。"
@@ -392,25 +982,73 @@
         "answer_id": "A1",
         "label": "数を多く出す",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A2",
         "label": "出した案をすぐに評価して絞り込む",
         "is_correct": true,
-        "scores": { "free_explore": 2 }
+        "axis_scores": {
+          "A": {
+            "A1": 2
+          },
+          "B": {},
+          "C": {
+            "C1": 2
+          },
+          "D": {
+            "D1": 2
+          }
+        },
+        "behavior_tag": "quick_action"
       },
       {
         "answer_id": "A3",
         "label": "突拍子もない案も書き留める",
         "is_correct": false,
-        "scores": { "deep_understanding": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A4",
         "label": "他人の案に乗っかる",
         "is_correct": false,
-        "scores": { "step_by_step": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       }
     ],
     "explanation": "発散段階で早く絞り込むと、可能性のあるアイデアを潰してしまいやすくなります。発散と収束は分けるのが基本です。"
@@ -424,25 +1062,73 @@
         "answer_id": "A1",
         "label": "同じ場所で同じ作業を続ける",
         "is_correct": false,
-        "scores": { "step_by_step": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": "persistence"
       },
       {
         "answer_id": "A2",
         "label": "一度離れて散歩や別作業をする",
         "is_correct": true,
-        "scores": { "free_explore": 2 }
+        "axis_scores": {
+          "A": {
+            "A1": 2
+          },
+          "B": {},
+          "C": {
+            "C1": 2
+          },
+          "D": {
+            "D1": 2
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A3",
         "label": "完璧なものができるまで休まない",
         "is_correct": false,
-        "scores": { "deep_understanding": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A4",
         "label": "他人の評価だけで判断する",
         "is_correct": false,
-        "scores": { "first_try": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": null
       }
     ],
     "explanation": "意識的に作業から離れることで、頭の中の情報が整理されアイデアが浮かびやすくなることが知られています。"
@@ -456,25 +1142,73 @@
         "answer_id": "A1",
         "label": "終わりの条件を決めずに作り続ける",
         "is_correct": false,
-        "scores": { "free_explore": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D1": 1
+          }
+        },
+        "behavior_tag": "persistence"
       },
       {
         "answer_id": "A2",
         "label": "「ここまでで一度出す」基準を決める",
         "is_correct": true,
-        "scores": { "first_try": 2 }
+        "axis_scores": {
+          "A": {
+            "A2": 2
+          },
+          "B": {},
+          "C": {
+            "C2": 2
+          },
+          "D": {
+            "D1": 2
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A3",
         "label": "誰にも見せずに完成させる",
         "is_correct": false,
-        "scores": { "deep_understanding": 1 }
+        "axis_scores": {
+          "A": {
+            "A1": 1
+          },
+          "B": {},
+          "C": {
+            "C1": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       },
       {
         "answer_id": "A4",
         "label": "途中で目的を何度も変える",
         "is_correct": false,
-        "scores": { "step_by_step": 1 }
+        "axis_scores": {
+          "A": {
+            "A2": 1
+          },
+          "B": {},
+          "C": {
+            "C2": 1
+          },
+          "D": {
+            "D2": 1
+          }
+        },
+        "behavior_tag": null
       }
     ],
     "explanation": "完成基準をあらかじめ決めると、無限に手直しを続ける状態を避け、作品を世に出しやすくなります。"
