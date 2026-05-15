@@ -442,3 +442,14 @@ body {
   color: var(--color-accent);
   font-weight: 600;
 }
+
+/* 17.3: localStorage が使えない環境向けの注意表示 */
+.storage-notice {
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--color-beige);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 13px;
+  color: var(--color-text-sub);
+  text-align: center;
+}

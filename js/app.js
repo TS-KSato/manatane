@@ -6,6 +6,7 @@
  * Step 6: 結果算出ロジック (仕様書 10, 11, 9.7, 17.2)
  * Step 7: ガイド表示 (仕様書 9.8, 12, 13.4, 16.3)
  * Step 8: おすすめルート表示 (仕様書 9.9, 13.5)
+ * Step 9: localStorage 保存 (仕様書 14, 17.3)
  */
 'use strict';
 
@@ -17,6 +18,90 @@
     guides: 'data/guides.json',
     routes: 'data/routes.json',
   };
+
+  // ===== localStorage (14, 17.3) =====
+  const STORAGE_KEY = 'manatane_state'; // 14.1
+  const HISTORY_LIMIT = 10; // 14.4
+  let storageAvailable = false;
+
+  function detectStorage() {
+    try {
+      const probe = '__manatane_probe__';
+      window.localStorage.setItem(probe, probe);
+      window.localStorage.removeItem(probe);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function defaultStored() {
+    return {
+      lastPurpose: null,
+      lastDiagnosisType: null,
+      lastResultId: null,
+      lastGuideId: null,
+      history: [],
+    };
+  }
+
+  function loadStored() {
+    if (!storageAvailable) return defaultStored();
+    try {
+      const raw = window.localStorage.getItem(STORAGE_KEY);
+      if (!raw) return defaultStored();
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== 'object') return defaultStored();
+      if (!Array.isArray(parsed.history)) parsed.history = [];
+      return parsed;
+    } catch (e) {
+      return defaultStored();
+    }
+  }
+
+  function saveStored(stored) {
+    if (!storageAvailable) return;
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(stored));
+    } catch (e) {
+      // 容量超過などは無視（プロトタイプ範囲）
+    }
+  }
+
+  function updateStored(patch) {
+    if (!storageAvailable) return;
+    const cur = loadStored();
+    Object.keys(patch).forEach(function (k) {
+      cur[k] = patch[k];
+    });
+    saveStored(cur);
+  }
+
+  function appendHistoryEntry(entry) {
+    if (!storageAvailable) return;
+    const cur = loadStored();
+    cur.history.push(entry);
+    // 14.4: 11件目以降は古いものから削除
+    while (cur.history.length > HISTORY_LIMIT) {
+      cur.history.shift();
+    }
+    saveStored(cur);
+  }
+
+  function todayDateISO() {
+    const d = new Date();
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    return yyyy + '-' + mm + '-' + dd;
+  }
+
+  function applyStorageAvailability() {
+    if (storageAvailable) return;
+    // 17.3: localStorageが使えない場合の注意表示
+    const notices = document.querySelectorAll('[data-storage-notice]');
+    notices.forEach(function (el) { el.hidden = false; });
+  }
 
   const SCREENS = [
     'home',
@@ -244,11 +329,15 @@
     // 新しい診断セッションの開始: 既存の回答を全てクリア
     resetSession();
     STATE.purpose = purposeId;
+    // 14.3: 目的選択時に保存
+    updateStored({ lastPurpose: purposeId });
     showScreen('diagnosis-type');
   }
 
   function handleDiagnosisSelect(diagnosisType) {
     STATE.diagnosisType = diagnosisType;
+    // 14.3: 診断形式選択時に保存
+    updateStored({ lastDiagnosisType: diagnosisType });
     switch (diagnosisType) {
       case 'quiz':
         startQuizSession();
@@ -602,6 +691,17 @@
     const rdata = findResultData(STATE.resultId);
     STATE.guideId = rdata ? (rdata.guide_id || null) : null;
     hasResult = true;
+
+    // 14.3: 結果確定時に保存（lastResultId 更新 + 履歴追加）
+    updateStored({ lastResultId: STATE.resultId });
+    appendHistoryEntry({
+      date: todayDateISO(),
+      purpose: STATE.purpose,
+      diagnosis_type: STATE.diagnosisType,
+      result_id: STATE.resultId,
+      guide_id: STATE.guideId,
+    });
+
     renderResultScreen(computed);
     showScreen('result', { replace: true });
   }
@@ -626,6 +726,9 @@
     if (!STATE.guideId) return;
     const guide = findGuide(STATE.guideId);
     if (!guide) return;
+
+    // 14.3: ガイド表示時に保存
+    updateStored({ lastGuideId: STATE.guideId });
 
     setText('guide-label', guide.display_label || guide.frame_name || '');
     setText('guide-person', guide.name || '');
@@ -781,6 +884,8 @@
   function init() {
     cacheScreens();
     attachListeners();
+    storageAvailable = detectStorage();
+    applyStorageAvailability();
     showScreen('home', { replace: true });
 
     loadAllData().then(function (data) {
