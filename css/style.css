@@ -297,6 +297,40 @@ body {
   background: var(--color-beige);
   border-radius: var(--radius-card);
   overflow: hidden;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.game-shape {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.game-shape-blue-circle {
+  background: #4a90b8;
+  border-radius: 50%;
+}
+
+.game-shape-red-circle {
+  background: #c9665e;
+  border-radius: 50%;
+}
+
+.game-shape-yellow-circle {
+  background: #e6c34c;
+  border-radius: 50%;
+}
+
+.game-shape-blue-triangle {
+  background: #4a90b8;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.game-timer.is-running {
+  color: var(--color-accent);
 }
 
 /* result */

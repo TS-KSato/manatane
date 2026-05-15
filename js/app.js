@@ -7,6 +7,7 @@
  * Step 7: ガイド表示 (仕様書 9.8, 12, 13.4, 16.3)
  * Step 8: おすすめルート表示 (仕様書 9.9, 13.5)
  * Step 9: localStorage 保存 (仕様書 14, 17.3)
+ * Step 10: ミニゲーム「うっかりチェック」(仕様書 9.6, 9.6.1)
  */
 'use strict';
 
@@ -216,6 +217,12 @@
     if (!screenElements[name]) {
       return;
     }
+    // ゲーム画面から離れる場合は進行中のゲームを停止する (9.6.1)
+    if (currentScreen === 'game' && name !== 'game') {
+      if (window.manatane && window.manatane.stopGame) {
+        window.manatane.stopGame();
+      }
+    }
     if (!options.replace && currentScreen && currentScreen !== name) {
       history.push(currentScreen);
     }
@@ -271,6 +278,11 @@
         break;
       case 'reload':
         window.location.reload();
+        break;
+      case 'game-start':
+        if (window.manatane && window.manatane.startGame) {
+          window.manatane.startGame();
+        }
         break;
     }
   }
@@ -348,6 +360,10 @@
         showScreen('mood');
         break;
       case 'game':
+        // 画面に入る前にUIを初期状態へ
+        if (window.manatane && window.manatane.resetGameUI) {
+          window.manatane.resetGameUI();
+        }
         showScreen('game');
         break;
     }
@@ -903,6 +919,17 @@
     hasResult = !!value;
   };
   window.manatane.showScreen = showScreen;
+
+  // games.js から呼ばれるコールバック。9.6.1 の結果変換ルールで決まった result_id と
+  // 取得データ4種を STATE.gameResult として保持し、結果判定 (10) に反映する。
+  window.manatane.completeGame = function (payload) {
+    if (!payload) return;
+    STATE.gameResult = {
+      result_id: payload.result_id || null,
+      stats: payload.stats || null,
+    };
+    finishDiagnosis();
+  };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
