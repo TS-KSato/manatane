@@ -1,0 +1,79 @@
+[
+  {
+    "result_id": "first_try",
+    "title": "まず試す入口",
+    "description": "今日は、長い説明よりも短く試せる入口が合いそうです。",
+    "recommendations": [
+      "1問クイズ",
+      "5分動画",
+      "短い実践課題"
+    ],
+    "avoid": [
+      "長時間講義",
+      "重い資格対策"
+    ],
+    "guide_id": "bacon_experiment"
+  },
+  {
+    "result_id": "deep_understanding",
+    "title": "じっくり理解する入口",
+    "description": "今日は、すぐ実践するよりも全体像をつかむ入口が合いそうです。",
+    "recommendations": [
+      "入門記事",
+      "図解つき教材",
+      "短い解説動画"
+    ],
+    "avoid": [
+      "いきなり実践課題",
+      "説明の少ない教材"
+    ],
+    "guide_id": "descartes_divide"
+  },
+  {
+    "result_id": "step_by_step",
+    "title": "手順を見ながら進む入口",
+    "description": "今日は、手順やチェックリストがある学び方が合いそうです。",
+    "recommendations": [
+      "チェックリスト",
+      "章ごとの小課題",
+      "手順つき教材"
+    ],
+    "avoid": [
+      "自由度が高すぎる教材",
+      "目的が曖昧な長期講座"
+    ],
+    "guide_id": "barney_resource"
+  },
+  {
+    "result_id": "free_explore",
+    "title": "気ままに探索する入口",
+    "description": "今日は、目的を決めすぎずに気になるものを眺める入口が合いそうです。",
+    "recommendations": [
+      "短い読み物",
+      "人物カード",
+      "関連テーマ一覧"
+    ],
+    "avoid": [
+      "最初から目標設定する教材",
+      "重い学習計画"
+    ],
+    "guide_id": "socrates_question"
+  },
+  {
+    "result_id": "life_practical",
+    "title": "生活に使う入口",
+    "description": "今日は、日常で使える知識や小さな改善につながる入口が合いそうです。",
+    "recommendations": [
+      "家計",
+      "AI活用",
+      "文章",
+      "防災",
+      "暮らしの知識"
+    ],
+    "avoid": [
+      "抽象的すぎる講義",
+      "成果が見えにくい教材"
+    ],
+    "guide_id": "drucker_opportunity"
+  }
+]

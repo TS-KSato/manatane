@@ -1,0 +1,152 @@
+[
+  {
+    "route_id": "ROUTE_FIRST_FREE",
+    "target_results": ["first_try"],
+    "route_type": "free",
+    "title": "無料で試す",
+    "description": "短い記事や1問クイズで、まず一歩だけ動いてみます。",
+    "suitable_for": "今日は短く試したい人向け",
+    "estimated_time": "5〜10分",
+    "url": "https://example.com"
+  },
+  {
+    "route_id": "ROUTE_FIRST_LOW",
+    "target_results": ["first_try"],
+    "route_type": "low_cost",
+    "title": "低価格で試す",
+    "description": "ワンコインで読める入門書や短いオンライン教材で実感を確かめます。",
+    "suitable_for": "少しお金を払ってでも背中を押されたい人向け",
+    "estimated_time": "15〜30分",
+    "url": "https://example.com"
+  },
+  {
+    "route_id": "ROUTE_FIRST_DEEP",
+    "target_results": ["first_try"],
+    "route_type": "deeper",
+    "title": "もう少し深める",
+    "description": "実践課題つきの短期プログラムで「やってみる」を続けます。",
+    "suitable_for": "試した後にもう一歩進めたい人向け",
+    "estimated_time": "1〜2時間",
+    "url": "https://example.com"
+  },
+  {
+    "route_id": "ROUTE_DEEP_FREE",
+    "target_results": ["deep_understanding"],
+    "route_type": "free",
+    "title": "無料で試す",
+    "description": "図解つきの入門記事で、テーマ全体の地図をつかみます。",
+    "suitable_for": "まず全体像を眺めたい人向け",
+    "estimated_time": "10〜15分",
+    "url": "https://example.com"
+  },
+  {
+    "route_id": "ROUTE_DEEP_LOW",
+    "target_results": ["deep_understanding"],
+    "route_type": "low_cost",
+    "title": "低価格で試す",
+    "description": "薄めの入門書1冊で、用語と考え方を整理します。",
+    "suitable_for": "腰を据えて読むより、まずは要点を押さえたい人向け",
+    "estimated_time": "30〜60分",
+    "url": "https://example.com"
+  },
+  {
+    "route_id": "ROUTE_DEEP_DEEP",
+    "target_results": ["deep_understanding"],
+    "route_type": "deeper",
+    "title": "もう少し深める",
+    "description": "解説動画と練習問題がセットになった教材で、理解を確かめながら進めます。",
+    "suitable_for": "わかった気がする状態から脱したい人向け",
+    "estimated_time": "1〜2時間",
+    "url": "https://example.com"
+  },
+  {
+    "route_id": "ROUTE_STEP_FREE",
+    "target_results": ["step_by_step"],
+    "route_type": "free",
+    "title": "無料で試す",
+    "description": "チェックリスト形式の記事で、最初の3ステップだけやってみます。",
+    "suitable_for": "何から始めるか迷いやすい人向け",
+    "estimated_time": "5〜10分",
+    "url": "https://example.com"
+  },
+  {
+    "route_id": "ROUTE_STEP_LOW",
+    "target_results": ["step_by_step"],
+    "route_type": "low_cost",
+    "title": "低価格で試す",
+    "description": "章ごとに小課題がある教材で、進み具合が見える形で学びます。",
+    "suitable_for": "区切りごとの達成感がほしい人向け",
+    "estimated_time": "30〜60分",
+    "url": "https://example.com"
+  },
+  {
+    "route_id": "ROUTE_STEP_DEEP",
+    "target_results": ["step_by_step"],
+    "route_type": "deeper",
+    "title": "もう少し深める",
+    "description": "手順書つきのワークショップ形式の教材で、実際の作業手順をなぞります。",
+    "suitable_for": "やり方を体に染み込ませたい人向け",
+    "estimated_time": "1〜3時間",
+    "url": "https://example.com"
+  },
+  {
+    "route_id": "ROUTE_FREE_FREE",
+    "target_results": ["free_explore"],
+    "route_type": "free",
+    "title": "無料で試す",
+    "description": "短い読み物や人物カードを気の向くまま眺めます。",
+    "suitable_for": "今日は目的を決めずに眺めたい人向け",
+    "estimated_time": "5〜15分",
+    "url": "https://example.com"
+  },
+  {
+    "route_id": "ROUTE_FREE_LOW",
+    "target_results": ["free_explore"],
+    "route_type": "low_cost",
+    "title": "低価格で試す",
+    "description": "テーマ別の短編エッセイ集で、興味のかけらを集めます。",
+    "suitable_for": "好きなテーマがまだ定まっていない人向け",
+    "estimated_time": "20〜40分",
+    "url": "https://example.com"
+  },
+  {
+    "route_id": "ROUTE_FREE_DEEP",
+    "target_results": ["free_explore"],
+    "route_type": "deeper",
+    "title": "もう少し深める",
+    "description": "関連テーマがリンクされた読み物群で、興味の連想を広げます。",
+    "suitable_for": "気になるテーマを少しずつ広げたい人向け",
+    "estimated_time": "1〜2時間",
+    "url": "https://example.com"
+  },
+  {
+    "route_id": "ROUTE_LIFE_FREE",
+    "target_results": ["life_practical"],
+    "route_type": "free",
+    "title": "無料で試す",
+    "description": "暮らしのチェック記事で、今日からできる小さな改善を1つ選びます。",
+    "suitable_for": "生活に直結する学びがほしい人向け",
+    "estimated_time": "5〜10分",
+    "url": "https://example.com"
+  },
+  {
+    "route_id": "ROUTE_LIFE_LOW",
+    "target_results": ["life_practical"],
+    "route_type": "low_cost",
+    "title": "低価格で試す",
+    "description": "家計・防災・AI活用などのテーマ別ガイドで、生活の道具を増やします。",
+    "suitable_for": "暮らしの選択を少し賢くしたい人向け",
+    "estimated_time": "30〜60分",
+    "url": "https://example.com"
+  },
+  {
+    "route_id": "ROUTE_LIFE_DEEP",
+    "target_results": ["life_practical"],
+    "route_type": "deeper",
+    "title": "もう少し深める",
+    "description": "生活改善の事例集と実践ワークで、自分の暮らしに当てはめて考えます。",
+    "suitable_for": "知識を生活で使い切りたい人向け",
+    "estimated_time": "1〜2時間",
+    "url": "https://example.com"
+  }
+]

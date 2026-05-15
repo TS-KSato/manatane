@@ -1,10 +1,18 @@
 /* manatane prototype - app.js
- * Step 2: screen transitions
- * 仕様書セクション 8, 9, 15 に対応
+ * Step 2: screen transitions (仕様書 8, 9, 15)
+ * Step 3: JSON データ読み込み (仕様書 5, 13, 17.1)
  */
 'use strict';
 
 (function () {
+  const DATA_FILES = {
+    questions: 'data/questions.json',
+    quizzes: 'data/quizzes.json',
+    results: 'data/results.json',
+    guides: 'data/guides.json',
+    routes: 'data/routes.json',
+  };
+
   const SCREENS = [
     'home',
     'purpose',
@@ -189,22 +197,64 @@
     });
   }
 
+  function showError(message) {
+    const errorMsgEl = document.getElementById('error-message');
+    if (errorMsgEl && message) {
+      errorMsgEl.textContent = message;
+    }
+    SCREENS.forEach(function (key) {
+      const el = screenElements[key];
+      if (!el) return;
+      el.hidden = (key !== 'error');
+    });
+    currentScreen = 'error';
+  }
+
+  function loadJson(path) {
+    return fetch(path, { cache: 'no-cache' }).then(function (res) {
+      if (!res.ok) {
+        throw new Error('HTTP ' + res.status + ' for ' + path);
+      }
+      return res.json();
+    });
+  }
+
+  function loadAllData() {
+    const keys = Object.keys(DATA_FILES);
+    const promises = keys.map(function (key) { return loadJson(DATA_FILES[key]); });
+    return Promise.all(promises).then(function (values) {
+      const data = {};
+      keys.forEach(function (key, i) {
+        data[key] = values[i];
+      });
+      return data;
+    });
+  }
+
   function init() {
     cacheScreens();
     attachListeners();
     showScreen('home', { replace: true });
+
+    loadAllData().then(function (data) {
+      window.manatane.data = data;
+      // 後続ステップ（4以降）はここで読み込んだデータを使用する。
+    }).catch(function (err) {
+      console.error('[manatane] data load failed:', err);
+      showError('データを読み込めませんでした。ページを再読み込みしてください。');
+    });
   }
+
+  // 後続ステップから利用するための公開API
+  window.manatane = window.manatane || {};
+  window.manatane.setHasResult = function (value) {
+    hasResult = !!value;
+  };
+  window.manatane.showScreen = showScreen;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }
-
-  // Step3 以降が利用するためのフラグ更新API（最小限）
-  window.manatane = window.manatane || {};
-  window.manatane.setHasResult = function (value) {
-    hasResult = !!value;
-  };
-  window.manatane.showScreen = showScreen;
 })();

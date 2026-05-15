@@ -1,0 +1,80 @@
+[
+  {
+    "question_id": "Q_MOOD_001",
+    "question": "新しいことを学ぶなら、今日はどれが近い？",
+    "answers": [
+      {
+        "answer_id": "A_TRY",
+        "label": "まず試したい",
+        "scores": { "first_try": 2 }
+      },
+      {
+        "answer_id": "A_OVERVIEW",
+        "label": "全体像を知りたい",
+        "scores": { "deep_understanding": 2 }
+      },
+      {
+        "answer_id": "A_STEPS",
+        "label": "手順があると安心",
+        "scores": { "step_by_step": 2 }
+      },
+      {
+        "answer_id": "A_BROWSE",
+        "label": "気になるものを眺めたい",
+        "scores": { "free_explore": 2 }
+      }
+    ]
+  },
+  {
+    "question_id": "Q_MOOD_002",
+    "question": "今の学習に使える時間は？",
+    "answers": [
+      {
+        "answer_id": "A_1MIN",
+        "label": "1分だけ",
+        "scores": { "first_try": 2 }
+      },
+      {
+        "answer_id": "A_5MIN",
+        "label": "5分くらい",
+        "scores": { "life_practical": 2 }
+      },
+      {
+        "answer_id": "A_15MIN",
+        "label": "15分くらい",
+        "scores": { "deep_understanding": 2 }
+      },
+      {
+        "answer_id": "A_LOOK",
+        "label": "今日は見るだけ",
+        "scores": { "free_explore": 2 }
+      }
+    ]
+  },
+  {
+    "question_id": "Q_MOOD_003",
+    "question": "つまずいた時に近い行動は？",
+    "answers": [
+      {
+        "answer_id": "A_SEARCH",
+        "label": "調べる",
+        "scores": { "deep_understanding": 2 }
+      },
+      {
+        "answer_id": "A_ASK",
+        "label": "誰かに聞く",
+        "scores": { "step_by_step": 2 }
+      },
+      {
+        "answer_id": "A_PAUSE",
+        "label": "一度止まる",
+        "scores": { "free_explore": 2 }
+      },
+      {
+        "answer_id": "A_OTHER",
+        "label": "別の方法を探す",
+        "scores": { "first_try": 2 }
+      }
+    ]
+  }
+]

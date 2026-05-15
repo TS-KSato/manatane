@@ -1,0 +1,82 @@
+[
+  {
+    "guide_id": "drucker_opportunity",
+    "name": "Peter F. Drucker",
+    "frame_name": "機会を見る",
+    "display_label": "機会を見る人",
+    "short_line": "今日は、問題を直すより機会を探す視点が合いそうです。",
+    "notice": "この一言は本人の発言ではなく、考え方を学習向けに要約したものです。",
+    "bio_short": "マネジメント思想に大きな影響を与えた著述家・教育者。",
+    "learning_translation": "苦手克服だけでなく、成果につながる機会を探す。",
+    "one_min_action": "今日、少し良くできそうなことを1つ選ぶ。",
+    "related_topics": [
+      "マネジメント",
+      "時間管理",
+      "生活改善"
+    ]
+  },
+  {
+    "guide_id": "barney_resource",
+    "name": "Jay B. Barney",
+    "frame_name": "持ち物から考える",
+    "display_label": "手元の資源を見直す人",
+    "short_line": "今日は、今ある手持ちのものを生かす視点が合いそうです。",
+    "notice": "この一言は本人の発言ではなく、考え方を学習向けに要約したものです。",
+    "bio_short": "経営学者。組織の競争優位を「持っている資源」から説明する考え方を広めた。",
+    "learning_translation": "新しく揃えるより、すでに持っている経験・知識を組み直す。",
+    "one_min_action": "今日使えそうな自分の経験や道具を1つ書き出す。",
+    "related_topics": [
+      "経営戦略",
+      "資源活用",
+      "強み発見"
+    ]
+  },
+  {
+    "guide_id": "bacon_experiment",
+    "name": "Francis Bacon",
+    "frame_name": "まず試す",
+    "display_label": "まず試す人",
+    "short_line": "今日は、考え込むより手を動かしてみる視点が合いそうです。",
+    "notice": "この一言は本人の発言ではなく、考え方を学習向けに要約したものです。",
+    "bio_short": "経験から学ぶ姿勢を重んじた哲学者。観察と実験を重視する考え方を広めた。",
+    "learning_translation": "頭で完璧に整えるより、小さく試して結果を見る。",
+    "one_min_action": "気になっていることを1つ、5分だけ試してみる。",
+    "related_topics": [
+      "実験",
+      "観察",
+      "試行錯誤"
+    ]
+  },
+  {
+    "guide_id": "socrates_question",
+    "name": "Socrates",
+    "frame_name": "問いから始める",
+    "display_label": "問いを立てる人",
+    "short_line": "今日は、答えを急がず問いを立て直す視点が合いそうです。",
+    "notice": "この一言は本人の発言ではなく、考え方を学習向けに要約したものです。",
+    "bio_short": "対話を通して考えを深める姿勢で知られる古代ギリシアの哲学者。",
+    "learning_translation": "結論を出す前に、自分の前提を一度疑ってみる。",
+    "one_min_action": "「本当にそうなのか？」と自分に1つ問いかけてみる。",
+    "related_topics": [
+      "対話",
+      "問い",
+      "前提を疑う"
+    ]
+  },
+  {
+    "guide_id": "descartes_divide",
+    "name": "René Descartes",
+    "frame_name": "分けて考える",
+    "display_label": "分けて考える人",
+    "short_line": "今日は、大きな課題を小さく分けて見る視点が合いそうです。",
+    "notice": "この一言は本人の発言ではなく、考え方を学習向けに要約したものです。",
+    "bio_short": "物事を小さな部分に分けて検討する考え方を広めた哲学者・数学者。",
+    "learning_translation": "難しそうな学習も、小さな単位に分けてから取りかかる。",
+    "one_min_action": "学びたいテーマを、3つの小さな問いに分けてみる。",
+    "related_topics": [
+      "思考整理",
+      "分解",
+      "順序立て"
+    ]
+  }
+]
