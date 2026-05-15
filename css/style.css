@@ -231,6 +231,47 @@ body {
   margin-top: 8px;
 }
 
+.quiz-feedback {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 12px 14px;
+}
+
+.quiz-feedback-text {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.quiz-feedback-text.is-correct {
+  color: var(--color-leaf);
+}
+
+.quiz-feedback-text.is-wrong {
+  color: var(--color-danger);
+}
+
+.card-btn.is-selected {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.card-btn.is-correct {
+  border-color: var(--color-leaf);
+  background: #e8f3ec;
+}
+
+.card-btn.is-wrong {
+  border-color: var(--color-danger);
+  background: #f7e6e4;
+}
+
+.card-btn[disabled] {
+  cursor: default;
+  opacity: 0.85;
+}
+
 .confidence-label {
   margin: 0 0 8px;
   font-size: 14px;

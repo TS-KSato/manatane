@@ -2,6 +2,7 @@
  * Step 2: screen transitions (仕様書 8, 9, 15)
  * Step 3: JSON データ読み込み (仕様書 5, 13, 17.1)
  * Step 4: 占い風診断 (仕様書 9.5, 13.1)
+ * Step 5: クイズ診断 (仕様書 9.4, 13.2)
  */
 'use strict';
 
@@ -56,6 +57,30 @@
   // 占い風診断 (9.5)
   let moodSession = [];
   let moodIndex = 0;
+
+  // クイズ診断 (9.4)
+  let quizSession = [];
+  let quizIndex = 0;
+  let quizPhase = 'answer'; // 'answer' | 'confidence'
+  let quizCurrentAnswer = null;
+
+  // 仕様書 9.4「今日の目的に近いジャンル」を解釈するためのマッピング。
+  // データに該当ジャンルが3問なければランダムに3問取得する（9.4）。
+  const PURPOSE_TO_GENRE = {
+    life: 'life',
+    curiosity: 'ai_it',
+    hobby: 'creative',
+    sidejob: 'money',
+    weakness: 'writing',
+    browse: null,
+  };
+
+  const CONFIDENCE_LABELS = {
+    high: 'かなりある',
+    medium: 'たぶんある',
+    low: 'あまりない',
+    guess: '勘',
+  };
 
   function cacheScreens() {
     SCREENS.forEach(function (name) {
@@ -185,6 +210,7 @@
     STATE.diagnosisType = diagnosisType;
     switch (diagnosisType) {
       case 'quiz':
+        startQuizSession();
         showScreen('quiz');
         break;
       case 'mood':
@@ -251,6 +277,147 @@
     }
   }
 
+  // ===== クイズ診断 (9.4, 13.2) =====
+
+  function shuffleInPlace(arr) {
+    for (let i = arr.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const tmp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = tmp;
+    }
+    return arr;
+  }
+
+  function pickQuizzes(purposeId) {
+    const all = (window.manatane.data && window.manatane.data.quizzes) || [];
+    const wanted = PURPOSE_TO_GENRE[purposeId];
+    let pool = [];
+    if (wanted) {
+      pool = all.filter(function (q) { return q.genre_id === wanted; });
+    }
+    if (pool.length < 3) {
+      // 9.4: 該当ジャンルがない場合はランダムに3問取得する
+      pool = all.slice();
+    } else {
+      pool = pool.slice();
+    }
+    shuffleInPlace(pool);
+    return pool.slice(0, 3);
+  }
+
+  function startQuizSession() {
+    quizSession = pickQuizzes(STATE.purpose);
+    quizIndex = 0;
+    STATE.quizAnswers = [];
+    renderQuizQuestion();
+  }
+
+  function renderQuizQuestion() {
+    const q = quizSession[quizIndex];
+    if (!q) {
+      finishDiagnosis();
+      return;
+    }
+    quizPhase = 'answer';
+    quizCurrentAnswer = null;
+
+    const total = quizSession.length;
+    const progressEl = document.getElementById('quiz-progress');
+    if (progressEl) {
+      progressEl.textContent = '問題 ' + (quizIndex + 1) + ' / ' + total;
+    }
+    const qText = document.querySelector('#quiz-question .quiz-question-text');
+    if (qText) {
+      qText.textContent = q.question;
+    }
+    const ansEl = document.getElementById('quiz-answers');
+    if (ansEl) {
+      ansEl.innerHTML = '';
+      q.answers.forEach(function (a) {
+        const btn = document.createElement('button');
+        btn.className = 'card-btn';
+        btn.type = 'button';
+        btn.textContent = a.label;
+        btn.addEventListener('click', function () {
+          handleQuizAnswer(q, a, btn);
+        });
+        ansEl.appendChild(btn);
+      });
+    }
+    setHidden('quiz-feedback', true);
+    setHidden('quiz-confidence', true);
+  }
+
+  function setHidden(id, hidden) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.hidden = !!hidden;
+  }
+
+  function handleQuizAnswer(question, answer, btn) {
+    if (quizPhase !== 'answer') return;
+    quizPhase = 'confidence';
+    quizCurrentAnswer = answer;
+
+    // 9.4: 正誤を表示する。全選択肢を無効化し、正解と選んだ選択肢を視覚的に区別する。
+    const ansEl = document.getElementById('quiz-answers');
+    if (ansEl) {
+      const buttons = ansEl.querySelectorAll('button');
+      buttons.forEach(function (b) {
+        b.disabled = true;
+      });
+      question.answers.forEach(function (a, i) {
+        const b = buttons[i];
+        if (!b) return;
+        if (a.is_correct) {
+          b.classList.add('is-correct');
+        }
+      });
+      if (btn) {
+        btn.classList.add(answer.is_correct ? 'is-correct' : 'is-wrong');
+        btn.classList.add('is-selected');
+      }
+    }
+
+    const fbText = document.getElementById('quiz-feedback-text');
+    if (fbText) {
+      fbText.textContent = answer.is_correct ? '正解です。' : '不正解です。';
+      fbText.classList.remove('is-correct', 'is-wrong');
+      fbText.classList.add(answer.is_correct ? 'is-correct' : 'is-wrong');
+    }
+    const expEl = document.getElementById('quiz-explanation');
+    if (expEl) {
+      expEl.textContent = question.explanation || '';
+    }
+    setHidden('quiz-feedback', false);
+    setHidden('quiz-confidence', false);
+  }
+
+  function handleQuizConfidence(confidence) {
+    if (quizPhase !== 'confidence') return;
+    const q = quizSession[quizIndex];
+    const a = quizCurrentAnswer;
+    if (!q || !a) return;
+
+    // 9.4: quiz_id / selected_answer_id / is_correct / confidence を保存
+    // 9.4スコア算出ルール: 不正解の選択肢も含めて scores を加算（is_correct に関わらず）
+    STATE.quizAnswers.push({
+      quiz_id: q.quiz_id,
+      selected_answer_id: a.answer_id,
+      is_correct: !!a.is_correct,
+      confidence: confidence,
+      scores: a.scores || {},
+    });
+
+    quizIndex += 1;
+    if (quizIndex >= quizSession.length) {
+      finishDiagnosis();
+    } else {
+      renderQuizQuestion();
+    }
+  }
+
   // 診断完了時の処理。Step 6 で結果算出・描画を追加する。
   function finishDiagnosis() {
     showScreen('result', { replace: true });
@@ -258,7 +425,7 @@
 
   function attachListeners() {
     document.addEventListener('click', function (e) {
-      const target = e.target.closest('[data-action], [data-go], [data-nav], [data-purpose], [data-diagnosis]');
+      const target = e.target.closest('[data-action], [data-go], [data-nav], [data-purpose], [data-diagnosis], [data-confidence]');
       if (!target) {
         return;
       }
@@ -280,6 +447,10 @@
       }
       if (target.hasAttribute('data-diagnosis')) {
         handleDiagnosisSelect(target.getAttribute('data-diagnosis'));
+        return;
+      }
+      if (target.hasAttribute('data-confidence')) {
+        handleQuizConfidence(target.getAttribute('data-confidence'));
         return;
       }
     });

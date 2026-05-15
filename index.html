@@ -81,13 +81,17 @@
           <button class="card-btn">選択肢3</button>
           <button class="card-btn">選択肢4</button>
         </div>
+        <div class="quiz-feedback" id="quiz-feedback" hidden>
+          <p class="quiz-feedback-text" id="quiz-feedback-text"></p>
+          <p class="note" id="quiz-explanation"></p>
+        </div>
         <div class="quiz-confidence" id="quiz-confidence" hidden>
           <p class="confidence-label">どのくらい自信がありましたか？</p>
-          <div class="card-list">
-            <button class="card-btn">かなりある</button>
-            <button class="card-btn">たぶんある</button>
-            <button class="card-btn">あまりない</button>
-            <button class="card-btn">勘</button>
+          <div class="card-list" id="quiz-confidence-list">
+            <button class="card-btn" data-confidence="high">かなりある</button>
+            <button class="card-btn" data-confidence="medium">たぶんある</button>
+            <button class="card-btn" data-confidence="low">あまりない</button>
+            <button class="card-btn" data-confidence="guess">勘</button>
           </div>
         </div>
       </div>
