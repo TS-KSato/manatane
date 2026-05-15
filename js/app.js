@@ -1,6 +1,7 @@
 /* manatane prototype - app.js
  * Step 2: screen transitions (仕様書 8, 9, 15)
  * Step 3: JSON データ読み込み (仕様書 5, 13, 17.1)
+ * Step 4: 占い風診断 (仕様書 9.5, 13.1)
  */
 'use strict';
 
@@ -31,6 +32,30 @@
   const history = [];
   let currentScreen = 'home';
   let hasResult = false;
+
+  // 診断セッションの状態
+  const STATE = {
+    purpose: null,
+    diagnosisType: null,
+    moodAnswers: [],
+    quizAnswers: [],
+    gameResult: null,
+    resultId: null,
+  };
+
+  function resetSession() {
+    STATE.purpose = null;
+    STATE.diagnosisType = null;
+    STATE.moodAnswers = [];
+    STATE.quizAnswers = [];
+    STATE.gameResult = null;
+    STATE.resultId = null;
+    hasResult = false;
+  }
+
+  // 占い風診断 (9.5)
+  let moodSession = [];
+  let moodIndex = 0;
 
   function cacheScreens() {
     SCREENS.forEach(function (name) {
@@ -149,23 +174,86 @@
     }
   }
 
-  function handlePurposeSelect(_purposeId) {
-    // 実際の状態保存・スコア計算はStep4以降。ここでは遷移のみ。
+  function handlePurposeSelect(purposeId) {
+    // 新しい診断セッションの開始: 既存の回答を全てクリア
+    resetSession();
+    STATE.purpose = purposeId;
     showScreen('diagnosis-type');
   }
 
   function handleDiagnosisSelect(diagnosisType) {
+    STATE.diagnosisType = diagnosisType;
     switch (diagnosisType) {
       case 'quiz':
         showScreen('quiz');
         break;
       case 'mood':
+        startMoodSession();
         showScreen('mood');
         break;
       case 'game':
         showScreen('game');
         break;
     }
+  }
+
+  // ===== 占い風診断 (9.5, 13.1) =====
+
+  function startMoodSession() {
+    const all = (window.manatane.data && window.manatane.data.questions) || [];
+    moodSession = all.slice();
+    moodIndex = 0;
+    STATE.moodAnswers = [];
+    renderMoodQuestion();
+  }
+
+  function renderMoodQuestion() {
+    const q = moodSession[moodIndex];
+    if (!q) {
+      finishDiagnosis();
+      return;
+    }
+    const total = moodSession.length;
+    const progressEl = document.getElementById('mood-progress');
+    if (progressEl) {
+      progressEl.textContent = '質問 ' + (moodIndex + 1) + ' / ' + total;
+    }
+    const qText = document.querySelector('#mood-question .quiz-question-text');
+    if (qText) {
+      qText.textContent = q.question;
+    }
+    const ansEl = document.getElementById('mood-answers');
+    if (!ansEl) return;
+    ansEl.innerHTML = '';
+    q.answers.forEach(function (a) {
+      const btn = document.createElement('button');
+      btn.className = 'card-btn';
+      btn.type = 'button';
+      btn.textContent = a.label;
+      btn.addEventListener('click', function () {
+        handleMoodAnswer(q, a);
+      });
+      ansEl.appendChild(btn);
+    });
+  }
+
+  function handleMoodAnswer(question, answer) {
+    STATE.moodAnswers.push({
+      question_id: question.question_id,
+      answer_id: answer.answer_id,
+      scores: answer.scores || {},
+    });
+    moodIndex += 1;
+    if (moodIndex >= moodSession.length) {
+      finishDiagnosis();
+    } else {
+      renderMoodQuestion();
+    }
+  }
+
+  // 診断完了時の処理。Step 6 で結果算出・描画を追加する。
+  function finishDiagnosis() {
+    showScreen('result', { replace: true });
   }
 
   function attachListeners() {
