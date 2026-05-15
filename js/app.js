@@ -4,6 +4,7 @@
  * Step 4: 占い風診断 (仕様書 9.5, 13.1)
  * Step 5: クイズ診断 (仕様書 9.4, 13.2)
  * Step 6: 結果算出ロジック (仕様書 10, 11, 9.7, 17.2)
+ * Step 7: ガイド表示 (仕様書 9.8, 12, 13.4, 16.3)
  */
 'use strict';
 
@@ -43,6 +44,7 @@
     quizAnswers: [],
     gameResult: null,
     resultId: null,
+    guideId: null,
   };
 
   function resetSession() {
@@ -52,6 +54,7 @@
     STATE.quizAnswers = [];
     STATE.gameResult = null;
     STATE.resultId = null;
+    STATE.guideId = null;
     hasResult = false;
   }
 
@@ -196,6 +199,7 @@
         showScreen('purpose');
         break;
       case 'guide':
+        renderGuideScreen();
         showScreen('guide');
         break;
       case 'routes':
@@ -591,9 +595,51 @@
   function finishDiagnosis() {
     const computed = computeResult();
     STATE.resultId = computed.resultId;
+    // result_id に対応する guide_id をここで確定させる (12)
+    const rdata = findResultData(STATE.resultId);
+    STATE.guideId = rdata ? (rdata.guide_id || null) : null;
     hasResult = true;
     renderResultScreen(computed);
     showScreen('result', { replace: true });
+  }
+
+  // ===== ガイド表示 (9.8, 12, 13.4, 16.3) =====
+
+  function findGuide(guideId) {
+    const guides = (window.manatane.data && window.manatane.data.guides) || [];
+    for (let i = 0; i < guides.length; i += 1) {
+      if (guides[i].guide_id === guideId) return guides[i];
+    }
+    return null;
+  }
+
+  function setText(id, text) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = (typeof text === 'string' && text.length > 0) ? text : '';
+  }
+
+  function renderGuideScreen() {
+    if (!STATE.guideId) return;
+    const guide = findGuide(STATE.guideId);
+    if (!guide) return;
+
+    setText('guide-label', guide.display_label || guide.frame_name || '');
+    setText('guide-person', guide.name || '');
+    setText('guide-line', guide.short_line || '');
+
+    // 9.8: 注意書きは必ず表示する。16.3: 本人発言に見えない表現に統一。
+    // 既定文言は index.html に記述済みだが、データ側で上書きがあれば反映する。
+    const noticeEl = document.querySelector('#screen-guide .guide-notice');
+    if (noticeEl) {
+      noticeEl.textContent = guide.notice
+        || 'この一言は本人の発言ではなく、考え方を学習向けに要約したものです。';
+    }
+
+    setText('guide-bio', guide.bio_short || '');
+    setText('guide-translation', guide.learning_translation || '');
+    setText('guide-action', guide.one_min_action || '');
+    renderListInto('guide-topics', guide.related_topics || []);
   }
 
   function attachListeners() {
