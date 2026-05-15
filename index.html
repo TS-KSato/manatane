@@ -60,7 +60,7 @@
           </button>
           <button class="card-btn card-btn-rich" data-diagnosis="game">
             <span class="card-btn-title">ゲームで試す</span>
-            <span class="card-btn-desc">30秒のミニチャレンジで入口を探します。</span>
+            <span class="card-btn-desc">知的ゲームから入口を探します。</span>
           </button>
         </div>
       </div>
@@ -116,19 +116,72 @@
       </div>
     </section>
 
-    <!-- 9.6 ミニゲーム診断画面（うっかりチェック） -->
-    <section class="screen" id="screen-game" data-screen="game" hidden>
+    <!-- 9.6.1 ゲーム選択画面 -->
+    <section class="screen" id="screen-game-select" data-screen="game-select" hidden>
       <header class="screen-header">
         <button class="btn-back" data-action="back" aria-label="戻る">＜ 戻る</button>
-        <h2 class="screen-title">うっかりチェック</h2>
+        <h2 class="screen-title">どちらのゲームで試しますか？</h2>
       </header>
       <div class="screen-body">
-        <p class="desc">青い丸だけタップしてください。赤い丸、青い三角、黄色い丸はタップしないでください。</p>
-        <div class="game-status">
-          <span class="game-timer" id="game-timer">残り 30秒</span>
+        <div class="card-list">
+          <button class="card-btn card-btn-rich" data-game="slide_puzzle">
+            <span class="card-btn-title">スライドパズル</span>
+            <span class="card-btn-desc">4×4のピースを順に並べるパズル（約30〜60秒）。</span>
+          </button>
+          <button class="card-btn card-btn-rich" data-game="maze">
+            <span class="card-btn-title">迷路</span>
+            <span class="card-btn-desc">8×8の経路をゴールまで進む（約30〜60秒）。</span>
+          </button>
         </div>
-        <div class="game-area" id="game-area" aria-label="ゲームエリア"></div>
-        <button class="btn btn-primary" id="game-start" data-action="game-start">スタート</button>
+        <p class="note">このゲーム結果は、今日の学び方を考えるための参考情報です。能力を確定するものではありません。</p>
+      </div>
+    </section>
+
+    <!-- 9.6.2 スライドパズル4×4診断画面 -->
+    <section class="screen" id="screen-slide-puzzle" data-screen="slide-puzzle" hidden>
+      <header class="screen-header">
+        <button class="btn-back" data-action="back" aria-label="戻る">＜ 戻る</button>
+        <h2 class="screen-title">スライドパズル</h2>
+      </header>
+      <div class="screen-body">
+        <p class="desc">ピースをタップして1から15まで順に並べてください。</p>
+        <div class="game-status">
+          <span class="game-timer" id="sp-timer">残り 120秒</span>
+          <span class="game-meta" id="sp-moves">手数 0</span>
+        </div>
+        <div class="sp-board" id="sp-board" aria-label="スライドパズル盤面"></div>
+        <div class="action-list">
+          <button class="btn btn-primary" id="sp-start" data-action="game-start">スタート</button>
+          <button class="btn btn-secondary" id="sp-reset" data-action="game-reset" hidden>もう一度シャッフル</button>
+          <button class="btn btn-tertiary" id="sp-end" data-game-end hidden>結果を見る</button>
+        </div>
+        <p class="note">このゲーム結果は、今日の学び方を考えるための参考情報です。能力を確定するものではありません。</p>
+      </div>
+    </section>
+
+    <!-- 9.6.3 迷路8×8診断画面 -->
+    <section class="screen" id="screen-maze" data-screen="maze" hidden>
+      <header class="screen-header">
+        <button class="btn-back" data-action="back" aria-label="戻る">＜ 戻る</button>
+        <h2 class="screen-title">迷路</h2>
+      </header>
+      <div class="screen-body">
+        <p class="desc">スタートからゴールまで進んでください。</p>
+        <div class="game-status">
+          <span class="game-timer" id="mz-timer">残り 120秒</span>
+        </div>
+        <div class="mz-board" id="mz-board" aria-label="迷路盤面"></div>
+        <div class="mz-dpad" aria-label="操作パッド">
+          <button type="button" class="mz-dir mz-dir-up"    data-mz-dir="up"    aria-label="上へ">↑</button>
+          <button type="button" class="mz-dir mz-dir-left"  data-mz-dir="left"  aria-label="左へ">←</button>
+          <button type="button" class="mz-dir mz-dir-down"  data-mz-dir="down"  aria-label="下へ">↓</button>
+          <button type="button" class="mz-dir mz-dir-right" data-mz-dir="right" aria-label="右へ">→</button>
+        </div>
+        <div class="action-list">
+          <button class="btn btn-primary" id="mz-start" data-action="game-start">スタート</button>
+          <button class="btn btn-secondary" id="mz-reset" data-action="game-reset" hidden>別の迷路を生成</button>
+          <button class="btn btn-tertiary" id="mz-end" data-game-end hidden>結果を見る</button>
+        </div>
         <p class="note">このゲーム結果は、今日の学び方を考えるための参考情報です。能力を確定するものではありません。</p>
       </div>
     </section>
@@ -180,6 +233,8 @@
         <div class="guide-card">
           <p class="guide-label" id="guide-label">ガイド名</p>
           <p class="guide-person" id="guide-person">参考人物</p>
+          <p class="guide-name-original" id="guide-name-original"></p>
+          <p class="guide-era-region" id="guide-era-region"></p>
           <p class="guide-line" id="guide-line">一言</p>
           <p class="guide-notice">この一言は本人の発言ではなく、考え方を学習向けに要約したものです。</p>
           <div class="result-section">
