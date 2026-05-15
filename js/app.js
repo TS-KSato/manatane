@@ -3,6 +3,7 @@
  * Step 3: JSON データ読み込み (仕様書 5, 13, 17.1)
  * Step 4: 占い風診断 (仕様書 9.5, 13.1)
  * Step 5: クイズ診断 (仕様書 9.4, 13.2)
+ * Step 6: 結果算出ロジック (仕様書 10, 11, 9.7, 17.2)
  */
 'use strict';
 
@@ -80,6 +81,39 @@
     medium: 'たぶんある',
     low: 'あまりない',
     guess: '勘',
+  };
+
+  // 表示用の日本語ラベル (9.2, 9.3)
+  const PURPOSE_LABELS = {
+    life: '生活に役立てたい',
+    curiosity: '知的好奇心を満たしたい',
+    hobby: '趣味を深めたい',
+    sidejob: '副業の種を探したい',
+    weakness: '苦手を減らしたい',
+    browse: '今日は眺めるだけ',
+  };
+
+  const DIAGNOSIS_LABELS = {
+    quiz: 'クイズ診断',
+    mood: '占い風診断',
+    game: 'ミニゲーム診断',
+  };
+
+  // 同点時の判定に使う対応関係 (10.4)
+  const PURPOSE_TO_RESULT = {
+    life: 'life_practical',
+    curiosity: 'free_explore',
+    hobby: 'deep_understanding',
+    sidejob: 'first_try',
+    weakness: 'step_by_step',
+    browse: 'free_explore',
+  };
+
+  // 同点時の判定の第二優先 (10.5)
+  const DIAGNOSIS_TO_RESULT = {
+    quiz: 'deep_understanding',
+    mood: 'free_explore',
+    game: 'first_try',
   };
 
   function cacheScreens() {
@@ -418,8 +452,147 @@
     }
   }
 
-  // 診断完了時の処理。Step 6 で結果算出・描画を追加する。
+  // ===== 結果算出ロジック (10) と結果描画 (9.7, 11) =====
+
+  function accumulateScores(scoreMap, source) {
+    if (!source) return;
+    Object.keys(source).forEach(function (key) {
+      const v = source[key];
+      if (typeof v !== 'number') return;
+      scoreMap[key] = (scoreMap[key] || 0) + v;
+    });
+  }
+
+  function computeResult() {
+    const scores = {};
+
+    // 占い風診断 (10.2)
+    STATE.moodAnswers.forEach(function (ans) {
+      accumulateScores(scores, ans.scores);
+    });
+
+    // クイズ診断 (9.4 + 10.2): is_correct に関わらず選択肢の scores を加算
+    STATE.quizAnswers.forEach(function (ans) {
+      accumulateScores(scores, ans.scores);
+    });
+
+    // ミニゲーム結果は別途 result_id を直接保持する想定（Step 10 で実装）
+    // STATE.gameResult が { result_id: ... } の形で入る場合に備える。
+
+    const keys = Object.keys(scores);
+
+    // 17.2: 算出不能ならデフォルトで free_explore
+    if (keys.length === 0 && !STATE.gameResult) {
+      return { resultId: 'free_explore', isDefault: true, scores: scores };
+    }
+
+    // ゲームのみで完結する経路（Step 10）。スコアが空なら gameResult に従う。
+    if (keys.length === 0 && STATE.gameResult && STATE.gameResult.result_id) {
+      return { resultId: STATE.gameResult.result_id, isDefault: false, scores: scores };
+    }
+
+    const maxScore = keys.reduce(function (m, k) {
+      return scores[k] > m ? scores[k] : m;
+    }, -Infinity);
+    const topIds = keys.filter(function (k) { return scores[k] === maxScore; });
+
+    if (topIds.length === 1) {
+      return { resultId: topIds[0], isDefault: false, scores: scores };
+    }
+
+    // 10.3 同点時の処理
+    // 1. purpose_id に対応する result_id
+    const purposeMapped = PURPOSE_TO_RESULT[STATE.purpose];
+    if (purposeMapped && topIds.indexOf(purposeMapped) !== -1) {
+      return { resultId: purposeMapped, isDefault: false, scores: scores };
+    }
+    // 2. diagnosis_type に対応する result_id
+    const diagMapped = DIAGNOSIS_TO_RESULT[STATE.diagnosisType];
+    if (diagMapped && topIds.indexOf(diagMapped) !== -1) {
+      return { resultId: diagMapped, isDefault: false, scores: scores };
+    }
+    // 3. results.json の並び順で先にある result_id
+    const results = (window.manatane.data && window.manatane.data.results) || [];
+    for (let i = 0; i < results.length; i += 1) {
+      const rid = results[i].result_id;
+      if (topIds.indexOf(rid) !== -1) {
+        return { resultId: rid, isDefault: false, scores: scores };
+      }
+    }
+    // フォールバック（理論上ここには到達しない）
+    return { resultId: topIds[0], isDefault: false, scores: scores };
+  }
+
+  function findResultData(resultId) {
+    const results = (window.manatane.data && window.manatane.data.results) || [];
+    for (let i = 0; i < results.length; i += 1) {
+      if (results[i].result_id === resultId) return results[i];
+    }
+    return null;
+  }
+
+  function buildReasons(computed) {
+    const reasons = [];
+    if (STATE.purpose && PURPOSE_LABELS[STATE.purpose]) {
+      reasons.push('選択した目的：' + PURPOSE_LABELS[STATE.purpose]);
+    }
+    if (STATE.diagnosisType && DIAGNOSIS_LABELS[STATE.diagnosisType]) {
+      reasons.push('診断形式：' + DIAGNOSIS_LABELS[STATE.diagnosisType]);
+    }
+    if (STATE.diagnosisType === 'mood' && STATE.moodAnswers.length > 0) {
+      reasons.push('回答傾向：占い風診断 ' + STATE.moodAnswers.length + '問の回答から推定');
+    }
+    if (STATE.diagnosisType === 'quiz' && STATE.quizAnswers.length > 0) {
+      const correct = STATE.quizAnswers.filter(function (a) { return a.is_correct; }).length;
+      reasons.push('回答傾向：クイズ ' + STATE.quizAnswers.length + '問の回答（正解 ' + correct + '/' + STATE.quizAnswers.length + '）から推定');
+    }
+    if (computed.isDefault) {
+      reasons.push('今回は判定材料が不足したため、気ままに探索する入口を表示しています。');
+    }
+    return reasons;
+  }
+
+  function renderListInto(id, items) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = '';
+    items.forEach(function (text) {
+      const li = document.createElement('li');
+      li.textContent = text;
+      el.appendChild(li);
+    });
+  }
+
+  function renderResultScreen(computed) {
+    const data = findResultData(computed.resultId);
+    const nameEl = document.getElementById('result-name');
+    const descEl = document.getElementById('result-desc');
+
+    if (data) {
+      if (nameEl) nameEl.textContent = data.title;
+      // 17.2 のデフォルト時は専用の文言を使う
+      if (descEl) {
+        descEl.textContent = computed.isDefault
+          ? '今日は、気になるものを軽く眺める入口が合いそうです。'
+          : data.description;
+      }
+      renderListInto('result-recommendations', data.recommendations || []);
+      renderListInto('result-avoid', data.avoid || []);
+    } else {
+      if (nameEl) nameEl.textContent = '今日の入口';
+      if (descEl) descEl.textContent = '今日の学び方の入口を表示します。';
+      renderListInto('result-recommendations', []);
+      renderListInto('result-avoid', []);
+    }
+
+    renderListInto('result-reasons', buildReasons(computed));
+  }
+
   function finishDiagnosis() {
+    const computed = computeResult();
+    STATE.resultId = computed.resultId;
+    hasResult = true;
+    renderResultScreen(computed);
     showScreen('result', { replace: true });
   }
 
