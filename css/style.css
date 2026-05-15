@@ -290,48 +290,124 @@ body {
   color: var(--color-text);
 }
 
-.game-area {
-  position: relative;
-  width: 100%;
-  height: 320px;
+.game-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: var(--color-text-sub);
+}
+
+.game-meta {
+  color: var(--color-text-sub);
+}
+
+/* ===== スライドパズル (9.6.2) ===== */
+.sp-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
   background: var(--color-beige);
+  padding: 6px;
   border-radius: var(--radius-card);
-  overflow: hidden;
+  aspect-ratio: 1 / 1;
   touch-action: manipulation;
   user-select: none;
 }
 
-.game-shape {
+.sp-cell {
+  appearance: none;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  min-height: 0;
+  aspect-ratio: 1 / 1;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sp-cell-empty {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  cursor: default;
+}
+
+/* ===== 迷路 (9.6.3) ===== */
+.mz-board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0;
+  background: var(--color-surface);
+  padding: 0;
+  border-radius: 8px;
+  aspect-ratio: 1 / 1;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.mz-cell {
+  background: var(--color-surface);
+  border: 1px solid transparent;
+  aspect-ratio: 1 / 1;
+  position: relative;
+}
+
+.mz-cell.w-top    { border-top-color: var(--color-text); }
+.mz-cell.w-right  { border-right-color: var(--color-text); }
+.mz-cell.w-bottom { border-bottom-color: var(--color-text); }
+.mz-cell.w-left   { border-left-color: var(--color-text); }
+
+.mz-cell.is-start {
+  background: var(--color-accent-soft);
+}
+
+.mz-cell.is-goal {
+  background: #e8f3ec;
+}
+
+.mz-cell.is-player::after {
+  content: '';
   position: absolute;
-  width: 56px;
-  height: 56px;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+
+.mz-dpad {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  grid-template-rows: repeat(3, 60px);
+  gap: 6px;
+  justify-content: center;
+  margin: 8px auto 0;
+}
+
+.mz-dir {
+  appearance: none;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: 12px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-text);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
 
-.game-shape-blue-circle {
-  background: #4a90b8;
-  border-radius: 50%;
-}
-
-.game-shape-red-circle {
-  background: #c9665e;
-  border-radius: 50%;
-}
-
-.game-shape-yellow-circle {
-  background: #e6c34c;
-  border-radius: 50%;
-}
-
-.game-shape-blue-triangle {
-  background: #4a90b8;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
-
-.game-timer.is-running {
-  color: var(--color-accent);
-}
+.mz-dir-up    { grid-column: 2; grid-row: 1; }
+.mz-dir-left  { grid-column: 1; grid-row: 2; }
+.mz-dir-down  { grid-column: 2; grid-row: 3; }
+.mz-dir-right { grid-column: 3; grid-row: 2; }
 
 /* result */
 .result-card,
@@ -346,11 +422,15 @@ body {
   gap: 12px;
 }
 
+/* 6.5: 81通りの表示名(15〜22文字)に対応。複数行表示を許容。 */
 .result-name {
   margin: 0;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--color-accent);
+  line-height: 1.4;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .result-desc {
@@ -398,6 +478,27 @@ body {
   margin: 0;
   font-size: 14px;
   color: var(--color-text-sub);
+}
+
+.guide-name-original {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-text-sub);
+  letter-spacing: 0.04em;
+}
+
+.guide-name-original:empty {
+  display: none;
+}
+
+.guide-era-region {
+  margin: 0;
+  font-size: 12px;
+  color: var(--color-text-sub);
+}
+
+.guide-era-region:empty {
+  display: none;
 }
 
 .guide-line {
