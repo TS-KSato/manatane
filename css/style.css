@@ -501,6 +501,21 @@ body {
   display: none;
 }
 
+.guide-image {
+  display: flex;
+  justify-content: center;
+  margin: 4px 0 0;
+}
+
+.guide-image img {
+  width: 65%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 12px;
+  background: var(--color-beige);
+  display: block;
+}
+
 .guide-line {
   margin: 0;
   font-size: 16px;

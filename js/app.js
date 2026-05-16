@@ -723,6 +723,21 @@
       noticeEl.textContent = 'この一言は本人の発言ではなく、考え方を学習向けに要約したものです。';
     }
 
+    // ガイド画像: images/guides/{guide_id}.svg を読み込み、存在しなければ placeholder にフォールバック
+    const imgEl = document.getElementById('guide-image');
+    if (imgEl) {
+      const primarySrc = 'images/guides/' + STATE.guideId + '.svg';
+      const fallbackSrc = 'images/guides/placeholder.svg';
+      imgEl.onerror = function () {
+        if (imgEl.src.indexOf('placeholder.svg') === -1) {
+          imgEl.onerror = null;
+          imgEl.src = fallbackSrc;
+        }
+      };
+      imgEl.alt = g.display_label || g.name || '';
+      imgEl.src = primarySrc;
+    }
+
     setText('guide-bio', g.bio_short || '');
     setText('guide-translation', g.learning_translation || '');
     setText('guide-action', g.one_min_action || '');

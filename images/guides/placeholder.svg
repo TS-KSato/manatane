@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" role="img" aria-label="ガイド画像（仮）">
+  <title>ガイド画像（仮）</title>
+  <rect x="0" y="0" width="200" height="240" rx="16" ry="16" fill="#f1ead9"/>
+  <circle cx="100" cy="92" r="36" fill="#cfe6ee"/>
+  <path d="M 36 230 C 36 178, 64 148, 100 148 C 136 148, 164 178, 164 230 Z" fill="#cfe6ee"/>
+  <circle cx="100" cy="92" r="36" fill="none" stroke="#6fb1c4" stroke-width="2" opacity="0.4"/>
+</svg>
