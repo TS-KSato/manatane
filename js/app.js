@@ -647,8 +647,20 @@
       }
       reasons.push('診断形式：' + label);
     }
-    if (STATE.behaviorTraits.length > 0) {
-      reasons.push('行動傾向タグ：' + STATE.behaviorTraits.join('、'));
+    // 9.7: 3項目目は診断形式別に出し分ける。
+    // - quiz / mood: 表示しない（行動傾向タグは内部処理用識別子のため画面には出さない）
+    // - game: 「ゲーム結果」をプレイ種類＋到達状況のみで表示（効率比などの内部指標は出さない）
+    if (STATE.diagnosisType === 'game' && STATE.gameResult) {
+      const completed = !!(STATE.gameResult.stats && STATE.gameResult.stats.completed);
+      let summary;
+      if (STATE.gameType === 'slide_puzzle') {
+        summary = completed ? 'スライドパズルを完成' : 'スライドパズルに挑戦（時間切れ）';
+      } else if (STATE.gameType === 'maze') {
+        summary = completed ? '迷路をゴールまで進んだ' : '迷路に挑戦（時間切れ）';
+      } else {
+        summary = completed ? 'ミニゲームを完了' : 'ミニゲームに挑戦（時間切れ）';
+      }
+      reasons.push('ゲーム結果：' + summary);
     }
     if (computed.isDefault) {
       reasons.push('今回は判定材料が不足したため、デフォルトの入口を表示しています。');
