@@ -62,31 +62,87 @@
     game: 'ミニゲーム診断',
   };
 
-  // 9.11: topic 選択肢 → 軸B の対応（軸A/C/D は固定既定値）
-  const TOPIC_TO_AXIS_B = {
-    world:   'B2', // 世の中の出来事 → 世界のこと
-    life:    'B1', // 暮らしのこと → 自分のこと
-    money:   'B3', // お金のこと → 技術のこと（実用情報）
-    science: 'B3', // 科学や技術 → 技術のこと
-    history: 'B2', // 歴史や人の生き方 → 世界のこと
-    mind:    'B1', // 心や考え方 → 自分のこと
-  };
-  const TOPIC_DEFAULT_AXIS_A = 'A1'; // 考える（読み・調べ・想像）
-  const TOPIC_DEFAULT_AXIS_C = 'C1'; // 見方を変える
-  const TOPIC_DEFAULT_AXIS_D = 'D1'; // 軽く触れる
+  // 9.11: 気になることから探す (diagnosis_type=topic, 4問×4軸構成)
+  // 各問が1軸に対応。3選択肢で軸の3値に1対1対応 → result_id 81通りに到達可能。
+  const TOPIC_QUESTIONS = [
+    {
+      axis: 'A',
+      question: '最近、楽しいと感じるのはどんな時間？',
+      answers: [
+        { label: '本や記事をじっくり読む時間', value: 'A1' },
+        { label: '何かを作ったり手を動かす時間', value: 'A2' },
+        { label: '人と話したり聞いたりする時間', value: 'A3' },
+      ],
+    },
+    {
+      axis: 'B',
+      question: '最近、気になっているのはどんなこと？',
+      answers: [
+        { label: '自分の気持ちや内面のこと', value: 'B1' },
+        { label: '世の中の出来事や歴史', value: 'B2' },
+        { label: '専門分野や仕組みのこと', value: 'B3' },
+      ],
+    },
+    {
+      axis: 'C',
+      question: '最近、変えてみたいと感じるのはどれ？',
+      answers: [
+        { label: '物事の見方や考え方', value: 'C1' },
+        { label: 'できることや使える技', value: 'C2' },
+        { label: '日々の暮らしや習慣', value: 'C3' },
+      ],
+    },
+    {
+      axis: 'D',
+      question: '今、それにどのくらい時間をかけられそう？',
+      answers: [
+        { label: '今日、少しだけ', value: 'D1' },
+        { label: '数週間くらい続けて', value: 'D2' },
+        { label: '年単位でじっくり', value: 'D3' },
+      ],
+    },
+  ];
 
-  // 9.12: path 選択肢 → 軸C の対応（軸A/B/D は固定既定値）
-  const PATH_TO_AXIS_C = {
-    nature:   'C1', // 理科や自然のこと → 世界の捉え方・概念獲得（考え方を変える）
-    craft:    'C2', // ものづくりや技術 → 手順・技能（できることを増やす）
-    money:    'C2', // 商いやお金 → 運用スキル（できることを増やす）
-    society:  'C3', // 人や社会のこと → 関係性（生き方を整える）
-    language: 'C2', // 言葉や表現 → 表現力（SPEC 10.2 のC2例示「表現力」に合致）
-    body:     'C3', // 体や健康のこと → 習慣・心身の状態（生き方を整える）
-  };
-  const PATH_DEFAULT_AXIS_A = 'A1'; // 考える（学びの振り返りは内省的行為）
-  const PATH_DEFAULT_AXIS_B = 'B1'; // 自分のこと（「これまでの学び」は自分史的テーマ）
-  const PATH_DEFAULT_AXIS_D = 'D1'; // 軽く触れる（1問完結の軽量診断）
+  // 9.12: これまでの学びから探す (diagnosis_type=path, 4問×4軸構成)
+  // 各問が1軸に対応。3選択肢で軸の3値に1対1対応 → result_id 81通りに到達可能。
+  const PATH_QUESTIONS = [
+    {
+      axis: 'A',
+      question: 'これまで、どんなふうに学ぶことが多かった？',
+      answers: [
+        { label: '本や資料を読んで学ぶ', value: 'A1' },
+        { label: '実際に手を動かして覚える', value: 'A2' },
+        { label: '人と話したり教わったりして学ぶ', value: 'A3' },
+      ],
+    },
+    {
+      axis: 'B',
+      question: 'これまで、よく触れてきたのはどれ？',
+      answers: [
+        { label: '自分の経験や感じ方', value: 'B1' },
+        { label: '社会や歴史のこと', value: 'B2' },
+        { label: '仕事や専門分野のこと', value: 'B3' },
+      ],
+    },
+    {
+      axis: 'C',
+      question: 'これまでの学びで、変わってきたと感じるのはどれ？',
+      answers: [
+        { label: 'ものの見方や視点', value: 'C1' },
+        { label: 'できることや得意なこと', value: 'C2' },
+        { label: '生活のスタイルや習慣', value: 'C3' },
+      ],
+    },
+    {
+      axis: 'D',
+      question: 'これまで、ひとつのテーマにどのくらい関わってきた？',
+      answers: [
+        { label: '短く触れることが多い', value: 'D1' },
+        { label: '数週間〜数ヶ月単位', value: 'D2' },
+        { label: '年単位で続けてきた', value: 'D3' },
+      ],
+    },
+  ];
   const GAME_TYPE_LABELS = {
     slide_puzzle: 'スライドパズル4×4',
     maze: '迷路8×8',
@@ -113,8 +169,8 @@
     moodAnswers: [],
     quizAnswers: [],
     gameResult: null,
-    topicAnswer: null,
-    pathAnswer: null,
+    topicAnswers: [],
+    pathAnswers: [],
     behaviorTraits: [],
     resultId: null,
     guideId: null,
@@ -127,8 +183,8 @@
     STATE.moodAnswers = [];
     STATE.quizAnswers = [];
     STATE.gameResult = null;
-    STATE.topicAnswer = null;
-    STATE.pathAnswer = null;
+    STATE.topicAnswers = [];
+    STATE.pathAnswers = [];
     STATE.behaviorTraits = [];
     STATE.resultId = null;
     STATE.guideId = null;
@@ -306,8 +362,8 @@
     switch (diagnosisType) {
       case 'quiz': startQuizSession(); showScreen('quiz'); break;
       case 'mood': startMoodSession(); showScreen('mood'); break;
-      case 'topic': showScreen('topic'); break;
-      case 'path': showScreen('path'); break;
+      case 'topic': startTopicSession(); showScreen('topic'); break;
+      case 'path': startPathSession(); showScreen('path'); break;
       case 'game': showScreen('game-select'); break;
     }
   }
@@ -322,7 +378,7 @@
   function attachListeners() {
     document.addEventListener('click', e => {
       const t = e.target.closest(
-        '[data-action], [data-go], [data-nav], [data-purpose], [data-diagnosis], [data-game], [data-confidence], [data-topic], [data-path]'
+        '[data-action], [data-go], [data-nav], [data-purpose], [data-diagnosis], [data-game], [data-confidence]'
       );
       if (!t) return;
       if (t.hasAttribute('data-action'))    { handleAction(t.getAttribute('data-action')); return; }
@@ -332,8 +388,6 @@
       if (t.hasAttribute('data-diagnosis')) { handleDiagnosisSelect(t.getAttribute('data-diagnosis')); return; }
       if (t.hasAttribute('data-game'))      { handleGameSelect(t.getAttribute('data-game')); return; }
       if (t.hasAttribute('data-confidence')) { handleQuizConfidence(t.getAttribute('data-confidence')); return; }
-      if (t.hasAttribute('data-topic'))     { handleTopicSelect(t.getAttribute('data-topic')); return; }
-      if (t.hasAttribute('data-path'))      { handlePathSelect(t.getAttribute('data-path')); return; }
     });
   }
 
@@ -383,21 +437,89 @@
   }
 
   // ===== 気になることから探す (9.11, diagnosis_type=topic) =====
-  // 1問のみ：選んだ選択肢から軸Bを決定。軸A/C/Dは固定既定値。
-  function handleTopicSelect(topicChoice) {
-    const axisB = TOPIC_TO_AXIS_B[topicChoice];
-    if (!axisB) return;
-    STATE.topicAnswer = { choice: topicChoice, axisB: axisB };
-    finishDiagnosis();
+  // 4問構成：各問が1軸（A/B/C/D）に対応。3選択肢で軸の3値に1対1対応。
+  // 4問完了で4軸が確定し result_id は81通りのいずれかに到達。
+  let topicIndex = 0;
+
+  function startTopicSession() {
+    STATE.topicAnswers = [];
+    topicIndex = 0;
+    renderTopicQuestion();
+  }
+
+  function renderTopicQuestion() {
+    const q = TOPIC_QUESTIONS[topicIndex];
+    if (!q) { finishDiagnosis(); return; }
+    const pe = document.getElementById('topic-progress');
+    if (pe) pe.textContent = '質問 ' + (topicIndex + 1) + ' / ' + TOPIC_QUESTIONS.length;
+    const qt = document.getElementById('topic-question-text');
+    if (qt) qt.textContent = q.question;
+    const ae = document.getElementById('topic-answers');
+    if (!ae) return;
+    ae.innerHTML = '';
+    q.answers.forEach(function (a) {
+      const btn = document.createElement('button');
+      btn.className = 'card-btn';
+      btn.type = 'button';
+      btn.textContent = a.label;
+      btn.addEventListener('click', function () { handleTopicAnswer(q, a); });
+      ae.appendChild(btn);
+    });
+  }
+
+  function handleTopicAnswer(question, answer) {
+    STATE.topicAnswers.push({ axis: question.axis, value: answer.value, label: answer.label });
+    topicIndex += 1;
+    if (topicIndex >= TOPIC_QUESTIONS.length) finishDiagnosis();
+    else renderTopicQuestion();
   }
 
   // ===== これまでの学びから探す (9.12, diagnosis_type=path) =====
-  // 1問のみ：選んだ選択肢から軸Cを決定。軸A/B/Dは固定既定値。
-  function handlePathSelect(pathChoice) {
-    const axisC = PATH_TO_AXIS_C[pathChoice];
-    if (!axisC) return;
-    STATE.pathAnswer = { choice: pathChoice, axisC: axisC };
-    finishDiagnosis();
+  // 4問構成：各問が1軸（A/B/C/D）に対応。3選択肢で軸の3値に1対1対応。
+  // 4問完了で4軸が確定し result_id は81通りのいずれかに到達。
+  let pathIndex = 0;
+
+  function startPathSession() {
+    STATE.pathAnswers = [];
+    pathIndex = 0;
+    renderPathQuestion();
+  }
+
+  function renderPathQuestion() {
+    const q = PATH_QUESTIONS[pathIndex];
+    if (!q) { finishDiagnosis(); return; }
+    const pe = document.getElementById('path-progress');
+    if (pe) pe.textContent = '質問 ' + (pathIndex + 1) + ' / ' + PATH_QUESTIONS.length;
+    const qt = document.getElementById('path-question-text');
+    if (qt) qt.textContent = q.question;
+    const ae = document.getElementById('path-answers');
+    if (!ae) return;
+    ae.innerHTML = '';
+    q.answers.forEach(function (a) {
+      const btn = document.createElement('button');
+      btn.className = 'card-btn';
+      btn.type = 'button';
+      btn.textContent = a.label;
+      btn.addEventListener('click', function () { handlePathAnswer(q, a); });
+      ae.appendChild(btn);
+    });
+  }
+
+  function handlePathAnswer(question, answer) {
+    STATE.pathAnswers.push({ axis: question.axis, value: answer.value, label: answer.label });
+    pathIndex += 1;
+    if (pathIndex >= PATH_QUESTIONS.length) finishDiagnosis();
+    else renderPathQuestion();
+  }
+
+  // 4問分の回答配列から { A, B, C, D } の軸値を取り出して result_id を合成。
+  // 4軸すべて選択済みでない場合は null を返す（呼び出し側で扱う）。
+  function composeResultIdFromAnswers(answers) {
+    if (!Array.isArray(answers) || answers.length < 4) return null;
+    const map = {};
+    answers.forEach(function (a) { map[a.axis] = a.value; });
+    if (!map.A || !map.B || !map.C || !map.D) return null;
+    return map.A + map.B + map.C + map.D;
   }
 
   // ===== クイズ診断 (9.4) =====
@@ -601,16 +723,16 @@
       return { resultId: STATE.gameResult.result_id, isDefault: false };
     }
 
-    // 9.11: topic 経路は1問のみ。軸Bをユーザー選択から、軸A/C/D は固定既定値。
-    if (STATE.diagnosisType === 'topic' && STATE.topicAnswer && STATE.topicAnswer.axisB) {
-      const rid = TOPIC_DEFAULT_AXIS_A + STATE.topicAnswer.axisB + TOPIC_DEFAULT_AXIS_C + TOPIC_DEFAULT_AXIS_D;
-      return { resultId: rid, isDefault: false };
+    // 9.11: topic 経路は4問×4軸。ユーザー選択のみで4軸が確定し、result_id 81通りに到達可能。
+    if (STATE.diagnosisType === 'topic') {
+      const rid = composeResultIdFromAnswers(STATE.topicAnswers);
+      if (rid) return { resultId: rid, isDefault: false };
     }
 
-    // 9.12: path 経路は1問のみ。軸Cをユーザー選択から、軸A/B/D は固定既定値。
-    if (STATE.diagnosisType === 'path' && STATE.pathAnswer && STATE.pathAnswer.axisC) {
-      const rid = PATH_DEFAULT_AXIS_A + PATH_DEFAULT_AXIS_B + STATE.pathAnswer.axisC + PATH_DEFAULT_AXIS_D;
-      return { resultId: rid, isDefault: false };
+    // 9.12: path 経路は4問×4軸。ユーザー選択のみで4軸が確定し、result_id 81通りに到達可能。
+    if (STATE.diagnosisType === 'path') {
+      const rid = composeResultIdFromAnswers(STATE.pathAnswers);
+      if (rid) return { resultId: rid, isDefault: false };
     }
 
     const scores = emptyAxisScores();

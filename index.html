@@ -125,45 +125,33 @@
       </div>
     </section>
 
-    <!-- 9.11 「気になることから探す」画面（diagnosis_type=topic） -->
+    <!-- 9.11 「気になることから探す」画面（diagnosis_type=topic, 4問×4軸構成） -->
     <section class="screen" id="screen-topic" data-screen="topic" hidden>
       <header class="screen-header">
         <button class="btn-back" data-action="back" aria-label="戻る">＜ 戻る</button>
         <h2 class="screen-title">気になることから探す</h2>
       </header>
       <div class="screen-body">
+        <p class="progress" id="topic-progress">質問 1 / 4</p>
         <div class="quiz-question">
-          <p class="quiz-question-text">最近、気になることはどれですか？</p>
+          <p class="quiz-question-text" id="topic-question-text">質問文がここに表示されます。</p>
         </div>
-        <div class="card-list" id="topic-answers">
-          <button class="card-btn" data-topic="world">世の中の出来事</button>
-          <button class="card-btn" data-topic="life">暮らしのこと</button>
-          <button class="card-btn" data-topic="money">お金のこと</button>
-          <button class="card-btn" data-topic="science">科学や技術</button>
-          <button class="card-btn" data-topic="history">歴史や人の生き方</button>
-          <button class="card-btn" data-topic="mind">心や考え方</button>
-        </div>
+        <div class="card-list" id="topic-answers"></div>
       </div>
     </section>
 
-    <!-- 9.12 「これまでの学びから探す」画面（diagnosis_type=path） -->
+    <!-- 9.12 「これまでの学びから探す」画面（diagnosis_type=path, 4問×4軸構成） -->
     <section class="screen" id="screen-path" data-screen="path" hidden>
       <header class="screen-header">
         <button class="btn-back" data-action="back" aria-label="戻る">＜ 戻る</button>
         <h2 class="screen-title">これまでの学びから探す</h2>
       </header>
       <div class="screen-body">
+        <p class="progress" id="path-progress">質問 1 / 4</p>
         <div class="quiz-question">
-          <p class="quiz-question-text">これまで、どんなことを学んできましたか？</p>
+          <p class="quiz-question-text" id="path-question-text">質問文がここに表示されます。</p>
         </div>
-        <div class="card-list" id="path-answers">
-          <button class="card-btn" data-path="nature">理科や自然のこと</button>
-          <button class="card-btn" data-path="craft">ものづくりや技術</button>
-          <button class="card-btn" data-path="money">商いやお金</button>
-          <button class="card-btn" data-path="society">人や社会のこと</button>
-          <button class="card-btn" data-path="language">言葉や表現</button>
-          <button class="card-btn" data-path="body">体や健康のこと</button>
-        </div>
+        <div class="card-list" id="path-answers"></div>
       </div>
     </section>
 
