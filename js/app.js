@@ -40,7 +40,7 @@
     browse:    { A: 'A1', B: 'B1' },
   };
 
-  // 10.6: diagnosis_type -> 軸C / 軸D（クイズ・占い風のみ。gameは 10.7 別経路）
+  // 10.6: diagnosis_type -> 軸C / 軸D（クイズ・mood のみ。gameは 10.7 別経路）
   const DIAG_AXIS_CD = {
     quiz: { C: 'C2', D: 'D2' },
     mood: { C: 'C1', D: 'D1' },
@@ -56,7 +56,7 @@
   };
   const DIAGNOSIS_LABELS = {
     quiz: 'クイズ診断',
-    mood: '占い風診断',
+    mood: '今の気分から見つける',
     game: 'ミニゲーム診断',
   };
   const GAME_TYPE_LABELS = {
@@ -301,7 +301,7 @@
     });
   }
 
-  // ===== 占い風診断 (9.5) =====
+  // ===== 今の気分から見つける（diagnosis_type=mood, 9.5）=====
   let moodSession = [];
   let moodIndex = 0;
 
