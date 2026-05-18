@@ -63,6 +63,10 @@
             <span class="card-btn-title">気になることから探す</span>
             <span class="card-btn-desc">最近の興味から学び方を見つけます。</span>
           </button>
+          <button class="card-btn card-btn-rich" data-diagnosis="path">
+            <span class="card-btn-title">これまでの学びから探す</span>
+            <span class="card-btn-desc">これまで学んできたことから、学び方を見つけます。</span>
+          </button>
           <button class="card-btn card-btn-rich" data-diagnosis="game">
             <span class="card-btn-title">ゲームで試す</span>
             <span class="card-btn-desc">知的ゲームから入口を探します。</span>
@@ -138,6 +142,27 @@
           <button class="card-btn" data-topic="science">科学や技術</button>
           <button class="card-btn" data-topic="history">歴史や人の生き方</button>
           <button class="card-btn" data-topic="mind">心や考え方</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9.12 「これまでの学びから探す」画面（diagnosis_type=path） -->
+    <section class="screen" id="screen-path" data-screen="path" hidden>
+      <header class="screen-header">
+        <button class="btn-back" data-action="back" aria-label="戻る">＜ 戻る</button>
+        <h2 class="screen-title">これまでの学びから探す</h2>
+      </header>
+      <div class="screen-body">
+        <div class="quiz-question">
+          <p class="quiz-question-text">これまで、どんなことを学んできましたか？</p>
+        </div>
+        <div class="card-list" id="path-answers">
+          <button class="card-btn" data-path="nature">理科や自然のこと</button>
+          <button class="card-btn" data-path="craft">ものづくりや技術</button>
+          <button class="card-btn" data-path="money">商いやお金</button>
+          <button class="card-btn" data-path="society">人や社会のこと</button>
+          <button class="card-btn" data-path="language">言葉や表現</button>
+          <button class="card-btn" data-path="body">体や健康のこと</button>
         </div>
       </div>
     </section>

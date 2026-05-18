@@ -24,7 +24,7 @@
 
   const SCREENS = [
     'home', 'purpose', 'diagnosis-type',
-    'quiz', 'mood', 'topic',
+    'quiz', 'mood', 'topic', 'path',
     'game-select', 'slide-puzzle', 'maze',
     'result', 'guide', 'routes', 'save',
     'error',
@@ -58,6 +58,7 @@
     quiz: 'クイズ診断',
     mood: '今の気分から見つける',
     topic: '気になることから探す',
+    path: 'これまでの学びから探す',
     game: 'ミニゲーム診断',
   };
 
@@ -73,6 +74,19 @@
   const TOPIC_DEFAULT_AXIS_A = 'A1'; // 考える（読み・調べ・想像）
   const TOPIC_DEFAULT_AXIS_C = 'C1'; // 見方を変える
   const TOPIC_DEFAULT_AXIS_D = 'D1'; // 軽く触れる
+
+  // 9.12: path 選択肢 → 軸C の対応（軸A/B/D は固定既定値）
+  const PATH_TO_AXIS_C = {
+    nature:   'C1', // 理科や自然のこと → 世界の捉え方・概念獲得（考え方を変える）
+    craft:    'C2', // ものづくりや技術 → 手順・技能（できることを増やす）
+    money:    'C2', // 商いやお金 → 運用スキル（できることを増やす）
+    society:  'C3', // 人や社会のこと → 関係性（生き方を整える）
+    language: 'C2', // 言葉や表現 → 表現力（SPEC 10.2 のC2例示「表現力」に合致）
+    body:     'C3', // 体や健康のこと → 習慣・心身の状態（生き方を整える）
+  };
+  const PATH_DEFAULT_AXIS_A = 'A1'; // 考える（学びの振り返りは内省的行為）
+  const PATH_DEFAULT_AXIS_B = 'B1'; // 自分のこと（「これまでの学び」は自分史的テーマ）
+  const PATH_DEFAULT_AXIS_D = 'D1'; // 軽く触れる（1問完結の軽量診断）
   const GAME_TYPE_LABELS = {
     slide_puzzle: 'スライドパズル4×4',
     maze: '迷路8×8',
@@ -100,6 +114,7 @@
     quizAnswers: [],
     gameResult: null,
     topicAnswer: null,
+    pathAnswer: null,
     behaviorTraits: [],
     resultId: null,
     guideId: null,
@@ -113,6 +128,7 @@
     STATE.quizAnswers = [];
     STATE.gameResult = null;
     STATE.topicAnswer = null;
+    STATE.pathAnswer = null;
     STATE.behaviorTraits = [];
     STATE.resultId = null;
     STATE.guideId = null;
@@ -226,7 +242,7 @@
 
   function updateNavState(name) {
     const buttons = document.querySelectorAll('.bottom-nav .nav-btn');
-    const diagnosisGroup = ['purpose','diagnosis-type','quiz','mood','topic','game-select','slide-puzzle','maze','result'];
+    const diagnosisGroup = ['purpose','diagnosis-type','quiz','mood','topic','path','game-select','slide-puzzle','maze','result'];
     buttons.forEach(btn => {
       const t = btn.getAttribute('data-nav');
       let active = false;
@@ -291,6 +307,7 @@
       case 'quiz': startQuizSession(); showScreen('quiz'); break;
       case 'mood': startMoodSession(); showScreen('mood'); break;
       case 'topic': showScreen('topic'); break;
+      case 'path': showScreen('path'); break;
       case 'game': showScreen('game-select'); break;
     }
   }
@@ -305,7 +322,7 @@
   function attachListeners() {
     document.addEventListener('click', e => {
       const t = e.target.closest(
-        '[data-action], [data-go], [data-nav], [data-purpose], [data-diagnosis], [data-game], [data-confidence], [data-topic]'
+        '[data-action], [data-go], [data-nav], [data-purpose], [data-diagnosis], [data-game], [data-confidence], [data-topic], [data-path]'
       );
       if (!t) return;
       if (t.hasAttribute('data-action'))    { handleAction(t.getAttribute('data-action')); return; }
@@ -316,6 +333,7 @@
       if (t.hasAttribute('data-game'))      { handleGameSelect(t.getAttribute('data-game')); return; }
       if (t.hasAttribute('data-confidence')) { handleQuizConfidence(t.getAttribute('data-confidence')); return; }
       if (t.hasAttribute('data-topic'))     { handleTopicSelect(t.getAttribute('data-topic')); return; }
+      if (t.hasAttribute('data-path'))      { handlePathSelect(t.getAttribute('data-path')); return; }
     });
   }
 
@@ -370,6 +388,15 @@
     const axisB = TOPIC_TO_AXIS_B[topicChoice];
     if (!axisB) return;
     STATE.topicAnswer = { choice: topicChoice, axisB: axisB };
+    finishDiagnosis();
+  }
+
+  // ===== これまでの学びから探す (9.12, diagnosis_type=path) =====
+  // 1問のみ：選んだ選択肢から軸Cを決定。軸A/B/Dは固定既定値。
+  function handlePathSelect(pathChoice) {
+    const axisC = PATH_TO_AXIS_C[pathChoice];
+    if (!axisC) return;
+    STATE.pathAnswer = { choice: pathChoice, axisC: axisC };
     finishDiagnosis();
   }
 
@@ -577,6 +604,12 @@
     // 9.11: topic 経路は1問のみ。軸Bをユーザー選択から、軸A/C/D は固定既定値。
     if (STATE.diagnosisType === 'topic' && STATE.topicAnswer && STATE.topicAnswer.axisB) {
       const rid = TOPIC_DEFAULT_AXIS_A + STATE.topicAnswer.axisB + TOPIC_DEFAULT_AXIS_C + TOPIC_DEFAULT_AXIS_D;
+      return { resultId: rid, isDefault: false };
+    }
+
+    // 9.12: path 経路は1問のみ。軸Cをユーザー選択から、軸A/B/D は固定既定値。
+    if (STATE.diagnosisType === 'path' && STATE.pathAnswer && STATE.pathAnswer.axisC) {
+      const rid = PATH_DEFAULT_AXIS_A + PATH_DEFAULT_AXIS_B + STATE.pathAnswer.axisC + PATH_DEFAULT_AXIS_D;
       return { resultId: rid, isDefault: false };
     }
 
