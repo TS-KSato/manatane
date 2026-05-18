@@ -18,7 +18,7 @@
         <h1 class="brand">マナタネ</h1>
         <p class="brand-en">manatane</p>
         <p class="lead">今日、何を少し学んでみる？</p>
-        <p class="desc">その日の気分や目的に合わせて、学び方の入口を1分で探します。</p>
+        <p class="desc">いくつかの質問に答えると、今日の学びの入口が見つかります。</p>
         <button class="btn btn-primary" data-action="start">1分で始める</button>
         <p class="note">診断結果は固定的なタイプ判定ではなく、今日の学び方の参考です。</p>
       </div>
@@ -28,7 +28,7 @@
     <section class="screen" id="screen-purpose" data-screen="purpose" hidden>
       <header class="screen-header">
         <button class="btn-back" data-action="back" aria-label="戻る">＜ 戻る</button>
-        <h2 class="screen-title">今日はどう始めますか？</h2>
+        <h2 class="screen-title">今日学びたいのは、どんなことですか？</h2>
       </header>
       <div class="screen-body">
         <div class="card-list" id="purpose-list">
@@ -49,14 +49,15 @@
         <h2 class="screen-title">どれで試しますか？</h2>
       </header>
       <div class="screen-body">
+        <p class="desc">どれを選んでも結果は今日のあなたに合わせて出ます。</p>
         <div class="card-list">
           <button class="card-btn card-btn-rich" data-diagnosis="quiz">
             <span class="card-btn-title">クイズで試す</span>
             <span class="card-btn-desc">1〜3問で興味や理解を軽く確認します。</span>
           </button>
           <button class="card-btn card-btn-rich" data-diagnosis="mood">
-            <span class="card-btn-title">占い風に見る</span>
-            <span class="card-btn-desc">今日の気分から学び方を提案します。</span>
+            <span class="card-btn-title">今の気分から見つける</span>
+            <span class="card-btn-desc">今日の気分についての短い質問から、学び方を見つけます。</span>
           </button>
           <button class="card-btn card-btn-rich" data-diagnosis="game">
             <span class="card-btn-title">ゲームで試す</span>
