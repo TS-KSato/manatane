@@ -59,6 +59,10 @@
             <span class="card-btn-title">今の気分から見つける</span>
             <span class="card-btn-desc">今日の気分についての短い質問から、学び方を見つけます。</span>
           </button>
+          <button class="card-btn card-btn-rich" data-diagnosis="topic">
+            <span class="card-btn-title">気になることから探す</span>
+            <span class="card-btn-desc">最近の興味から学び方を見つけます。</span>
+          </button>
           <button class="card-btn card-btn-rich" data-diagnosis="game">
             <span class="card-btn-title">ゲームで試す</span>
             <span class="card-btn-desc">知的ゲームから入口を探します。</span>
@@ -113,6 +117,27 @@
         </div>
         <div class="card-list" id="mood-answers">
           <button class="card-btn">選択肢</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9.11 「気になることから探す」画面（diagnosis_type=topic） -->
+    <section class="screen" id="screen-topic" data-screen="topic" hidden>
+      <header class="screen-header">
+        <button class="btn-back" data-action="back" aria-label="戻る">＜ 戻る</button>
+        <h2 class="screen-title">気になることから探す</h2>
+      </header>
+      <div class="screen-body">
+        <div class="quiz-question">
+          <p class="quiz-question-text">最近、気になることはどれですか？</p>
+        </div>
+        <div class="card-list" id="topic-answers">
+          <button class="card-btn" data-topic="world">世の中の出来事</button>
+          <button class="card-btn" data-topic="life">暮らしのこと</button>
+          <button class="card-btn" data-topic="money">お金のこと</button>
+          <button class="card-btn" data-topic="science">科学や技術</button>
+          <button class="card-btn" data-topic="history">歴史や人の生き方</button>
+          <button class="card-btn" data-topic="mind">心や考え方</button>
         </div>
       </div>
     </section>

@@ -24,7 +24,7 @@
 
   const SCREENS = [
     'home', 'purpose', 'diagnosis-type',
-    'quiz', 'mood',
+    'quiz', 'mood', 'topic',
     'game-select', 'slide-puzzle', 'maze',
     'result', 'guide', 'routes', 'save',
     'error',
@@ -57,8 +57,22 @@
   const DIAGNOSIS_LABELS = {
     quiz: 'クイズ診断',
     mood: '今の気分から見つける',
+    topic: '気になることから探す',
     game: 'ミニゲーム診断',
   };
+
+  // 9.11: topic 選択肢 → 軸B の対応（軸A/C/D は固定既定値）
+  const TOPIC_TO_AXIS_B = {
+    world:   'B2', // 世の中の出来事 → 世界のこと
+    life:    'B1', // 暮らしのこと → 自分のこと
+    money:   'B3', // お金のこと → 技術のこと（実用情報）
+    science: 'B3', // 科学や技術 → 技術のこと
+    history: 'B2', // 歴史や人の生き方 → 世界のこと
+    mind:    'B1', // 心や考え方 → 自分のこと
+  };
+  const TOPIC_DEFAULT_AXIS_A = 'A1'; // 考える（読み・調べ・想像）
+  const TOPIC_DEFAULT_AXIS_C = 'C1'; // 見方を変える
+  const TOPIC_DEFAULT_AXIS_D = 'D1'; // 軽く触れる
   const GAME_TYPE_LABELS = {
     slide_puzzle: 'スライドパズル4×4',
     maze: '迷路8×8',
@@ -85,6 +99,7 @@
     moodAnswers: [],
     quizAnswers: [],
     gameResult: null,
+    topicAnswer: null,
     behaviorTraits: [],
     resultId: null,
     guideId: null,
@@ -97,6 +112,7 @@
     STATE.moodAnswers = [];
     STATE.quizAnswers = [];
     STATE.gameResult = null;
+    STATE.topicAnswer = null;
     STATE.behaviorTraits = [];
     STATE.resultId = null;
     STATE.guideId = null;
@@ -210,7 +226,7 @@
 
   function updateNavState(name) {
     const buttons = document.querySelectorAll('.bottom-nav .nav-btn');
-    const diagnosisGroup = ['purpose','diagnosis-type','quiz','mood','game-select','slide-puzzle','maze','result'];
+    const diagnosisGroup = ['purpose','diagnosis-type','quiz','mood','topic','game-select','slide-puzzle','maze','result'];
     buttons.forEach(btn => {
       const t = btn.getAttribute('data-nav');
       let active = false;
@@ -274,6 +290,7 @@
     switch (diagnosisType) {
       case 'quiz': startQuizSession(); showScreen('quiz'); break;
       case 'mood': startMoodSession(); showScreen('mood'); break;
+      case 'topic': showScreen('topic'); break;
       case 'game': showScreen('game-select'); break;
     }
   }
@@ -288,7 +305,7 @@
   function attachListeners() {
     document.addEventListener('click', e => {
       const t = e.target.closest(
-        '[data-action], [data-go], [data-nav], [data-purpose], [data-diagnosis], [data-game], [data-confidence]'
+        '[data-action], [data-go], [data-nav], [data-purpose], [data-diagnosis], [data-game], [data-confidence], [data-topic]'
       );
       if (!t) return;
       if (t.hasAttribute('data-action'))    { handleAction(t.getAttribute('data-action')); return; }
@@ -298,6 +315,7 @@
       if (t.hasAttribute('data-diagnosis')) { handleDiagnosisSelect(t.getAttribute('data-diagnosis')); return; }
       if (t.hasAttribute('data-game'))      { handleGameSelect(t.getAttribute('data-game')); return; }
       if (t.hasAttribute('data-confidence')) { handleQuizConfidence(t.getAttribute('data-confidence')); return; }
+      if (t.hasAttribute('data-topic'))     { handleTopicSelect(t.getAttribute('data-topic')); return; }
     });
   }
 
@@ -344,6 +362,15 @@
     moodIndex += 1;
     if (moodIndex >= moodSession.length) finishDiagnosis();
     else renderMoodQuestion();
+  }
+
+  // ===== 気になることから探す (9.11, diagnosis_type=topic) =====
+  // 1問のみ：選んだ選択肢から軸Bを決定。軸A/C/Dは固定既定値。
+  function handleTopicSelect(topicChoice) {
+    const axisB = TOPIC_TO_AXIS_B[topicChoice];
+    if (!axisB) return;
+    STATE.topicAnswer = { choice: topicChoice, axisB: axisB };
+    finishDiagnosis();
   }
 
   // ===== クイズ診断 (9.4) =====
@@ -545,6 +572,12 @@
     // 10.7: ゲーム経路は別ロジック。STATE.gameResult.result_id が直接 4軸IDを保持する想定。
     if (STATE.diagnosisType === 'game' && STATE.gameResult && STATE.gameResult.result_id) {
       return { resultId: STATE.gameResult.result_id, isDefault: false };
+    }
+
+    // 9.11: topic 経路は1問のみ。軸Bをユーザー選択から、軸A/C/D は固定既定値。
+    if (STATE.diagnosisType === 'topic' && STATE.topicAnswer && STATE.topicAnswer.axisB) {
+      const rid = TOPIC_DEFAULT_AXIS_A + STATE.topicAnswer.axisB + TOPIC_DEFAULT_AXIS_C + TOPIC_DEFAULT_AXIS_D;
+      return { resultId: rid, isDefault: false };
     }
 
     const scores = emptyAxisScores();
