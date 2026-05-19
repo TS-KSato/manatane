@@ -566,13 +566,16 @@
   }
 
   // ===== クイズ診断 (9.4) =====
-  const PURPOSE_TO_GENRE = {
-    life: 'life',
-    curiosity: 'ai_it',
-    hobby: 'creative',
-    sidejob: 'money',
-    weakness: 'writing',
-    browse: null,
+  // 各 purpose_id に対して複数の genre_id を対応させる。クイズ出題時は対応するジャンル群の
+  // 問題をひとまとめにし、そこから4問を引く。1セッションの4問が複数ジャンルにまたがってよい。
+  // 該当ジャンル群に4問未満しかない場合のみ全ジャンルから補う。
+  const PURPOSE_TO_GENRES = {
+    life:      ['life', 'health', 'nature'],
+    curiosity: ['nature', 'learning', 'creative'],
+    hobby:     ['creative', 'nature', 'health'],
+    sidejob:   ['money', 'writing', 'work'],
+    weakness:  ['communication', 'writing', 'work'],
+    browse:    ['money', 'writing', 'life', 'creative', 'health', 'communication', 'learning', 'work', 'nature'],
   };
 
   // クイズ診断は「知識設問1問 + 軸の三択1つ」を1組とし、4組（軸A→B→C→D）繰り返す。
@@ -592,9 +595,12 @@
 
   function pickQuizzes(purposeId) {
     const all = (window.manatane.data && window.manatane.data.quizzes) || [];
-    const wanted = PURPOSE_TO_GENRE[purposeId];
+    const wanted = PURPOSE_TO_GENRES[purposeId];
     let pool = [];
-    if (wanted) pool = all.filter(q => q.genre_id === wanted);
+    if (Array.isArray(wanted) && wanted.length > 0) {
+      const wantedSet = new Set(wanted);
+      pool = all.filter(q => wantedSet.has(q.genre_id));
+    }
     if (pool.length < 4) pool = all.slice();
     else pool = pool.slice();
     shuffleInPlace(pool);

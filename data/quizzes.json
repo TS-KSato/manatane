@@ -1,92 +1,5 @@
 [
   {
-    "quiz_id": "QUIZ_AI_001",
-    "genre_id": "ai_it",
-    "topic_label": "生成AIの使い方",
-    "question": "生成AIを日常で使う時、最初に意識した方がよいことはどれですか？",
-    "answers": [
-      {
-        "answer_id": "A1",
-        "label": "すべて正しいと信じる",
-        "is_correct": false
-      },
-      {
-        "answer_id": "A2",
-        "label": "出力を確認しながら使う",
-        "is_correct": true
-      },
-      {
-        "answer_id": "A3",
-        "label": "長い文章だけ入力する",
-        "is_correct": false
-      },
-      {
-        "answer_id": "A4",
-        "label": "使わない方がよい",
-        "is_correct": false
-      }
-    ],
-    "explanation": "生成AIは便利ですが、出力内容を確認しながら使うことが重要です。"
-  },
-  {
-    "quiz_id": "QUIZ_AI_002",
-    "genre_id": "ai_it",
-    "topic_label": "AIへの指示",
-    "question": "生成AIに作業を頼む時、結果の質を上げやすい指示はどれですか？",
-    "answers": [
-      {
-        "answer_id": "A1",
-        "label": "「いい感じにして」と短く頼む",
-        "is_correct": false
-      },
-      {
-        "answer_id": "A2",
-        "label": "目的・前提・形式を伝える",
-        "is_correct": true
-      },
-      {
-        "answer_id": "A3",
-        "label": "感情をこめてお願いする",
-        "is_correct": false
-      },
-      {
-        "answer_id": "A4",
-        "label": "とにかく長文で頼む",
-        "is_correct": false
-      }
-    ],
-    "explanation": "目的・前提・出力形式を具体的に伝えるほど、AIの出力は安定しやすくなります。"
-  },
-  {
-    "quiz_id": "QUIZ_AI_003",
-    "genre_id": "ai_it",
-    "topic_label": "AIと個人情報",
-    "question": "個人情報を含むデータを生成AIに渡す前に、まず行うとよい確認はどれですか？",
-    "answers": [
-      {
-        "answer_id": "A1",
-        "label": "そのまま貼り付ける",
-        "is_correct": false
-      },
-      {
-        "answer_id": "A2",
-        "label": "利用規約とデータ取り扱いを確認する",
-        "is_correct": true
-      },
-      {
-        "answer_id": "A3",
-        "label": "回答スピードを比較する",
-        "is_correct": false
-      },
-      {
-        "answer_id": "A4",
-        "label": "とりあえずAIに聞いてみる",
-        "is_correct": false
-      }
-    ],
-    "explanation": "AIサービスごとに入力データの扱いが異なります。利用規約とデータの取り扱い方針を先に確認するのが基本です。"
-  },
-  {
     "quiz_id": "QUIZ_MONEY_001",
     "genre_id": "money",
     "topic_label": "家計の見直し",
@@ -433,5 +346,1223 @@
       }
     ],
     "explanation": "完成基準をあらかじめ決めると、無限に手直しを続ける状態を避け、作品を世に出しやすくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_MONEY_004",
+    "genre_id": "money",
+    "topic_label": "複利の働き",
+    "question": "複利で運用する場合、運用期間が長くなるほど効果が大きく出やすいのはなぜですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "元本だけが毎年同じ額ずつ増えるから",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "前の期の利益も次の期の元本に含まれて運用されるから",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "長期になるほど利率が自動的に上がるから",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "長期になるほど税金が安くなるから",
+        "is_correct": false
+      }
+    ],
+    "explanation": "複利は、得られた利益を元本に組み入れて運用し続ける方式です。期間が長いほど「元本+過去の利益」に対して利益が積み上がるため、結果が雪だるま式に大きくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_MONEY_005",
+    "genre_id": "money",
+    "topic_label": "先取り貯蓄",
+    "question": "貯蓄を続けやすくする習慣として、よく知られている考え方はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "使い終わって余った分を貯蓄する",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "収入が入ったら使う前に貯蓄分を別に分ける",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "月末にまとめて全額を貯蓄に回す",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "毎日の支出を一切記録しない",
+        "is_correct": false
+      }
+    ],
+    "explanation": "「先取り貯蓄」は、給料などの収入が入った時点で使う前に貯蓄分を別口座などに移す方法です。残った分で生活するため、貯蓄が安定して続きやすくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_MONEY_006",
+    "genre_id": "money",
+    "topic_label": "セール品の見極め",
+    "question": "セールや割引で買うかどうか迷う時、最初に確かめると良いことはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "割引率が大きいかどうかだけを見る",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "同じ価格帯の他店の値段と比べる",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A3",
+        "label": "そもそも自分にそれが必要かを確かめる",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A4",
+        "label": "在庫が少ないかどうかを確かめる",
+        "is_correct": false
+      }
+    ],
+    "explanation": "割引でも本当に必要でなければ支出は増えます。最初に「これは元から自分が必要としていたか」を確かめると、安いから買う、を避けられます。"
+  },
+  {
+    "quiz_id": "QUIZ_WRITING_004",
+    "genre_id": "writing",
+    "topic_label": "主語と述語",
+    "question": "主語と述語のねじれが起きにくい書き方として適切なのはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "1文をできるだけ長くする",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "主語と述語をできるだけ近くに置く",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "主語を毎回省略する",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "受動態と能動態を交互に使う",
+        "is_correct": false
+      }
+    ],
+    "explanation": "1文が長くなり主語と述語が遠ざかると、書き手も読み手も対応関係を見失いやすくなります。主語と述語を近づけ、1文を短く保つとねじれが起きにくくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_WRITING_005",
+    "genre_id": "writing",
+    "topic_label": "箇条書きの使い方",
+    "question": "箇条書きが特に効果を発揮しやすいのはどんな内容ですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "感情の流れを順に描く文章",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "複数の並列項目や手順を伝える文章",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "物語のクライマックスの描写",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "1つのことを長く論じる文章",
+        "is_correct": false
+      }
+    ],
+    "explanation": "箇条書きは、並列の要素や手順を視覚的に整理して見せるのに向いています。一方、流れや因果を伝えたい文章では、つなぎの言葉を含む通常の文の方が向きます。"
+  },
+  {
+    "quiz_id": "QUIZ_WRITING_006",
+    "genre_id": "writing",
+    "topic_label": "推敲のタイミング",
+    "question": "文章を見直して直す時、効果が出やすいタイミングはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "書き終わった直後にそのまま読み返す",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "少し時間を置いてから読み返す",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "見直さずに送る",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "書き終わった瞬間に他人に渡す",
+        "is_correct": false
+      }
+    ],
+    "explanation": "書いた直後は自分の文に慣れていて、不自然な箇所を読み飛ばしやすくなります。時間を置いて読み返すと、新しい目で気づきやすくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_LIFE_004",
+    "genre_id": "life",
+    "topic_label": "災害時の連絡",
+    "question": "大きな災害で家族と連絡を取りたい時、よく使われる無料の伝言サービスの番号はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "110",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "119",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A3",
+        "label": "171",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A4",
+        "label": "117",
+        "is_correct": false
+      }
+    ],
+    "explanation": "「171」は災害時に提供される災害用伝言ダイヤルの番号です。電話がつながりにくい時に、自分の状況を録音したり相手の伝言を再生したりできます。110は警察、119は消防・救急、117は時報です。"
+  },
+  {
+    "quiz_id": "QUIZ_LIFE_005",
+    "genre_id": "life",
+    "topic_label": "タコ足配線",
+    "question": "1つのコンセントに延長コードや分岐タップで多くの機器を繋ぐ「タコ足配線」がよくないのはなぜですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "電気代だけが大きく上がるから",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "配線部分の発熱が大きくなり発火の原因になることがあるから",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "家電の性能が必ず下がるから",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "機器が動かなくなるから",
+        "is_correct": false
+      }
+    ],
+    "explanation": "1つの差し込み口に許容を超える電流が流れると、配線部分が発熱し、最悪の場合は発火につながります。差し込み口や延長コードの定格容量を意識して使うことが大切です。"
+  },
+  {
+    "quiz_id": "QUIZ_LIFE_006",
+    "genre_id": "life",
+    "topic_label": "賞味期限と消費期限",
+    "question": "食品の「賞味期限」と「消費期限」の違いについて、正しい説明はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "両方とも同じ意味で、過ぎたらすぐ食べられない",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "賞味期限はおいしく食べられる目安、消費期限は安全に食べられる期限",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "消費期限はおいしさの目安で、過ぎても問題ない",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "賞味期限は法律で定められておらず任意表記である",
+        "is_correct": false
+      }
+    ],
+    "explanation": "賞味期限はおいしく食べられる目安で、過ぎても直ちに食べられないわけではありません。一方、消費期限は安全に食べられる期限で、過ぎたものは食べない方が安全とされています。両者の違いを知ると、食品ロスも減らしやすくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_CREATIVE_004",
+    "genre_id": "creative",
+    "topic_label": "模倣から学ぶ",
+    "question": "気に入った作品から学んで自分の作品に活かす時、適切な姿勢はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "そのまま丸ごとコピーして発表する",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "何がよいかを分析し、要素を自分の文脈に置き換えて使う",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "他の作品は一切見ないようにする",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "元の作者に許可を取らずに同じ題名で出す",
+        "is_correct": false
+      }
+    ],
+    "explanation": "優れた作品を分析し、その要素を自分の文脈に組み込み直すことは、創作の学び方の定石です。丸ごとの複製は剽窃となるため、要素の抽出と再構築が重要です。"
+  },
+  {
+    "quiz_id": "QUIZ_CREATIVE_005",
+    "genre_id": "creative",
+    "topic_label": "制約の効用",
+    "question": "創作に制約(時間、文字数、使える色の数など)を設けると効果が出やすいのはなぜですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "制約があると考える幅が決まり、工夫が生まれやすいから",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A2",
+        "label": "制約があると作業時間が必ず短くなるから",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A3",
+        "label": "制約があるとクオリティが必ず高くなるから",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "制約があると締切に間に合うから",
+        "is_correct": false
+      }
+    ],
+    "explanation": "何でも選べる状況より、ある程度の制約があるほうが選択肢が絞られ、工夫やひらめきが生まれやすいとされています。短歌の字数や絵の色数制限などはその例です。"
+  },
+  {
+    "quiz_id": "QUIZ_CREATIVE_006",
+    "genre_id": "creative",
+    "topic_label": "他者からの意見",
+    "question": "作品にフィードバックをもらう時、活かしやすい受け方はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "気に入らない意見はすぐ反論する",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "まず最後まで聞いて、後で何を取り入れるかを自分で選ぶ",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "すべての意見を必ず取り入れる",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "具体的な指摘は無視して感想だけ受け取る",
+        "is_correct": false
+      }
+    ],
+    "explanation": "フィードバックは聞き終える前に反論すると活かしにくく、すべて取り入れると自分の作品の軸がぶれます。一度受け止めてから取捨選択するのが、作品にも自分にも活きる受け方です。"
+  },
+  {
+    "quiz_id": "QUIZ_HEALTH_001",
+    "genre_id": "health",
+    "topic_label": "体の水分補給",
+    "question": "健康な大人が1日に体に必要とする水分量(食事に含まれる水分も含めた合計)の目安はどれくらいですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "約500ミリリットル",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "約1リットル",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A3",
+        "label": "約2.5リットル",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A4",
+        "label": "約5リットル",
+        "is_correct": false
+      }
+    ],
+    "explanation": "一般に、成人が1日に体に必要とする水分は食事と飲み物を合わせて約2.5リットルとされ、そのうち飲み水としては約1.2リットルが目安と紹介されることが多いです(厚生労働省「健康のため水を飲もう」など)。"
+  },
+  {
+    "quiz_id": "QUIZ_HEALTH_002",
+    "genre_id": "health",
+    "topic_label": "日常の運動",
+    "question": "健康のための運動として、特別な道具がなくても始めやすい習慣はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "毎日全速力で長距離を走る",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "日常の歩く時間や階段を少しずつ増やす",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "週に1回だけ激しいトレーニングをする",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "まったく動かないようにする",
+        "is_correct": false
+      }
+    ],
+    "explanation": "無理のない範囲で歩く時間や階段の利用を増やすことは、特別な道具がなくても続けやすい運動習慣です。激しい運動を週1回だけ行うより、軽い運動を日常に組み込むほうが続きやすいとされます。"
+  },
+  {
+    "quiz_id": "QUIZ_HEALTH_003",
+    "genre_id": "health",
+    "topic_label": "長時間の同じ姿勢",
+    "question": "デスクワークなどで同じ姿勢を長く続けると体に負担がかかります。その対策として適切なのはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "1日中ずっと座り続ける",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "こまめに立ち上がり、軽く体を動かす",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "休憩は仕事の最後にまとめて取る",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "姿勢のことは気にしないようにする",
+        "is_correct": false
+      }
+    ],
+    "explanation": "同じ姿勢が続くと血流や筋肉に偏った負担がかかります。30分から1時間に一度くらい立ち上がって軽く動かすと、肩こりや腰痛などの予防になります。"
+  },
+  {
+    "quiz_id": "QUIZ_HEALTH_004",
+    "genre_id": "health",
+    "topic_label": "手洗いの基本",
+    "question": "感染症対策として有効な手洗いの基本として、適切なのはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "水で1〜2秒さっと流す",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "石けんを泡立て、指先や指の間も含めて30秒ほど洗う",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "手の甲だけを軽くこする",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "消毒液を使うと水で流してはいけない",
+        "is_correct": false
+      }
+    ],
+    "explanation": "石けんを十分に泡立て、指先・指の間・手首まで含めて30秒程度こすり洗いし、流水でよくすすぐのが手洗いの基本です。さっと流すだけでは汚れや微生物が落ちにくくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_HEALTH_005",
+    "genre_id": "health",
+    "topic_label": "よく噛む効用",
+    "question": "よく噛んで食べることに期待できる効果として、正しいものはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "消化を助け、食べすぎを防ぎやすくなる",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A2",
+        "label": "カロリーがゼロになる",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A3",
+        "label": "虫歯が必ず治る",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "食事時間が短くなる",
+        "is_correct": false
+      }
+    ],
+    "explanation": "よく噛むと唾液の分泌が増えて消化を助け、満腹を感じやすくなることから食べすぎを防ぎやすくなります。カロリーがなくなったり、虫歯が治ったりするわけではありません。"
+  },
+  {
+    "quiz_id": "QUIZ_HEALTH_006",
+    "genre_id": "health",
+    "topic_label": "体調不良時の対応",
+    "question": "熱や強いだるさがある日に、まずとると良い行動はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "いつも以上に激しく運動する",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "無理せず休み、必要に応じて受診や相談を行う",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "我慢して仕事や予定を全部こなす",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "食事を完全に抜く",
+        "is_correct": false
+      }
+    ],
+    "explanation": "体調不良の時にまず大切なのは休養です。症状が強い時や長引く時には医療機関に相談することも考慮します。無理を続けると回復が遅れることが知られています。"
+  },
+  {
+    "quiz_id": "QUIZ_COMM_001",
+    "genre_id": "communication",
+    "topic_label": "頼みごとの伝え方",
+    "question": "誰かに何かを頼む時、相手が動きやすい伝え方はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "「とにかくよろしく」だけ伝える",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "何を、いつまでに、なぜ必要かを具体的に伝える",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "理由は伏せて急がせる",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "相手の状況を確認せず期限を一方的に決める",
+        "is_correct": false
+      }
+    ],
+    "explanation": "依頼は「何を」「いつまでに」「なぜ」が揃うと、相手が判断と行動をしやすくなります。曖昧な依頼や、理由のない急かしは、相手が動きにくく誤解も招きやすくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_COMM_002",
+    "genre_id": "communication",
+    "topic_label": "相手の話を聞く",
+    "question": "相手が話している時に、よい聞き方として最も適切なのはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "話の途中で反論を始める",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "最後まで聞いてから自分の考えを伝える",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "別のことを考えながら適当にうなずく",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "相手の話を勝手に途中でまとめてしまう",
+        "is_correct": false
+      }
+    ],
+    "explanation": "話の途中で割り込むと、相手の言いたいことを取り違えやすくなります。まず最後まで聞き、相手の言いたいことを確認してから自分の考えを伝えると、互いに理解が進みやすくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_COMM_003",
+    "genre_id": "communication",
+    "topic_label": "上手な断り方",
+    "question": "気持ちよく断る言い方として、よく挙げられるコツはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "黙って返事をしない",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "理由を簡潔に伝え、可能なら代案を添える",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "相手を強い言葉で否定する",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "「いやだ」とだけ言って終わる",
+        "is_correct": false
+      }
+    ],
+    "explanation": "断る時に理由を簡潔に伝え、可能なら代案や別のタイミングを示すと、関係を保ったまま自分の意思を伝えやすくなります。無視や強い否定は関係に傷を残しやすくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_COMM_004",
+    "genre_id": "communication",
+    "topic_label": "感情がぶつかった時",
+    "question": "相手と感情がぶつかった時、状況を悪化させにくい対応はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "その場で大きな声でぶつけ合う",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "一度間を置いて落ち着いてから話す",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "一切口を利かなくなる",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "第三者を巻き込んで責める",
+        "is_correct": false
+      }
+    ],
+    "explanation": "感情が高ぶった瞬間にやり取りを続けると、言葉が強くなり関係を傷つけやすくなります。短時間でも間を置いて落ち着いてから話し合うと、互いの意図を確認しやすくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_COMM_005",
+    "genre_id": "communication",
+    "topic_label": "具体的な質問",
+    "question": "相手の考えを引き出しやすい質問のしかたはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "はい/いいえだけで答えられる質問だけにする",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "「具体的にはどんなことですか?」のように開いた質問も使う",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "抽象的に「どう?」だけを繰り返す",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "相手の答えを聞かずに次の質問をする",
+        "is_correct": false
+      }
+    ],
+    "explanation": "「はい/いいえ」だけの質問は確認には向きますが、考えを引き出す場面では、開いた質問(具体例や理由を尋ねる質問)を組み合わせると相手の考えが見えやすくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_COMM_006",
+    "genre_id": "communication",
+    "topic_label": "あいづちの役割",
+    "question": "会話中のあいづちが果たす役割として、適切な説明はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "聞いていることや関心を相手に伝える",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A2",
+        "label": "相手の話を遮ってこちらが話す合図にする",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A3",
+        "label": "会話を早く終わらせるための合図にする",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "相手の意見を否定する手段にする",
+        "is_correct": false
+      }
+    ],
+    "explanation": "あいづちは「聞いている」「興味を持っている」というサインとなり、相手が話しやすくなる効果があります。話を遮ったり、終わらせるための道具ではありません。"
+  },
+  {
+    "quiz_id": "QUIZ_LEARNING_001",
+    "genre_id": "learning",
+    "topic_label": "復習のタイミング",
+    "question": "記憶に残りやすい復習のしかたとして、よく知られているのはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "一度に長時間まとめて学び、その後は復習しない",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "間を空けて何度かに分けて復習する",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "学んだ直後だけ何度も繰り返し、後は触れない",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "一度も復習せず本番に臨む",
+        "is_correct": false
+      }
+    ],
+    "explanation": "「分散学習」と呼ばれる、間を空けて何度かに分けて復習する方法は、一夜漬けより長期的な記憶定着に有利と知られています。エビングハウスの忘却曲線などでもこの考え方が紹介されます。"
+  },
+  {
+    "quiz_id": "QUIZ_LEARNING_002",
+    "genre_id": "learning",
+    "topic_label": "アウトプット",
+    "question": "学んだ内容の定着を助けやすい行動として、適切なのはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "読んだだけで満足する",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "自分の言葉でまとめたり、誰かに説明する",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "読んだ内容に一切触れずに忘れる",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "同じ文章を何回も読み返すだけにする",
+        "is_correct": false
+      }
+    ],
+    "explanation": "自分の言葉で言い直したり他人に説明したりすると、理解の穴に気づき定着しやすくなります。受け身のままだと、わかったつもりで終わりやすくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_LEARNING_003",
+    "genre_id": "learning",
+    "topic_label": "学びの続け方",
+    "question": "学びを長く続けやすくする工夫として、適切なのはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "毎日何時間もの大量の学習を最初から課す",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "短時間でもいいので無理のない量を毎日続ける",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "気が向いた時だけ大量に取り組む",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "達成感は気にしない",
+        "is_correct": false
+      }
+    ],
+    "explanation": "習慣化の研究では、最初から大きな負荷を課すより、小さく始めて毎日続けるほうが定着しやすいとされます。続けば自然に量も増やしていけます。"
+  },
+  {
+    "quiz_id": "QUIZ_LEARNING_004",
+    "genre_id": "learning",
+    "topic_label": "集中の保ち方",
+    "question": "集中力を長く保ちやすくする方法として、適切なのはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "休憩を一切取らずに何時間も続ける",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "集中の時間と短い休憩を交互に組み合わせる",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "何時間も寝ずに学び続ける",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "取りかかる前から長く休憩を取る",
+        "is_correct": false
+      }
+    ],
+    "explanation": "まとまった集中と短い休憩を交互にとる方法(ポモドーロ・テクニックなど)は、集中力を保ちやすいことで知られています。連続して長時間続けると、注意力が落ちやすくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_LEARNING_005",
+    "genre_id": "learning",
+    "topic_label": "思い出す練習",
+    "question": "記憶のテストとしても効くと言われる学習方法はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "テキストを眺めるだけ",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "見ずに思い出して書き出してみる(想起練習)",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "答えを写すだけ",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "同じページを線で塗りつぶす",
+        "is_correct": false
+      }
+    ],
+    "explanation": "見ずに思い出してみる「想起練習」は、思い出した内容と覚えていない箇所を明らかにし、記憶を強める効果があるとされます。眺めるだけの学習よりも定着しやすいと言われています。"
+  },
+  {
+    "quiz_id": "QUIZ_LEARNING_006",
+    "genre_id": "learning",
+    "topic_label": "自分なりの要約",
+    "question": "学んだ内容を自分なりに要約することの効用として、最も適切なのはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "内容の理解の穴に気づき、整理が進む",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A2",
+        "label": "学んだ内容を必ず短くできる",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A3",
+        "label": "元の文章を引き写すだけで十分",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "要約しても理解にはつながらない",
+        "is_correct": false
+      }
+    ],
+    "explanation": "自分の言葉で要約しようとすると、つながりや具体例が浮かばない箇所に気づきやすくなります。短くする練習というより、自分の理解を確かめる練習として有効です。"
+  },
+  {
+    "quiz_id": "QUIZ_WORK_001",
+    "genre_id": "work",
+    "topic_label": "優先順位",
+    "question": "複数のやることを抱えた時、優先順位を決める時に役立つ視点として、適切なのはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "やりたい順に並べる",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "重要度と緊急度の両方を見て並べる",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "到着順に並べる",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "すべて同じ優先度として並列に進める",
+        "is_correct": false
+      }
+    ],
+    "explanation": "やることを重要度と緊急度の二つの視点で並べる方法(アイゼンハワー・マトリクスなど)は、何から手をつけるべきかを判断する代表的な方法として知られています。"
+  },
+  {
+    "quiz_id": "QUIZ_WORK_002",
+    "genre_id": "work",
+    "topic_label": "タスクの細分化",
+    "question": "大きな仕事に取りかかりにくい時、取り組みやすくする工夫はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "気合いが出るまで何もしない",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "1〜2時間で終わる小さなステップに分けてから始める",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "一度に完璧に終えようとする",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "締切ぎりぎりまで触れないようにする",
+        "is_correct": false
+      }
+    ],
+    "explanation": "大きな仕事は、最初の一歩が見えづらく後回しになりがちです。短時間で終わる単位に分けると、手をつけやすくなり、進捗も見えやすくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_WORK_003",
+    "genre_id": "work",
+    "topic_label": "会議の準備",
+    "question": "会議の時間を有意義に使うために、事前にしておくとよい準備はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "アジェンダ(議題)を共有しないで集まる",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "アジェンダと目的を事前に共有しておく",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "出席者を当日まで決めない",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "資料は当日初めて配る",
+        "is_correct": false
+      }
+    ],
+    "explanation": "何のために集まり、何を決めたいかを事前に共有しておくと、当日の議論が深まりやすくなります。準備のない会議は、目的のない雑談になりやすい傾向があります。"
+  },
+  {
+    "quiz_id": "QUIZ_WORK_004",
+    "genre_id": "work",
+    "topic_label": "締切とバッファ",
+    "question": "締切のある仕事をミスや遅れなく仕上げる工夫として、適切なのはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "締切ぴったりに仕上げるよう全力で詰め込む",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "締切より少し早めに終わるよう余裕(バッファ)を見込む",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "間に合わなくても問題ないと考える",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "締切を相手と共有しない",
+        "is_correct": false
+      }
+    ],
+    "explanation": "計画は予想外の事態で遅れがちです。締切に対して少し早めに終わる見積もりを置く(バッファを取る)と、見直しや修正の余地が生まれます。"
+  },
+  {
+    "quiz_id": "QUIZ_WORK_005",
+    "genre_id": "work",
+    "topic_label": "作業の中断",
+    "question": "作業を途中で中断する時、後の自分が再開しやすくする工夫はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "何も残さずに席を立つ",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "次に何をするかを一行メモしてから離れる",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "進捗を全部リセットする",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "進めた内容を全部消す",
+        "is_correct": false
+      }
+    ],
+    "explanation": "中断時に「次の一手」を短くメモしておくと、再開した時に状況を思い出す手間が減り、すぐに作業に戻りやすくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_WORK_006",
+    "genre_id": "work",
+    "topic_label": "すぐ済む仕事",
+    "question": "「2分以内で終わる」と判断できる小さな仕事に対して、よく勧められる対応はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "後回しにしてリストに溜める",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "その場ですぐに片付ける",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "見ないことにする",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "誰かに必ず依頼する",
+        "is_correct": false
+      }
+    ],
+    "explanation": "「2分ルール」と呼ばれる考え方では、すぐ終わる小さな仕事はその場で片付けてしまうほうが、後で記録・確認・思い出す手間より少ない、とされます。タスク管理の有名な手法のひとつです。"
+  },
+  {
+    "quiz_id": "QUIZ_NATURE_001",
+    "genre_id": "nature",
+    "topic_label": "紫外線の時間帯",
+    "question": "日本の夏で紫外線の量が特に多くなりやすいのは、1日のうちどの時間帯ですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "夜",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "正午を挟んだ午前10時頃〜午後2時頃",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "日の出直後だけ",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "日の入り直後だけ",
+        "is_correct": false
+      }
+    ],
+    "explanation": "太陽が高く昇る正午前後、特に午前10時頃から午後2時頃にかけては、地上に届く紫外線量が多くなります(気象庁・環境省の紫外線情報でも案内されています)。"
+  },
+  {
+    "quiz_id": "QUIZ_NATURE_002",
+    "genre_id": "nature",
+    "topic_label": "雷の安全",
+    "question": "屋外で雷が鳴り始めた時、比較的安全な避難先はどこですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "木のすぐ下",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "頑丈な建物の中や車の中",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "開けた草原の真ん中で立つ",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "金属の柵に寄りかかる",
+        "is_correct": false
+      }
+    ],
+    "explanation": "雷は高い木や開けた場所に落ちやすいため、木のそばや開けた草原に立つのは危険とされます。頑丈な建物の中や乗用車の中は雷の影響を受けにくく、避難先として推奨されています。"
+  },
+  {
+    "quiz_id": "QUIZ_NATURE_003",
+    "genre_id": "nature",
+    "topic_label": "地震時の身の守り方",
+    "question": "建物の中で大きな揺れを感じた時、最初に取るとよい行動はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "すぐに外へ飛び出す",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "頭を守り、揺れが収まるまで安全な場所に身を寄せる",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "エレベーターで急いで避難する",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "窓の近くに立つ",
+        "is_correct": false
+      }
+    ],
+    "explanation": "大きな揺れの最中に走って外に出ると、落下物や転倒で危険が増します。まず頭を守って身を低くし、揺れが収まってから安全を確かめて避難するのが基本です。エレベーターは閉じ込められる恐れがあるため、揺れの時には使用しません。"
+  },
+  {
+    "quiz_id": "QUIZ_NATURE_004",
+    "genre_id": "nature",
+    "topic_label": "室内の植物の水やり",
+    "question": "室内に置く観葉植物の水やりについて、一般的な基本はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "毎日決まった量を必ず与える",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "土の表面が乾いてからたっぷり与える",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "葉の色に関わらず水を絶やさない",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "水は与えない方が長持ちする",
+        "is_correct": false
+      }
+    ],
+    "explanation": "多くの観葉植物は、土の表面が乾いてから鉢底から水が抜けるくらいたっぷり与え、次に乾くまで間を空けるのが基本です。常に湿った状態は根腐れを招きやすいことが知られています。"
+  },
+  {
+    "quiz_id": "QUIZ_NATURE_005",
+    "genre_id": "nature",
+    "topic_label": "季節の気温差",
+    "question": "春や秋によく見られる「朝晩と日中の気温差」が大きい時に、体調管理として適切なのはどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "一日中真夏の服装で過ごす",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "脱ぎ着しやすい重ね着で調整する",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "一日中真冬の服装で過ごす",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "気温差は体に影響しない",
+        "is_correct": false
+      }
+    ],
+    "explanation": "春と秋は朝晩と日中の気温差が大きく、体温調節がしづらい時期です。重ね着で脱ぎ着がしやすいようにしておくと、気温差にこまめに対応しやすくなります。"
+  },
+  {
+    "quiz_id": "QUIZ_NATURE_006",
+    "genre_id": "nature",
+    "topic_label": "山で迷った時",
+    "question": "山中で道に迷ったと気づいた時、よく勧められる行動はどれですか?",
+    "answers": [
+      {
+        "answer_id": "A1",
+        "label": "夜になっても歩き続ける",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A2",
+        "label": "無理に下らず、可能であれば来た道に戻り、連絡を取る",
+        "is_correct": true
+      },
+      {
+        "answer_id": "A3",
+        "label": "見えないルートに突っ込んで近道を探す",
+        "is_correct": false
+      },
+      {
+        "answer_id": "A4",
+        "label": "いつまでも誰にも知らせない",
+        "is_correct": false
+      }
+    ],
+    "explanation": "一般に、山で迷った時は無理に下ろうとすると沢に入り込み危険が増すと言われます。来た道を戻れる場合は戻り、難しければ動かずに連絡する(通報や救助要請を行う)のが基本です。"
   }
 ]
