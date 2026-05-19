@@ -40,11 +40,47 @@
     browse:    { A: 'A1', B: 'B1' },
   };
 
-  // 10.6: diagnosis_type -> 軸C / 軸D（quiz のみ。mood は 4問×1軸決定で別経路 (9.5)、
-  // topic / path も同じく決定経路 (9.11/9.12)、game は 10.7 別経路）
-  const DIAG_AXIS_CD = {
-    quiz: { C: 'C2', D: 'D2' },
-  };
+  // 9.4: クイズ診断の軸三択フレーム。各組は知識設問1問＋軸の三択1つで構成し、
+  // 軸の三択のみが result_id 合成に用いられる。問いかけ文の {topic} に
+  // quizzes.json の topic_label を流し込む。
+  const QUIZ_AXIS_FRAMES = [
+    {
+      axis: 'A',
+      questionTpl: 'いまの{topic}のようなことを、これからどう学んでいきたい?',
+      answers: [
+        { label: 'ひとりで読んで考えたい', value: 'A1' },
+        { label: '手を動かして試したい',   value: 'A2' },
+        { label: '誰かと話しながら学びたい', value: 'A3' },
+      ],
+    },
+    {
+      axis: 'B',
+      questionTpl: '{topic}と聞いて、いちばん知りたくなるのはどれ?',
+      answers: [
+        { label: '自分自身に関わること', value: 'B1' },
+        { label: '世の中に関わること',   value: 'B2' },
+        { label: '分野や仕組みそのもの', value: 'B3' },
+      ],
+    },
+    {
+      axis: 'C',
+      questionTpl: '{topic}を学んだあと、自分のどこが変わっていたい?',
+      answers: [
+        { label: 'ものの見方が変わる',     value: 'C1' },
+        { label: 'できることが増える',     value: 'C2' },
+        { label: '暮らしや気持ちが整う',   value: 'C3' },
+      ],
+    },
+    {
+      axis: 'D',
+      questionTpl: '{topic}に、これからどのくらい関わっていきたい?',
+      answers: [
+        { label: '今日のすき間時間で軽く',   value: 'D1' },
+        { label: 'しばらく続けて少しずつ',   value: 'D2' },
+        { label: 'じっくり腰を据えて深く',   value: 'D3' },
+      ],
+    },
+  ];
 
   const PURPOSE_LABELS = {
     life: '生活に役立てたい',
@@ -378,7 +414,7 @@
   function attachListeners() {
     document.addEventListener('click', e => {
       const t = e.target.closest(
-        '[data-action], [data-go], [data-nav], [data-purpose], [data-diagnosis], [data-game], [data-confidence]'
+        '[data-action], [data-go], [data-nav], [data-purpose], [data-diagnosis], [data-game]'
       );
       if (!t) return;
       if (t.hasAttribute('data-action'))    { handleAction(t.getAttribute('data-action')); return; }
@@ -387,7 +423,6 @@
       if (t.hasAttribute('data-purpose'))   { handlePurposeSelect(t.getAttribute('data-purpose')); return; }
       if (t.hasAttribute('data-diagnosis')) { handleDiagnosisSelect(t.getAttribute('data-diagnosis')); return; }
       if (t.hasAttribute('data-game'))      { handleGameSelect(t.getAttribute('data-game')); return; }
-      if (t.hasAttribute('data-confidence')) { handleQuizConfidence(t.getAttribute('data-confidence')); return; }
     });
   }
 
@@ -540,11 +575,12 @@
     browse: null,
   };
 
-  let quizSession = [];
-  let quizIndex = 0;
-  let quizPhase = 'answer';
-  let quizCurrentAnswer = null;
-  let quizQuestionShownAt = 0;
+  // クイズ診断は「知識設問1問 + 軸の三択1つ」を1組とし、4組（軸A→B→C→D）繰り返す。
+  // result_id は軸の三択4つだけから合成され、知識設問の回答は result_id に影響しない。
+  let quizSession = [];         // 4問の知識設問
+  let quizIndex = 0;            // 現在の組（0..3）
+  let quizPhase = 'knowledge';  // 'knowledge' | 'axis'
+  let quizCurrentKnowledge = null; // 現在の組の知識設問の回答記録
 
   function shuffleInPlace(arr) {
     for (let i = arr.length - 1; i > 0; i -= 1) {
@@ -559,10 +595,10 @@
     const wanted = PURPOSE_TO_GENRE[purposeId];
     let pool = [];
     if (wanted) pool = all.filter(q => q.genre_id === wanted);
-    if (pool.length < 3) pool = all.slice();
+    if (pool.length < 4) pool = all.slice();
     else pool = pool.slice();
     shuffleInPlace(pool);
-    return pool.slice(0, 3);
+    return pool.slice(0, 4);
   }
 
   function startQuizSession() {
@@ -580,9 +616,8 @@
   function renderQuizQuestion() {
     const q = quizSession[quizIndex];
     if (!q) { finishDiagnosis(); return; }
-    quizPhase = 'answer';
-    quizCurrentAnswer = null;
-    quizQuestionShownAt = Date.now();
+    quizPhase = 'knowledge';
+    quizCurrentKnowledge = null;
 
     const total = quizSession.length;
     const pe = document.getElementById('quiz-progress');
@@ -602,15 +637,19 @@
       });
     }
     setHidden('quiz-feedback', true);
-    setHidden('quiz-confidence', true);
+    setHidden('quiz-axis-block', true);
   }
 
   function handleQuizAnswer(question, answer, btn) {
-    if (quizPhase !== 'answer') return;
-    quizPhase = 'confidence';
-    quizCurrentAnswer = answer;
-    quizCurrentAnswer._responseSeconds = (Date.now() - quizQuestionShownAt) / 1000;
+    if (quizPhase !== 'knowledge') return;
+    quizPhase = 'axis';
+    quizCurrentKnowledge = {
+      quiz_id: question.quiz_id,
+      knowledge_answer_id: answer.answer_id,
+      is_correct: !!answer.is_correct,
+    };
 
+    // 正誤表示と選択肢の無効化
     const ae = document.getElementById('quiz-answers');
     if (ae) {
       const buttons = ae.querySelectorAll('button');
@@ -634,43 +673,55 @@
     const ee = document.getElementById('quiz-explanation');
     if (ee) ee.textContent = question.explanation || '';
     setHidden('quiz-feedback', false);
-    setHidden('quiz-confidence', false);
+
+    renderQuizAxisQuestion(question);
   }
 
-  function handleQuizConfidence(confidence) {
-    if (quizPhase !== 'confidence') return;
-    const q = quizSession[quizIndex];
-    const a = quizCurrentAnswer;
-    if (!q || !a) return;
+  function renderQuizAxisQuestion(quizQuestion) {
+    const frame = QUIZ_AXIS_FRAMES[quizIndex];
+    if (!frame) return;
+    const topic = quizQuestion.topic_label || '';
+    const qtext = frame.questionTpl.replace('{topic}', topic);
+    const qel = document.getElementById('quiz-axis-question');
+    if (qel) qel.textContent = qtext;
+    const aEl = document.getElementById('quiz-axis-answers');
+    if (aEl) {
+      aEl.innerHTML = '';
+      frame.answers.forEach(a => {
+        const btn = document.createElement('button');
+        btn.className = 'card-btn';
+        btn.type = 'button';
+        btn.textContent = a.label;
+        btn.addEventListener('click', () => handleQuizAxisChoice(frame, a));
+        aEl.appendChild(btn);
+      });
+    }
+    setHidden('quiz-axis-block', false);
+  }
 
+  function handleQuizAxisChoice(frame, axisAnswer) {
+    if (quizPhase !== 'axis') return;
+    const know = quizCurrentKnowledge || {};
     STATE.quizAnswers.push({
-      quiz_id: q.quiz_id,
-      selected_answer_id: a.answer_id,
-      is_correct: !!a.is_correct,
-      confidence: confidence,
-      response_seconds: a._responseSeconds || null,
-      axis_scores: a.axis_scores || { A:{}, B:{}, C:{}, D:{} },
-      behavior_tag: a.behavior_tag || null,
+      quiz_id: know.quiz_id || null,
+      knowledge_answer_id: know.knowledge_answer_id || null,
+      is_correct: !!know.is_correct,
+      axis: frame.axis,
+      value: axisAnswer.value,
+      label: axisAnswer.label,
     });
     quizIndex += 1;
     if (quizIndex >= quizSession.length) finishDiagnosis();
     else renderQuizQuestion();
   }
 
-  // ===== 行動傾向タグ集計 (9.4, 12.3, 23.4) =====
-  // mood / topic / path は behavior_tag を付与しないため、ここでは扱わない。
-  // タグの付与経路は quiz（データ+confidence/response_seconds）と game のみ。
+  // ===== 行動傾向タグ集計 (12.3, 23.4) =====
+  // mood / topic / path / quiz は behavior_tag を付与しない。
+  // タグの付与経路は game のみ（10.7 のゲーム指標 → タグ変換）。
   function aggregateBehaviorTraits() {
     const counts = {};
     function inc(tag) { if (!tag) return; counts[tag] = (counts[tag] || 0) + 1; }
 
-    STATE.quizAnswers.forEach(a => {
-      inc(a.behavior_tag);
-      // 9.4 軽推定: confidence と response_seconds から追加付与
-      if (a.confidence === 'high' && a.response_seconds !== null && a.response_seconds < 3) inc('quick_action');
-      if (a.confidence === 'guess') inc('intuition');
-      if (a.response_seconds !== null && a.response_seconds >= 10) inc('cautious');
-    });
     if (STATE.gameResult && Array.isArray(STATE.gameResult.behavior_traits)) {
       STATE.gameResult.behavior_traits.forEach(inc);
     }
@@ -683,88 +734,33 @@
     return entries.slice(0, 2).map(e => e[0]);
   }
 
-  // ===== 4軸スコア集計と result_id 算出 (10) =====
-  function emptyAxisScores() { return { A: {}, B: {}, C: {}, D: {} }; }
-
-  function addAxisScores(target, source) {
-    if (!source) return;
-    ['A','B','C','D'].forEach(axis => {
-      const m = source[axis] || {};
-      Object.keys(m).forEach(k => {
-        const v = m[k];
-        if (typeof v !== 'number') return;
-        target[axis][k] = (target[axis][k] || 0) + v;
-      });
-    });
-  }
-
-  function selectAxisValue(axisScores, axisKey, purposeId, diagnosisType) {
-    const map = axisScores[axisKey] || {};
-    const entries = Object.entries(map);
-
-    // 軸スコアが空 → 10.6 のデフォルトを採用
-    if (entries.length === 0) {
-      if ((axisKey === 'A' || axisKey === 'B') && PURPOSE_AXIS_AB[purposeId]) return PURPOSE_AXIS_AB[purposeId][axisKey];
-      if ((axisKey === 'C' || axisKey === 'D') && DIAG_AXIS_CD[diagnosisType]) return DIAG_AXIS_CD[diagnosisType][axisKey];
-      return axisKey + '1';
-    }
-
-    const max = entries.reduce((m, e) => (e[1] > m ? e[1] : m), -Infinity);
-    const top = entries.filter(e => e[1] === max).map(e => e[0]);
-    if (top.length === 1) return top[0];
-
-    // 10.6 同点処理
-    if ((axisKey === 'A' || axisKey === 'B') && PURPOSE_AXIS_AB[purposeId]) {
-      const v = PURPOSE_AXIS_AB[purposeId][axisKey];
-      if (top.indexOf(v) !== -1) return v;
-    }
-    if ((axisKey === 'C' || axisKey === 'D') && DIAG_AXIS_CD[diagnosisType]) {
-      const v = DIAG_AXIS_CD[diagnosisType][axisKey];
-      if (top.indexOf(v) !== -1) return v;
-    }
-    // 第三優先: 軸値の自然順（A1 < A2 < A3 等）で最先頭
-    return top.sort()[0];
-  }
-
+  // ===== result_id 算出 (10) =====
+  // すべての診断形式が4軸を「決定的に」決める方式に統一された：
+  //   quiz / mood / topic / path は4組×1軸の選択で4軸を直接決定（composeResultIdFromAnswers）
+  //   game は purpose から軸A・軸B、ゲーム指標から軸C・軸Dを決定（10.7、STATE.gameResult.result_id）
+  // 旧来の軸スコア累積・同点処理・固定既定値は廃止された。
   function computeResultId() {
-    // 10.7: ゲーム経路は別ロジック。STATE.gameResult.result_id が直接 4軸IDを保持する想定。
     if (STATE.diagnosisType === 'game' && STATE.gameResult && STATE.gameResult.result_id) {
       return { resultId: STATE.gameResult.result_id, isDefault: false };
     }
-
-    // 9.11: topic 経路は4問×4軸。ユーザー選択のみで4軸が確定し、result_id 81通りに到達可能。
-    if (STATE.diagnosisType === 'topic') {
-      const rid = composeResultIdFromAnswers(STATE.topicAnswers);
+    if (STATE.diagnosisType === 'quiz') {
+      const rid = composeResultIdFromAnswers(STATE.quizAnswers);
       if (rid) return { resultId: rid, isDefault: false };
     }
-
-    // 9.12: path 経路は4問×4軸。ユーザー選択のみで4軸が確定し、result_id 81通りに到達可能。
-    if (STATE.diagnosisType === 'path') {
-      const rid = composeResultIdFromAnswers(STATE.pathAnswers);
-      if (rid) return { resultId: rid, isDefault: false };
-    }
-
-    // 9.5: mood 経路も4問×4軸の決定的対応。ユーザー選択のみで4軸が確定し、result_id 81通りに到達可能。
     if (STATE.diagnosisType === 'mood') {
       const rid = composeResultIdFromAnswers(STATE.moodAnswers);
       if (rid) return { resultId: rid, isDefault: false };
     }
-
-    // ここに到達するのは quiz 経路（または不明な経路）。クイズはスコア集計＋軸別判定方式を維持。
-    const scores = emptyAxisScores();
-    STATE.quizAnswers.forEach(a => addAxisScores(scores, a.axis_scores));
-
-    const allEmpty = ['A','B','C','D'].every(ax => Object.keys(scores[ax]).length === 0);
-    if (allEmpty && !STATE.gameResult) {
-      // 17.2 デフォルト
-      return { resultId: DEFAULT_RESULT_ID, isDefault: true };
+    if (STATE.diagnosisType === 'topic') {
+      const rid = composeResultIdFromAnswers(STATE.topicAnswers);
+      if (rid) return { resultId: rid, isDefault: false };
     }
-
-    const a = selectAxisValue(scores, 'A', STATE.purpose, STATE.diagnosisType);
-    const b = selectAxisValue(scores, 'B', STATE.purpose, STATE.diagnosisType);
-    const c = selectAxisValue(scores, 'C', STATE.purpose, STATE.diagnosisType);
-    const d = selectAxisValue(scores, 'D', STATE.purpose, STATE.diagnosisType);
-    return { resultId: a + b + c + d, isDefault: false };
+    if (STATE.diagnosisType === 'path') {
+      const rid = composeResultIdFromAnswers(STATE.pathAnswers);
+      if (rid) return { resultId: rid, isDefault: false };
+    }
+    // 17.2 デフォルト: いずれの経路でも result_id を確定できない場合
+    return { resultId: DEFAULT_RESULT_ID, isDefault: true };
   }
 
   // ===== ハイブリッド方式ガイドマッチング (12, 23) =====
