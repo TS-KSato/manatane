@@ -1,151 +1,93 @@
 [
   {
     "question_id": "Q_MOOD_001",
-    "question": "新しいことを学ぶなら、今日はどれが近い?",
+    "axis": "A",
+    "question": "今日、どんなふうに過ごしたい?",
+    "note": "今日の学びを、どんな時間の中で進めたいか、という問いです",
     "answers": [
       {
-        "answer_id": "A_TRY",
-        "label": "まず試したい",
-        "axis_scores": {
-          "A": { "A2": 2, "A1": 1 },
-          "B": {},
-          "C": { "C2": 2 },
-          "D": { "D1": 2 }
-        },
-        "behavior_tag": "quick_action"
+        "answer_id": "A_QUIET",
+        "label": "ひとりで静かに考えたい",
+        "value": "A1"
       },
       {
-        "answer_id": "A_OVERVIEW",
-        "label": "全体像を知りたい",
-        "axis_scores": {
-          "A": { "A1": 2 },
-          "B": { "B2": 1, "B3": 1 },
-          "C": { "C1": 2 },
-          "D": { "D2": 1, "D3": 1 }
-        },
-        "behavior_tag": "planning"
+        "answer_id": "A_HANDS",
+        "label": "何かに手を動かして取り組みたい",
+        "value": "A2"
       },
       {
-        "answer_id": "A_STEPS",
-        "label": "手順があると安心",
-        "axis_scores": {
-          "A": { "A2": 1 },
-          "B": { "B3": 2 },
-          "C": { "C2": 2 },
-          "D": { "D2": 2 }
-        },
-        "behavior_tag": "cautious"
-      },
-      {
-        "answer_id": "A_BROWSE",
-        "label": "気になるものを眺めたい",
-        "axis_scores": {
-          "A": { "A1": 1 },
-          "B": { "B2": 2 },
-          "C": { "C1": 1 },
-          "D": { "D1": 2 }
-        },
-        "behavior_tag": "exploration"
+        "answer_id": "A_PEOPLE",
+        "label": "誰かと話したり関わったりしたい",
+        "value": "A3"
       }
     ]
   },
   {
     "question_id": "Q_MOOD_002",
-    "question": "今の学習に使える時間は?",
+    "axis": "B",
+    "question": "いま、心が向いているのはどれ?",
+    "note": "今日いちばん気になっている方向に、学びの入り口があります",
     "answers": [
       {
-        "answer_id": "A_1MIN",
-        "label": "1分だけ",
-        "axis_scores": {
-          "A": {},
-          "B": {},
-          "C": {},
-          "D": { "D1": 2 }
-        },
-        "behavior_tag": "quick_action"
+        "answer_id": "B_INNER",
+        "label": "自分自身の内側のこと",
+        "value": "B1"
       },
       {
-        "answer_id": "A_5MIN",
-        "label": "5分くらい",
-        "axis_scores": {
-          "A": {},
-          "B": {},
-          "C": {},
-          "D": { "D1": 1, "D2": 1 }
-        },
-        "behavior_tag": null
+        "answer_id": "B_WORLD",
+        "label": "自分の外にある世の中のこと",
+        "value": "B2"
       },
       {
-        "answer_id": "A_15MIN",
-        "label": "15分くらい",
-        "axis_scores": {
-          "A": {},
-          "B": {},
-          "C": {},
-          "D": { "D2": 2 }
-        },
-        "behavior_tag": "persistence"
-      },
-      {
-        "answer_id": "A_LOOK",
-        "label": "今日は見るだけ",
-        "axis_scores": {
-          "A": { "A1": 1 },
-          "B": {},
-          "C": { "C1": 1 },
-          "D": { "D1": 2 }
-        },
-        "behavior_tag": "switching"
+        "answer_id": "B_FIELD",
+        "label": "特定の分野やものの仕組み",
+        "value": "B3"
       }
     ]
   },
   {
     "question_id": "Q_MOOD_003",
-    "question": "つまずいた時に近い行動は?",
+    "axis": "C",
+    "question": "今日、ほしい変化は?",
+    "note": "学んだあとに、自分のどこが変わっていたら満足かを思い浮かべてみてください",
     "answers": [
       {
-        "answer_id": "A_SEARCH",
-        "label": "調べる",
-        "axis_scores": {
-          "A": { "A1": 2 },
-          "B": { "B3": 1 },
-          "C": { "C1": 1, "C2": 1 },
-          "D": { "D2": 1 }
-        },
-        "behavior_tag": "exploration"
+        "answer_id": "C_VIEW",
+        "label": "ものの見方が変わるような気づき",
+        "value": "C1"
       },
       {
-        "answer_id": "A_ASK",
-        "label": "誰かに聞く",
-        "axis_scores": {
-          "A": { "A3": 2 },
-          "B": { "B1": 1 },
-          "C": { "C2": 1 },
-          "D": { "D1": 1, "D2": 1 }
-        },
-        "behavior_tag": "dialogue"
+        "answer_id": "C_SKILL",
+        "label": "新しくできることが増える手応え",
+        "value": "C2"
       },
       {
-        "answer_id": "A_PAUSE",
-        "label": "一度止まる",
-        "axis_scores": {
-          "A": { "A1": 1 },
-          "B": { "B1": 1 },
-          "C": { "C3": 1 },
-          "D": { "D1": 1 }
-        },
-        "behavior_tag": "cautious"
+        "answer_id": "C_LIFE",
+        "label": "暮らしや気持ちが整う落ち着き",
+        "value": "C3"
+      }
+    ]
+  },
+  {
+    "question_id": "Q_MOOD_004",
+    "axis": "D",
+    "question": "学びと、どのくらい付き合いたい?",
+    "note": "今日だけのことか、これから続けたいことか。今の気持ちのままで構いません",
+    "answers": [
+      {
+        "answer_id": "D_LIGHT",
+        "label": "今日のすき間時間で軽く",
+        "value": "D1"
       },
       {
-        "answer_id": "A_OTHER",
-        "label": "別の方法を探す",
-        "axis_scores": {
-          "A": { "A2": 1 },
-          "B": {},
-          "C": { "C2": 1 },
-          "D": { "D1": 1 }
-        },
-        "behavior_tag": "switching"
+        "answer_id": "D_CONT",
+        "label": "しばらく続けて少しずつ",
+        "value": "D2"
+      },
+      {
+        "answer_id": "D_DEEP",
+        "label": "じっくり腰を据えて深く",
+        "value": "D3"
       }
     ]
   }

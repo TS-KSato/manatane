@@ -40,10 +40,10 @@
     browse:    { A: 'A1', B: 'B1' },
   };
 
-  // 10.6: diagnosis_type -> 軸C / 軸D（クイズ・mood のみ。gameは 10.7 別経路）
+  // 10.6: diagnosis_type -> 軸C / 軸D（quiz のみ。mood は 4問×1軸決定で別経路 (9.5)、
+  // topic / path も同じく決定経路 (9.11/9.12)、game は 10.7 別経路）
   const DIAG_AXIS_CD = {
     quiz: { C: 'C2', D: 'D2' },
-    mood: { C: 'C1', D: 'D1' },
   };
 
   const PURPOSE_LABELS = {
@@ -411,6 +411,12 @@
     if (pe) pe.textContent = '質問 ' + (moodIndex + 1) + ' / ' + total;
     const qt = document.querySelector('#mood-question .quiz-question-text');
     if (qt) qt.textContent = q.question;
+    // 9.5: 短い問いと選択肢の間に補足文を表示（mood 固有要素）
+    const noteEl = document.getElementById('mood-question-note');
+    if (noteEl) {
+      noteEl.textContent = q.note || '';
+      noteEl.hidden = !q.note;
+    }
     const ae = document.getElementById('mood-answers');
     if (!ae) return;
     ae.innerHTML = '';
@@ -425,11 +431,13 @@
   }
 
   function handleMoodAnswer(question, answer) {
+    // 9.5: 各問は1軸を決定的に決める三択。{axis, value} を直接記録（旧 axis_scores 方式は廃止）。
     STATE.moodAnswers.push({
       question_id: question.question_id,
       answer_id: answer.answer_id,
-      axis_scores: answer.axis_scores || { A:{}, B:{}, C:{}, D:{} },
-      behavior_tag: answer.behavior_tag || null,
+      axis: question.axis,
+      value: answer.value,
+      label: answer.label,
     });
     moodIndex += 1;
     if (moodIndex >= moodSession.length) finishDiagnosis();
@@ -650,11 +658,12 @@
   }
 
   // ===== 行動傾向タグ集計 (9.4, 12.3, 23.4) =====
+  // mood / topic / path は behavior_tag を付与しないため、ここでは扱わない。
+  // タグの付与経路は quiz（データ+confidence/response_seconds）と game のみ。
   function aggregateBehaviorTraits() {
     const counts = {};
     function inc(tag) { if (!tag) return; counts[tag] = (counts[tag] || 0) + 1; }
 
-    STATE.moodAnswers.forEach(a => inc(a.behavior_tag));
     STATE.quizAnswers.forEach(a => {
       inc(a.behavior_tag);
       // 9.4 軽推定: confidence と response_seconds から追加付与
@@ -735,8 +744,14 @@
       if (rid) return { resultId: rid, isDefault: false };
     }
 
+    // 9.5: mood 経路も4問×4軸の決定的対応。ユーザー選択のみで4軸が確定し、result_id 81通りに到達可能。
+    if (STATE.diagnosisType === 'mood') {
+      const rid = composeResultIdFromAnswers(STATE.moodAnswers);
+      if (rid) return { resultId: rid, isDefault: false };
+    }
+
+    // ここに到達するのは quiz 経路（または不明な経路）。クイズはスコア集計＋軸別判定方式を維持。
     const scores = emptyAxisScores();
-    STATE.moodAnswers.forEach(a => addAxisScores(scores, a.axis_scores));
     STATE.quizAnswers.forEach(a => addAxisScores(scores, a.axis_scores));
 
     const allEmpty = ['A','B','C','D'].every(ax => Object.keys(scores[ax]).length === 0);

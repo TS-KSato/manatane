@@ -108,17 +108,18 @@
       </div>
     </section>
 
-    <!-- 9.5 「今の気分から見つける」画面（diagnosis_type=mood） -->
+    <!-- 9.5 「今の気分から見つける」画面（diagnosis_type=mood, 4問×4軸構成・補足文付き） -->
     <section class="screen" id="screen-mood" data-screen="mood" hidden>
       <header class="screen-header">
         <button class="btn-back" data-action="back" aria-label="戻る">＜ 戻る</button>
         <h2 class="screen-title">今日の学び方チェック</h2>
       </header>
       <div class="screen-body">
-        <p class="progress" id="mood-progress">質問 1 / 3</p>
+        <p class="progress" id="mood-progress">質問 1 / 4</p>
         <div class="quiz-question" id="mood-question">
           <p class="quiz-question-text">質問文がここに表示されます。</p>
         </div>
+        <p class="note" id="mood-question-note">補足文がここに表示されます。</p>
         <div class="card-list" id="mood-answers">
           <button class="card-btn">選択肢</button>
         </div>
