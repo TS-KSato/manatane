@@ -46,7 +46,7 @@
   const QUIZ_AXIS_FRAMES = [
     {
       axis: 'A',
-      questionTpl: 'いまの{topic}のようなことを、これからどう学んでいきたい?',
+      questionTpl: '{topic}にもう少し触れるなら、どれが近い?',
       answers: [
         { label: 'ひとりで読んで考えたい', value: 'A1' },
         { label: '手を動かして試したい',   value: 'A2' },
@@ -55,7 +55,7 @@
     },
     {
       axis: 'B',
-      questionTpl: '{topic}と聞いて、いちばん知りたくなるのはどれ?',
+      questionTpl: '{topic}を入口にするなら、どんな方向が気になる?',
       answers: [
         { label: '自分自身に関わること', value: 'B1' },
         { label: '世の中に関わること',   value: 'B2' },
@@ -64,7 +64,7 @@
     },
     {
       axis: 'C',
-      questionTpl: '{topic}を学んだあと、自分のどこが変わっていたい?',
+      questionTpl: '{topic}の先で、どんな手応えがあるといい?',
       answers: [
         { label: 'ものの見方が変わる',     value: 'C1' },
         { label: 'できることが増える',     value: 'C2' },
@@ -73,7 +73,7 @@
     },
     {
       axis: 'D',
-      questionTpl: '{topic}に、これからどのくらい関わっていきたい?',
+      questionTpl: '{topic}、どのくらいの時間で触れてみる?',
       answers: [
         { label: '今日のすき間時間で軽く',   value: 'D1' },
         { label: 'しばらく続けて少しずつ',   value: 'D2' },
