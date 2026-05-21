@@ -98,26 +98,36 @@ body {
 
 /* home brand */
 .brand {
-  margin: 24px 0 4px;
+  margin: 24px 0 8px;
   font-size: 32px;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.04em;
 }
 
-.brand-en {
-  margin: 0 0 16px;
+/* ホーム画面のサービス説明文（サービス名の直下）。本文よりやや控えめ。 */
+.service-desc {
+  margin: 0 0 20px;
   text-align: center;
   color: var(--color-text-sub);
-  font-size: 13px;
-  letter-spacing: 0.12em;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .lead {
   text-align: center;
   font-size: 20px;
   font-weight: 600;
-  margin: 16px 0 4px;
+  margin: 12px 0 16px;
+}
+
+/* ホーム画面のボタン下に置く誘い文。小さく柔らかい印象。 */
+.invite {
+  text-align: center;
+  color: var(--color-text-sub);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 12px 0 0;
 }
 
 .desc {
