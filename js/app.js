@@ -92,7 +92,7 @@
   };
   const DIAGNOSIS_LABELS = {
     quiz: 'クイズ診断',
-    mood: '今の気分から見つける',
+    mood: '気分から見つける',
     topic: '気になることから探す',
     path: 'これまでの学びから探す',
     game: 'ミニゲーム診断',
@@ -426,7 +426,7 @@
     });
   }
 
-  // ===== 今の気分から見つける（diagnosis_type=mood, 9.5）=====
+  // ===== 気分から見つける（diagnosis_type=mood, 9.5）=====
   let moodSession = [];
   let moodIndex = 0;
 
