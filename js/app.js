@@ -994,13 +994,26 @@
         m.textContent = '想定時間：' + r.estimated_time;
         card.appendChild(m);
       }
-      const link = document.createElement('a');
-      link.className = 'btn btn-primary';
-      link.href = r.url || 'https://example.com';
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      link.textContent = '見てみる';
-      card.appendChild(link);
+      // 9.9: urls 配列の全件を順に「見てみる」ボタンとして縦に並べる。
+      // 旧 url 単一フィールドは廃止。後方互換のため r.url があれば 1要素配列として扱う。
+      const urls = Array.isArray(r.urls) && r.urls.length > 0
+        ? r.urls
+        : (r.url ? [r.url] : []);
+      if (urls.length > 0) {
+        const linkList = document.createElement('div');
+        linkList.className = 'route-links';
+        urls.forEach(href => {
+          if (typeof href !== 'string' || !href) return;
+          const link = document.createElement('a');
+          link.className = 'btn btn-primary route-link';
+          link.href = href;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = '見てみる';
+          linkList.appendChild(link);
+        });
+        card.appendChild(linkList);
+      }
       listEl.appendChild(card);
     });
   }

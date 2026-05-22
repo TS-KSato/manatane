@@ -1,812 +1,1441 @@
 [
   {
     "route_id": "ROUTE_B1C1D1_FREE",
-    "target_results": ["A1B1C1D1", "A2B1C1D1", "A3B1C1D1"],
+    "target_results": [
+      "A1B1C1D1",
+      "A2B1C1D1",
+      "A3B1C1D1"
+    ],
     "route_type": "free",
     "title": "無料で試す:自分の見方を知る",
     "description": "短い記事や無料教材で、自分の考え方の傾向を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "url": "https://example.com"
+    "urls": [
+      "https://corp.miidas.jp/assessment/7840/",
+      "https://www.awarefy.com/coglabo/post/cognitive-bias",
+      "https://corp.miidas.jp/assessment/tag/%E8%AA%8D%E7%9F%A5%E3%83%90%E3%82%A4%E3%82%A2%E3%82%B9/"
+    ]
   },
   {
     "route_id": "ROUTE_B1C1D1_LOW",
-    "target_results": ["A1B1C1D1", "A2B1C1D1", "A3B1C1D1"],
+    "target_results": [
+      "A1B1C1D1",
+      "A2B1C1D1",
+      "A3B1C1D1"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:自分の見方を知る",
     "description": "低価格の教材で、自分の考え方の傾向を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "url": "https://example.com"
+    "urls": [
+      "https://news.yahoo.co.jp/articles/7abedeeb4e5afeb4f7f4de5eb6ef1cc79a62bc91?page=3",
+      "https://note.com/zyagasan/n/n1162c061b376",
+      "https://news.yahoo.co.jp/articles/7abedeeb4e5afeb4f7f4de5eb6ef1cc79a62bc91?page=3"
+    ]
   },
   {
     "route_id": "ROUTE_B1C1D1_DEEP",
-    "target_results": ["A1B1C1D1", "A2B1C1D1", "A3B1C1D1"],
+    "target_results": [
+      "A1B1C1D1",
+      "A2B1C1D1",
+      "A3B1C1D1"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:自分の見方を知る",
     "description": "短時間でも密度のある教材で、自分の考え方の傾向に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "url": "https://example.com"
+    "urls": [
+      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/",
+      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374474/",
+      "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
+    ]
   },
   {
     "route_id": "ROUTE_B1C1D2_FREE",
-    "target_results": ["A1B1C1D2", "A2B1C1D2", "A3B1C1D2"],
+    "target_results": [
+      "A1B1C1D2",
+      "A2B1C1D2",
+      "A3B1C1D2"
+    ],
     "route_type": "free",
     "title": "無料で試す:自分の見方を知る",
     "description": "無料教材を数週間続けて、自分の考え方の傾向に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.awarefy.com/coglabo/post/cure-emotional-instability",
+      "https://note.com/hanako_inoue/n/nca3dbbf28372",
+      "https://note.com/support_office/n/n2197d506db36"
+    ]
   },
   {
     "route_id": "ROUTE_B1C1D2_LOW",
-    "target_results": ["A1B1C1D2", "A2B1C1D2", "A3B1C1D2"],
+    "target_results": [
+      "A1B1C1D2",
+      "A2B1C1D2",
+      "A3B1C1D2"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:自分の見方を知る",
     "description": "低価格の継続教材で、数週間かけて自分の考え方の傾向を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.awarefy.com/coglabo/post/cognitive-bias",
+      "https://note.com/support_office/n/n2197d506db36",
+      "https://www.awarefy.com/coglabo/post/cure-emotional-instability"
+    ]
   },
   {
     "route_id": "ROUTE_B1C1D2_DEEP",
-    "target_results": ["A1B1C1D2", "A2B1C1D2", "A3B1C1D2"],
+    "target_results": [
+      "A1B1C1D2",
+      "A2B1C1D2",
+      "A3B1C1D2"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:自分の見方を知る",
     "description": "体系的な教材で、数ヶ月かけて自分の考え方の傾向を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/",
+      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10375198/",
+      "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
+    ]
   },
   {
     "route_id": "ROUTE_B1C1D3_FREE",
-    "target_results": ["A1B1C1D3", "A2B1C1D3", "A3B1C1D3"],
+    "target_results": [
+      "A1B1C1D3",
+      "A2B1C1D3",
+      "A3B1C1D3"
+    ],
     "route_type": "free",
     "title": "無料で試す:自分の見方を知る",
     "description": "無料教材から始めて、長期的に自分の考え方の傾向を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/",
+      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374474/",
+      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10375198/"
+    ]
   },
   {
     "route_id": "ROUTE_B1C1D3_LOW",
-    "target_results": ["A1B1C1D3", "A2B1C1D3", "A3B1C1D3"],
+    "target_results": [
+      "A1B1C1D3",
+      "A2B1C1D3",
+      "A3B1C1D3"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:自分の見方を知る",
     "description": "低価格の教材を継続し、年単位で自分の考え方の傾向に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "url": "https://example.com"
+    "urls": [
+      "https://note.com/support_office/n/n2197d506db36",
+      "https://note.com/hanako_inoue/n/nca3dbbf28372",
+      "https://www.awarefy.com/coglabo/post/cure-emotional-instability"
+    ]
   },
   {
     "route_id": "ROUTE_B1C1D3_DEEP",
-    "target_results": ["A1B1C1D3", "A2B1C1D3", "A3B1C1D3"],
+    "target_results": [
+      "A1B1C1D3",
+      "A2B1C1D3",
+      "A3B1C1D3"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:自分の見方を知る",
     "description": "本格的な教材で、長期にわたり自分の考え方の傾向を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "url": "https://example.com"
+    "urls": [
+      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/",
+      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10375198/",
+      "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
+    ]
   },
   {
     "route_id": "ROUTE_B1C2D1_FREE",
-    "target_results": ["A1B1C2D1", "A2B1C2D1", "A3B1C2D1"],
+    "target_results": [
+      "A1B1C2D1",
+      "A2B1C2D1",
+      "A3B1C2D1"
+    ],
     "route_type": "free",
     "title": "無料で試す:自分に合うやり方を試す",
     "description": "短い記事や無料教材で、自分に合った技能の身につけ方を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "url": "https://example.com"
+    "urls": [
+      "https://studyhacker.net/",
+      "https://www.duolingo.com/",
+      "https://www.udemy.com/courses/free/"
+    ]
   },
   {
     "route_id": "ROUTE_B1C2D1_LOW",
-    "target_results": ["A1B1C2D1", "A2B1C2D1", "A3B1C2D1"],
+    "target_results": [
+      "A1B1C2D1",
+      "A2B1C2D1",
+      "A3B1C2D1"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:自分に合うやり方を試す",
     "description": "低価格の教材で、自分に合った技能の身につけ方を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.notion.so/ja-jp",
+      "https://habitify.me/",
+      "https://www.coursera.org/"
+    ]
   },
   {
     "route_id": "ROUTE_B1C2D1_DEEP",
-    "target_results": ["A1B1C2D1", "A2B1C2D1", "A3B1C2D1"],
+    "target_results": [
+      "A1B1C2D1",
+      "A2B1C2D1",
+      "A3B1C2D1"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:自分に合うやり方を試す",
     "description": "短時間でも密度のある教材で、自分に合った技能の身につけ方に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.linkedin.com/learning/"
+    ]
   },
   {
     "route_id": "ROUTE_B1C2D2_FREE",
-    "target_results": ["A1B1C2D2", "A2B1C2D2", "A3B1C2D2"],
+    "target_results": [
+      "A1B1C2D2",
+      "A2B1C2D2",
+      "A3B1C2D2"
+    ],
     "route_type": "free",
     "title": "無料で試す:自分に合うやり方を試す",
     "description": "無料教材を数週間続けて、自分に合った技能の身につけ方に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.notion.so/ja/templates/category/free-study-planner-templates",
+      "https://www.notion.so/ja/templates/category/free-learning-templates"
+    ]
   },
   {
     "route_id": "ROUTE_B1C2D2_LOW",
-    "target_results": ["A1B1C2D2", "A2B1C2D2", "A3B1C2D2"],
+    "target_results": [
+      "A1B1C2D2",
+      "A2B1C2D2",
+      "A3B1C2D2"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:自分に合うやり方を試す",
     "description": "低価格の継続教材で、数週間かけて自分に合った技能の身につけ方を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://howto.schoo.jp/navi-detail/9S-wnOvJ",
+      "https://www.lifehacker.jp/article/214542tiny_habit/"
+    ]
   },
   {
     "route_id": "ROUTE_B1C2D2_DEEP",
-    "target_results": ["A1B1C2D2", "A2B1C2D2", "A3B1C2D2"],
+    "target_results": [
+      "A1B1C2D2",
+      "A2B1C2D2",
+      "A3B1C2D2"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:自分に合うやり方を試す",
     "description": "体系的な教材で、数ヶ月かけて自分に合った技能の身につけ方を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://howto.schoo.jp/navi-detail/9S-wnOvJ",
+      "https://www.notion.so/ja/templates/category/free-learning-templates"
+    ]
   },
   {
     "route_id": "ROUTE_B1C2D3_FREE",
-    "target_results": ["A1B1C2D3", "A2B1C2D3", "A3B1C2D3"],
+    "target_results": [
+      "A1B1C2D3",
+      "A2B1C2D3",
+      "A3B1C2D3"
+    ],
     "route_type": "free",
     "title": "無料で試す:自分に合うやり方を試す",
     "description": "無料教材から始めて、長期的に自分に合った技能の身につけ方を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.mext.go.jp/b_menu/hakusho/html/hpab201901/detail/1421865.htm",
+      "https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo2/toushin/04032902.htm"
+    ]
   },
   {
     "route_id": "ROUTE_B1C2D3_LOW",
-    "target_results": ["A1B1C2D3", "A2B1C2D3", "A3B1C2D3"],
+    "target_results": [
+      "A1B1C2D3",
+      "A2B1C2D3",
+      "A3B1C2D3"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:自分に合うやり方を試す",
     "description": "低価格の教材を継続し、年単位で自分に合った技能の身につけ方に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "url": "https://example.com"
+    "urls": [
+      "https://howto.schoo.jp/navi-detail/9S-wnOvJ",
+      "https://www.notion.so/ja/templates/category/free-learning-templates",
+      "https://www.notion.so/ja/templates/category/free-study-planner-templates"
+    ]
   },
   {
     "route_id": "ROUTE_B1C2D3_DEEP",
-    "target_results": ["A1B1C2D3", "A2B1C2D3", "A3B1C2D3"],
+    "target_results": [
+      "A1B1C2D3",
+      "A2B1C2D3",
+      "A3B1C2D3"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:自分に合うやり方を試す",
     "description": "本格的な教材で、長期にわたり自分に合った技能の身につけ方を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "url": "https://example.com"
+    "urls": [
+      "https://howto.schoo.jp/navi-detail/9S-wnOvJ"
+    ]
   },
   {
     "route_id": "ROUTE_B1C3D1_FREE",
-    "target_results": ["A1B1C3D1", "A2B1C3D1", "A3B1C3D1"],
+    "target_results": [
+      "A1B1C3D1",
+      "A2B1C3D1",
+      "A3B1C3D1"
+    ],
     "route_type": "free",
     "title": "無料で試す:自分の習慣を見直す",
     "description": "短い記事や無料教材で、自分の暮らしの習慣を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "url": "https://example.com"
+    "urls": [
+      "https://kennet.mhlw.go.jp/slp/about/index",
+      "https://kennet.mhlw.go.jp/slp/about/slp.html"
+    ]
   },
   {
     "route_id": "ROUTE_B1C3D1_LOW",
-    "target_results": ["A1B1C3D1", "A2B1C3D1", "A3B1C3D1"],
+    "target_results": [
+      "A1B1C3D1",
+      "A2B1C3D1",
+      "A3B1C3D1"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:自分の習慣を見直す",
     "description": "低価格の教材で、自分の暮らしの習慣を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "url": "https://example.com"
+    "urls": [
+      "https://more.asken.jp/article/asken-data-news/",
+      "https://more.asken.jp/article/",
+      "https://note.com/minamibuchi/n/nadbb29a6fcb9"
+    ]
   },
   {
     "route_id": "ROUTE_B1C3D1_DEEP",
-    "target_results": ["A1B1C3D1", "A2B1C3D1", "A3B1C3D1"],
+    "target_results": [
+      "A1B1C3D1",
+      "A2B1C3D1",
+      "A3B1C3D1"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:自分の習慣を見直す",
     "description": "短時間でも密度のある教材で、自分の暮らしの習慣に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.u-can.co.jp/course/data/in_html/1453/"
+    ]
   },
   {
     "route_id": "ROUTE_B1C3D2_FREE",
-    "target_results": ["A1B1C3D2", "A2B1C3D2", "A3B1C3D2"],
+    "target_results": [
+      "A1B1C3D2",
+      "A2B1C3D2",
+      "A3B1C3D2"
+    ],
     "route_type": "free",
     "title": "無料で試す:自分の習慣を見直す",
     "description": "無料教材を数週間続けて、自分の暮らしの習慣に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://kennet.mhlw.go.jp/slp/about/index"
+    ]
   },
   {
     "route_id": "ROUTE_B1C3D2_LOW",
-    "target_results": ["A1B1C3D2", "A2B1C3D2", "A3B1C3D2"],
+    "target_results": [
+      "A1B1C3D2",
+      "A2B1C3D2",
+      "A3B1C3D2"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:自分の習慣を見直す",
     "description": "低価格の継続教材で、数週間かけて自分の暮らしの習慣を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://note.com/serene_emu992/n/nda8c46de8509",
+      "https://note.com/minamibuchi/n/nadbb29a6fcb9",
+      "https://more.asken.jp/article/"
+    ]
   },
   {
     "route_id": "ROUTE_B1C3D2_DEEP",
-    "target_results": ["A1B1C3D2", "A2B1C3D2", "A3B1C3D2"],
+    "target_results": [
+      "A1B1C3D2",
+      "A2B1C3D2",
+      "A3B1C3D2"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:自分の習慣を見直す",
     "description": "体系的な教材で、数ヶ月かけて自分の暮らしの習慣を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://kennet.mhlw.go.jp/slp/about/index",
+      "https://kennet.mhlw.go.jp/slp/about/merit.html"
+    ]
   },
   {
     "route_id": "ROUTE_B1C3D3_FREE",
-    "target_results": ["A1B1C3D3", "A2B1C3D3", "A3B1C3D3"],
+    "target_results": [
+      "A1B1C3D3",
+      "A2B1C3D3",
+      "A3B1C3D3"
+    ],
     "route_type": "free",
     "title": "無料で試す:自分の習慣を見直す",
     "description": "無料教材から始めて、長期的に自分の暮らしの習慣を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://kennet.mhlw.go.jp/slp/about/slp.html",
+      "https://kennet.mhlw.go.jp/slp/about/merit.html"
+    ]
   },
   {
     "route_id": "ROUTE_B1C3D3_LOW",
-    "target_results": ["A1B1C3D3", "A2B1C3D3", "A3B1C3D3"],
+    "target_results": [
+      "A1B1C3D3",
+      "A2B1C3D3",
+      "A3B1C3D3"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:自分の習慣を見直す",
     "description": "低価格の教材を継続し、年単位で自分の暮らしの習慣に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "url": "https://example.com"
+    "urls": [
+      "https://more.asken.jp/article/asken-data-news/",
+      "https://more.asken.jp/article/",
+      "https://note.com/serene_emu992/n/nda8c46de8509"
+    ]
   },
   {
     "route_id": "ROUTE_B1C3D3_DEEP",
-    "target_results": ["A1B1C3D3", "A2B1C3D3", "A3B1C3D3"],
+    "target_results": [
+      "A1B1C3D3",
+      "A2B1C3D3",
+      "A3B1C3D3"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:自分の習慣を見直す",
     "description": "本格的な教材で、長期にわたり自分の暮らしの習慣を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "url": "https://example.com"
+    "urls": [
+      "https://note.com/minamibuchi/n/nadbb29a6fcb9",
+      "https://note.com/serene_emu992/n/nda8c46de8509"
+    ]
   },
   {
     "route_id": "ROUTE_B2C1D1_FREE",
-    "target_results": ["A1B2C1D1", "A2B2C1D1", "A3B2C1D1"],
+    "target_results": [
+      "A1B2C1D1",
+      "A2B2C1D1",
+      "A3B2C1D1"
+    ],
     "route_type": "free",
     "title": "無料で試す:世の中の見方を広げる",
     "description": "短い記事や無料教材で、世の中についての見方を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.e-stat.go.jp/",
+      "https://www.stat.go.jp/",
+      "https://www.meti.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C1D1_LOW",
-    "target_results": ["A1B2C1D1", "A2B2C1D1", "A3B2C1D1"],
+    "target_results": [
+      "A1B2C1D1",
+      "A2B2C1D1",
+      "A3B2C1D1"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:世の中の見方を広げる",
     "description": "低価格の教材で、世の中についての見方を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.nikkei.com/",
+      "https://newspicks.com/",
+      "https://gendai.media/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C1D1_DEEP",
-    "target_results": ["A1B2C1D1", "A2B2C1D1", "A3B2C1D1"],
+    "target_results": [
+      "A1B2C1D1",
+      "A2B2C1D1",
+      "A3B2C1D1"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:世の中の見方を広げる",
     "description": "短時間でも密度のある教材で、世の中についての見方に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "url": "https://example.com"
+    "urls": [
+      "https://manapass.mext.go.jp/",
+      "https://manapass.mext.go.jp/",
+      "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
+    ]
   },
   {
     "route_id": "ROUTE_B2C1D2_FREE",
-    "target_results": ["A1B2C1D2", "A2B2C1D2", "A3B2C1D2"],
+    "target_results": [
+      "A1B2C1D2",
+      "A2B2C1D2",
+      "A3B2C1D2"
+    ],
     "route_type": "free",
     "title": "無料で試す:世の中の見方を広げる",
     "description": "無料教材を数週間続けて、世の中についての見方に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.e-stat.go.jp/",
+      "https://www.stat.go.jp/",
+      "https://www.meti.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C1D2_LOW",
-    "target_results": ["A1B2C1D2", "A2B2C1D2", "A3B2C1D2"],
+    "target_results": [
+      "A1B2C1D2",
+      "A2B2C1D2",
+      "A3B2C1D2"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:世の中の見方を広げる",
     "description": "低価格の継続教材で、数週間かけて世の中についての見方を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://newspicks.com/",
+      "https://www.nikkei.com/",
+      "https://mainichi.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C1D2_DEEP",
-    "target_results": ["A1B2C1D2", "A2B2C1D2", "A3B2C1D2"],
+    "target_results": [
+      "A1B2C1D2",
+      "A2B2C1D2",
+      "A3B2C1D2"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:世の中の見方を広げる",
     "description": "体系的な教材で、数ヶ月かけて世の中についての見方を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://manapass.mext.go.jp/",
+      "https://manapass.mext.go.jp/",
+      "https://manapass.mext.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C1D3_FREE",
-    "target_results": ["A1B2C1D3", "A2B2C1D3", "A3B2C1D3"],
+    "target_results": [
+      "A1B2C1D3",
+      "A2B2C1D3",
+      "A3B2C1D3"
+    ],
     "route_type": "free",
     "title": "無料で試す:世の中の見方を広げる",
     "description": "無料教材から始めて、長期的に世の中についての見方を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://dl.ndl.go.jp/",
+      "https://www.cao.go.jp/",
+      "https://www.bunka.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C1D3_LOW",
-    "target_results": ["A1B2C1D3", "A2B2C1D3", "A3B2C1D3"],
+    "target_results": [
+      "A1B2C1D3",
+      "A2B2C1D3",
+      "A3B2C1D3"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:世の中の見方を広げる",
     "description": "低価格の教材を継続し、年単位で世の中についての見方に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "url": "https://example.com"
+    "urls": [
+      "https://business.nikkei.com/",
+      "https://president.jp/",
+      "https://webronza.asahi.com/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C1D3_DEEP",
-    "target_results": ["A1B2C1D3", "A2B2C1D3", "A3B2C1D3"],
+    "target_results": [
+      "A1B2C1D3",
+      "A2B2C1D3",
+      "A3B2C1D3"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:世の中の見方を広げる",
     "description": "本格的な教材で、長期にわたり世の中についての見方を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.grips.ac.jp/",
+      "https://www.kri.sfc.keio.ac.jp/",
+      "https://www.u-tokyo.ac.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C2D1_FREE",
-    "target_results": ["A1B2C2D1", "A2B2C2D1", "A3B2C2D1"],
+    "target_results": [
+      "A1B2C2D1",
+      "A2B2C2D1",
+      "A3B2C2D1"
+    ],
     "route_type": "free",
     "title": "無料で試す:世の中で使える技を身につける",
     "description": "短い記事や無料教材で、世の中で役立つ技能を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "url": "https://example.com"
+    "urls": [
+      "https://shigoto.mhlw.go.jp/User/",
+      "https://www.mhlw.go.jp/",
+      "https://job.rikunabi.com/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C2D1_LOW",
-    "target_results": ["A1B2C2D1", "A2B2C2D1", "A3B2C2D1"],
+    "target_results": [
+      "A1B2C2D1",
+      "A2B2C2D1",
+      "A3B2C2D1"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:世の中で使える技を身につける",
     "description": "低価格の教材で、世の中で役立つ技能を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "url": "https://example.com"
+    "urls": [
+      "https://globis.jp/",
+      "https://schoo.jp/",
+      "https://www.duolingo.com/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C2D1_DEEP",
-    "target_results": ["A1B2C2D1", "A2B2C2D1", "A3B2C2D1"],
+    "target_results": [
+      "A1B2C2D1",
+      "A2B2C2D1",
+      "A3B2C2D1"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:世の中で使える技を身につける",
     "description": "短時間でも密度のある教材で、世の中で役立つ技能に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.udemy.com/",
+      "https://schoo.jp/",
+      "https://www.street-academy.com/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C2D2_FREE",
-    "target_results": ["A1B2C2D2", "A2B2C2D2", "A3B2C2D2"],
+    "target_results": [
+      "A1B2C2D2",
+      "A2B2C2D2",
+      "A3B2C2D2"
+    ],
     "route_type": "free",
     "title": "無料で試す:世の中で使える技を身につける",
     "description": "無料教材を数週間続けて、世の中で役立つ技能に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://manabi-dx.ipa.go.jp/",
+      "https://www.ipa.go.jp/",
+      "https://www.gov-online.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C2D2_LOW",
-    "target_results": ["A1B2C2D2", "A2B2C2D2", "A3B2C2D2"],
+    "target_results": [
+      "A1B2C2D2",
+      "A2B2C2D2",
+      "A3B2C2D2"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:世の中で使える技を身につける",
     "description": "低価格の継続教材で、数週間かけて世の中で役立つ技能を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.udemy.com/",
+      "https://www.coursera.org/",
+      "https://www.linkedin.com/learning/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C2D2_DEEP",
-    "target_results": ["A1B2C2D2", "A2B2C2D2", "A3B2C2D2"],
+    "target_results": [
+      "A1B2C2D2",
+      "A2B2C2D2",
+      "A3B2C2D2"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:世の中で使える技を身につける",
     "description": "体系的な教材で、数ヶ月かけて世の中で役立つ技能を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.o-hara.ac.jp/",
+      "https://studying.jp/",
+      "https://www.u-can.co.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C2D3_FREE",
-    "target_results": ["A1B2C2D3", "A2B2C2D3", "A3B2C2D3"],
+    "target_results": [
+      "A1B2C2D3",
+      "A2B2C2D3",
+      "A3B2C2D3"
+    ],
     "route_type": "free",
     "title": "無料で試す:世の中で使える技を身につける",
     "description": "無料教材から始めて、長期的に世の中で役立つ技能を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.hellowork.mhlw.go.jp/",
+      "https://www.mhlw.go.jp/",
+      "https://www.javada.or.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C2D3_LOW",
-    "target_results": ["A1B2C2D3", "A2B2C2D3", "A3B2C2D3"],
+    "target_results": [
+      "A1B2C2D3",
+      "A2B2C2D3",
+      "A3B2C2D3"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:世の中で使える技を身につける",
     "description": "低価格の教材を継続し、年単位で世の中で役立つ技能に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "url": "https://example.com"
+    "urls": [
+      "https://schoo.jp/",
+      "https://www.udemy.com/",
+      "https://globis.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C2D3_DEEP",
-    "target_results": ["A1B2C2D3", "A2B2C2D3", "A3B2C2D3"],
+    "target_results": [
+      "A1B2C2D3",
+      "A2B2C2D3",
+      "A3B2C2D3"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:世の中で使える技を身につける",
     "description": "本格的な教材で、長期にわたり世の中で役立つ技能を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.u-can.co.jp/",
+      "https://studying.jp/",
+      "https://www.o-hara.ac.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C3D1_FREE",
-    "target_results": ["A1B2C3D1", "A2B2C3D1", "A3B2C3D1"],
+    "target_results": [
+      "A1B2C3D1",
+      "A2B2C3D1",
+      "A3B2C3D1"
+    ],
     "route_type": "free",
     "title": "無料で試す:世の中を知って暮らしに生かす",
     "description": "短い記事や無料教材で、世の中の知識を暮らしに生かす方法を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.caa.go.jp/",
+      "https://www.fsa.go.jp/policy/nisa2/",
+      "https://www.kokusen.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C3D1_LOW",
-    "target_results": ["A1B2C3D1", "A2B2C3D1", "A3B2C3D1"],
+    "target_results": [
+      "A1B2C3D1",
+      "A2B2C3D1",
+      "A3B2C3D1"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:世の中を知って暮らしに生かす",
     "description": "低価格の教材で、世の中の知識を暮らしに生かす方法を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "url": "https://example.com"
+    "urls": [
+      "https://moneyforward.com/",
+      "https://zaim.net/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C3D1_DEEP",
-    "target_results": ["A1B2C3D1", "A2B2C3D1", "A3B2C3D1"],
+    "target_results": [
+      "A1B2C3D1",
+      "A2B2C3D1",
+      "A3B2C3D1"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:世の中を知って暮らしに生かす",
     "description": "短時間でも密度のある教材で、世の中の知識を暮らしに生かす方法に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.jafp.or.jp/",
+      "https://www.u-can.co.jp/",
+      "https://studying.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C3D2_FREE",
-    "target_results": ["A1B2C3D2", "A2B2C3D2", "A3B2C3D2"],
+    "target_results": [
+      "A1B2C3D2",
+      "A2B2C3D2",
+      "A3B2C3D2"
+    ],
     "route_type": "free",
     "title": "無料で試す:世の中を知って暮らしに生かす",
     "description": "無料教材を数週間続けて、世の中の知識を暮らしに生かす方法に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.caa.go.jp/",
+      "https://www.kokusen.go.jp/",
+      "https://www.fsa.go.jp/policy/nisa2/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C3D2_LOW",
-    "target_results": ["A1B2C3D2", "A2B2C3D2", "A3B2C3D2"],
+    "target_results": [
+      "A1B2C3D2",
+      "A2B2C3D2",
+      "A3B2C3D2"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:世の中を知って暮らしに生かす",
     "description": "低価格の継続教材で、数週間かけて世の中の知識を暮らしに生かす方法を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.u-can.co.jp/",
+      "https://studying.jp/",
+      "https://www.o-hara.ac.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C3D2_DEEP",
-    "target_results": ["A1B2C3D2", "A2B2C3D2", "A3B2C3D2"],
+    "target_results": [
+      "A1B2C3D2",
+      "A2B2C3D2",
+      "A3B2C3D2"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:世の中を知って暮らしに生かす",
     "description": "体系的な教材で、数ヶ月かけて世の中の知識を暮らしに生かす方法を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.jafp.or.jp/",
+      "https://www.u-can.co.jp/",
+      "https://studying.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C3D3_FREE",
-    "target_results": ["A1B2C3D3", "A2B2C3D3", "A3B2C3D3"],
+    "target_results": [
+      "A1B2C3D3",
+      "A2B2C3D3",
+      "A3B2C3D3"
+    ],
     "route_type": "free",
     "title": "無料で試す:世の中を知って暮らしに生かす",
     "description": "無料教材から始めて、長期的に世の中の知識を暮らしに生かす方法を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.e-stat.go.jp/",
+      "https://www.stat.go.jp/",
+      "https://www.fsa.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C3D3_LOW",
-    "target_results": ["A1B2C3D3", "A2B2C3D3", "A3B2C3D3"],
+    "target_results": [
+      "A1B2C3D3",
+      "A2B2C3D3",
+      "A3B2C3D3"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:世の中を知って暮らしに生かす",
     "description": "低価格の教材を継続し、年単位で世の中の知識を暮らしに生かす方法に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "url": "https://example.com"
+    "urls": [
+      "https://moneyforward.com/",
+      "https://zaim.net/"
+    ]
   },
   {
     "route_id": "ROUTE_B2C3D3_DEEP",
-    "target_results": ["A1B2C3D3", "A2B2C3D3", "A3B2C3D3"],
+    "target_results": [
+      "A1B2C3D3",
+      "A2B2C3D3",
+      "A3B2C3D3"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:世の中を知って暮らしに生かす",
     "description": "本格的な教材で、長期にわたり世の中の知識を暮らしに生かす方法を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.jafp.or.jp/",
+      "https://www.u-can.co.jp/",
+      "https://studying.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C1D1_FREE",
-    "target_results": ["A1B3C1D1", "A2B3C1D1", "A3B3C1D1"],
+    "target_results": [
+      "A1B3C1D1",
+      "A2B3C1D1",
+      "A3B3C1D1"
+    ],
     "route_type": "free",
     "title": "無料で試す:専門分野の考え方に触れる",
     "description": "短い記事や無料教材で、専門分野の考え方を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.mext.go.jp/a_menu/01_g.htm",
+      "https://dl.ndl.go.jp/",
+      "https://www.bunka.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C1D1_LOW",
-    "target_results": ["A1B3C1D1", "A2B3C1D1", "A3B3C1D1"],
+    "target_results": [
+      "A1B3C1D1",
+      "A2B3C1D1",
+      "A3B3C1D1"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:専門分野の考え方に触れる",
     "description": "低価格の教材で、専門分野の考え方を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.notion.so/ja/templates/category/free-learning-templates",
+      "https://schoo.jp/",
+      "https://www.udemy.com/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C1D1_DEEP",
-    "target_results": ["A1B3C1D1", "A2B3C1D1", "A3B3C1D1"],
+    "target_results": [
+      "A1B3C1D1",
+      "A2B3C1D1",
+      "A3B3C1D1"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:専門分野の考え方に触れる",
     "description": "短時間でも密度のある教材で、専門分野の考え方に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "url": "https://example.com"
+    "urls": [
+      "https://manapass.mext.go.jp/",
+      "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology",
+      "https://manapass.mext.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C1D2_FREE",
-    "target_results": ["A1B3C1D2", "A2B3C1D2", "A3B3C1D2"],
+    "target_results": [
+      "A1B3C1D2",
+      "A2B3C1D2",
+      "A3B3C1D2"
+    ],
     "route_type": "free",
     "title": "無料で試す:専門分野の考え方に触れる",
     "description": "無料教材を数週間続けて、専門分野の考え方に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://dl.ndl.go.jp/",
+      "https://cir.nii.ac.jp/",
+      "https://www.jstage.jst.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C1D2_LOW",
-    "target_results": ["A1B3C1D2", "A2B3C1D2", "A3B3C1D2"],
+    "target_results": [
+      "A1B3C1D2",
+      "A2B3C1D2",
+      "A3B3C1D2"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:専門分野の考え方に触れる",
     "description": "低価格の継続教材で、数週間かけて専門分野の考え方を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://schoo.jp/",
+      "https://www.udemy.com/",
+      "https://www.coursera.org/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C1D2_DEEP",
-    "target_results": ["A1B3C1D2", "A2B3C1D2", "A3B3C1D2"],
+    "target_results": [
+      "A1B3C1D2",
+      "A2B3C1D2",
+      "A3B3C1D2"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:専門分野の考え方に触れる",
     "description": "体系的な教材で、数ヶ月かけて専門分野の考え方を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.coursera.org/",
+      "https://www.edx.org/",
+      "https://manapass.mext.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C1D3_FREE",
-    "target_results": ["A1B3C1D3", "A2B3C1D3", "A3B3C1D3"],
+    "target_results": [
+      "A1B3C1D3",
+      "A2B3C1D3",
+      "A3B3C1D3"
+    ],
     "route_type": "free",
     "title": "無料で試す:専門分野の考え方に触れる",
     "description": "無料教材から始めて、長期的に専門分野の考え方を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://dl.ndl.go.jp/",
+      "https://www.jstage.jst.go.jp/",
+      "https://cir.nii.ac.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C1D3_LOW",
-    "target_results": ["A1B3C1D3", "A2B3C1D3", "A3B3C1D3"],
+    "target_results": [
+      "A1B3C1D3",
+      "A2B3C1D3",
+      "A3B3C1D3"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:専門分野の考え方に触れる",
     "description": "低価格の教材を継続し、年単位で専門分野の考え方に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "url": "https://example.com"
+    "urls": [
+      "https://schoo.jp/",
+      "https://globis.jp/",
+      "https://www.udemy.com/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C1D3_DEEP",
-    "target_results": ["A1B3C1D3", "A2B3C1D3", "A3B3C1D3"],
+    "target_results": [
+      "A1B3C1D3",
+      "A2B3C1D3",
+      "A3B3C1D3"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:専門分野の考え方に触れる",
     "description": "本格的な教材で、長期にわたり専門分野の考え方を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "url": "https://example.com"
+    "urls": [
+      "https://manapass.mext.go.jp/",
+      "https://www.coursera.org/",
+      "https://www.edx.org/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C2D1_FREE",
-    "target_results": ["A1B3C2D1", "A2B3C2D1", "A3B3C2D1"],
+    "target_results": [
+      "A1B3C2D1",
+      "A2B3C2D1",
+      "A3B3C2D1"
+    ],
     "route_type": "free",
     "title": "無料で試す:専門分野の技能を身につける",
     "description": "短い記事や無料教材で、専門分野の技能を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "url": "https://example.com"
+    "urls": [
+      "https://dotinstall.com/",
+      "https://www.ipa.go.jp/",
+      "https://prog-8.com/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C2D1_LOW",
-    "target_results": ["A1B3C2D1", "A2B3C2D1", "A3B3C2D1"],
+    "target_results": [
+      "A1B3C2D1",
+      "A2B3C2D1",
+      "A3B3C2D1"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:専門分野の技能を身につける",
     "description": "低価格の教材で、専門分野の技能を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "url": "https://example.com"
+    "urls": [
+      "https://schoo.jp/",
+      "https://www.udemy.com/",
+      "https://prog-8.com/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C2D1_DEEP",
-    "target_results": ["A1B3C2D1", "A2B3C2D1", "A3B3C2D1"],
+    "target_results": [
+      "A1B3C2D1",
+      "A2B3C2D1",
+      "A3B3C2D1"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:専門分野の技能を身につける",
     "description": "短時間でも密度のある教材で、専門分野の技能に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.udemy.com/",
+      "https://schoo.jp/",
+      "https://www.street-academy.com/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C2D2_FREE",
-    "target_results": ["A1B3C2D2", "A2B3C2D2", "A3B3C2D2"],
+    "target_results": [
+      "A1B3C2D2",
+      "A2B3C2D2",
+      "A3B3C2D2"
+    ],
     "route_type": "free",
     "title": "無料で試す:専門分野の技能を身につける",
     "description": "無料教材を数週間続けて、専門分野の技能に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.ipa.go.jp/",
+      "https://manabi-dx.ipa.go.jp/",
+      "https://www.gov-online.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C2D2_LOW",
-    "target_results": ["A1B3C2D2", "A2B3C2D2", "A3B3C2D2"],
+    "target_results": [
+      "A1B3C2D2",
+      "A2B3C2D2",
+      "A3B3C2D2"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:専門分野の技能を身につける",
     "description": "低価格の継続教材で、数週間かけて専門分野の技能を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.udemy.com/",
+      "https://www.coursera.org/",
+      "https://www.linkedin.com/learning/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C2D2_DEEP",
-    "target_results": ["A1B3C2D2", "A2B3C2D2", "A3B3C2D2"],
+    "target_results": [
+      "A1B3C2D2",
+      "A2B3C2D2",
+      "A3B3C2D2"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:専門分野の技能を身につける",
     "description": "体系的な教材で、数ヶ月かけて専門分野の技能を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://generative-ai.web-camp.io/",
+      "https://aidemy.net/",
+      "https://www.kikagaku.ai/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C2D3_FREE",
-    "target_results": ["A1B3C2D3", "A2B3C2D3", "A3B3C2D3"],
+    "target_results": [
+      "A1B3C2D3",
+      "A2B3C2D3",
+      "A3B3C2D3"
+    ],
     "route_type": "free",
     "title": "無料で試す:専門分野の技能を身につける",
     "description": "無料教材から始めて、長期的に専門分野の技能を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.hellowork.mhlw.go.jp/",
+      "https://www.mhlw.go.jp/",
+      "https://www.javada.or.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C2D3_LOW",
-    "target_results": ["A1B3C2D3", "A2B3C2D3", "A3B3C2D3"],
+    "target_results": [
+      "A1B3C2D3",
+      "A2B3C2D3",
+      "A3B3C2D3"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:専門分野の技能を身につける",
     "description": "低価格の教材を継続し、年単位で専門分野の技能に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "url": "https://example.com"
+    "urls": [
+      "https://schoo.jp/",
+      "https://globis.jp/",
+      "https://www.udemy.com/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C2D3_DEEP",
-    "target_results": ["A1B3C2D3", "A2B3C2D3", "A3B3C2D3"],
+    "target_results": [
+      "A1B3C2D3",
+      "A2B3C2D3",
+      "A3B3C2D3"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:専門分野の技能を身につける",
     "description": "本格的な教材で、長期にわたり専門分野の技能を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.u-can.co.jp/",
+      "https://studying.jp/",
+      "https://www.o-hara.ac.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C3D1_FREE",
-    "target_results": ["A1B3C3D1", "A2B3C3D1", "A3B3C3D1"],
+    "target_results": [
+      "A1B3C3D1",
+      "A2B3C3D1",
+      "A3B3C3D1"
+    ],
     "route_type": "free",
     "title": "無料で試す:専門知識を暮らしに生かす",
     "description": "短い記事や無料教材で、専門知識の暮らしへの応用を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.mhlw.go.jp/",
+      "https://www.jma.go.jp/",
+      "https://www.caa.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C3D1_LOW",
-    "target_results": ["A1B3C3D1", "A2B3C3D1", "A3B3C3D1"],
+    "target_results": [
+      "A1B3C3D1",
+      "A2B3C3D1",
+      "A3B3C3D1"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:専門知識を暮らしに生かす",
     "description": "低価格の教材で、専門知識の暮らしへの応用を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.google.com/fit/",
+      "https://www.asken.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C3D1_DEEP",
-    "target_results": ["A1B3C3D1", "A2B3C3D1", "A3B3C3D1"],
+    "target_results": [
+      "A1B3C3D1",
+      "A2B3C3D1",
+      "A3B3C3D1"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:専門知識を暮らしに生かす",
     "description": "短時間でも密度のある教材で、専門知識の暮らしへの応用に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.street-academy.com/",
+      "https://schoo.jp/",
+      "https://manapass.mext.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C3D2_FREE",
-    "target_results": ["A1B3C3D2", "A2B3C3D2", "A3B3C3D2"],
+    "target_results": [
+      "A1B3C3D2",
+      "A2B3C3D2",
+      "A3B3C3D2"
+    ],
     "route_type": "free",
     "title": "無料で試す:専門知識を暮らしに生かす",
     "description": "無料教材を数週間続けて、専門知識の暮らしへの応用に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.mhlw.go.jp/",
+      "https://www.jma.go.jp/",
+      "https://www.caa.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C3D2_LOW",
-    "target_results": ["A1B3C3D2", "A2B3C3D2", "A3B3C3D2"],
+    "target_results": [
+      "A1B3C3D2",
+      "A2B3C3D2",
+      "A3B3C3D2"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:専門知識を暮らしに生かす",
     "description": "低価格の継続教材で、数週間かけて専門知識の暮らしへの応用を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.udemy.com/",
+      "https://schoo.jp/",
+      "https://note.com/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C3D2_DEEP",
-    "target_results": ["A1B3C3D2", "A2B3C3D2", "A3B3C3D2"],
+    "target_results": [
+      "A1B3C3D2",
+      "A2B3C3D2",
+      "A3B3C3D2"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:専門知識を暮らしに生かす",
     "description": "体系的な教材で、数ヶ月かけて専門知識の暮らしへの応用を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://manapass.mext.go.jp/",
+      "https://www.u-can.co.jp/",
+      "https://studying.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C3D3_FREE",
-    "target_results": ["A1B3C3D3", "A2B3C3D3", "A3B3C3D3"],
+    "target_results": [
+      "A1B3C3D3",
+      "A2B3C3D3",
+      "A3B3C3D3"
+    ],
     "route_type": "free",
     "title": "無料で試す:専門知識を暮らしに生かす",
     "description": "無料教材から始めて、長期的に専門知識の暮らしへの応用を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.e-stat.go.jp/",
+      "https://www.stat.go.jp/",
+      "https://www.cao.go.jp/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C3D3_LOW",
-    "target_results": ["A1B3C3D3", "A2B3C3D3", "A3B3C3D3"],
+    "target_results": [
+      "A1B3C3D3",
+      "A2B3C3D3",
+      "A3B3C3D3"
+    ],
     "route_type": "low_price",
     "title": "低価格で試す:専門知識を暮らしに生かす",
     "description": "低価格の教材を継続し、年単位で専門知識の暮らしへの応用に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "url": "https://example.com"
+    "urls": [
+      "https://schoo.jp/",
+      "https://www.notion.so/ja-jp",
+      "https://workspace.google.com/"
+    ]
   },
   {
     "route_id": "ROUTE_B3C3D3_DEEP",
-    "target_results": ["A1B3C3D3", "A2B3C3D3", "A3B3C3D3"],
+    "target_results": [
+      "A1B3C3D3",
+      "A2B3C3D3",
+      "A3B3C3D3"
+    ],
     "route_type": "deep",
     "title": "もう少し深める:専門知識を暮らしに生かす",
     "description": "本格的な教材で、長期にわたり専門知識の暮らしへの応用を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "url": "https://example.com"
+    "urls": [
+      "https://www.u-can.co.jp/",
+      "https://manapass.mext.go.jp/",
+      "https://schoo.jp/"
+    ]
   }
 ]

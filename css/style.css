@@ -571,6 +571,19 @@ body {
   color: var(--color-text-sub);
 }
 
+/* 9.9: 1ルートに対して最大3件の「見てみる」ボタンを縦に並べる領域 */
+.route-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.route-link {
+  /* .btn .btn-primary のサイズを継承。複数並んでも視覚的に窮屈にならないよう
+     .route-links の gap で間隔を確保する。 */
+}
+
 /* bottom nav (15) */
 .bottom-nav {
   position: fixed;
