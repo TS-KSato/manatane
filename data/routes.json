@@ -12,9 +12,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
     "urls": [
-      "https://corp.miidas.jp/assessment/7840/",
-      "https://www.awarefy.com/coglabo/post/cognitive-bias",
-      "https://corp.miidas.jp/assessment/tag/%E8%AA%8D%E7%9F%A5%E3%83%90%E3%82%A4%E3%82%A2%E3%82%B9/"
+      {
+        "type": "external",
+        "source": "ミイダス",
+        "label": "認知バイアス診断",
+        "url": "https://corp.miidas.jp/assessment/7840/"
+      },
+      {
+        "type": "external",
+        "source": "Awarefy",
+        "label": "認知バイアス解説",
+        "url": "https://www.awarefy.com/coglabo/post/cognitive-bias"
+      },
+      {
+        "type": "external",
+        "source": "ミイダス",
+        "label": "認知バイアス記事一覧",
+        "url": "https://corp.miidas.jp/assessment/tag/%E8%AA%8D%E7%9F%A5%E3%83%90%E3%82%A4%E3%82%A2%E3%82%B9/"
+      }
     ]
   },
   {
@@ -30,9 +45,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
     "urls": [
-      "https://news.yahoo.co.jp/articles/7abedeeb4e5afeb4f7f4de5eb6ef1cc79a62bc91?page=3",
-      "https://note.com/zyagasan/n/n1162c061b376",
-      "https://news.yahoo.co.jp/articles/7abedeeb4e5afeb4f7f4de5eb6ef1cc79a62bc91?page=3"
+      {
+        "type": "external",
+        "source": "Yahoo!ニュース",
+        "label": "専門家による自己分析解説",
+        "url": "https://news.yahoo.co.jp/articles/7abedeeb4e5afeb4f7f4de5eb6ef1cc79a62bc91?page=3"
+      },
+      {
+        "type": "external",
+        "source": "note (zyagasan)",
+        "label": "自己理解のための自己分析手法",
+        "url": "https://note.com/zyagasan/n/n1162c061b376"
+      },
+      {
+        "type": "external",
+        "source": "Yahoo!ニュース",
+        "label": "専門家による自己分析解説",
+        "url": "https://news.yahoo.co.jp/articles/7abedeeb4e5afeb4f7f4de5eb6ef1cc79a62bc91?page=3"
+      }
     ]
   },
   {
@@ -48,9 +78,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
     "urls": [
-      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/",
-      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374474/",
-      "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "大学公開講座・心理学概論",
+        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/"
+      },
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "大学公開講座・心理学演習",
+        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374474/"
+      },
+      {
+        "type": "external",
+        "source": "しゅみナビ",
+        "label": "心理学・カウンセリング体験講座",
+        "url": "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
+      }
     ]
   },
   {
@@ -66,9 +111,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
     "urls": [
-      "https://www.awarefy.com/coglabo/post/cure-emotional-instability",
-      "https://note.com/hanako_inoue/n/nca3dbbf28372",
-      "https://note.com/support_office/n/n2197d506db36"
+      {
+        "type": "external",
+        "source": "Awarefy",
+        "label": "情緒不安定のセルフケア解説",
+        "url": "https://www.awarefy.com/coglabo/post/cure-emotional-instability"
+      },
+      {
+        "type": "external",
+        "source": "note (井上はなこ)",
+        "label": "メタ認知トレーニングの実践",
+        "url": "https://note.com/hanako_inoue/n/nca3dbbf28372"
+      },
+      {
+        "type": "external",
+        "source": "note (support_office)",
+        "label": "自己観察による思考整理術",
+        "url": "https://note.com/support_office/n/n2197d506db36"
+      }
     ]
   },
   {
@@ -84,9 +144,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
     "urls": [
-      "https://www.awarefy.com/coglabo/post/cognitive-bias",
-      "https://note.com/support_office/n/n2197d506db36",
-      "https://www.awarefy.com/coglabo/post/cure-emotional-instability"
+      {
+        "type": "external",
+        "source": "Awarefy",
+        "label": "認知バイアス解説",
+        "url": "https://www.awarefy.com/coglabo/post/cognitive-bias"
+      },
+      {
+        "type": "external",
+        "source": "note (support_office)",
+        "label": "自己観察による思考整理術",
+        "url": "https://note.com/support_office/n/n2197d506db36"
+      },
+      {
+        "type": "external",
+        "source": "Awarefy",
+        "label": "情緒不安定のセルフケア解説",
+        "url": "https://www.awarefy.com/coglabo/post/cure-emotional-instability"
+      }
     ]
   },
   {
@@ -102,9 +177,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
     "urls": [
-      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/",
-      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10375198/",
-      "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "大学公開講座・心理学概論",
+        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/"
+      },
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "大学公開講座・心理学基礎講座",
+        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10375198/"
+      },
+      {
+        "type": "external",
+        "source": "しゅみナビ",
+        "label": "心理学・カウンセリング体験講座",
+        "url": "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
+      }
     ]
   },
   {
@@ -120,9 +210,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
     "urls": [
-      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/",
-      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374474/",
-      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10375198/"
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "大学公開講座・心理学概論",
+        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/"
+      },
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "大学公開講座・心理学演習",
+        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374474/"
+      },
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "大学公開講座・心理学基礎講座",
+        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10375198/"
+      }
     ]
   },
   {
@@ -138,9 +243,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
     "urls": [
-      "https://note.com/support_office/n/n2197d506db36",
-      "https://note.com/hanako_inoue/n/nca3dbbf28372",
-      "https://www.awarefy.com/coglabo/post/cure-emotional-instability"
+      {
+        "type": "external",
+        "source": "note (support_office)",
+        "label": "自己観察による思考整理術",
+        "url": "https://note.com/support_office/n/n2197d506db36"
+      },
+      {
+        "type": "external",
+        "source": "note (井上はなこ)",
+        "label": "メタ認知トレーニングの実践",
+        "url": "https://note.com/hanako_inoue/n/nca3dbbf28372"
+      },
+      {
+        "type": "external",
+        "source": "Awarefy",
+        "label": "情緒不安定のセルフケア解説",
+        "url": "https://www.awarefy.com/coglabo/post/cure-emotional-instability"
+      }
     ]
   },
   {
@@ -156,9 +276,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
     "urls": [
-      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/",
-      "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10375198/",
-      "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "大学公開講座・心理学概論",
+        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/"
+      },
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "大学公開講座・心理学基礎講座",
+        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10375198/"
+      },
+      {
+        "type": "external",
+        "source": "しゅみナビ",
+        "label": "心理学・カウンセリング体験講座",
+        "url": "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
+      }
     ]
   },
   {
@@ -174,9 +309,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
     "urls": [
-      "https://studyhacker.net/",
-      "https://www.duolingo.com/",
-      "https://www.udemy.com/courses/free/"
+      {
+        "type": "external",
+        "source": "StudyHacker",
+        "label": "社会人のための学習術メディア",
+        "url": "https://studyhacker.net/"
+      },
+      {
+        "type": "external",
+        "source": "Duolingo",
+        "label": "ゲーミフィケーション語学学習",
+        "url": "https://www.duolingo.com/"
+      },
+      {
+        "type": "external",
+        "source": "Udemy",
+        "label": "無料ビジネス講座一覧",
+        "url": "https://www.udemy.com/courses/free/"
+      }
     ]
   },
   {
@@ -192,9 +342,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
     "urls": [
-      "https://www.notion.so/ja-jp",
-      "https://habitify.me/",
-      "https://www.coursera.org/"
+      {
+        "type": "external",
+        "source": "Notion",
+        "label": "タスク・学習管理ツール",
+        "url": "https://www.notion.so/ja-jp"
+      },
+      {
+        "type": "external",
+        "source": "Habitify",
+        "label": "習慣トラッキングアプリ",
+        "url": "https://habitify.me/"
+      },
+      {
+        "type": "external",
+        "source": "Coursera",
+        "label": "世界の大学専門オンライン講座",
+        "url": "https://www.coursera.org/"
+      }
     ]
   },
   {
@@ -210,7 +375,12 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
     "urls": [
-      "https://www.linkedin.com/learning/"
+      {
+        "type": "external",
+        "source": "LinkedInラーニング",
+        "label": "ビジネススキル定額学習",
+        "url": "https://www.linkedin.com/learning/"
+      }
     ]
   },
   {
@@ -226,8 +396,18 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
     "urls": [
-      "https://www.notion.so/ja/templates/category/free-study-planner-templates",
-      "https://www.notion.so/ja/templates/category/free-learning-templates"
+      {
+        "type": "external",
+        "source": "Notion",
+        "label": "学習計画テンプレート",
+        "url": "https://www.notion.so/ja/templates/category/free-study-planner-templates"
+      },
+      {
+        "type": "external",
+        "source": "Notion",
+        "label": "学習管理テンプレート",
+        "url": "https://www.notion.so/ja/templates/category/free-learning-templates"
+      }
     ]
   },
   {
@@ -243,8 +423,18 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
     "urls": [
-      "https://howto.schoo.jp/navi-detail/9S-wnOvJ",
-      "https://www.lifehacker.jp/article/214542tiny_habit/"
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "学習法ナビゲーション",
+        "url": "https://howto.schoo.jp/navi-detail/9S-wnOvJ"
+      },
+      {
+        "type": "external",
+        "source": "ライフハッカー",
+        "label": "習慣化メソッド解説",
+        "url": "https://www.lifehacker.jp/article/214542tiny_habit/"
+      }
     ]
   },
   {
@@ -260,8 +450,18 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
     "urls": [
-      "https://howto.schoo.jp/navi-detail/9S-wnOvJ",
-      "https://www.notion.so/ja/templates/category/free-learning-templates"
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "学習法ナビゲーション",
+        "url": "https://howto.schoo.jp/navi-detail/9S-wnOvJ"
+      },
+      {
+        "type": "external",
+        "source": "Notion",
+        "label": "学習管理テンプレート",
+        "url": "https://www.notion.so/ja/templates/category/free-learning-templates"
+      }
     ]
   },
   {
@@ -277,8 +477,18 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
     "urls": [
-      "https://www.mext.go.jp/b_menu/hakusho/html/hpab201901/detail/1421865.htm",
-      "https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo2/toushin/04032902.htm"
+      {
+        "type": "external",
+        "source": "文部科学省",
+        "label": "生涯学習白書データ",
+        "url": "https://www.mext.go.jp/b_menu/hakusho/html/hpab201901/detail/1421865.htm"
+      },
+      {
+        "type": "external",
+        "source": "文部科学省",
+        "label": "社会人の学び直しに関する答申",
+        "url": "https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo2/toushin/04032902.htm"
+      }
     ]
   },
   {
@@ -294,9 +504,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
     "urls": [
-      "https://howto.schoo.jp/navi-detail/9S-wnOvJ",
-      "https://www.notion.so/ja/templates/category/free-learning-templates",
-      "https://www.notion.so/ja/templates/category/free-study-planner-templates"
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "学習法ナビゲーション",
+        "url": "https://howto.schoo.jp/navi-detail/9S-wnOvJ"
+      },
+      {
+        "type": "external",
+        "source": "Notion",
+        "label": "学習管理テンプレート",
+        "url": "https://www.notion.so/ja/templates/category/free-learning-templates"
+      },
+      {
+        "type": "external",
+        "source": "Notion",
+        "label": "学習計画テンプレート",
+        "url": "https://www.notion.so/ja/templates/category/free-study-planner-templates"
+      }
     ]
   },
   {
@@ -312,7 +537,12 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
     "urls": [
-      "https://howto.schoo.jp/navi-detail/9S-wnOvJ"
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "学習法ナビゲーション",
+        "url": "https://howto.schoo.jp/navi-detail/9S-wnOvJ"
+      }
     ]
   },
   {
@@ -328,8 +558,18 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
     "urls": [
-      "https://kennet.mhlw.go.jp/slp/about/index",
-      "https://kennet.mhlw.go.jp/slp/about/slp.html"
+      {
+        "type": "external",
+        "source": "厚生労働省 スマートライフプロジェクト",
+        "label": "健康習慣改善プロジェクト概要",
+        "url": "https://kennet.mhlw.go.jp/slp/about/index"
+      },
+      {
+        "type": "external",
+        "source": "厚生労働省 スマートライフプロジェクト",
+        "label": "スマートライフプロジェクトの仕組み",
+        "url": "https://kennet.mhlw.go.jp/slp/about/slp.html"
+      }
     ]
   },
   {
@@ -345,9 +585,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
     "urls": [
-      "https://more.asken.jp/article/asken-data-news/",
-      "https://more.asken.jp/article/",
-      "https://note.com/minamibuchi/n/nadbb29a6fcb9"
+      {
+        "type": "external",
+        "source": "あすけん",
+        "label": "健康データ分析レポート",
+        "url": "https://more.asken.jp/article/asken-data-news/"
+      },
+      {
+        "type": "external",
+        "source": "あすけん",
+        "label": "食生活・健康改善コラム",
+        "url": "https://more.asken.jp/article/"
+      },
+      {
+        "type": "external",
+        "source": "note (minamibuchi)",
+        "label": "習慣化と健康維持の体験記",
+        "url": "https://note.com/minamibuchi/n/nadbb29a6fcb9"
+      }
     ]
   },
   {
@@ -363,7 +618,12 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
     "urls": [
-      "https://www.u-can.co.jp/course/data/in_html/1453/"
+      {
+        "type": "external",
+        "source": "ユーキャン",
+        "label": "健康習慣の専門資格講座",
+        "url": "https://www.u-can.co.jp/course/data/in_html/1453/"
+      }
     ]
   },
   {
@@ -379,7 +639,12 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
     "urls": [
-      "https://kennet.mhlw.go.jp/slp/about/index"
+      {
+        "type": "external",
+        "source": "厚生労働省 スマートライフプロジェクト",
+        "label": "健康習慣改善プロジェクト概要",
+        "url": "https://kennet.mhlw.go.jp/slp/about/index"
+      }
     ]
   },
   {
@@ -395,9 +660,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
     "urls": [
-      "https://note.com/serene_emu992/n/nda8c46de8509",
-      "https://note.com/minamibuchi/n/nadbb29a6fcb9",
-      "https://more.asken.jp/article/"
+      {
+        "type": "external",
+        "source": "note (serene_emu992)",
+        "label": "生活習慣改善の継続ガイド",
+        "url": "https://note.com/serene_emu992/n/nda8c46de8509"
+      },
+      {
+        "type": "external",
+        "source": "note (minamibuchi)",
+        "label": "習慣化と健康維持の体験記",
+        "url": "https://note.com/minamibuchi/n/nadbb29a6fcb9"
+      },
+      {
+        "type": "external",
+        "source": "あすけん",
+        "label": "食生活・健康改善コラム",
+        "url": "https://more.asken.jp/article/"
+      }
     ]
   },
   {
@@ -413,8 +693,18 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
     "urls": [
-      "https://kennet.mhlw.go.jp/slp/about/index",
-      "https://kennet.mhlw.go.jp/slp/about/merit.html"
+      {
+        "type": "external",
+        "source": "厚生労働省 スマートライフプロジェクト",
+        "label": "健康習慣改善プロジェクト概要",
+        "url": "https://kennet.mhlw.go.jp/slp/about/index"
+      },
+      {
+        "type": "external",
+        "source": "厚生労働省 スマートライフプロジェクト",
+        "label": "健康習慣改善のメリット",
+        "url": "https://kennet.mhlw.go.jp/slp/about/merit.html"
+      }
     ]
   },
   {
@@ -430,8 +720,18 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
     "urls": [
-      "https://kennet.mhlw.go.jp/slp/about/slp.html",
-      "https://kennet.mhlw.go.jp/slp/about/merit.html"
+      {
+        "type": "external",
+        "source": "厚生労働省 スマートライフプロジェクト",
+        "label": "スマートライフプロジェクトの仕組み",
+        "url": "https://kennet.mhlw.go.jp/slp/about/slp.html"
+      },
+      {
+        "type": "external",
+        "source": "厚生労働省 スマートライフプロジェクト",
+        "label": "健康習慣改善のメリット",
+        "url": "https://kennet.mhlw.go.jp/slp/about/merit.html"
+      }
     ]
   },
   {
@@ -447,9 +747,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
     "urls": [
-      "https://more.asken.jp/article/asken-data-news/",
-      "https://more.asken.jp/article/",
-      "https://note.com/serene_emu992/n/nda8c46de8509"
+      {
+        "type": "external",
+        "source": "あすけん",
+        "label": "健康データ分析レポート",
+        "url": "https://more.asken.jp/article/asken-data-news/"
+      },
+      {
+        "type": "external",
+        "source": "あすけん",
+        "label": "食生活・健康改善コラム",
+        "url": "https://more.asken.jp/article/"
+      },
+      {
+        "type": "external",
+        "source": "note (serene_emu992)",
+        "label": "生活習慣改善の継続ガイド",
+        "url": "https://note.com/serene_emu992/n/nda8c46de8509"
+      }
     ]
   },
   {
@@ -465,8 +780,18 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
     "urls": [
-      "https://note.com/minamibuchi/n/nadbb29a6fcb9",
-      "https://note.com/serene_emu992/n/nda8c46de8509"
+      {
+        "type": "external",
+        "source": "note (minamibuchi)",
+        "label": "習慣化と健康維持の体験記",
+        "url": "https://note.com/minamibuchi/n/nadbb29a6fcb9"
+      },
+      {
+        "type": "external",
+        "source": "note (serene_emu992)",
+        "label": "生活習慣改善の継続ガイド",
+        "url": "https://note.com/serene_emu992/n/nda8c46de8509"
+      }
     ]
   },
   {
@@ -482,9 +807,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
     "urls": [
-      "https://www.e-stat.go.jp/",
-      "https://www.stat.go.jp/",
-      "https://www.meti.go.jp/"
+      {
+        "type": "external",
+        "source": "政府統計 (e-Stat)",
+        "label": "統計ポータルサイト",
+        "url": "https://www.e-stat.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "総務省統計局",
+        "label": "統計データ・調査案内",
+        "url": "https://www.stat.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "経済産業省",
+        "label": "産業・統計情報ポータル",
+        "url": "https://www.meti.go.jp/"
+      }
     ]
   },
   {
@@ -500,9 +840,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
     "urls": [
-      "https://www.nikkei.com/",
-      "https://newspicks.com/",
-      "https://gendai.media/"
+      {
+        "type": "external",
+        "source": "日本経済新聞",
+        "label": "時事経済ニュース",
+        "url": "https://www.nikkei.com/"
+      },
+      {
+        "type": "external",
+        "source": "NewsPicks",
+        "label": "社会課題解説プラットフォーム",
+        "url": "https://newspicks.com/"
+      },
+      {
+        "type": "external",
+        "source": "現代ビジネス",
+        "label": "時事解説・論評記事",
+        "url": "https://gendai.media/"
+      }
     ]
   },
   {
@@ -518,9 +873,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
     "urls": [
-      "https://manapass.mext.go.jp/",
-      "https://manapass.mext.go.jp/",
-      "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "しゅみナビ",
+        "label": "心理学・カウンセリング体験講座",
+        "url": "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
+      }
     ]
   },
   {
@@ -536,9 +906,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
     "urls": [
-      "https://www.e-stat.go.jp/",
-      "https://www.stat.go.jp/",
-      "https://www.meti.go.jp/"
+      {
+        "type": "external",
+        "source": "政府統計 (e-Stat)",
+        "label": "統計ポータルサイト",
+        "url": "https://www.e-stat.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "総務省統計局",
+        "label": "統計データ・調査案内",
+        "url": "https://www.stat.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "経済産業省",
+        "label": "産業・統計情報ポータル",
+        "url": "https://www.meti.go.jp/"
+      }
     ]
   },
   {
@@ -554,9 +939,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
     "urls": [
-      "https://newspicks.com/",
-      "https://www.nikkei.com/",
-      "https://mainichi.jp/"
+      {
+        "type": "external",
+        "source": "NewsPicks",
+        "label": "社会課題解説プラットフォーム",
+        "url": "https://newspicks.com/"
+      },
+      {
+        "type": "external",
+        "source": "日本経済新聞",
+        "label": "時事経済ニュース",
+        "url": "https://www.nikkei.com/"
+      },
+      {
+        "type": "external",
+        "source": "毎日新聞",
+        "label": "ニュース解説・論説",
+        "url": "https://mainichi.jp/"
+      }
     ]
   },
   {
@@ -572,9 +972,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
     "urls": [
-      "https://manapass.mext.go.jp/",
-      "https://manapass.mext.go.jp/",
-      "https://manapass.mext.go.jp/"
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
+      }
     ]
   },
   {
@@ -590,9 +1005,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
     "urls": [
-      "https://dl.ndl.go.jp/",
-      "https://www.cao.go.jp/",
-      "https://www.bunka.go.jp/"
+      {
+        "type": "external",
+        "source": "国立国会図書館",
+        "label": "デジタルコレクション(専門資料)",
+        "url": "https://dl.ndl.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "内閣府",
+        "label": "公的白書・政策情報",
+        "url": "https://www.cao.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "文化庁",
+        "label": "文化・著作権関連情報",
+        "url": "https://www.bunka.go.jp/"
+      }
     ]
   },
   {
@@ -608,9 +1038,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
     "urls": [
-      "https://business.nikkei.com/",
-      "https://president.jp/",
-      "https://webronza.asahi.com/"
+      {
+        "type": "external",
+        "source": "日経ビジネス",
+        "label": "ビジネス経済専門誌",
+        "url": "https://business.nikkei.com/"
+      },
+      {
+        "type": "external",
+        "source": "プレジデントオンライン",
+        "label": "キャリア・ビジネス教養記事",
+        "url": "https://president.jp/"
+      },
+      {
+        "type": "external",
+        "source": "朝日新聞 (論座)",
+        "label": "専門的社会論壇",
+        "url": "https://webronza.asahi.com/"
+      }
     ]
   },
   {
@@ -626,9 +1071,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
     "urls": [
-      "https://www.grips.ac.jp/",
-      "https://www.kri.sfc.keio.ac.jp/",
-      "https://www.u-tokyo.ac.jp/"
+      {
+        "type": "external",
+        "source": "政策研究大学院大学",
+        "label": "専門的政策研究プログラム",
+        "url": "https://www.grips.ac.jp/"
+      },
+      {
+        "type": "external",
+        "source": "慶應義塾大学SFC研究所",
+        "label": "先端研究機関・専門知",
+        "url": "https://www.kri.sfc.keio.ac.jp/"
+      },
+      {
+        "type": "external",
+        "source": "東京大学",
+        "label": "学術専門プログラム",
+        "url": "https://www.u-tokyo.ac.jp/"
+      }
     ]
   },
   {
@@ -644,9 +1104,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
     "urls": [
-      "https://shigoto.mhlw.go.jp/User/",
-      "https://www.mhlw.go.jp/",
-      "https://job.rikunabi.com/"
+      {
+        "type": "external",
+        "source": "厚生労働省 (jobtag)",
+        "label": "職業能力診断・仕事探し",
+        "url": "https://shigoto.mhlw.go.jp/User/"
+      },
+      {
+        "type": "external",
+        "source": "厚生労働省",
+        "label": "雇用・労働政策総合ポータル",
+        "url": "https://www.mhlw.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "リクナビNEXT",
+        "label": "職種別仕事図鑑",
+        "url": "https://job.rikunabi.com/"
+      }
     ]
   },
   {
@@ -662,9 +1137,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
     "urls": [
-      "https://globis.jp/",
-      "https://schoo.jp/",
-      "https://www.duolingo.com/"
+      {
+        "type": "external",
+        "source": "グロービス学び放題",
+        "label": "ビジネススキル定額学習",
+        "url": "https://globis.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Duolingo",
+        "label": "ゲーミフィケーション語学学習",
+        "url": "https://www.duolingo.com/"
+      }
     ]
   },
   {
@@ -680,9 +1170,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
     "urls": [
-      "https://www.udemy.com/",
-      "https://schoo.jp/",
-      "https://www.street-academy.com/"
+      {
+        "type": "external",
+        "source": "Udemy",
+        "label": "実務スキル特化型講座配信",
+        "url": "https://www.udemy.com/"
+      },
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      },
+      {
+        "type": "external",
+        "source": "ストアカ",
+        "label": "スキル体験・単発講座マッチング",
+        "url": "https://www.street-academy.com/"
+      }
     ]
   },
   {
@@ -698,9 +1203,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
     "urls": [
-      "https://manabi-dx.ipa.go.jp/",
-      "https://www.ipa.go.jp/",
-      "https://www.gov-online.go.jp/"
+      {
+        "type": "external",
+        "source": "マナビDX (IPA)",
+        "label": "デジタルスキル習得ポータル",
+        "url": "https://manabi-dx.ipa.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "IPA (独立行政法人情報処理推進機構)",
+        "label": "IT人材育成・スキル標準",
+        "url": "https://www.ipa.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "政府広報オンライン",
+        "label": "キャリア・生活支援情報",
+        "url": "https://www.gov-online.go.jp/"
+      }
     ]
   },
   {
@@ -716,9 +1236,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
     "urls": [
-      "https://www.udemy.com/",
-      "https://www.coursera.org/",
-      "https://www.linkedin.com/learning/"
+      {
+        "type": "external",
+        "source": "Udemy",
+        "label": "実務スキル特化型講座配信",
+        "url": "https://www.udemy.com/"
+      },
+      {
+        "type": "external",
+        "source": "Coursera",
+        "label": "世界の大学専門オンライン講座",
+        "url": "https://www.coursera.org/"
+      },
+      {
+        "type": "external",
+        "source": "LinkedInラーニング",
+        "label": "ビジネススキル定額学習",
+        "url": "https://www.linkedin.com/learning/"
+      }
     ]
   },
   {
@@ -734,9 +1269,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
     "urls": [
-      "https://www.o-hara.ac.jp/",
-      "https://studying.jp/",
-      "https://www.u-can.co.jp/"
+      {
+        "type": "external",
+        "source": "資格の大原",
+        "label": "専門資格・実務養成コース",
+        "url": "https://www.o-hara.ac.jp/"
+      },
+      {
+        "type": "external",
+        "source": "スタディング",
+        "label": "資格対策専門オンライン講座",
+        "url": "https://studying.jp/"
+      },
+      {
+        "type": "external",
+        "source": "ユーキャン",
+        "label": "通信教育・専門スキル講座",
+        "url": "https://www.u-can.co.jp/"
+      }
     ]
   },
   {
@@ -752,9 +1302,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
     "urls": [
-      "https://www.hellowork.mhlw.go.jp/",
-      "https://www.mhlw.go.jp/",
-      "https://www.javada.or.jp/"
+      {
+        "type": "external",
+        "source": "ハローワーク",
+        "label": "公的職業訓練情報",
+        "url": "https://www.hellowork.mhlw.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "厚生労働省",
+        "label": "雇用・労働政策総合ポータル",
+        "url": "https://www.mhlw.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "中央職業能力開発協会",
+        "label": "技能検定・職業能力開発",
+        "url": "https://www.javada.or.jp/"
+      }
     ]
   },
   {
@@ -770,9 +1335,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
     "urls": [
-      "https://schoo.jp/",
-      "https://www.udemy.com/",
-      "https://globis.jp/"
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Udemy",
+        "label": "実務スキル特化型講座配信",
+        "url": "https://www.udemy.com/"
+      },
+      {
+        "type": "external",
+        "source": "グロービス学び放題",
+        "label": "ビジネススキル定額学習",
+        "url": "https://globis.jp/"
+      }
     ]
   },
   {
@@ -788,9 +1368,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
     "urls": [
-      "https://www.u-can.co.jp/",
-      "https://studying.jp/",
-      "https://www.o-hara.ac.jp/"
+      {
+        "type": "external",
+        "source": "ユーキャン",
+        "label": "通信教育・専門スキル講座",
+        "url": "https://www.u-can.co.jp/"
+      },
+      {
+        "type": "external",
+        "source": "スタディング",
+        "label": "資格対策専門オンライン講座",
+        "url": "https://studying.jp/"
+      },
+      {
+        "type": "external",
+        "source": "資格の大原",
+        "label": "専門資格・実務養成コース",
+        "url": "https://www.o-hara.ac.jp/"
+      }
     ]
   },
   {
@@ -806,9 +1401,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
     "urls": [
-      "https://www.caa.go.jp/",
-      "https://www.fsa.go.jp/policy/nisa2/",
-      "https://www.kokusen.go.jp/"
+      {
+        "type": "external",
+        "source": "消費者庁",
+        "label": "消費者保護・金融教育",
+        "url": "https://www.caa.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "金融庁",
+        "label": "NISA制度解説",
+        "url": "https://www.fsa.go.jp/policy/nisa2/"
+      },
+      {
+        "type": "external",
+        "source": "国民生活センター",
+        "label": "消費生活トラブル相談",
+        "url": "https://www.kokusen.go.jp/"
+      }
     ]
   },
   {
@@ -824,8 +1434,18 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
     "urls": [
-      "https://moneyforward.com/",
-      "https://zaim.net/"
+      {
+        "type": "external",
+        "source": "マネーフォワード",
+        "label": "家計・資産管理アプリ",
+        "url": "https://moneyforward.com/"
+      },
+      {
+        "type": "external",
+        "source": "Zaim",
+        "label": "家計簿管理アプリ",
+        "url": "https://zaim.net/"
+      }
     ]
   },
   {
@@ -841,9 +1461,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
     "urls": [
-      "https://www.jafp.or.jp/",
-      "https://www.u-can.co.jp/",
-      "https://studying.jp/"
+      {
+        "type": "external",
+        "source": "日本FP協会",
+        "label": "ライフプラン・金融教育",
+        "url": "https://www.jafp.or.jp/"
+      },
+      {
+        "type": "external",
+        "source": "ユーキャン",
+        "label": "通信教育・専門スキル講座",
+        "url": "https://www.u-can.co.jp/"
+      },
+      {
+        "type": "external",
+        "source": "スタディング",
+        "label": "資格対策専門オンライン講座",
+        "url": "https://studying.jp/"
+      }
     ]
   },
   {
@@ -859,9 +1494,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
     "urls": [
-      "https://www.caa.go.jp/",
-      "https://www.kokusen.go.jp/",
-      "https://www.fsa.go.jp/policy/nisa2/"
+      {
+        "type": "external",
+        "source": "消費者庁",
+        "label": "消費者保護・金融教育",
+        "url": "https://www.caa.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "国民生活センター",
+        "label": "消費生活トラブル相談",
+        "url": "https://www.kokusen.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "金融庁",
+        "label": "NISA制度解説",
+        "url": "https://www.fsa.go.jp/policy/nisa2/"
+      }
     ]
   },
   {
@@ -877,9 +1527,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
     "urls": [
-      "https://www.u-can.co.jp/",
-      "https://studying.jp/",
-      "https://www.o-hara.ac.jp/"
+      {
+        "type": "external",
+        "source": "ユーキャン",
+        "label": "通信教育・専門スキル講座",
+        "url": "https://www.u-can.co.jp/"
+      },
+      {
+        "type": "external",
+        "source": "スタディング",
+        "label": "資格対策専門オンライン講座",
+        "url": "https://studying.jp/"
+      },
+      {
+        "type": "external",
+        "source": "資格の大原",
+        "label": "専門資格・実務養成コース",
+        "url": "https://www.o-hara.ac.jp/"
+      }
     ]
   },
   {
@@ -895,9 +1560,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
     "urls": [
-      "https://www.jafp.or.jp/",
-      "https://www.u-can.co.jp/",
-      "https://studying.jp/"
+      {
+        "type": "external",
+        "source": "日本FP協会",
+        "label": "ライフプラン・金融教育",
+        "url": "https://www.jafp.or.jp/"
+      },
+      {
+        "type": "external",
+        "source": "ユーキャン",
+        "label": "通信教育・専門スキル講座",
+        "url": "https://www.u-can.co.jp/"
+      },
+      {
+        "type": "external",
+        "source": "スタディング",
+        "label": "資格対策専門オンライン講座",
+        "url": "https://studying.jp/"
+      }
     ]
   },
   {
@@ -913,9 +1593,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
     "urls": [
-      "https://www.e-stat.go.jp/",
-      "https://www.stat.go.jp/",
-      "https://www.fsa.go.jp/"
+      {
+        "type": "external",
+        "source": "政府統計 (e-Stat)",
+        "label": "統計ポータルサイト",
+        "url": "https://www.e-stat.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "総務省統計局",
+        "label": "統計データ・調査案内",
+        "url": "https://www.stat.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "金融庁",
+        "label": "金融政策・金融行政情報",
+        "url": "https://www.fsa.go.jp/"
+      }
     ]
   },
   {
@@ -931,8 +1626,18 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
     "urls": [
-      "https://moneyforward.com/",
-      "https://zaim.net/"
+      {
+        "type": "external",
+        "source": "マネーフォワード",
+        "label": "家計・資産管理アプリ",
+        "url": "https://moneyforward.com/"
+      },
+      {
+        "type": "external",
+        "source": "Zaim",
+        "label": "家計簿管理アプリ",
+        "url": "https://zaim.net/"
+      }
     ]
   },
   {
@@ -948,9 +1653,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
     "urls": [
-      "https://www.jafp.or.jp/",
-      "https://www.u-can.co.jp/",
-      "https://studying.jp/"
+      {
+        "type": "external",
+        "source": "日本FP協会",
+        "label": "ライフプラン・金融教育",
+        "url": "https://www.jafp.or.jp/"
+      },
+      {
+        "type": "external",
+        "source": "ユーキャン",
+        "label": "通信教育・専門スキル講座",
+        "url": "https://www.u-can.co.jp/"
+      },
+      {
+        "type": "external",
+        "source": "スタディング",
+        "label": "資格対策専門オンライン講座",
+        "url": "https://studying.jp/"
+      }
     ]
   },
   {
@@ -966,9 +1686,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
     "urls": [
-      "https://www.mext.go.jp/a_menu/01_g.htm",
-      "https://dl.ndl.go.jp/",
-      "https://www.bunka.go.jp/"
+      {
+        "type": "external",
+        "source": "文部科学省",
+        "label": "学習支援情報ポータル",
+        "url": "https://www.mext.go.jp/a_menu/01_g.htm"
+      },
+      {
+        "type": "external",
+        "source": "国立国会図書館",
+        "label": "デジタルコレクション(専門資料)",
+        "url": "https://dl.ndl.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "文化庁",
+        "label": "文化・著作権関連情報",
+        "url": "https://www.bunka.go.jp/"
+      }
     ]
   },
   {
@@ -984,9 +1719,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
     "urls": [
-      "https://www.notion.so/ja/templates/category/free-learning-templates",
-      "https://schoo.jp/",
-      "https://www.udemy.com/"
+      {
+        "type": "external",
+        "source": "Notion",
+        "label": "学習管理テンプレート",
+        "url": "https://www.notion.so/ja/templates/category/free-learning-templates"
+      },
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Udemy",
+        "label": "実務スキル特化型講座配信",
+        "url": "https://www.udemy.com/"
+      }
     ]
   },
   {
@@ -1002,9 +1752,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
     "urls": [
-      "https://manapass.mext.go.jp/",
-      "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology",
-      "https://manapass.mext.go.jp/"
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "しゅみナビ",
+        "label": "心理学・カウンセリング体験講座",
+        "url": "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
+      },
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
+      }
     ]
   },
   {
@@ -1020,9 +1785,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
     "urls": [
-      "https://dl.ndl.go.jp/",
-      "https://cir.nii.ac.jp/",
-      "https://www.jstage.jst.go.jp/"
+      {
+        "type": "external",
+        "source": "国立国会図書館",
+        "label": "デジタルコレクション(専門資料)",
+        "url": "https://dl.ndl.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "CiNii",
+        "label": "学術論文検索",
+        "url": "https://cir.nii.ac.jp/"
+      },
+      {
+        "type": "external",
+        "source": "J-STAGE",
+        "label": "科学技術情報アーカイブ",
+        "url": "https://www.jstage.jst.go.jp/"
+      }
     ]
   },
   {
@@ -1038,9 +1818,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
     "urls": [
-      "https://schoo.jp/",
-      "https://www.udemy.com/",
-      "https://www.coursera.org/"
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Udemy",
+        "label": "実務スキル特化型講座配信",
+        "url": "https://www.udemy.com/"
+      },
+      {
+        "type": "external",
+        "source": "Coursera",
+        "label": "世界の大学専門オンライン講座",
+        "url": "https://www.coursera.org/"
+      }
     ]
   },
   {
@@ -1056,9 +1851,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
     "urls": [
-      "https://www.coursera.org/",
-      "https://www.edx.org/",
-      "https://manapass.mext.go.jp/"
+      {
+        "type": "external",
+        "source": "Coursera",
+        "label": "世界の大学専門オンライン講座",
+        "url": "https://www.coursera.org/"
+      },
+      {
+        "type": "external",
+        "source": "edX",
+        "label": "大学レベル専門オンライン講座",
+        "url": "https://www.edx.org/"
+      },
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
+      }
     ]
   },
   {
@@ -1074,9 +1884,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
     "urls": [
-      "https://dl.ndl.go.jp/",
-      "https://www.jstage.jst.go.jp/",
-      "https://cir.nii.ac.jp/"
+      {
+        "type": "external",
+        "source": "国立国会図書館",
+        "label": "デジタルコレクション(専門資料)",
+        "url": "https://dl.ndl.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "J-STAGE",
+        "label": "科学技術情報アーカイブ",
+        "url": "https://www.jstage.jst.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "CiNii",
+        "label": "学術論文検索",
+        "url": "https://cir.nii.ac.jp/"
+      }
     ]
   },
   {
@@ -1092,9 +1917,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
     "urls": [
-      "https://schoo.jp/",
-      "https://globis.jp/",
-      "https://www.udemy.com/"
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      },
+      {
+        "type": "external",
+        "source": "グロービス学び放題",
+        "label": "ビジネススキル定額学習",
+        "url": "https://globis.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Udemy",
+        "label": "実務スキル特化型講座配信",
+        "url": "https://www.udemy.com/"
+      }
     ]
   },
   {
@@ -1110,9 +1950,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
     "urls": [
-      "https://manapass.mext.go.jp/",
-      "https://www.coursera.org/",
-      "https://www.edx.org/"
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Coursera",
+        "label": "世界の大学専門オンライン講座",
+        "url": "https://www.coursera.org/"
+      },
+      {
+        "type": "external",
+        "source": "edX",
+        "label": "大学レベル専門オンライン講座",
+        "url": "https://www.edx.org/"
+      }
     ]
   },
   {
@@ -1128,9 +1983,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
     "urls": [
-      "https://dotinstall.com/",
-      "https://www.ipa.go.jp/",
-      "https://prog-8.com/"
+      {
+        "type": "external",
+        "source": "ドットインストール",
+        "label": "初心者向けプログラミング学習",
+        "url": "https://dotinstall.com/"
+      },
+      {
+        "type": "external",
+        "source": "IPA (独立行政法人情報処理推進機構)",
+        "label": "IT人材育成・スキル標準",
+        "url": "https://www.ipa.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Progate",
+        "label": "インタラクティブプログラミング学習",
+        "url": "https://prog-8.com/"
+      }
     ]
   },
   {
@@ -1146,9 +2016,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
     "urls": [
-      "https://schoo.jp/",
-      "https://www.udemy.com/",
-      "https://prog-8.com/"
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Udemy",
+        "label": "実務スキル特化型講座配信",
+        "url": "https://www.udemy.com/"
+      },
+      {
+        "type": "external",
+        "source": "Progate",
+        "label": "インタラクティブプログラミング学習",
+        "url": "https://prog-8.com/"
+      }
     ]
   },
   {
@@ -1164,9 +2049,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
     "urls": [
-      "https://www.udemy.com/",
-      "https://schoo.jp/",
-      "https://www.street-academy.com/"
+      {
+        "type": "external",
+        "source": "Udemy",
+        "label": "実務スキル特化型講座配信",
+        "url": "https://www.udemy.com/"
+      },
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      },
+      {
+        "type": "external",
+        "source": "ストアカ",
+        "label": "スキル体験・単発講座マッチング",
+        "url": "https://www.street-academy.com/"
+      }
     ]
   },
   {
@@ -1182,9 +2082,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
     "urls": [
-      "https://www.ipa.go.jp/",
-      "https://manabi-dx.ipa.go.jp/",
-      "https://www.gov-online.go.jp/"
+      {
+        "type": "external",
+        "source": "IPA (独立行政法人情報処理推進機構)",
+        "label": "IT人材育成・スキル標準",
+        "url": "https://www.ipa.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "マナビDX (IPA)",
+        "label": "デジタルスキル習得ポータル",
+        "url": "https://manabi-dx.ipa.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "政府広報オンライン",
+        "label": "キャリア・生活支援情報",
+        "url": "https://www.gov-online.go.jp/"
+      }
     ]
   },
   {
@@ -1200,9 +2115,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
     "urls": [
-      "https://www.udemy.com/",
-      "https://www.coursera.org/",
-      "https://www.linkedin.com/learning/"
+      {
+        "type": "external",
+        "source": "Udemy",
+        "label": "実務スキル特化型講座配信",
+        "url": "https://www.udemy.com/"
+      },
+      {
+        "type": "external",
+        "source": "Coursera",
+        "label": "世界の大学専門オンライン講座",
+        "url": "https://www.coursera.org/"
+      },
+      {
+        "type": "external",
+        "source": "LinkedInラーニング",
+        "label": "ビジネススキル定額学習",
+        "url": "https://www.linkedin.com/learning/"
+      }
     ]
   },
   {
@@ -1218,9 +2148,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
     "urls": [
-      "https://generative-ai.web-camp.io/",
-      "https://aidemy.net/",
-      "https://www.kikagaku.ai/"
+      {
+        "type": "external",
+        "source": "DMM WEBCAMP",
+        "label": "生成AI専門カリキュラム",
+        "url": "https://generative-ai.web-camp.io/"
+      },
+      {
+        "type": "external",
+        "source": "Aidemy",
+        "label": "AI・データサイエンス特化型講座",
+        "url": "https://aidemy.net/"
+      },
+      {
+        "type": "external",
+        "source": "キカガク",
+        "label": "AI・機械学習専門教育",
+        "url": "https://www.kikagaku.ai/"
+      }
     ]
   },
   {
@@ -1236,9 +2181,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
     "urls": [
-      "https://www.hellowork.mhlw.go.jp/",
-      "https://www.mhlw.go.jp/",
-      "https://www.javada.or.jp/"
+      {
+        "type": "external",
+        "source": "ハローワーク",
+        "label": "公的職業訓練情報",
+        "url": "https://www.hellowork.mhlw.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "厚生労働省",
+        "label": "雇用・労働政策総合ポータル",
+        "url": "https://www.mhlw.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "中央職業能力開発協会",
+        "label": "技能検定・職業能力開発",
+        "url": "https://www.javada.or.jp/"
+      }
     ]
   },
   {
@@ -1254,9 +2214,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
     "urls": [
-      "https://schoo.jp/",
-      "https://globis.jp/",
-      "https://www.udemy.com/"
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      },
+      {
+        "type": "external",
+        "source": "グロービス学び放題",
+        "label": "ビジネススキル定額学習",
+        "url": "https://globis.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Udemy",
+        "label": "実務スキル特化型講座配信",
+        "url": "https://www.udemy.com/"
+      }
     ]
   },
   {
@@ -1272,9 +2247,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
     "urls": [
-      "https://www.u-can.co.jp/",
-      "https://studying.jp/",
-      "https://www.o-hara.ac.jp/"
+      {
+        "type": "external",
+        "source": "ユーキャン",
+        "label": "通信教育・専門スキル講座",
+        "url": "https://www.u-can.co.jp/"
+      },
+      {
+        "type": "external",
+        "source": "スタディング",
+        "label": "資格対策専門オンライン講座",
+        "url": "https://studying.jp/"
+      },
+      {
+        "type": "external",
+        "source": "資格の大原",
+        "label": "専門資格・実務養成コース",
+        "url": "https://www.o-hara.ac.jp/"
+      }
     ]
   },
   {
@@ -1290,9 +2280,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
     "urls": [
-      "https://www.mhlw.go.jp/",
-      "https://www.jma.go.jp/",
-      "https://www.caa.go.jp/"
+      {
+        "type": "external",
+        "source": "厚生労働省",
+        "label": "雇用・労働政策総合ポータル",
+        "url": "https://www.mhlw.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "気象庁",
+        "label": "防災情報・気象データ",
+        "url": "https://www.jma.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "消費者庁",
+        "label": "消費者保護・金融教育",
+        "url": "https://www.caa.go.jp/"
+      }
     ]
   },
   {
@@ -1308,8 +2313,18 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
     "urls": [
-      "https://www.google.com/fit/",
-      "https://www.asken.jp/"
+      {
+        "type": "external",
+        "source": "Google Fit",
+        "label": "健康データ管理ツール",
+        "url": "https://www.google.com/fit/"
+      },
+      {
+        "type": "external",
+        "source": "あすけん",
+        "label": "AI食事管理アプリ",
+        "url": "https://www.asken.jp/"
+      }
     ]
   },
   {
@@ -1325,9 +2340,24 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
     "urls": [
-      "https://www.street-academy.com/",
-      "https://schoo.jp/",
-      "https://manapass.mext.go.jp/"
+      {
+        "type": "external",
+        "source": "ストアカ",
+        "label": "スキル体験・単発講座マッチング",
+        "url": "https://www.street-academy.com/"
+      },
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      },
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
+      }
     ]
   },
   {
@@ -1343,9 +2373,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
     "urls": [
-      "https://www.mhlw.go.jp/",
-      "https://www.jma.go.jp/",
-      "https://www.caa.go.jp/"
+      {
+        "type": "external",
+        "source": "厚生労働省",
+        "label": "雇用・労働政策総合ポータル",
+        "url": "https://www.mhlw.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "気象庁",
+        "label": "防災情報・気象データ",
+        "url": "https://www.jma.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "消費者庁",
+        "label": "消費者保護・金融教育",
+        "url": "https://www.caa.go.jp/"
+      }
     ]
   },
   {
@@ -1361,9 +2406,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
     "urls": [
-      "https://www.udemy.com/",
-      "https://schoo.jp/",
-      "https://note.com/"
+      {
+        "type": "external",
+        "source": "Udemy",
+        "label": "実務スキル特化型講座配信",
+        "url": "https://www.udemy.com/"
+      },
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      },
+      {
+        "type": "external",
+        "source": "note",
+        "label": "実践的ナレッジ共有",
+        "url": "https://note.com/"
+      }
     ]
   },
   {
@@ -1379,9 +2439,24 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
     "urls": [
-      "https://manapass.mext.go.jp/",
-      "https://www.u-can.co.jp/",
-      "https://studying.jp/"
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "ユーキャン",
+        "label": "通信教育・専門スキル講座",
+        "url": "https://www.u-can.co.jp/"
+      },
+      {
+        "type": "external",
+        "source": "スタディング",
+        "label": "資格対策専門オンライン講座",
+        "url": "https://studying.jp/"
+      }
     ]
   },
   {
@@ -1397,9 +2472,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
     "urls": [
-      "https://www.e-stat.go.jp/",
-      "https://www.stat.go.jp/",
-      "https://www.cao.go.jp/"
+      {
+        "type": "external",
+        "source": "政府統計 (e-Stat)",
+        "label": "統計ポータルサイト",
+        "url": "https://www.e-stat.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "総務省統計局",
+        "label": "統計データ・調査案内",
+        "url": "https://www.stat.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "内閣府",
+        "label": "公的白書・政策情報",
+        "url": "https://www.cao.go.jp/"
+      }
     ]
   },
   {
@@ -1415,9 +2505,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
     "urls": [
-      "https://schoo.jp/",
-      "https://www.notion.so/ja-jp",
-      "https://workspace.google.com/"
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Notion",
+        "label": "タスク・学習管理ツール",
+        "url": "https://www.notion.so/ja-jp"
+      },
+      {
+        "type": "external",
+        "source": "Google Workspace",
+        "label": "業務効率化ツール群",
+        "url": "https://workspace.google.com/"
+      }
     ]
   },
   {
@@ -1433,9 +2538,24 @@
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
     "urls": [
-      "https://www.u-can.co.jp/",
-      "https://manapass.mext.go.jp/",
-      "https://schoo.jp/"
+      {
+        "type": "external",
+        "source": "ユーキャン",
+        "label": "通信教育・専門スキル講座",
+        "url": "https://www.u-can.co.jp/"
+      },
+      {
+        "type": "external",
+        "source": "マナパス",
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      }
     ]
   }
 ]

@@ -994,22 +994,55 @@
         m.textContent = '想定時間：' + r.estimated_time;
         card.appendChild(m);
       }
-      // 9.9: urls 配列の全件を順に「見てみる」ボタンとして縦に並べる。
-      // 旧 url 単一フィールドは廃止。後方互換のため r.url があれば 1要素配列として扱う。
-      const urls = Array.isArray(r.urls) && r.urls.length > 0
+      // 9.9: urls 配列の各要素を {type, source, label, url} 構造のリンクとして縦に並べる。
+      // 後方互換: 要素が文字列なら {type:'external', source:'', label:str, url:str} として扱う。
+      // r.url（旧単一フィールド）も 1要素として補完する。
+      const rawUrls = Array.isArray(r.urls) && r.urls.length > 0
         ? r.urls
         : (r.url ? [r.url] : []);
+      const urls = rawUrls.map(u => {
+        if (typeof u === 'string') {
+          return { type: 'external', source: '', label: u, url: u };
+        }
+        if (u && typeof u === 'object' && typeof u.url === 'string') {
+          return {
+            type: u.type === 'internal' ? 'internal' : 'external',
+            source: typeof u.source === 'string' ? u.source : '',
+            label: typeof u.label === 'string' && u.label ? u.label : u.url,
+            url: u.url
+          };
+        }
+        return null;
+      }).filter(Boolean);
       if (urls.length > 0) {
         const linkList = document.createElement('div');
         linkList.className = 'route-links';
-        urls.forEach(href => {
-          if (typeof href !== 'string' || !href) return;
+        urls.forEach(u => {
           const link = document.createElement('a');
-          link.className = 'btn btn-primary route-link';
-          link.href = href;
-          link.target = '_blank';
-          link.rel = 'noopener noreferrer';
-          link.textContent = '見てみる';
+          link.className = 'route-link';
+          link.href = u.url;
+          if (u.type === 'external') {
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+          }
+          const body = document.createElement('div');
+          body.className = 'route-link__body';
+          const labelEl = document.createElement('div');
+          labelEl.className = 'route-link__label';
+          labelEl.textContent = u.label;
+          body.appendChild(labelEl);
+          if (u.source) {
+            const srcEl = document.createElement('div');
+            srcEl.className = 'route-link__source';
+            srcEl.textContent = u.source;
+            body.appendChild(srcEl);
+          }
+          link.appendChild(body);
+          const icon = document.createElement('div');
+          icon.className = 'route-link__icon';
+          icon.setAttribute('aria-hidden', 'true');
+          icon.textContent = '↗';
+          link.appendChild(icon);
           linkList.appendChild(link);
         });
         card.appendChild(linkList);

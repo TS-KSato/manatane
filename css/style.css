@@ -571,7 +571,7 @@ body {
   color: var(--color-text-sub);
 }
 
-/* 9.9: 1ルートに対して最大3件の「見てみる」ボタンを縦に並べる領域 */
+/* 9.9: 1ルートに対して最大3件のリンクを縦に並べる領域 */
 .route-links {
   display: flex;
   flex-direction: column;
@@ -579,9 +579,55 @@ body {
   margin-top: 4px;
 }
 
+/* 9.9: 各リンクは「ページ名（主）+ 引用元（副）+ 矢印アイコン」の構造を持つ */
 .route-link {
-  /* .btn .btn-primary のサイズを継承。複数並んでも視覚的に窮屈にならないよう
-     .route-links の gap で間隔を確保する。 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #e0e0e0);
+  border-radius: 10px;
+  color: var(--color-text, #222);
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.route-link:hover,
+.route-link:focus-visible {
+  background: var(--color-surface-hover, #f5f5f5);
+  border-color: var(--color-border-strong, #c8c8c8);
+}
+
+.route-link__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.route-link__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text, #222);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.route-link__source {
+  font-size: 12px;
+  color: var(--color-text-sub, #777);
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.route-link__icon {
+  flex: 0 0 auto;
+  font-size: 16px;
+  color: var(--color-text-sub, #777);
+  line-height: 1;
 }
 
 /* bottom nav (15) */
