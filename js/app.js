@@ -928,13 +928,13 @@
       noticeEl.textContent = 'この一言は本人の発言ではなく、考え方を学習向けに要約したものです。';
     }
 
-    // ガイド画像: images/guides/{guide_id}.svg を読み込み、存在しなければ placeholder にフォールバック
+    // ガイド画像: images/guides/{guide_id}.png を読み込み、存在しなければ placeholder にフォールバック
     const imgEl = document.getElementById('guide-image');
     if (imgEl) {
-      const primarySrc = 'images/guides/' + STATE.guideId + '.svg';
-      const fallbackSrc = 'images/guides/placeholder.svg';
+      const primarySrc = 'images/guides/' + STATE.guideId + '.png';
+      const fallbackSrc = 'images/guides/placeholder.png';
       imgEl.onerror = function () {
-        if (imgEl.src.indexOf('placeholder.svg') === -1) {
+        if (imgEl.src.indexOf('placeholder.png') === -1) {
           imgEl.onerror = null;
           imgEl.src = fallbackSrc;
         }
