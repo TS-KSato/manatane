@@ -917,7 +917,6 @@
 
     setText('guide-label', g.display_label || g.frame_name || '');
     setText('guide-person', g.name || '');
-    setText('guide-name-original', g.name_original || '');
     const eraRegion = [g.era, g.region].filter(Boolean).join(' / ');
     setText('guide-era-region', eraRegion);
     setText('guide-line', g.short_line || '');
