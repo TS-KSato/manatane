@@ -947,6 +947,12 @@
     setText('guide-translation', g.learning_translation || '');
     setText('guide-action', g.one_min_action || '');
     renderListInto('guide-topics', g.related_topics || []);
+
+    // 9.8: ルート誘導 CTA。文言は「{name}とルートを探す」。遷移先はおすすめルート画面。
+    const ctaEl = document.getElementById('guide-route-cta');
+    if (ctaEl) {
+      ctaEl.textContent = (g.name || '') + 'とルートを探す';
+    }
   }
 
   // ===== おすすめルートの描画 (9.9) =====

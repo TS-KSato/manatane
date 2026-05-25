@@ -420,8 +420,7 @@ body {
 .mz-dir-right { grid-column: 3; grid-row: 2; }
 
 /* result */
-.result-card,
-.guide-card {
+.result-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
@@ -430,6 +429,34 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+/* 9.8: ガイドカード。画像をカード上端の全幅で見せるため、コンテナ自身は
+   パディングを持たず、内側 .guide-card-body にテキスト用パディングを置く。
+   overflow:hidden により画像の上端角丸がカード角丸と一致する。 */
+.guide-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 0;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+}
+
+.guide-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 16px;
+}
+
+.guide-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 /* 6.5: 81通りの表示名(15〜22文字)に対応。複数行表示を許容。 */
@@ -511,19 +538,20 @@ body {
   display: none;
 }
 
+/* 9.8: ガイド画像はカード上端の全幅・正方形。border-radius は持たず、
+   カード側の overflow:hidden で上端角丸が自動的に切り取られる。
+   各ガイドの背景色は画像自身が含む前提で、カード上部の色面として機能する。 */
 .guide-image {
-  display: flex;
-  justify-content: center;
-  margin: 4px 0 0;
+  width: 100%;
+  background: var(--color-beige);
 }
 
 .guide-image img {
-  width: 65%;
-  max-width: 280px;
-  height: auto;
-  border-radius: 12px;
-  background: var(--color-beige);
   display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
 }
 
 .guide-line {
@@ -539,6 +567,11 @@ body {
   margin: 0;
   font-size: 12px;
   color: var(--color-text-sub);
+}
+
+/* 9.8: ガイドカード末尾のルート誘導CTA。本文ブロックから視覚的に離す。 */
+.guide-route-cta {
+  margin-top: 8px;
 }
 
 /* route */
