@@ -869,12 +869,6 @@
       },
       {
         "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      },
-      {
-        "type": "external",
         "source": "しゅみナビ",
         "label": "心理学・カウンセリング体験講座",
         "url": "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
@@ -960,18 +954,6 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
     "urls": [
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      },
       {
         "type": "external",
         "source": "マナパス",
@@ -1751,12 +1733,6 @@
         "source": "しゅみナビ",
         "label": "心理学・カウンセリング体験講座",
         "url": "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
-      },
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
       }
     ]
   },
