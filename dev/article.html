@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>読み物 確認用 - マナタネ</title>
+  <!-- 本体と同じスタイルを使う。本体の index.html からはリンクしない開発用ページ。 -->
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* 下部固定ナビを置かないので、その分の余白だけ打ち消す(本体の style.css は変更しない) */
+    body { padding-bottom: 24px; }
+    .dev-bar {
+      font-size: 12px;
+      color: var(--color-text-sub);
+      padding: 6px 16px;
+      background: var(--color-beige);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .dev-bar a { color: var(--color-text-sub); }
+    /* 内部リンクは遷移させず、種類と ID を小さく添えて表示する */
+    .dev-internal { color: var(--color-leaf); font-weight: 600; }
+    .dev-internal-tag {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--color-text-sub);
+      margin-left: 2px;
+      white-space: nowrap;
+    }
+    .dev-list { margin: 0; padding-left: 20px; line-height: 1.8; }
+    .dev-list small { color: var(--color-text-sub); }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <section class="screen" id="screen-article" data-screen="article">
+      <div class="dev-bar">開発用の確認ページです。本体からはリンクされていません。<a href="article.html">一覧へ</a></div>
+      <header class="screen-header">
+        <h2 class="screen-title" style="padding-right:0">読み物</h2>
+      </header>
+      <div class="screen-body">
+        <article class="article-card">
+          <h1 class="article-title" id="article-title">読み込み中…</h1>
+          <p class="article-verified" id="article-verified"></p>
+          <div class="article-body" id="article-body"></div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <script src="../js/vendor/marked.umd.js"></script>
+  <script>
+  /* 本体 js/app.js の読み物表示(stripMemoSections / sanitizeArticleHtml / renderMarkdown)と
+   * 同じ処理を複製している。本体側を変更したときは、ここも合わせて更新すること。
+   * 違いは 1 点のみ: article:/guide:/route: の内部リンクを遷移させず、種類と ID を添えて表示する。 */
+  (function () {
+    'use strict';
+    const ARTICLES_JSON = '../data/articles.json';
+    const ARTICLE_MEMO_PREFIX = '編集メモ';
+    const ARTICLE_ALLOWED_TAGS = {
+      h2: 1, h3: 1, p: 1, br: 1, hr: 1, strong: 1, em: 1, b: 1, i: 1, del: 1, code: 1, pre: 1,
+      ul: 1, ol: 1, li: 1, blockquote: 1, a: 1,
+      table: 1, thead: 1, tbody: 1, tr: 1, th: 1, td: 1,
+    };
+
+    function parseInternalTarget(url) {
+      const m = /^(article|guide|route):([A-Za-z0-9_\-]+)$/.exec(String(url || '').trim());
+      return m ? { kind: m[1], id: m[2] } : null;
+    }
+
+    // 1.4: 「編集メモ」で始まる見出しのセクションは表示しない(本体と同じ)
+    function stripMemoSections(md) {
+      const lines = String(md || '').split(/\r?\n/);
+      const out = [];
+      let skipLevel = 0;
+      for (let i = 0; i < lines.length; i += 1) {
+        const m = /^(#{1,6})\s*(.*?)\s*#*\s*$/.exec(lines[i]);
+        if (m) {
+          const level = m[1].length;
+          if (skipLevel && level <= skipLevel) skipLevel = 0;
+          if (!skipLevel && m[2].indexOf(ARTICLE_MEMO_PREFIX) === 0) { skipLevel = level; continue; }
+        }
+        if (!skipLevel) out.push(lines[i]);
+      }
+      return out.join('\n');
+    }
+
+    // 確認用: 内部リンクは a ではなく span にして「テキスト [kind: id]」で表示する
+    function makeInternalPreview(target, srcNode, walk) {
+      const span = document.createElement('span');
+      span.className = 'article-link article-link--internal dev-internal';
+      walk(srcNode, span);
+      const tag = document.createElement('small');
+      tag.className = 'dev-internal-tag';
+      tag.textContent = ' [' + target.kind + ': ' + target.id + ']';
+      span.appendChild(tag);
+      return span;
+    }
+
+    function applyExternalLink(el, href) {
+      if (/^https?:\/\//i.test(href)) {
+        el.href = href;
+        el.target = '_blank';
+        el.rel = 'noopener noreferrer';
+        el.className = 'article-link article-link--external';
+        return true;
+      }
+      return false;
+    }
+
+    // 4: 変換後の HTML を許可タグだけで組み直す(本体と同じ。内部リンクの扱いのみ確認用に変更)
+    function sanitizeArticleHtml(html) {
+      const doc = new DOMParser().parseFromString('<!doctype html><body>' + html, 'text/html');
+      const frag = document.createDocumentFragment();
+      function walk(src, dst) {
+        Array.prototype.forEach.call(src.childNodes, node => {
+          if (node.nodeType === Node.TEXT_NODE) { dst.appendChild(document.createTextNode(node.nodeValue)); return; }
+          if (node.nodeType !== Node.ELEMENT_NODE) return;
+          let tag = node.tagName.toLowerCase();
+          if (tag === 'h1' || tag === 'script' || tag === 'style' || tag === 'iframe' ||
+              tag === 'object' || tag === 'embed' || tag === 'form' || tag === 'input' || tag === 'button') return;
+          if (tag === 'h4' || tag === 'h5' || tag === 'h6') tag = 'h3';
+          if (!ARTICLE_ALLOWED_TAGS[tag]) { walk(node, dst); return; }
+          if (tag === 'a') {
+            const href = node.getAttribute('href') || '';
+            const internal = parseInternalTarget(href);
+            if (internal) { dst.appendChild(makeInternalPreview(internal, node, walk)); return; }
+            const a = document.createElement('a');
+            if (!applyExternalLink(a, href)) { walk(node, dst); return; }
+            walk(node, a);
+            dst.appendChild(a);
+            return;
+          }
+          const el = document.createElement(tag);
+          walk(node, el);
+          dst.appendChild(el);
+        });
+      }
+      walk(doc.body, frag);
+      return frag;
+    }
+
+    function renderMarkdown(md) {
+      const src = stripMemoSections(md);
+      if (window.marked && typeof window.marked.parse === 'function') {
+        return sanitizeArticleHtml(window.marked.parse(src, { gfm: true, breaks: false }));
+      }
+      const frag = document.createDocumentFragment();
+      src.split(/\n{2,}/).forEach(para => {
+        const p = document.createElement('p');
+        p.textContent = para;
+        frag.appendChild(p);
+      });
+      return frag;
+    }
+
+    // ---- ページ固有の処理 ----
+    const titleEl = document.getElementById('article-title');
+    const verifiedEl = document.getElementById('article-verified');
+    const bodyEl = document.getElementById('article-body');
+
+    function showMessage(text) {
+      bodyEl.innerHTML = '';
+      const p = document.createElement('p');
+      p.className = 'desc';
+      p.textContent = text;
+      bodyEl.appendChild(p);
+    }
+
+    function showList(articles, note) {
+      titleEl.textContent = '読み物の一覧';
+      verifiedEl.textContent = note || '';
+      bodyEl.innerHTML = '';
+      if (!articles.length) { showMessage('articles.json に読み物がありません。'); return; }
+      const ul = document.createElement('ul');
+      ul.className = 'dev-list';
+      articles.forEach(a => {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = 'article.html?id=' + encodeURIComponent(a.article_id);
+        link.textContent = a.title || a.article_id;
+        li.appendChild(link);
+        const meta = document.createElement('small');
+        meta.textContent = ' (' + a.article_id + ' / ' + (a.role || '') + ' / ' + (a.verified_at || '') + ')';
+        li.appendChild(meta);
+        ul.appendChild(li);
+      });
+      bodyEl.appendChild(ul);
+    }
+
+    function showArticle(a) {
+      document.title = (a.title || a.article_id) + ' - 読み物 確認用';
+      titleEl.textContent = a.title || '';
+      verifiedEl.textContent = a.verified_at ? '最終検証日 ' + a.verified_at : '';
+      showMessage('読み込み中…');
+      return fetch('../' + a.file, { cache: 'no-cache' }).then(r => {
+        if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + a.file);
+        return r.text();
+      }).then(md => {
+        bodyEl.innerHTML = '';
+        bodyEl.appendChild(renderMarkdown(md));
+      });
+    }
+
+    const id = new URLSearchParams(window.location.search).get('id');
+    fetch(ARTICLES_JSON, { cache: 'no-cache' }).then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + ARTICLES_JSON);
+      return r.json();
+    }).then(articles => {
+      const list = Array.isArray(articles) ? articles : [];
+      if (!id) { showList(list, ''); return; }
+      const a = list.filter(x => x.article_id === id)[0];
+      if (!a) { showList(list, 'id「' + id + '」は articles.json にありません。'); return; }
+      return showArticle(a);
+    }).catch(err => {
+      console.error('[dev/article] load failed:', err);
+      titleEl.textContent = '読み込みエラー';
+      verifiedEl.textContent = '';
+      showMessage('読み込みに失敗しました: ' + err.message);
+    });
+  })();
+  </script>
+</body>
+</html>
