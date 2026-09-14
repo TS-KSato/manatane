@@ -14,21 +14,21 @@
     "urls": [
       {
         "type": "external",
-        "source": "ミイダス",
-        "label": "認知バイアス診断",
-        "url": "https://corp.miidas.jp/assessment/7840/"
+        "source": "厚生労働省 (jobtag)",
+        "label": "職業能力診断・仕事探し",
+        "url": "https://shigoto.mhlw.go.jp/User/"
       },
       {
         "type": "external",
-        "source": "Awarefy",
-        "label": "認知バイアス解説",
-        "url": "https://www.awarefy.com/coglabo/post/cognitive-bias"
+        "source": "厚生労働省 こころの耳",
+        "label": "働く人のメンタルヘルス・ポータル",
+        "url": "https://kokoromimi.mhlw.go.jp/"
       },
       {
         "type": "external",
-        "source": "ミイダス",
-        "label": "認知バイアス記事一覧",
-        "url": "https://corp.miidas.jp/assessment/tag/%E8%AA%8D%E7%9F%A5%E3%83%90%E3%82%A4%E3%82%A2%E3%82%B9/"
+        "source": "厚生労働省 e-ヘルスネット",
+        "label": "健康情報サイト",
+        "url": "https://www.e-healthnet.mhlw.go.jp/"
       }
     ]
   },
@@ -47,9 +47,15 @@
     "urls": [
       {
         "type": "external",
-        "source": "note (zyagasan)",
-        "label": "自己理解のための自己分析手法",
-        "url": "https://note.com/zyagasan/n/n1162c061b376"
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Udemy",
+        "label": "実務スキル特化型講座配信",
+        "url": "https://www.udemy.com/"
       }
     ]
   },
@@ -69,14 +75,8 @@
       {
         "type": "external",
         "source": "マナパス",
-        "label": "大学公開講座・心理学概論",
-        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/"
-      },
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "大学公開講座・心理学演習",
-        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374474/"
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
       },
       {
         "type": "external",
@@ -101,21 +101,21 @@
     "urls": [
       {
         "type": "external",
-        "source": "Awarefy",
-        "label": "情緒不安定のセルフケア解説",
-        "url": "https://www.awarefy.com/coglabo/post/cure-emotional-instability"
+        "source": "厚生労働省 こころの耳",
+        "label": "働く人のメンタルヘルス・ポータル",
+        "url": "https://kokoromimi.mhlw.go.jp/"
       },
       {
         "type": "external",
-        "source": "note (井上はなこ)",
-        "label": "メタ認知トレーニングの実践",
-        "url": "https://note.com/hanako_inoue/n/nca3dbbf28372"
+        "source": "文部科学省",
+        "label": "学習支援情報ポータル",
+        "url": "https://www.mext.go.jp/a_menu/01_g.htm"
       },
       {
         "type": "external",
-        "source": "note (support_office)",
-        "label": "自己観察による思考整理術",
-        "url": "https://note.com/support_office/n/n2197d506db36"
+        "source": "厚生労働省 (jobtag)",
+        "label": "職業能力診断・仕事探し",
+        "url": "https://shigoto.mhlw.go.jp/User/"
       }
     ]
   },
@@ -134,21 +134,21 @@
     "urls": [
       {
         "type": "external",
-        "source": "Awarefy",
-        "label": "認知バイアス解説",
-        "url": "https://www.awarefy.com/coglabo/post/cognitive-bias"
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
       },
       {
         "type": "external",
-        "source": "note (support_office)",
-        "label": "自己観察による思考整理術",
-        "url": "https://note.com/support_office/n/n2197d506db36"
+        "source": "Coursera",
+        "label": "世界の大学専門オンライン講座",
+        "url": "https://www.coursera.org/"
       },
       {
         "type": "external",
-        "source": "Awarefy",
-        "label": "情緒不安定のセルフケア解説",
-        "url": "https://www.awarefy.com/coglabo/post/cure-emotional-instability"
+        "source": "Udemy",
+        "label": "実務スキル特化型講座配信",
+        "url": "https://www.udemy.com/"
       }
     ]
   },
@@ -168,14 +168,14 @@
       {
         "type": "external",
         "source": "マナパス",
-        "label": "大学公開講座・心理学概論",
-        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/"
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
       },
       {
         "type": "external",
-        "source": "マナパス",
-        "label": "大学公開講座・心理学基礎講座",
-        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10375198/"
+        "source": "放送大学",
+        "label": "放送大学(心理学・教育の科目)",
+        "url": "https://www.ouj.ac.jp/"
       },
       {
         "type": "external",
@@ -201,20 +201,20 @@
       {
         "type": "external",
         "source": "マナパス",
-        "label": "大学公開講座・心理学概論",
-        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/"
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
       },
       {
         "type": "external",
-        "source": "マナパス",
-        "label": "大学公開講座・心理学演習",
-        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374474/"
+        "source": "国立国会図書館",
+        "label": "デジタルコレクション(専門資料)",
+        "url": "https://dl.ndl.go.jp/"
       },
       {
         "type": "external",
-        "source": "マナパス",
-        "label": "大学公開講座・心理学基礎講座",
-        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10375198/"
+        "source": "CiNii",
+        "label": "学術論文検索",
+        "url": "https://cir.nii.ac.jp/"
       }
     ]
   },
@@ -233,21 +233,21 @@
     "urls": [
       {
         "type": "external",
-        "source": "note (support_office)",
-        "label": "自己観察による思考整理術",
-        "url": "https://note.com/support_office/n/n2197d506db36"
+        "source": "Coursera",
+        "label": "世界の大学専門オンライン講座",
+        "url": "https://www.coursera.org/"
       },
       {
         "type": "external",
-        "source": "note (井上はなこ)",
-        "label": "メタ認知トレーニングの実践",
-        "url": "https://note.com/hanako_inoue/n/nca3dbbf28372"
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
       },
       {
         "type": "external",
-        "source": "Awarefy",
-        "label": "情緒不安定のセルフケア解説",
-        "url": "https://www.awarefy.com/coglabo/post/cure-emotional-instability"
+        "source": "edX",
+        "label": "大学レベル専門オンライン講座",
+        "url": "https://www.edx.org/"
       }
     ]
   },
@@ -266,21 +266,21 @@
     "urls": [
       {
         "type": "external",
-        "source": "マナパス",
-        "label": "大学公開講座・心理学概論",
-        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10374450/"
+        "source": "放送大学",
+        "label": "放送大学(心理学・教育の科目)",
+        "url": "https://www.ouj.ac.jp/"
+      },
+      {
+        "type": "external",
+        "source": "日本心理学会",
+        "label": "心理学をまなぶ",
+        "url": "https://psych.or.jp/"
       },
       {
         "type": "external",
         "source": "マナパス",
-        "label": "大学公開講座・心理学基礎講座",
-        "url": "https://manapass.mext.go.jp/portal/course/detail/pro04adm13com02sch05/10375198/"
-      },
-      {
-        "type": "external",
-        "source": "しゅみナビ",
-        "label": "心理学・カウンセリング体験講座",
-        "url": "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
+        "label": "社会人のための学び直し検索サイト",
+        "url": "https://manapass.mext.go.jp/"
       }
     ]
   },
@@ -414,14 +414,14 @@
       {
         "type": "external",
         "source": "Schoo",
-        "label": "学習法ナビゲーション",
-        "url": "https://howto.schoo.jp/navi-detail/9S-wnOvJ"
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
       },
       {
         "type": "external",
-        "source": "ライフハッカー",
-        "label": "習慣化メソッド解説",
-        "url": "https://www.lifehacker.jp/article/214542tiny_habit/"
+        "source": "Notion",
+        "label": "学習管理テンプレート",
+        "url": "https://www.notion.so/ja/templates/category/free-learning-templates"
       }
     ]
   },
@@ -441,8 +441,8 @@
       {
         "type": "external",
         "source": "Schoo",
-        "label": "学習法ナビゲーション",
-        "url": "https://howto.schoo.jp/navi-detail/9S-wnOvJ"
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
       },
       {
         "type": "external",
@@ -495,8 +495,8 @@
       {
         "type": "external",
         "source": "Schoo",
-        "label": "学習法ナビゲーション",
-        "url": "https://howto.schoo.jp/navi-detail/9S-wnOvJ"
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
       },
       {
         "type": "external",
@@ -528,8 +528,14 @@
       {
         "type": "external",
         "source": "Schoo",
-        "label": "学習法ナビゲーション",
-        "url": "https://howto.schoo.jp/navi-detail/9S-wnOvJ"
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Coursera",
+        "label": "世界の大学専門オンライン講座",
+        "url": "https://www.coursera.org/"
       }
     ]
   },
@@ -576,20 +582,20 @@
       {
         "type": "external",
         "source": "あすけん",
-        "label": "健康データ分析レポート",
-        "url": "https://more.asken.jp/article/asken-data-news/"
+        "label": "AI食事管理アプリ",
+        "url": "https://www.asken.jp/"
       },
       {
         "type": "external",
-        "source": "あすけん",
-        "label": "食生活・健康改善コラム",
-        "url": "https://more.asken.jp/article/"
+        "source": "厚生労働省 e-ヘルスネット",
+        "label": "健康情報サイト",
+        "url": "https://www.e-healthnet.mhlw.go.jp/"
       },
       {
         "type": "external",
-        "source": "note (minamibuchi)",
-        "label": "習慣化と健康維持の体験記",
-        "url": "https://note.com/minamibuchi/n/nadbb29a6fcb9"
+        "source": "厚生労働省 スマートライフプロジェクト",
+        "label": "健康習慣改善プロジェクト概要",
+        "url": "https://kennet.mhlw.go.jp/slp/about/index"
       }
     ]
   },
@@ -609,8 +615,14 @@
       {
         "type": "external",
         "source": "ユーキャン",
-        "label": "健康習慣の専門資格講座",
-        "url": "https://www.u-can.co.jp/course/data/in_html/1453/"
+        "label": "通信教育・専門スキル講座",
+        "url": "https://www.u-can.co.jp/"
+      },
+      {
+        "type": "external",
+        "source": "スタディング",
+        "label": "資格対策専門オンライン講座",
+        "url": "https://studying.jp/"
       }
     ]
   },
@@ -650,21 +662,21 @@
     "urls": [
       {
         "type": "external",
-        "source": "note (serene_emu992)",
-        "label": "生活習慣改善の継続ガイド",
-        "url": "https://note.com/serene_emu992/n/nda8c46de8509"
-      },
-      {
-        "type": "external",
-        "source": "note (minamibuchi)",
-        "label": "習慣化と健康維持の体験記",
-        "url": "https://note.com/minamibuchi/n/nadbb29a6fcb9"
-      },
-      {
-        "type": "external",
         "source": "あすけん",
-        "label": "食生活・健康改善コラム",
-        "url": "https://more.asken.jp/article/"
+        "label": "AI食事管理アプリ",
+        "url": "https://www.asken.jp/"
+      },
+      {
+        "type": "external",
+        "source": "Habitify",
+        "label": "習慣トラッキングアプリ",
+        "url": "https://habitify.me/"
+      },
+      {
+        "type": "external",
+        "source": "厚生労働省 e-ヘルスネット",
+        "label": "健康情報サイト",
+        "url": "https://www.e-healthnet.mhlw.go.jp/"
       }
     ]
   },
@@ -738,20 +750,20 @@
       {
         "type": "external",
         "source": "あすけん",
-        "label": "健康データ分析レポート",
-        "url": "https://more.asken.jp/article/asken-data-news/"
+        "label": "AI食事管理アプリ",
+        "url": "https://www.asken.jp/"
       },
       {
         "type": "external",
-        "source": "あすけん",
-        "label": "食生活・健康改善コラム",
-        "url": "https://more.asken.jp/article/"
+        "source": "Schoo",
+        "label": "大人向け定額動画学習サービス",
+        "url": "https://schoo.jp/"
       },
       {
         "type": "external",
-        "source": "note (serene_emu992)",
-        "label": "生活習慣改善の継続ガイド",
-        "url": "https://note.com/serene_emu992/n/nda8c46de8509"
+        "source": "厚生労働省 e-ヘルスネット",
+        "label": "健康情報サイト",
+        "url": "https://www.e-healthnet.mhlw.go.jp/"
       }
     ]
   },
@@ -770,15 +782,15 @@
     "urls": [
       {
         "type": "external",
-        "source": "note (minamibuchi)",
-        "label": "習慣化と健康維持の体験記",
-        "url": "https://note.com/minamibuchi/n/nadbb29a6fcb9"
+        "source": "ユーキャン",
+        "label": "通信教育・専門スキル講座",
+        "url": "https://www.u-can.co.jp/"
       },
       {
         "type": "external",
-        "source": "note (serene_emu992)",
-        "label": "生活習慣改善の継続ガイド",
-        "url": "https://note.com/serene_emu992/n/nda8c46de8509"
+        "source": "厚生労働省 スマートライフプロジェクト",
+        "label": "スマートライフプロジェクトの仕組み",
+        "url": "https://kennet.mhlw.go.jp/slp/about/slp.html"
       }
     ]
   },
@@ -1019,12 +1031,6 @@
         "source": "プレジデントオンライン",
         "label": "キャリア・ビジネス教養記事",
         "url": "https://president.jp/"
-      },
-      {
-        "type": "external",
-        "source": "朝日新聞 (論座)",
-        "label": "専門的社会論壇",
-        "url": "https://webronza.asahi.com/"
       }
     ]
   },
@@ -2273,9 +2279,9 @@
     "urls": [
       {
         "type": "external",
-        "source": "Google Fit",
-        "label": "健康データ管理ツール",
-        "url": "https://www.google.com/fit/"
+        "source": "厚生労働省 e-ヘルスネット",
+        "label": "健康情報サイト",
+        "url": "https://www.e-healthnet.mhlw.go.jp/"
       },
       {
         "type": "external",
