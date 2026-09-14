@@ -47,21 +47,9 @@
     "urls": [
       {
         "type": "external",
-        "source": "Yahoo!ニュース",
-        "label": "専門家による自己分析解説",
-        "url": "https://news.yahoo.co.jp/articles/7abedeeb4e5afeb4f7f4de5eb6ef1cc79a62bc91?page=3"
-      },
-      {
-        "type": "external",
         "source": "note (zyagasan)",
         "label": "自己理解のための自己分析手法",
         "url": "https://note.com/zyagasan/n/n1162c061b376"
-      },
-      {
-        "type": "external",
-        "source": "Yahoo!ニュース",
-        "label": "専門家による自己分析解説",
-        "url": "https://news.yahoo.co.jp/articles/7abedeeb4e5afeb4f7f4de5eb6ef1cc79a62bc91?page=3"
       }
     ]
   },
@@ -2148,12 +2136,6 @@
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
     "urls": [
-      {
-        "type": "external",
-        "source": "DMM WEBCAMP",
-        "label": "生成AI専門カリキュラム",
-        "url": "https://generative-ai.web-camp.io/"
-      },
       {
         "type": "external",
         "source": "Aidemy",
