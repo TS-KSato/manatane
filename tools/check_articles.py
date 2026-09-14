@@ -38,6 +38,9 @@ LINK_RE = re.compile(r"\[[^\]]*\]\((article|guide|route):([^)\s]+)\)")
 # 画像記法 ![alt](path) 。path は content/articles/ を基点にした images/{article_id}/... の相対パスのみ許可
 IMAGE_RE = re.compile(r"!\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
 IMAGE_PATH_RE = re.compile(r"^images/[A-Za-z0-9_\-]+/[A-Za-z0-9_\-]+\.(svg|png|jpg|jpeg|gif|webp)$", re.I)
+# guide-image:{guide_id} はガイド画像 images/guides/{guide_id}.png を指す(無ければ placeholder.png)
+GUIDE_IMAGE_RE = re.compile(r"^guide-image:([A-Za-z0-9_\-]+)$")
+GUIDE_IMAGES_DIR = os.path.join(REPO_ROOT, "images", "guides")
 HEADING_RE = re.compile(r"^(#{1,6})\s*(.*?)\s*#*\s*$")
 MEMO_PREFIX = "編集メモ"
 MAX_LINKS_NOTE = 5
@@ -131,8 +134,16 @@ def main():
         images = IMAGE_RE.findall(strip_memo_sections(md))
         images_by_article[aid] = images
         for src in images:
+            gm = GUIDE_IMAGE_RE.match(src)
+            if gm:
+                gid = gm.group(1)
+                if gid not in guide_ids:
+                    errors.append("%s: guide-image:%s の guide_id が guides.json に存在しない" % (aid, gid))
+                elif not os.path.isfile(os.path.join(GUIDE_IMAGES_DIR, gid + ".png")):
+                    warnings.append("%s: images/guides/%s.png が無いため placeholder.png で表示される" % (aid, gid))
+                continue
             if not IMAGE_PATH_RE.match(src):
-                errors.append("%s: 画像パスが images/{article_id}/ 配下の相対パスでない: %s" % (aid, src))
+                errors.append("%s: 画像パスが images/{article_id}/ 配下の相対パスか guide-image:{guide_id} でない: %s" % (aid, src))
             elif not os.path.isfile(os.path.join(REPO_ROOT, "content", "articles", src)):
                 errors.append("%s: 画像ファイルが存在しない: content/articles/%s" % (aid, src))
         for kind, target in links:
@@ -144,6 +155,19 @@ def main():
         internal = [t for k, t in links if k in ("article", "guide", "route")]
         if len(internal) > MAX_LINKS_NOTE:
             warnings.append("%s: 内部リンクが %d 本(目安 %d 本以内)" % (aid, len(internal), MAX_LINKS_NOTE))
+
+    # 3b. どの本文からも参照されていない画像ファイル(注意)
+    referenced_images = {s for lst in images_by_article.values() for s in lst if not GUIDE_IMAGE_RE.match(s)}
+    images_root = os.path.join(REPO_ROOT, "content", "articles", "images")
+    if os.path.isdir(images_root):
+        for d in sorted(os.listdir(images_root)):
+            ddir = os.path.join(images_root, d)
+            if not os.path.isdir(ddir):
+                continue
+            for fn in sorted(os.listdir(ddir)):
+                rel = "images/%s/%s" % (d, fn)
+                if rel not in referenced_images:
+                    warnings.append("content/articles/%s はどの本文からも参照されていない" % rel)
 
     # 4. routes.json からの参照
     referenced_from_routes = {}  # article_id -> [route_id]
@@ -194,9 +218,11 @@ def main():
     for a in articles:
         aid = a.get("article_id")
         links = links_by_article.get(aid, [])
-        print("  - %s [%s] links: %s%s" % (
+        imgs = images_by_article.get(aid, [])
+        print("  - %s [%s] links: %s | images: %s%s" % (
             aid, a.get("role"),
             ", ".join("%s:%s" % l for l in links) or "(なし)",
+            ", ".join(s if GUIDE_IMAGE_RE.match(s) else os.path.basename(s) for s in imgs) or "(なし)",
             "  <- routes: %s" % ", ".join(referenced_from_routes.get(aid, [])) if referenced_from_routes.get(aid) else "",
         ))
     print()

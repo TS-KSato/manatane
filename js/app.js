@@ -1088,6 +1088,9 @@
   // 3: 本文中の画像は content/articles/ を基点に解決し、images/ 配下の相対パスだけを許可する
   const ARTICLE_IMAGE_BASE = 'content/articles/';
   const ARTICLE_IMAGE_RE = /^images\/[A-Za-z0-9_\-]+\/[A-Za-z0-9_\-]+\.(svg|png|jpg|jpeg|gif|webp)$/i;
+  // 1: guide-image:{guide_id} は images/guides/{guide_id}.png を表示する(人物の認識のための小さな図)
+  const GUIDE_IMAGE_BASE = 'images/guides/';
+  const GUIDE_IMAGE_RE = /^guide-image:([A-Za-z0-9_\-]+)$/;
   const ARTICLE_ALLOWED_TAGS = {
     h2: 1, h3: 1, p: 1, br: 1, hr: 1, strong: 1, em: 1, b: 1, i: 1, del: 1, code: 1, pre: 1,
     ul: 1, ol: 1, li: 1, blockquote: 1, a: 1,
@@ -1153,6 +1156,32 @@
     return s;
   }
 
+  // 1: guide-image:{guide_id} はガイド画像を、直後の段落の右に小さく回り込ませて表示する。
+  // 画像が無い場合は placeholder.png にフォールバックする。
+  function makeGuideImage(guideId, alt) {
+    const img = document.createElement('img');
+    img.className = 'article-guide-image';
+    img.alt = alt || '';
+    img.onerror = function () {
+      if (img.src.indexOf('placeholder.png') === -1) { img.onerror = null; img.src = GUIDE_IMAGE_BASE + 'placeholder.png'; }
+    };
+    img.src = GUIDE_IMAGE_BASE + guideId + '.png';
+    return img;
+  }
+
+  // guide-image だけを含む段落(<p><img></p>)は p で包まず、次の段落の右に回り込むようにする
+  function isGuideImageOnlyParagraph(p) {
+    let imgs = 0;
+    for (let i = 0; i < p.childNodes.length; i += 1) {
+      const c = p.childNodes[i];
+      if (c.nodeType === Node.TEXT_NODE) { if (c.nodeValue.trim()) return false; continue; }
+      if (c.nodeType !== Node.ELEMENT_NODE) continue;
+      if (c.tagName.toLowerCase() === 'img' && GUIDE_IMAGE_RE.test(c.getAttribute('src') || '')) { imgs += 1; continue; }
+      return false;
+    }
+    return imgs > 0;
+  }
+
   // 1: verified_at (YYYY-MM-DD) を「YYYY年M月D日にたしかめました」の一文にする(欄名は付けない)
   function formatVerifiedAt(iso) {
     const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || ''));
@@ -1173,13 +1202,17 @@
         if (tag === 'h1' || tag === 'script' || tag === 'style' || tag === 'iframe' ||
             tag === 'object' || tag === 'embed' || tag === 'form' || tag === 'input' || tag === 'button') return;
         if (tag === 'h4' || tag === 'h5' || tag === 'h6') tag = 'h3';
+        if (tag === 'p' && isGuideImageOnlyParagraph(node)) { walk(node, dst); return; }
         if (tag === 'img') {
-          // 3: 画像は src(images/ 配下の相対パスのみ)と alt だけを残す
+          // 3: 画像は src と alt だけを残す。guide-image: はガイド画像、それ以外は images/ 配下の相対パスのみ許可
           const src = node.getAttribute('src') || '';
+          const alt = node.getAttribute('alt') || '';
+          const gm = GUIDE_IMAGE_RE.exec(src);
+          if (gm) { dst.appendChild(makeGuideImage(gm[1], alt)); return; }
           if (!ARTICLE_IMAGE_RE.test(src)) return;
           const img = document.createElement('img');
           img.src = ARTICLE_IMAGE_BASE + src;
-          img.alt = node.getAttribute('alt') || '';
+          img.alt = alt;
           dst.appendChild(img);
           return;
         }

@@ -813,6 +813,24 @@ body {
   vertical-align: baseline;
 }
 
+/* 1: 人物の認識のための図(guide-image:)。直後の段落の右に小さく回り込ませる。
+   右余白なし・左余白12px・下余白8px。 */
+.article-body .article-guide-image {
+  float: right;
+  width: 108px;
+  height: 108px;
+  object-fit: cover;
+  margin: 0 0 8px 12px;
+  border-radius: var(--radius-btn);
+  background: var(--color-beige);
+}
+
+/* 回り込みは節の終わり(区切り線・次の見出し)で解除する */
+.article-body h2,
+.article-body hr {
+  clear: both;
+}
+
 /* bottom nav (15) */
 .bottom-nav {
   position: fixed;
