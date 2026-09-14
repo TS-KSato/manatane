@@ -26,7 +26,7 @@
     'home', 'purpose', 'diagnosis-type',
     'quiz', 'mood', 'topic', 'path',
     'game-select', 'slide-puzzle', 'maze',
-    'result', 'guide', 'routes', 'save',
+    'result', 'guide', 'routes', 'article', 'save',
     'error',
   ];
 
@@ -190,6 +190,7 @@
     results: 'data/results.json',
     guides: 'data/guides.json',
     routes: 'data/routes.json',
+    articles: 'data/articles.json',
   };
 
   // ===== セッション状態 =====
@@ -197,6 +198,7 @@
   const history = [];
   let currentScreen = 'home';
   let hasResult = false;
+  let currentArticleId = null; // 読み物画面で表示中の article_id
 
   const STATE = {
     purpose: null,
@@ -315,7 +317,7 @@
       if (window.manatane && window.manatane.stopGame) window.manatane.stopGame();
     }
     if (!options.replace && currentScreen && currentScreen !== name) {
-      history.push(currentScreen);
+      history.push(historyEntryFor(currentScreen));
     }
     SCREENS.forEach(k => {
       const el = screenElements[k];
@@ -326,9 +328,20 @@
     window.scrollTo(0, 0);
   }
 
+  // 読み物画面は記事IDごとに戻り先を区別するため、履歴には 'article:{id}' の形で積む
+  function historyEntryFor(screen) {
+    if (screen === 'article' && currentArticleId) return 'article:' + currentArticleId;
+    return screen;
+  }
+
   function goBack() {
     if (history.length === 0) { showScreen('home', { replace: true }); return; }
     const prev = history.pop();
+    if (typeof prev === 'string' && prev.indexOf('article:') === 0) {
+      renderArticleScreen(prev.slice('article:'.length));
+      showScreen('article', { replace: true });
+      return;
+    }
     showScreen(prev, { replace: true });
   }
 
@@ -340,7 +353,7 @@
       let active = false;
       if (t === 'home' && name === 'home') active = true;
       if (t === 'diagnosis' && diagnosisGroup.indexOf(name) !== -1) active = true;
-      if (t === 'routes' && (name === 'routes' || name === 'guide')) active = true;
+      if (t === 'routes' && (name === 'routes' || name === 'guide' || name === 'article')) active = true;
       if (t === 'save' && name === 'save') active = true;
       if (active) btn.setAttribute('aria-current', 'page');
       else btn.removeAttribute('aria-current');
@@ -414,9 +427,10 @@
   function attachListeners() {
     document.addEventListener('click', e => {
       const t = e.target.closest(
-        '[data-action], [data-go], [data-nav], [data-purpose], [data-diagnosis], [data-game]'
+        '[data-internal], [data-action], [data-go], [data-nav], [data-purpose], [data-diagnosis], [data-game]'
       );
       if (!t) return;
+      if (t.hasAttribute('data-internal'))  { e.preventDefault(); handleInternalLink(t.getAttribute('data-internal')); return; }
       if (t.hasAttribute('data-action'))    { handleAction(t.getAttribute('data-action')); return; }
       if (t.hasAttribute('data-go'))        { handleGo(t.getAttribute('data-go')); return; }
       if (t.hasAttribute('data-nav'))       { handleNav(t.getAttribute('data-nav')); return; }
@@ -908,12 +922,15 @@
     if (el) el.textContent = (typeof text === 'string' && text.length > 0) ? text : '';
   }
 
-  function renderGuideScreen() {
-    if (!STATE.guideId) return;
-    const g = findGuide(STATE.guideId);
+  // overrideGuideId: 読み物内の guide: リンクから来た場合に指定する。その場合は「今回のガイド」
+  // (STATE.guideId) と localStorage の lastGuideId を変更せず、指定ガイドの詳細をそのまま表示する。
+  function renderGuideScreen(overrideGuideId) {
+    const gid = overrideGuideId || STATE.guideId;
+    if (!gid) return;
+    const g = findGuide(gid);
     if (!g) return;
 
-    updateStored({ lastGuideId: STATE.guideId }); // 14.3
+    if (!overrideGuideId) updateStored({ lastGuideId: gid }); // 14.3
 
     setText('guide-label', g.display_label || g.frame_name || '');
     setText('guide-person', g.name || '');
@@ -930,7 +947,7 @@
     // ガイド画像: images/guides/{guide_id}.png を読み込み、存在しなければ placeholder にフォールバック
     const imgEl = document.getElementById('guide-image');
     if (imgEl) {
-      const primarySrc = 'images/guides/' + STATE.guideId + '.png';
+      const primarySrc = 'images/guides/' + gid + '.png';
       const fallbackSrc = 'images/guides/placeholder.png';
       imgEl.onerror = function () {
         if (imgEl.src.indexOf('placeholder.png') === -1) {
@@ -960,10 +977,13 @@
     return routes.filter(r => Array.isArray(r.target_results) && r.target_results.indexOf(resultId) !== -1);
   }
 
-  function renderRoutesScreen() {
+  // resultIdOverride: 読み物内の route: リンクから、現在の結果に含まれないルートへ遷移する際に
+  // 一時的に用いる result_id。STATE.resultId は変更しない。
+  function renderRoutesScreen(resultIdOverride) {
     const listEl = document.getElementById('route-list');
     if (!listEl) return;
-    const matched = STATE.resultId ? matchingRoutes(STATE.resultId) : [];
+    const rid = resultIdOverride || STATE.resultId;
+    const matched = rid ? matchingRoutes(rid) : [];
     listEl.innerHTML = '';
 
     if (matched.length === 0) {
@@ -1025,8 +1045,13 @@
         urls.forEach(u => {
           const link = document.createElement('a');
           link.className = 'route-link';
-          link.href = u.url;
-          if (u.type === 'external') {
+          if (u.type === 'internal') {
+            // 2: サービス内(読み物など)への遷移は同じタブで画面を切り替える。target/rel は付けない。
+            link.className += ' route-link--internal';
+            link.href = '#';
+            link.setAttribute('data-internal', u.url);
+          } else {
+            link.href = u.url;
             link.target = '_blank';
             link.rel = 'noopener noreferrer';
           }
@@ -1046,7 +1071,7 @@
           const icon = document.createElement('div');
           icon.className = 'route-link__icon';
           icon.setAttribute('aria-hidden', 'true');
-          icon.textContent = '↗';
+          icon.textContent = (u.type === 'internal') ? '→' : '↗';
           link.appendChild(icon);
           linkList.appendChild(link);
         });
@@ -1054,6 +1079,179 @@
       }
       listEl.appendChild(card);
     });
+  }
+
+  // ===== 読み物画面 =====
+  // 本文は content/articles/{article_id}.md を読み込み、Markdown を変換して表示する。
+  // 目次(articles.json)はデータ読み込み時に他の JSON と一緒に取得する。
+  const ARTICLE_MEMO_PREFIX = '編集メモ';
+  const ARTICLE_ALLOWED_TAGS = {
+    h2: 1, h3: 1, p: 1, br: 1, hr: 1, strong: 1, em: 1, b: 1, i: 1, del: 1, code: 1, pre: 1,
+    ul: 1, ol: 1, li: 1, blockquote: 1, a: 1,
+    table: 1, thead: 1, tbody: 1, tr: 1, th: 1, td: 1,
+  };
+  const articleCache = {};
+
+  function findArticle(articleId) {
+    const list = (window.manatane.data && window.manatane.data.articles) || [];
+    for (let i = 0; i < list.length; i += 1) if (list[i].article_id === articleId) return list[i];
+    return null;
+  }
+
+  // 1.3: 内部リンクのスキーム article:/guide:/route: を解釈する
+  function parseInternalTarget(url) {
+    const m = /^(article|guide|route):([A-Za-z0-9_\-]+)$/.exec(String(url || '').trim());
+    return m ? { kind: m[1], id: m[2] } : null;
+  }
+
+  // 1.4: 「編集メモ」で始まる見出しのセクションは、次の同レベル以上の見出しまたは末尾まで表示しない
+  function stripMemoSections(md) {
+    const lines = String(md || '').split(/\r?\n/);
+    const out = [];
+    let skipLevel = 0;
+    for (let i = 0; i < lines.length; i += 1) {
+      const m = /^(#{1,6})\s*(.*?)\s*#*\s*$/.exec(lines[i]);
+      if (m) {
+        const level = m[1].length;
+        if (skipLevel && level <= skipLevel) skipLevel = 0;
+        if (!skipLevel && m[2].indexOf(ARTICLE_MEMO_PREFIX) === 0) { skipLevel = level; continue; }
+      }
+      if (!skipLevel) out.push(lines[i]);
+    }
+    return out.join('\n');
+  }
+
+  // 1.3: リンク先に応じて a 要素を設定する。内部リンクは data-internal で画面遷移、
+  // http(s) は別タブ。それ以外(javascript: 等)はリンクにしない(false を返す)。
+  function applyArticleLink(el, href) {
+    const internal = parseInternalTarget(href);
+    if (internal) {
+      el.href = '#';
+      el.setAttribute('data-internal', internal.kind + ':' + internal.id);
+      el.className = 'article-link article-link--internal';
+      return true;
+    }
+    if (/^https?:\/\//i.test(href)) {
+      el.href = href;
+      el.target = '_blank';
+      el.rel = 'noopener noreferrer';
+      el.className = 'article-link article-link--external';
+      return true;
+    }
+    return false;
+  }
+
+  // 4: 変換後の HTML を許可タグだけで組み直す(script 等の混入防止)。属性は a の href 以外を捨てる。
+  // h1 は目次のタイトルで表示するため本文からは除き、h4〜h6 は h3 に寄せて見出しを2段階に収める。
+  function sanitizeArticleHtml(html) {
+    const doc = new DOMParser().parseFromString('<!doctype html><body>' + html, 'text/html');
+    const frag = document.createDocumentFragment();
+    function walk(src, dst) {
+      Array.prototype.forEach.call(src.childNodes, node => {
+        if (node.nodeType === Node.TEXT_NODE) { dst.appendChild(document.createTextNode(node.nodeValue)); return; }
+        if (node.nodeType !== Node.ELEMENT_NODE) return;
+        let tag = node.tagName.toLowerCase();
+        if (tag === 'h1' || tag === 'script' || tag === 'style' || tag === 'iframe' ||
+            tag === 'object' || tag === 'embed' || tag === 'form' || tag === 'input' || tag === 'button') return;
+        if (tag === 'h4' || tag === 'h5' || tag === 'h6') tag = 'h3';
+        if (!ARTICLE_ALLOWED_TAGS[tag]) { walk(node, dst); return; } // 未許可タグは中身だけ残す
+        const el = document.createElement(tag);
+        if (tag === 'a' && !applyArticleLink(el, node.getAttribute('href') || '')) { walk(node, dst); return; }
+        walk(node, el);
+        dst.appendChild(el);
+      });
+    }
+    walk(doc.body, frag);
+    return frag;
+  }
+
+  function renderMarkdown(md) {
+    const src = stripMemoSections(md);
+    if (window.marked && typeof window.marked.parse === 'function') {
+      return sanitizeArticleHtml(window.marked.parse(src, { gfm: true, breaks: false }));
+    }
+    // 変換部品が読み込めなかった場合は段落のみのプレーン表示に退避する
+    const frag = document.createDocumentFragment();
+    src.split(/\n{2,}/).forEach(para => {
+      const p = document.createElement('p');
+      p.textContent = para;
+      frag.appendChild(p);
+    });
+    return frag;
+  }
+
+  function loadArticleMarkdown(a) {
+    if (articleCache[a.article_id]) return Promise.resolve(articleCache[a.article_id]);
+    return fetch(a.file, { cache: 'no-cache' }).then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + a.file);
+      return r.text();
+    }).then(text => { articleCache[a.article_id] = text; return text; });
+  }
+
+  function renderArticleScreen(articleId) {
+    const a = findArticle(articleId);
+    if (!a) return;
+    currentArticleId = articleId;
+    setText('article-title', a.title || '');
+    setText('article-verified', a.verified_at ? '最終検証日 ' + a.verified_at : '');
+    const bodyEl = document.getElementById('article-body');
+    if (!bodyEl) return;
+    bodyEl.innerHTML = '';
+    const loading = document.createElement('p');
+    loading.className = 'desc';
+    loading.textContent = '読み込み中…';
+    bodyEl.appendChild(loading);
+    loadArticleMarkdown(a).then(md => {
+      if (currentArticleId !== articleId) return; // 表示中に別の読み物へ移動した
+      bodyEl.innerHTML = '';
+      bodyEl.appendChild(renderMarkdown(md));
+    }).catch(err => {
+      console.error('[manatane] article load failed:', err);
+      if (currentArticleId !== articleId) return;
+      bodyEl.innerHTML = '';
+      const p = document.createElement('p');
+      p.className = 'desc';
+      p.textContent = '本文を読み込めませんでした。時間をおいて再度お試しください。';
+      bodyEl.appendChild(p);
+    });
+  }
+
+  function openArticle(articleId) {
+    if (!findArticle(articleId)) return;
+    if (currentScreen === 'article' && currentArticleId && currentArticleId !== articleId) {
+      // 読み物→読み物: 戻り先として現在の読み物を履歴に積んでから切り替える
+      history.push('article:' + currentArticleId);
+      renderArticleScreen(articleId);
+      showScreen('article', { replace: true });
+      return;
+    }
+    renderArticleScreen(articleId);
+    showScreen('article');
+  }
+
+  // 1.3 / 2: サービス内リンクの遷移先
+  //   article:{id} → 読み物画面
+  //   guide:{id}   → 指定ガイドの詳細(今回のガイド・lastGuideId は変更しない)
+  //   route:{id}   → おすすめルート画面(当該ルートを含む結果のルート一覧)
+  function handleInternalLink(value) {
+    const target = parseInternalTarget(value);
+    if (!target) return;
+    if (target.kind === 'article') { openArticle(target.id); return; }
+    if (target.kind === 'guide') {
+      if (!findGuide(target.id)) return;
+      renderGuideScreen(target.id);
+      showScreen('guide');
+      return;
+    }
+    if (target.kind === 'route') {
+      const routes = (window.manatane.data && window.manatane.data.routes) || [];
+      const route = routes.filter(r => r.route_id === target.id)[0];
+      if (!route) return;
+      const tr = Array.isArray(route.target_results) ? route.target_results : [];
+      const inCurrent = STATE.resultId && tr.indexOf(STATE.resultId) !== -1;
+      renderRoutesScreen(inCurrent ? null : tr[0]);
+      showScreen('routes');
+    }
   }
 
   // ===== 診断完了 =====

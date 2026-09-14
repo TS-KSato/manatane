@@ -652,6 +652,150 @@ body {
   line-height: 1;
 }
 
+/* 2: サービス内リンク(読み物など)。同じタブで遷移するのでアイコンは「→」 */
+.route-link--internal .route-link__icon {
+  color: var(--color-accent);
+}
+
+/* 読み物画面 */
+.article-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 20px 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.article-title {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-text);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.article-verified {
+  margin: 0 0 16px;
+  font-size: 12px;
+  color: var(--color-text-sub);
+}
+
+.article-body {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--color-text);
+  overflow-wrap: break-word;
+}
+
+.article-body > :first-child { margin-top: 0; }
+.article-body > :last-child { margin-bottom: 0; }
+
+/* 見出しは2段階(## と ###) */
+.article-body h2 {
+  margin: 28px 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.article-body h3 {
+  margin: 20px 0 8px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-text-sub);
+}
+
+.article-body p { margin: 0 0 14px; }
+
+.article-body ul,
+.article-body ol {
+  margin: 0 0 14px;
+  padding-left: 22px;
+}
+
+.article-body li { margin: 4px 0; }
+
+.article-body hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 22px 0;
+}
+
+.article-body blockquote {
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  background: var(--color-beige);
+  border-radius: var(--radius-card);
+}
+
+.article-body a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-body .article-link--internal {
+  color: var(--color-leaf);
+  font-weight: 600;
+}
+
+/* 表: 480px 幅に収めるためセル内で折り返し、横スクロールは出さない */
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 0 0 14px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.article-body th,
+.article-body td {
+  border: 1px solid var(--color-border);
+  padding: 6px 8px;
+  vertical-align: top;
+  text-align: left;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.article-body th {
+  background: var(--color-bg);
+  font-weight: 600;
+  color: var(--color-text-sub);
+}
+
+/* コードブロック(等幅の文字図): 折り返さず、はみ出す場合のみブロック内で横スクロール */
+.article-body pre {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow-x: auto;
+  white-space: pre;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.article-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  background: var(--color-bg);
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.article-body pre code {
+  padding: 0;
+  background: none;
+  white-space: pre;
+}
+
 /* bottom nav (15) */
 .bottom-nav {
   position: fixed;

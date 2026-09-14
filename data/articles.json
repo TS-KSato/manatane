@@ -1,0 +1,11 @@
+[
+  {
+    "article_id": "elec_room",
+    "title": "部屋の電気から、どこへでも",
+    "theme": "電気",
+    "role": "route",
+    "target_routes": ["ROUTE_B3C2D1_FREE", "ROUTE_B3C3D1_FREE"],
+    "verified_at": "2026-09-14",
+    "file": "content/articles/elec_room.md"
+  }
+]
