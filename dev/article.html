@@ -18,8 +18,7 @@
       border-bottom: 1px solid var(--color-border);
     }
     .dev-bar a { color: var(--color-text-sub); }
-    /* 内部リンクは遷移させず、種類と ID を小さく添えて表示する */
-    .dev-internal { color: var(--color-leaf); font-weight: 600; }
+    /* &dev=1 のときだけ、内部リンクの直後に種類と ID を小さく添える */
     .dev-internal-tag {
       font-size: 11px;
       font-weight: 400;
@@ -34,7 +33,7 @@
 <body>
   <div class="app">
     <section class="screen" id="screen-article" data-screen="article">
-      <div class="dev-bar">開発用の確認ページです。本体からはリンクされていません。<a href="article.html">一覧へ</a></div>
+      <div class="dev-bar" id="dev-bar" hidden>開発用の確認ページです。本体からはリンクされていません。<a href="article.html?dev=1" id="dev-bar-list">一覧へ</a></div>
       <header class="screen-header">
         <h2 class="screen-title" style="padding-right:0">寄り道のタネ</h2>
       </header>
@@ -52,10 +51,13 @@
   <script>
   /* 本体 js/app.js の読み物表示(stripMemoSections / sanitizeArticleHtml / renderMarkdown)と
    * 同じ処理を複製している。本体側を変更したときは、ここも合わせて更新すること。
-   * 違いは 1 点のみ: article:/guide:/route: の内部リンクを遷移させず、種類と ID を添えて表示する。 */
+   * 違いは 1 点のみ: article:/guide:/route: の内部リンクを遷移させない(href を持たない a 要素にする)。
+   * アドレスに &dev=1 が付いているときだけ、リンクの直後に種類と ID を小さく添え、開発用の帯を表示する。 */
   (function () {
     'use strict';
     const ARTICLES_JSON = '../data/articles.json';
+    const PARAMS = new URLSearchParams(window.location.search);
+    const DEV_MODE = PARAMS.get('dev') === '1';
     const ARTICLE_MEMO_PREFIX = '編集メモ';
     // 3: 画像は content/articles/ を基点に解決(このページは dev/ 配下なので ../ を付ける)
     const ARTICLE_IMAGE_BASE = '../content/articles/';
@@ -91,16 +93,19 @@
       return out.join('\n');
     }
 
-    // 確認用: 内部リンクは a ではなく span にして「テキスト [kind: id]」で表示する
+    // 確認用: 内部リンクは href を持たない a 要素にして、本体と同じ見た目のまま遷移しないようにする。
+    // &dev=1 のときだけ「テキスト [kind: id]」の添え字を付ける。
     function makeInternalPreview(target, srcNode, walk) {
-      const span = document.createElement('span');
-      span.className = 'article-link article-link--internal dev-internal';
-      walk(srcNode, span);
-      const tag = document.createElement('small');
-      tag.className = 'dev-internal-tag';
-      tag.textContent = ' [' + target.kind + ': ' + target.id + ']';
-      span.appendChild(tag);
-      return span;
+      const a = document.createElement('a');
+      a.className = 'article-link article-link--internal';
+      walk(srcNode, a);
+      if (DEV_MODE) {
+        const tag = document.createElement('small');
+        tag.className = 'dev-internal-tag';
+        tag.textContent = ' [' + target.kind + ': ' + target.id + ']';
+        a.appendChild(tag);
+      }
+      return a;
     }
 
     // 2: 外部リンクの直後に小さく「↗」を添える(本体と同じ)
@@ -239,7 +244,7 @@
       articles.forEach(a => {
         const li = document.createElement('li');
         const link = document.createElement('a');
-        link.href = 'article.html?id=' + encodeURIComponent(a.article_id);
+        link.href = 'article.html?id=' + encodeURIComponent(a.article_id) + (DEV_MODE ? '&dev=1' : '');
         link.textContent = a.title || a.article_id;
         li.appendChild(link);
         const meta = document.createElement('small');
@@ -264,7 +269,9 @@
       });
     }
 
-    const id = new URLSearchParams(window.location.search).get('id');
+    const id = PARAMS.get('id');
+    const devBar = document.getElementById('dev-bar');
+    if (devBar) devBar.hidden = !DEV_MODE;
     fetch(ARTICLES_JSON, { cache: 'no-cache' }).then(r => {
       if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + ARTICLES_JSON);
       return r.json();
