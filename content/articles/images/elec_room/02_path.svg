@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-labelledby="t">
+  <title id="t">発電所から送電線の鉄塔、変電所、電柱の変圧器を経て家へ。電圧は数十万ボルトから6,600ボルト、100ボルトへと階段状に下がる</title>
+  <!-- 電圧の階段(淡い塗り) -->
+  <path d="M60 78 H200 V126 H360 V174 H540 V196 H60 Z" fill="#cfe6ee"/>
+  <g fill="none" stroke="#1f2a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 78 H200 V126 H360 V174 H540"/>
+    <!-- 地面 -->
+    <path d="M30 342 H570"/>
+    <!-- 発電所 -->
+    <rect x="42" y="262" width="92" height="80"/>
+    <rect x="60" y="212" width="18" height="50"/>
+    <rect x="96" y="284" width="14" height="14"/>
+    <rect x="96" y="312" width="14" height="14"/>
+    <!-- 鉄塔 -->
+    <path d="M186 342 L200 222 L214 342"/>
+    <path d="M180 250 H220 M183 288 H217 M200 222 V210"/>
+    <!-- 変電所 -->
+    <rect x="268" y="290" width="76" height="52"/>
+    <path d="M282 290 V270 M306 290 V270 M330 290 V270"/>
+    <circle cx="282" cy="266" r="4"/>
+    <circle cx="306" cy="266" r="4"/>
+    <circle cx="330" cy="266" r="4"/>
+    <!-- 電柱と変圧器 -->
+    <path d="M420 342 V202"/>
+    <path d="M396 216 H444"/>
+    <rect x="426" y="232" width="22" height="34" rx="3"/>
+    <!-- 家 -->
+    <rect x="480" y="272" width="82" height="70"/>
+    <path d="M470 272 L521 226 L572 272"/>
+    <rect x="511" y="306" width="20" height="36"/>
+    <!-- 電線 -->
+    <path d="M134 268 L200 214 M200 214 L282 262 M306 262 L420 210 M420 210 L521 234"/>
+  </g>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic UI', sans-serif" font-size="20" fill="#1f2a2e" text-anchor="middle">
+    <text x="130" y="66">数十万ボルト</text>
+    <text x="280" y="114">6,600ボルト</text>
+    <text x="450" y="162">100ボルト</text>
+  </g>
+</svg>

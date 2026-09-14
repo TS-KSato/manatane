@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-labelledby="t">
+  <title id="t">中央の電球を囲む、同じ人物の四つの横顔。発明する顔、帳簿を見る顔、うつむく顔、机で繰り返す顔</title>
+  <defs>
+    <!-- 特定の人物に似せない、線だけの横顔 -->
+    <path id="face" d="M-18 -36 C 6 -46 28 -32 26 -12 L 33 -2 L 25 2 C 28 8 27 14 22 16 C 26 22 24 30 14 34 C 2 40 -14 36 -22 24 C -32 8 -30 -22 -18 -36 Z M4 -14 q5 -3 9 0"/>
+  </defs>
+  <circle cx="300" cy="196" r="46" fill="#cfe6ee"/>
+  <g fill="none" stroke="#1f2a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 電球 -->
+    <circle cx="300" cy="196" r="46"/>
+    <path d="M284 244 H316 M286 254 H314"/>
+    <rect x="284" y="242" width="32" height="22" rx="3"/>
+    <path d="M288 206 L294 190 L300 206 L306 190 L312 206"/>
+    <!-- 発明する顔(左上・右向き) -->
+    <g transform="translate(140 110)">
+      <use href="#face"/>
+      <path d="M-46 -52 l -8 -8 M-40 -60 l 0 -12 M-33 -52 l 8 -8"/>
+    </g>
+    <!-- 帳簿を見る顔(右上・左向き) -->
+    <g transform="translate(460 110)">
+      <g transform="scale(-1 1)"><use href="#face"/></g>
+      <rect x="-64" y="26" width="34" height="24" rx="2"/>
+      <path d="M-58 34 H-36 M-58 42 H-36"/>
+    </g>
+    <!-- うつむく顔(左下・右向きに少し傾く) -->
+    <g transform="translate(140 300) rotate(26)">
+      <use href="#face"/>
+    </g>
+    <!-- 机で繰り返す顔(右下・左向き) -->
+    <g transform="translate(460 300)">
+      <g transform="scale(-1 1)"><use href="#face"/></g>
+      <path d="M-70 52 H60"/>
+      <circle cx="-50" cy="44" r="5"/>
+      <circle cx="-30" cy="44" r="5"/>
+      <circle cx="-10" cy="44" r="5"/>
+      <path d="M-50 49 V52 M-30 49 V52 M-10 49 V52"/>
+    </g>
+  </g>
+</svg>

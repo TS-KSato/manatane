@@ -796,6 +796,23 @@ body {
   white-space: pre;
 }
 
+/* 3: 挿絵・図解。カードの横幅いっぱい(最大480px)、高さは自動、上下に余白 */
+.article-body img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 8px 0 16px;
+}
+
+/* 2: 本文中の外部リンクの直後に添える小さな「↗」 */
+.article-link__icon {
+  display: inline-block;
+  font-size: 0.75em;
+  margin-left: 2px;
+  vertical-align: baseline;
+}
+
 /* bottom nav (15) */
 .bottom-nav {
   position: fixed;

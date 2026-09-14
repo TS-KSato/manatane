@@ -35,6 +35,9 @@ REQUIRED_KEYS = ("article_id", "title", "theme", "role", "target_routes", "verif
 ID_RE = re.compile(r"^[a-z0-9_]+$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 LINK_RE = re.compile(r"\[[^\]]*\]\((article|guide|route):([^)\s]+)\)")
+# 画像記法 ![alt](path) 。path は content/articles/ を基点にした images/{article_id}/... の相対パスのみ許可
+IMAGE_RE = re.compile(r"!\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
+IMAGE_PATH_RE = re.compile(r"^images/[A-Za-z0-9_\-]+/[A-Za-z0-9_\-]+\.(svg|png|jpg|jpeg|gif|webp)$", re.I)
 HEADING_RE = re.compile(r"^(#{1,6})\s*(.*?)\s*#*\s*$")
 MEMO_PREFIX = "編集メモ"
 MAX_LINKS_NOTE = 5
@@ -119,11 +122,19 @@ def main():
         with open(path, encoding="utf-8") as f:
             bodies[aid] = f.read()
 
-    # 3. 内部リンクの参照先
+    # 3. 内部リンクの参照先、画像ファイルの存在
     links_by_article = {}
+    images_by_article = {}
     for aid, md in bodies.items():
         links = extract_links(md)
         links_by_article[aid] = links
+        images = IMAGE_RE.findall(strip_memo_sections(md))
+        images_by_article[aid] = images
+        for src in images:
+            if not IMAGE_PATH_RE.match(src):
+                errors.append("%s: 画像パスが images/{article_id}/ 配下の相対パスでない: %s" % (aid, src))
+            elif not os.path.isfile(os.path.join(REPO_ROOT, "content", "articles", src)):
+                errors.append("%s: 画像ファイルが存在しない: content/articles/%s" % (aid, src))
         for kind, target in links:
             ok = {"article": target in article_ids,
                   "guide": target in guide_ids,

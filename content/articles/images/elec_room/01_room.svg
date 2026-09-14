@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-labelledby="t">
+  <title id="t">壁の三つのコンセントから、分電盤の小さなスイッチへそれぞれ線がつながっている図</title>
+  <g fill="none" stroke="#1f2a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 壁 -->
+    <rect x="40" y="60" width="330" height="280"/>
+    <path d="M40 316 H370"/>
+    <!-- コンセント×3 -->
+    <rect x="80" y="248" width="26" height="36" rx="3"/>
+    <path d="M89 260 V272 M97 260 V272"/>
+    <rect x="200" y="178" width="26" height="36" rx="3"/>
+    <path d="M209 190 V202 M217 190 V202"/>
+    <rect x="300" y="248" width="26" height="36" rx="3"/>
+    <path d="M309 260 V272 M317 260 V272"/>
+    <!-- 分電盤 -->
+    <rect x="430" y="80" width="140" height="140" rx="4"/>
+    <rect x="445" y="100" width="34" height="50" rx="3" fill="#cfe6ee"/>
+    <rect x="495" y="105" width="8" height="40" rx="2"/>
+    <rect x="509" y="105" width="8" height="40" rx="2"/>
+    <rect x="523" y="105" width="8" height="40" rx="2"/>
+    <rect x="537" y="105" width="8" height="40" rx="2"/>
+    <rect x="551" y="105" width="8" height="40" rx="2"/>
+    <!-- 外から入ってくる太い線 -->
+    <path d="M462 100 V30" stroke-width="4"/>
+    <!-- コンセントから小さなスイッチへ -->
+    <path d="M93 248 V110 H499 V145" stroke-width="1.5"/>
+    <path d="M213 178 V122 H513 V145" stroke-width="1.5"/>
+    <path d="M313 248 V134 H527 V145" stroke-width="1.5"/>
+  </g>
+  <text x="500" y="66" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic UI', sans-serif" font-size="20" fill="#1f2a2e">分電盤</text>
+</svg>

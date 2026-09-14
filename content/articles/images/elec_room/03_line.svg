@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-labelledby="t">
+  <title id="t">一本の線で左右を分け、左に資格が要らない作業(電球の交換、プラグの抜き差し)、右に資格が要る作業(壁の中の配線、コンセントの増設)を示した図</title>
+  <rect x="300" y="40" width="262" height="320" fill="#f1ead9"/>
+  <g fill="none" stroke="#1f2a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 仕切りの線 -->
+    <path d="M300 40 V360"/>
+    <!-- 左: 電球の交換 -->
+    <path d="M170 100 V138"/>
+    <rect x="160" y="138" width="20" height="14" rx="2"/>
+    <circle cx="170" cy="176" r="22"/>
+    <path d="M162 182 L166 172 L170 182 L174 172 L178 182"/>
+    <!-- 左: プラグの抜き差し -->
+    <rect x="118" y="250" width="40" height="52" rx="4"/>
+    <path d="M132 266 V280 M144 266 V280"/>
+    <rect x="192" y="262" width="30" height="28" rx="3"/>
+    <path d="M192 270 H176 M192 282 H176"/>
+    <path d="M222 276 Q256 276 256 322"/>
+    <!-- 右: 壁の中の配線 -->
+    <rect x="340" y="110" width="182" height="200"/>
+    <path d="M362 130 V290 M402 130 V290" stroke-dasharray="4 5"/>
+    <path d="M402 200 H482" stroke-dasharray="4 5"/>
+    <!-- 右: コンセントの増設 -->
+    <rect x="482" y="180" width="26" height="40" rx="3"/>
+    <path d="M491 192 V206 M499 192 V206"/>
+    <circle cx="536" cy="150" r="14"/>
+    <path d="M536 142 V158 M528 150 H544"/>
+  </g>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic UI', sans-serif" font-size="20" fill="#1f2a2e" text-anchor="middle">
+    <text x="170" y="74">資格は要らない</text>
+    <text x="430" y="74">資格が要る</text>
+  </g>
+</svg>

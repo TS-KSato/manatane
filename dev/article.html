@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>読み物 確認用 - マナタネ</title>
+  <title>寄り道のタネ 確認用 - マナタネ</title>
   <!-- 本体と同じスタイルを使う。本体の index.html からはリンクしない開発用ページ。 -->
   <link rel="stylesheet" href="../css/style.css">
   <style>
@@ -36,7 +36,7 @@
     <section class="screen" id="screen-article" data-screen="article">
       <div class="dev-bar">開発用の確認ページです。本体からはリンクされていません。<a href="article.html">一覧へ</a></div>
       <header class="screen-header">
-        <h2 class="screen-title" style="padding-right:0">読み物</h2>
+        <h2 class="screen-title" style="padding-right:0">寄り道のタネ</h2>
       </header>
       <div class="screen-body">
         <article class="article-card">
@@ -57,6 +57,9 @@
     'use strict';
     const ARTICLES_JSON = '../data/articles.json';
     const ARTICLE_MEMO_PREFIX = '編集メモ';
+    // 3: 画像は content/articles/ を基点に解決(このページは dev/ 配下なので ../ を付ける)
+    const ARTICLE_IMAGE_BASE = '../content/articles/';
+    const ARTICLE_IMAGE_RE = /^images\/[A-Za-z0-9_\-]+\/[A-Za-z0-9_\-]+\.(svg|png|jpg|jpeg|gif|webp)$/i;
     const ARTICLE_ALLOWED_TAGS = {
       h2: 1, h3: 1, p: 1, br: 1, hr: 1, strong: 1, em: 1, b: 1, i: 1, del: 1, code: 1, pre: 1,
       ul: 1, ol: 1, li: 1, blockquote: 1, a: 1,
@@ -97,6 +100,22 @@
       return span;
     }
 
+    // 2: 外部リンクの直後に小さく「↗」を添える(本体と同じ)
+    function makeExternalLinkIcon() {
+      const s = document.createElement('span');
+      s.className = 'article-link__icon';
+      s.setAttribute('aria-hidden', 'true');
+      s.textContent = '↗';
+      return s;
+    }
+
+    // 1: verified_at を「YYYY年M月D日にたしかめました」にする(本体と同じ)
+    function formatVerifiedAt(iso) {
+      const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || ''));
+      if (!m) return '';
+      return m[1] + '年' + parseInt(m[2], 10) + '月' + parseInt(m[3], 10) + '日にたしかめました';
+    }
+
     function applyExternalLink(el, href) {
       if (/^https?:\/\//i.test(href)) {
         el.href = href;
@@ -120,6 +139,15 @@
           if (tag === 'h1' || tag === 'script' || tag === 'style' || tag === 'iframe' ||
               tag === 'object' || tag === 'embed' || tag === 'form' || tag === 'input' || tag === 'button') return;
           if (tag === 'h4' || tag === 'h5' || tag === 'h6') tag = 'h3';
+          if (tag === 'img') {
+            const src = node.getAttribute('src') || '';
+            if (!ARTICLE_IMAGE_RE.test(src)) return;
+            const img = document.createElement('img');
+            img.src = ARTICLE_IMAGE_BASE + src;
+            img.alt = node.getAttribute('alt') || '';
+            dst.appendChild(img);
+            return;
+          }
           if (!ARTICLE_ALLOWED_TAGS[tag]) { walk(node, dst); return; }
           if (tag === 'a') {
             const href = node.getAttribute('href') || '';
@@ -128,6 +156,7 @@
             const a = document.createElement('a');
             if (!applyExternalLink(a, href)) { walk(node, dst); return; }
             walk(node, a);
+            a.appendChild(makeExternalLinkIcon());
             dst.appendChild(a);
             return;
           }
@@ -168,10 +197,10 @@
     }
 
     function showList(articles, note) {
-      titleEl.textContent = '読み物の一覧';
+      titleEl.textContent = '寄り道のタネの一覧';
       verifiedEl.textContent = note || '';
       bodyEl.innerHTML = '';
-      if (!articles.length) { showMessage('articles.json に読み物がありません。'); return; }
+      if (!articles.length) { showMessage('articles.json に寄り道のタネがありません。'); return; }
       const ul = document.createElement('ul');
       ul.className = 'dev-list';
       articles.forEach(a => {
@@ -189,9 +218,9 @@
     }
 
     function showArticle(a) {
-      document.title = (a.title || a.article_id) + ' - 読み物 確認用';
+      document.title = (a.title || a.article_id) + ' - 寄り道のタネ 確認用';
       titleEl.textContent = a.title || '';
-      verifiedEl.textContent = a.verified_at ? '最終検証日 ' + a.verified_at : '';
+      verifiedEl.textContent = formatVerifiedAt(a.verified_at);
       showMessage('読み込み中…');
       return fetch('../' + a.file, { cache: 'no-cache' }).then(r => {
         if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + a.file);

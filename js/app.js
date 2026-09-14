@@ -1085,6 +1085,9 @@
   // 本文は content/articles/{article_id}.md を読み込み、Markdown を変換して表示する。
   // 目次(articles.json)はデータ読み込み時に他の JSON と一緒に取得する。
   const ARTICLE_MEMO_PREFIX = '編集メモ';
+  // 3: 本文中の画像は content/articles/ を基点に解決し、images/ 配下の相対パスだけを許可する
+  const ARTICLE_IMAGE_BASE = 'content/articles/';
+  const ARTICLE_IMAGE_RE = /^images\/[A-Za-z0-9_\-]+\/[A-Za-z0-9_\-]+\.(svg|png|jpg|jpeg|gif|webp)$/i;
   const ARTICLE_ALLOWED_TAGS = {
     h2: 1, h3: 1, p: 1, br: 1, hr: 1, strong: 1, em: 1, b: 1, i: 1, del: 1, code: 1, pre: 1,
     ul: 1, ol: 1, li: 1, blockquote: 1, a: 1,
@@ -1141,6 +1144,22 @@
     return false;
   }
 
+  // 2: 本文中の外部リンクには、リンク文字の直後に小さく「↗」を添える
+  function makeExternalLinkIcon() {
+    const s = document.createElement('span');
+    s.className = 'article-link__icon';
+    s.setAttribute('aria-hidden', 'true');
+    s.textContent = '↗';
+    return s;
+  }
+
+  // 1: verified_at (YYYY-MM-DD) を「YYYY年M月D日にたしかめました」の一文にする(欄名は付けない)
+  function formatVerifiedAt(iso) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || ''));
+    if (!m) return '';
+    return m[1] + '年' + parseInt(m[2], 10) + '月' + parseInt(m[3], 10) + '日にたしかめました';
+  }
+
   // 4: 変換後の HTML を許可タグだけで組み直す(script 等の混入防止)。属性は a の href 以外を捨てる。
   // h1 は目次のタイトルで表示するため本文からは除き、h4〜h6 は h3 に寄せて見出しを2段階に収める。
   function sanitizeArticleHtml(html) {
@@ -1154,10 +1173,21 @@
         if (tag === 'h1' || tag === 'script' || tag === 'style' || tag === 'iframe' ||
             tag === 'object' || tag === 'embed' || tag === 'form' || tag === 'input' || tag === 'button') return;
         if (tag === 'h4' || tag === 'h5' || tag === 'h6') tag = 'h3';
+        if (tag === 'img') {
+          // 3: 画像は src(images/ 配下の相対パスのみ)と alt だけを残す
+          const src = node.getAttribute('src') || '';
+          if (!ARTICLE_IMAGE_RE.test(src)) return;
+          const img = document.createElement('img');
+          img.src = ARTICLE_IMAGE_BASE + src;
+          img.alt = node.getAttribute('alt') || '';
+          dst.appendChild(img);
+          return;
+        }
         if (!ARTICLE_ALLOWED_TAGS[tag]) { walk(node, dst); return; } // 未許可タグは中身だけ残す
         const el = document.createElement(tag);
         if (tag === 'a' && !applyArticleLink(el, node.getAttribute('href') || '')) { walk(node, dst); return; }
         walk(node, el);
+        if (tag === 'a' && el.className.indexOf('article-link--external') !== -1) el.appendChild(makeExternalLinkIcon());
         dst.appendChild(el);
       });
     }
@@ -1193,7 +1223,7 @@
     if (!a) return;
     currentArticleId = articleId;
     setText('article-title', a.title || '');
-    setText('article-verified', a.verified_at ? '最終検証日 ' + a.verified_at : '');
+    setText('article-verified', formatVerifiedAt(a.verified_at));
     const bodyEl = document.getElementById('article-body');
     if (!bodyEl) return;
     bodyEl.innerHTML = '';
