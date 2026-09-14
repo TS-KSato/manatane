@@ -2,9 +2,9 @@
   <title id="t">部屋の中の家電五つとそのワット数の目安、壁の三箇所のコンセント、それぞれから分電盤の小さなスイッチへつながる線。ドライヤーと電子レンジは同じコンセントの線に集まっている</title>
   <!-- ドライヤーと電子レンジが集まる線の強調(淡い色) -->
   <g fill="none" stroke="#cfe6ee" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M230 262 L275 296"/>
-    <path d="M322 250 L275 296"/>
-    <path d="M275 318 V330 H509 V145"/>
+    <path d="M230 262 L249 296"/>
+    <path d="M298 268 L249 296"/>
+    <path d="M249 318 V330 H509 V145"/>
   </g>
   <g fill="none" stroke="#1f2a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <!-- 部屋の壁 -->
@@ -25,20 +25,20 @@
     <rect x="198" y="218" width="48" height="34" rx="2"/>
     <path d="M256 224 V246"/>
     <!-- ドライヤー -->
-    <rect x="296" y="214" width="46" height="26" rx="13"/>
-    <path d="M296 227 H282"/>
-    <path d="M312 240 L304 268"/>
+    <rect x="290" y="214" width="46" height="26" rx="13"/>
+    <path d="M290 227 H276"/>
+    <path d="M306 240 L298 268"/>
     <!-- コンセント×3 -->
     <rect x="140" y="232" width="26" height="36" rx="3"/>
     <path d="M149 244 V256 M157 244 V256"/>
-    <rect x="262" y="282" width="26" height="36" rx="3"/>
-    <path d="M271 294 V306 M279 294 V306"/>
+    <rect x="236" y="282" width="26" height="36" rx="3"/>
+    <path d="M245 294 V306 M253 294 V306"/>
     <rect x="340" y="112" width="26" height="36" rx="3"/>
     <path d="M349 124 V136 M357 124 V136"/>
     <!-- 家電からコンセントへ -->
     <path d="M125 250 H140" stroke-width="1.5"/>
-    <path d="M230 262 L275 296" stroke-width="1.5"/>
-    <path d="M322 250 L275 296" stroke-width="1.5"/>
+    <path d="M230 262 L249 296" stroke-width="1.5"/>
+    <path d="M298 268 L249 296" stroke-width="1.5"/>
     <path d="M325 94 V102 H353 V112" stroke-width="1.5"/>
     <!-- 分電盤 -->
     <rect x="430" y="70" width="140" height="140" rx="4"/>
@@ -52,16 +52,16 @@
     <path d="M462 100 V28" stroke-width="4"/>
     <!-- コンセント・照明から小さなスイッチへ -->
     <path d="M153 268 V318 H495 V145" stroke-width="1.5"/>
-    <path d="M275 318 V330 H509 V145" stroke-width="1.5"/>
+    <path d="M249 318 V330 H509 V145" stroke-width="1.5"/>
     <path d="M353 148 V160 H523 V145" stroke-width="1.5"/>
     <path d="M205 50 V38 H537 V105" stroke-width="1.5"/>
   </g>
-  <g font-family="-apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic UI', sans-serif" font-size="17" fill="#1f2a2e" text-anchor="middle">
-    <text x="205" y="134">照明 60W</text>
-    <text x="325" y="170">エアコン 700W</text>
-    <text x="90" y="292">冷蔵庫 150W</text>
-    <text x="222" y="284">電子レンジ 1300W</text>
-    <text x="336" y="290">ドライヤー 1200W</text>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic UI', sans-serif" font-size="17" fill="#1f2a2e">
+    <text x="205" y="130" text-anchor="middle">照明 60W</text>
+    <text x="334" y="150" text-anchor="end">エアコン 700W</text>
+    <text x="90" y="292" text-anchor="middle">冷蔵庫 150W</text>
+    <text x="190" y="200">電子レンジ 1300W</text>
+    <text x="376" y="178" text-anchor="end">ドライヤー 1200W</text>
   </g>
   <text x="440" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic UI', sans-serif" font-size="20" fill="#1f2a2e">分電盤</text>
 </svg>
