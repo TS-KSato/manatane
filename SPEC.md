@@ -54,23 +54,39 @@ HTML、CSS、JavaScript、JSON、localStorage、GitHub Pagesのみで実装す�
 │   └── style.css
 ├── js/
 │   ├── app.js
-│   └── games.js
+│   ├── games.js
+│   └── vendor/
+│       ├── marked.umd.js
+│       └── marked.LICENSE.md
 ├── data/
 │   ├── questions.json
 │   ├── quizzes.json
 │   ├── results.json
 │   ├── guides.json
-│   └── routes.json
+│   ├── routes.json
+│   ├── links.json
+│   └── articles.json
+├── content/
+│   └── articles/
+│       ├── {article_id}.md ...
+│       └── images/
+│           └── {article_id}/ ...
 ├── images/
 │   └── guides/
-│       ├── placeholder.svg
-│       └── {guide_id}.svg ...
+│       ├── placeholder.png
+│       └── {guide_id}.png ...
+├── dev/
+│   └── article.html
+├── tools/
+│   ├── optimize_guide_images.py
+│   ├── check_route_links.py
+│   └── check_articles.py
 ├── README.md
 ├── SPEC.md
 └── VOICE.md
 ```
 
-各ファイルの役割は以下の通りである。index.htmlは全画面のHTML構造、css/style.cssはスマートフォン専用UIのスタイル、js/app.jsは画面遷移・診断ロジック・localStorage管理、js/games.jsはミニゲーム処理、data/questions.jsonは気分から見つける（診断形式mood）用の質問、data/quizzes.jsonはクイズ診断用データ、data/results.jsonは81種類の診断結果データ、data/guides.jsonは81名のガイドキャラクターデータ、data/routes.jsonは243件以上のおすすめ学習ルートデータ、images/guides/はガイド詳細画面で表示するガイド画像（PNG、ファイル名は guide_id に対応、未配置の場合は placeholder.png にフォールバック）、README.mdは起動方法と仕様メモを格納する。VOICE.mdはサービスの声の定義文書で、文言判断の上位文書として参照する（SPEC.mdと並ぶ位置づけ）。
+各ファイルの役割は以下の通りである。index.htmlは全画面のHTML構造、css/style.cssはスマートフォン専用UIのスタイル、js/app.jsは画面遷移・診断ロジック・localStorage管理、js/games.jsはミニゲーム処理、data/questions.jsonは気分から見つける（診断形式mood）用の質問、data/quizzes.jsonはクイズ診断用データ、data/results.jsonは81種類の診断結果データ、data/guides.jsonは81名のガイドキャラクターデータ、data/routes.jsonは243件以上のおすすめ学習ルートデータ、data/links.jsonはおすすめルートで表示する外部リンクの一覧(セクション13.5)、data/articles.jsonは読み物(利用者向け名称「寄り道のタネ」)の目次、content/articles/は読み物の本文(Markdown)と図、js/vendor/はMarkdownを画面用に変換する部品とそのライセンス表記、images/guides/はガイド詳細画面で表示するガイド画像（PNG、ファイル名は guide_id に対応、未配置の場合は placeholder.png にフォールバック）、README.mdは起動方法と仕様メモを格納する。VOICE.mdはサービスの声の定義文書で、文言判断の上位文書として参照する（SPEC.mdと並ぶ位置づけ）。dev/article.htmlは読み物の表示を確認するための開発用ページで、本体からはリンクされない。tools/は運用用のスクリプト群で、公開には影響しない。
 
 ---
 
@@ -105,9 +121,9 @@ body {
 
 ## 7. 画面一覧
 
-プロトタイプでは以下の14画面を実装する。
+プロトタイプでは以下の15画面を実装する。
 
-第1にホーム画面、第2に今日の目的選択画面、第3に診断形式選択画面、第4にクイズ診断画面、第5に気分から見つける画面、第6に気になることから探す画面(後述のセクション9.11)、第7にこれまでの学びから探す画面(後述のセクション9.12)、第8にゲーム選択画面(ゲーム種類選択)、第9にスライドパズル診断画面、第10に迷路診断画面、第11に診断結果画面、第12にガイド詳細画面、第13におすすめルート画面、第14に保存案内画面である。
+第1にホーム画面、第2に今日の目的選択画面、第3に診断形式選択画面、第4にクイズ診断画面、第5に気分から見つける画面、第6に気になることから探す画面(後述のセクション9.11)、第7にこれまでの学びから探す画面(後述のセクション9.12)、第8にゲーム選択画面(ゲーム種類選択)、第9にスライドパズル診断画面、第10に迷路診断画面、第11に診断結果画面、第12にガイド詳細画面、第13におすすめルート画面、第14に保存案内画面、第15に読み物画面(利用者向け名称「寄り道のタネ」)である。
 
 画面はSPA風に、同一HTML内で表示・非表示を切り替えて実装してよい。
 
@@ -132,11 +148,14 @@ body {
 診断結果画面
   ├─ ガイド詳細画面
   └─ おすすめルート画面
+        └─ 読み物画面(寄り道のタネ)
   ↓
 保存案内画面
 ```
 
 各画面には「戻る」ボタンを設置する。ただしホーム画面には戻るボタンは不要。
+
+読み物画面からは、本文中の内部リンクによってガイド詳細画面、別の読み物画面、おすすめルート画面へ遷移しうる。読み物画面の仕様は新設するセクション9.13で定める。
 
 ---
 
@@ -448,11 +467,11 @@ quiz / topic / path と同じく2項目方式とする。「選択した目的�
 
 #### 表示内容
 
-各ルートはカード形式で表示する。ルート名、説明、向いている状態、想定時間、そして1件から3件のリンク(ページ名・引用元・矢印アイコン)を含む。
+各ルートはカード形式で表示する。ルート名、説明、向いている状態、想定時間、そして1件から数件のリンク(ページ名・引用元・矢印アイコン)を含む。
 
-#### 外部リンク
+#### リンク
 
-各ルートカードは1件から3件のリンクを縦に並べて表示する。表示するリンクは routes.json の urls 配列(セクション13.5・13.5.3)から取得し、配列の順序を表示順序として尊重する。各リンクは {type, source, label, url} の構造を持ち、画面上は label(ページ名・主)と source(引用元・副)を上下に並べ、行末に外部遷移を示す矢印アイコン(↗)を添える。type が "external" のリンクは別タブで開く(target="_blank" / rel="noopener noreferrer")。type が "internal" のリンクは将来的にサービス内ページへの遷移を想定した受け皿として確保しており、現時点では使用しない(同タブ遷移を想定し、target/rel は付与しない)。
+各ルートカードはリンクを縦に並べて表示する。表示するリンクは二種類ある。第一に、routes.json の links 配列(セクション13.5)に並ぶ link_id を data/links.json で解決した外部リンクで、配列の順序を表示順序として尊重する。画面上は label(ページ名・主)と source(引用元・副)を上下に並べ、行末に外部遷移を示す矢印アイコン(↗)を添え、別タブで開く(target="_blank" / rel="noopener noreferrer")。第二に、読み物への内部リンクで、articles.json の target_routes に当該 route_id を含む読み物があれば、表示時にリンク一覧の先頭に差し込む。source は「マナタネ」、label は読み物の title、行末のアイコンは「→」とし、同じタブで読み物画面(セクション9.13)へ遷移する。複数ある場合は articles.json の記載順に並べる。内部リンクは routes.json には記載せず、表示時に導出する。
 
 #### ボタン
 
@@ -685,7 +704,7 @@ path 診断では behavior_tag を付与しない。ガイド判定は軸属性�
 
 各 result_id の表示名は、セクション10.4の構文に従って機械的に生成される。たとえば A1B1C1D1 は「考えて自分に触れ、見方を見直す入口」、A2B3C2D2 は「手を動かして専門に触れ、できることを増やす学び」、A3B2C3D3 は「人と関わって世の中に触れ、生き方を整える探究」となる。
 
-完全な81件のリストは data/results.json に定義する。各エントリには result_id、title(表示名)、description(説明文)、recommendations(おすすめ3項目)、avoid(避けたい入口2項目)、guide_id(常に null、ガイドはハイブリッド方式で別途決定)を含む。
+完全な81件のリストは data/results.json に定義する。各エントリには result_id、title(表示名)、description(説明文)、recommendations(おすすめ3項目)、avoid(避けたい入口2項目)を含む。ガイドは results.json に紐づけず、ハイブリッド方式(セクション12)で別途決定する。
 
 ### 11.2 result_idの設計原則
 
@@ -817,13 +836,12 @@ response_seconds・confidence の計測と記録は廃止した。各回答に�
     "avoid": [
       "いきなり手を動かす作業",
       "即実践のみを求める教材"
-    ],
-    "guide_id": null
+    ]
   }
 ]
 ```
 
-guide_id は常に null とする。ガイドはハイブリッド方式で別途決定するため、results.json には固定的に紐づけない(新仕様の独立次元方針による)。
+results.json はガイドへの参照を持たない。ガイドはハイブリッド方式で別途決定するため、results.json には固定的に紐づけない(独立次元方針による)。旧仕様にあった guide_id フィールドは v0.3 の運用中に削除した。
 
 81件すべてのresult_idを定義する。
 
@@ -872,26 +890,7 @@ axis_a、axis_b、axis_c、axis_d は配列で、1〜2個の値を持つ。こ�
     "description": "まずは短い記事や無料教材で、自己理解の全体像をつかみます。",
     "suitable_for": "今日は軽く知りたい人向け",
     "estimated_time": "5〜10分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "サイト名A",
-        "label": "ページ名A",
-        "url": "https://example.com/article-a"
-      },
-      {
-        "type": "external",
-        "source": "サイト名B",
-        "label": "ページ名B",
-        "url": "https://example.com/article-b"
-      },
-      {
-        "type": "external",
-        "source": "サイト名C",
-        "label": "ページ名C",
-        "url": "https://example.com/article-c"
-      }
-    ]
+    "links": ["mhlw_kokoromimi", "jobtag_shigoto", "mhlw_ehealthnet"]
   }
 ]
 ```
@@ -918,36 +917,43 @@ target_results フィールドには、そのルートが対象とする result_
 
 route_type は3種類とする。free(無料で試す)、low_price(低価格で試す)、deep(もう少し深める)である。各 result_id に対して、3種類すべてが最低1件ずつ取得できるよう、routes.json を設計する。
 
-#### 13.5.3 urls 配列フィールド
+#### 13.5.3 links 配列フィールドと links.json
 
-各ルートは urls 配列フィールドに最小1件・最大3件のリンクを保持する。urls はオブジェクトの配列で、要素の順序は表示順序として尊重される。おすすめルート画面(セクション9.9)では、配列の全件を順にリンク行として縦に並べて表示する。
+各ルートは links 配列フィールドに最小1件・最大3件の link_id を保持する。link_id は data/links.json の要素を指す文字列で、配列の順序は表示順序として尊重される。おすすめルート画面(セクション9.9)では、配列の全件を順にリンク行として縦に並べて表示する。
 
-各要素は以下の4キーを持つ。
+data/links.json はリンクの一覧で、配列の各要素は以下の4キーを持つ。
 
-- `type`: リンク種別。`"external"`(外部サイト)または `"internal"`(将来のサービス内ページ)。現時点では全件 `"external"` で、`"internal"` は将来の内部リンク導入時の受け皿として定義のみ確保する。
-- `source`: 引用元のサイト名・サービス名(例:「文部科学省」「Wikipedia」)。空文字は禁止。画面上は label の下にやや小さい文字で副情報として表示する。
+- `link_id`: 半角英小文字・数字・アンダースコアのみの識別子。引用元と内容が読み取れる名前とし、機械的な連番は使わない(例: schoo_top、enecho_liberalization_what)。
+- `type`: リンク種別。現時点では全件 `"external"`。
+- `source`: 引用元のサイト名・サービス名。空文字は禁止。画面上は label の下にやや小さい文字で副情報として表示する。
 - `label`: リンク先のページ名。空文字は禁止。画面上の主たる文言として表示する。
-- `url`: 実際のリンクURL。`https://` または `http://` で始まる絶対URLとする(`internal` 種別の取り扱いを今後追加する際は仕様を別途定義する)。
+- `url`: 実際のリンクURL。`https://` または `http://` で始まる絶対URL。
 
-旧仕様の単一 url フィールド・文字列配列 urls は廃止したが、後方互換のため、文字列要素が混在しても `{type:"external", source:"", label:url, url:url}` として読み込めるようにする。同様に、ルート直下に旧 url フィールドが残っているデータは1要素配列として扱う。
+同じURLは links.json に1件だけ持ち、複数のルートから同じ link_id で参照する。これにより、リンク切れやURL変更の対処は links.json の該当要素を1箇所直せば全ルートに反映される。
 
-リンク切れが発生した場合の運用は、運営側で routes.json の該当要素を urls 配列から削除して対処する。配列が空になった(0件になった)ルートは画面上リンクが表示されないため、最低1件を残すよう運用する。
+読み物への内部リンクは links.json にも routes.json にも記載しない。articles.json の target_routes から表示時に導出する(セクション9.9)。
+
+旧仕様の単一 url フィールド、文字列配列 urls、オブジェクト配列 urls は廃止したが、後方互換のため、ルートに links がなく urls または url が残っている場合は従来どおり読み込めるようにする。links と urls の両方がある場合は links を優先する。存在しない link_id は表示せず、コンソールに警告を出す。
+
+リンク切れが発生した場合の運用は、links.json の該当要素の url を差し替えるか、要素を削除して各ルートの links 配列から該当 link_id を外して対処する。links 配列が空になった(0件になった)ルートは画面上リンクが表示されないため、最低1件を残すよう運用する。到達確認は tools/check_route_links.py、参照整合は tools/check_articles.py で行う。
 
 ### 13.6 データ間の参照関係
 
-新仕様におけるデータ間の参照関係を整理する。
-
-questions.json（mood用）は独立したデータで、他ファイルへの参照はない。各回答の `value`（A1〜D3）は軸の値を参照するが、これはコード内の定数として扱う。
+questions.json(mood用)は独立したデータで、他ファイルへの参照はない。各回答の `value`(A1〜D3)は軸の値を参照するが、これはコード内の定数として扱う。
 
 quizzes.json も独立したデータで、他ファイルへの参照はない。
 
-results.json は 81件あり、それぞれが result_id を主キーとして持つ。guide_id は常に null である。
+results.json は 81件あり、それぞれが result_id を主キーとして持つ。他ファイルへの参照はない。
 
 guides.json は 81名あり、それぞれが guide_id を主キーとして持つ。result_id への直接参照はない。
 
-routes.json は 243件以上あり、target_results フィールドで results.json の result_id を参照する。
+links.json は外部リンクの一覧で、link_id を主キーとして持つ。他ファイルへの参照はない。
 
-実行時、ユーザーの診断結果からは以下の流れでデータを取得する。第一に診断結果から軸スコアを計算し、result_id を確定する。第二に result_id を用いて results.json から該当エントリを取得し、画面に表示する。第三に行動傾向タグと軸属性を用いて guides.json から最適なガイドをスコア計算で選出する。第四に result_id を用いて routes.json から該当する3〜数件のルートを抽出する。
+routes.json は 81件あり、target_results フィールドで results.json の result_id を、links フィールドで links.json の link_id を参照する。
+
+articles.json は読み物の目次で、article_id を主キーとして持ち、target_routes フィールドで routes.json の route_id を参照する。本文ファイル(content/articles/{article_id}.md)の中の内部リンクは、article:{article_id}、guide:{guide_id}、route:{route_id}、guide-image:{guide_id} の形で、それぞれ articles.json、guides.json、routes.json、guides.json(画像は images/guides/)を参照する。
+
+実行時、ユーザーの診断結果からは以下の流れでデータを取得する。第一に診断から4軸を決定し、result_id を確定する。第二に result_id を用いて results.json から該当エントリを取得し、画面に表示する。第三に行動傾向タグと軸属性を用いて guides.json から最適なガイドをスコア計算で選出する。第四に result_id を用いて routes.json から該当するルートを抽出し、各ルートの links を links.json で解決し、さらに articles.json から当該ルートを対象とする読み物を先頭に差し込む。
 
 ### 13.7 データ更新時の整合性
 
@@ -956,6 +962,8 @@ routes.json は 243件以上あり、target_results フィールドで results.j
 具体的には、results.json の result_id を変更した場合、routes.json の target_results も同期して更新する必要がある。guides.json の axis_a〜d や behavior_traits を変更した場合、ガイドマッチング結果が変わる。
 
 プロトタイプ段階では手動更新だが、本番版では整合性チェック機能を実装することが望ましい。
+
+routes.json の links に存在しない link_id を書いた場合、articles.json の target_routes に存在しない route_id を書いた場合、本文の内部リンクの参照先が存在しない場合は、tools/check_articles.py が検出する。データ更新後はこのスクリプトを実行する。
 
 ---
 
@@ -1059,7 +1067,7 @@ READMEのタイトルは「# マナタネ (manatane) プロトタイプ」とす
 
 AIに実装させる場合は、以下の順で作業する。
 
-第一に、HTML/CSSでスマホUIの骨組みを作る。新仕様では画面が14画面に増えているため(ホーム、今日の目的選択、診断形式選択、クイズ診断、気分から見つける、気になることから探す、これまでの学びから探す、ゲーム選択、スライドパズル診断、迷路診断、診断結果、ガイド詳細、おすすめルート、保存案内)、画面切り替えロジックも含める。
+第一に、HTML/CSSでスマホUIの骨組みを作る。新仕様では画面が15画面に増えているため(ホーム、今日の目的選択、診断形式選択、クイズ診断、気分から見つける、気になることから探す、これまでの学びから探す、ゲーム選択、スライドパズル診断、迷路診断、診断結果、ガイド詳細、おすすめルート、保存案内、読み物(寄り道のタネ))、画面切り替えロジックも含める。
 
 第二に、画面遷移を実装する。ゲーム選択画面の追加に注意する。
 
@@ -1102,7 +1110,7 @@ AIに実装させる場合は、以下の順で作業する。
 
 技術構成は HTML / CSS / JavaScript / JSON / localStorage のみとし、React、Vue、Next.js、Firebase、Supabase、Stripe、外部APIは使用しないでください。GitHub Pages で公開できる構成にしてください。
 
-実装する画面は14画面です。ホーム、今日の目的選択、診断形式選択、クイズ診断、気分から見つける（診断形式mood）、気になることから探す（診断形式topic）、これまでの学びから探す（診断形式path）、ゲーム選択、スライドパズル診断、迷路診断、診断結果、ガイド詳細、おすすめルート、保存案内の14画面です。
+実装する画面は15画面です。ホーム、今日の目的選択、診断形式選択、クイズ診断、気分から見つける（診断形式mood）、気になることから探す（診断形式topic）、これまでの学びから探す（診断形式path）、ゲーム選択、スライドパズル診断、迷路診断、診断結果、ガイド詳細、おすすめルート、保存案内、読み物（寄り道のタネ）の15画面です。
 
 診断結果は固定的なユーザータイプではなく、今回のセッションにおける「今日の学び方の入口」として扱ってください。結果は4軸(関心の対象、知ろうとする対象、変えたい方向、関わり方の深さ)の組み合わせで定義される81通りのいずれかです。
 
