@@ -9,9 +9,10 @@
   2. file が実在する。
   3. 本文中の内部リンク article:/guide:/route: の参照先が、それぞれ
      articles.json / guides.json / routes.json に存在する。
-  4. role が "route" の読み物は、routes.json のいずれかの urls 要素から
-     article:<id> で参照されている(target_routes に挙げたルートからの参照も確認)。
-  5. すべての読み物が、いずれかのルートから article: リンクを辿って到達できる。
+  4. 読み物とルートの対応は articles.json の target_routes を唯一の正とする。
+     role が "route" の読み物は target_routes が 1 件以上あり、その route_id がすべて
+     routes.json に存在する。routes.json に type=internal の要素が残っていれば注意として列挙する。
+  5. すべての読み物が、target_routes を持つ読み物から article: リンクを辿って到達できる。
   6. 一本の読み物から出る内部リンクが 5 本を超える場合は注意(エラーにはしない)。
 
 「編集メモ」で始まる見出しのセクションは画面に表示されないため、
@@ -169,38 +170,21 @@ def main():
                 if rel not in referenced_images:
                     warnings.append("content/articles/%s はどの本文からも参照されていない" % rel)
 
-    # 4. routes.json からの参照
-    referenced_from_routes = {}  # article_id -> [route_id]
+    # 4. 読み物とルートの対応は articles.json の target_routes を唯一の正とする。
+    #    role=route の target_routes が 1 件以上あり、すべて routes.json に存在することは 1. で検査済み。
+    #    routes.json に type=internal の要素が残っていれば注意として列挙する(表示はされるが今後は使わない)。
     for r in routes:
         for u in r.get("urls") or []:
             if isinstance(u, dict) and u.get("type") == "internal":
-                url = u.get("url", "")
-                if url.startswith("article:"):
-                    target = url[len("article:"):]
-                    referenced_from_routes.setdefault(target, []).append(r["route_id"])
-                    if target not in article_ids:
-                        errors.append("routes.json %s: 参照先 %s が articles.json に存在しない" % (r["route_id"], url))
-                    elif u.get("source") != "マナタネ":
-                        warnings.append("routes.json %s: internal 要素の source が「マナタネ」でない (%r)" % (r["route_id"], u.get("source")))
-                    idx = r["urls"].index(u)
-                    if any(isinstance(x, dict) and x.get("type") != "internal" for x in r["urls"][:idx]):
-                        warnings.append("routes.json %s: internal 要素が external 要素より後ろにある" % r["route_id"])
-    for a in articles:
-        aid = a.get("article_id")
-        if a.get("role") == "route":
-            refs = referenced_from_routes.get(aid, [])
-            if not refs:
-                errors.append("%s: role=route だが routes.json のどの urls からも参照されていない" % aid)
-            else:
-                for rid in a.get("target_routes", []):
-                    if rid not in refs:
-                        warnings.append("%s: target_routes の %s の urls から参照されていない" % (aid, rid))
-                for rid in refs:
-                    if rid not in a.get("target_routes", []):
-                        warnings.append("%s: %s から参照されているが target_routes に含まれていない" % (aid, rid))
+                warnings.append("routes.json %s: type=internal の要素が残っている(今後は使わない): %s"
+                                % (r.get("route_id"), u.get("url")))
 
-    # 5. 到達可能性(ルート → article: リンクを辿る)
-    reachable, stack = set(), list(referenced_from_routes.keys() & article_ids)
+    # 5. 到達可能性(target_routes を持つ読み物を起点に、article: リンクを辿る)
+    starts = [a["article_id"] for a in articles
+              if a.get("article_id") in article_ids and a.get("role") == "route"
+              and isinstance(a.get("target_routes"), list)
+              and any(rid in route_ids for rid in a["target_routes"])]
+    reachable, stack = set(), list(starts)
     while stack:
         cur = stack.pop()
         if cur in reachable:
@@ -211,7 +195,7 @@ def main():
                 stack.append(target)
     unreachable = sorted(article_ids - reachable)
     for aid in unreachable:
-        errors.append("%s: どのルートからも article: リンクで到達できない" % aid)
+        errors.append("%s: target_routes を持つ読み物から article: リンクで到達できない" % aid)
 
     # 出力
     print("articles: %d, guides: %d, routes: %d" % (len(articles), len(guides), len(routes)))
@@ -223,7 +207,7 @@ def main():
             aid, a.get("role"),
             ", ".join("%s:%s" % l for l in links) or "(なし)",
             ", ".join(s if GUIDE_IMAGE_RE.match(s) else os.path.basename(s) for s in imgs) or "(なし)",
-            "  <- routes: %s" % ", ".join(referenced_from_routes.get(aid, [])) if referenced_from_routes.get(aid) else "",
+            "  -> target_routes: %s" % ", ".join(a.get("target_routes") or []) if a.get("target_routes") else "",
         ))
     print()
     if errors:

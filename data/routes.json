@@ -1954,12 +1954,6 @@
     "estimated_time": "5〜10分",
     "urls": [
       {
-        "type": "internal",
-        "source": "マナタネ",
-        "label": "部屋の電気から、どこへでも",
-        "url": "article:elec_room"
-      },
-      {
         "type": "external",
         "source": "ドットインストール",
         "label": "初心者向けプログラミング学習",
@@ -2250,12 +2244,6 @@
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
     "urls": [
-      {
-        "type": "internal",
-        "source": "マナタネ",
-        "label": "部屋の電気から、どこへでも",
-        "url": "article:elec_room"
-      },
       {
         "type": "external",
         "source": "厚生労働省",

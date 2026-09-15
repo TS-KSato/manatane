@@ -1022,10 +1022,18 @@
       // 9.9: urls 配列の各要素を {type, source, label, url} 構造のリンクとして縦に並べる。
       // 後方互換: 要素が文字列なら {type:'external', source:'', label:str, url:str} として扱う。
       // r.url（旧単一フィールド）も 1要素として補完する。
+      // 読み物との対応は articles.json の target_routes を唯一の正とする。該当する読み物があれば
+      // 表示時にリンク一覧の先頭へ差し込む(articles.json の記載順)。routes.json のデータは書き換えない。
+      const articleLinks = articlesForRoute(r.route_id).map(a => ({
+        type: 'internal',
+        source: 'マナタネ',
+        label: a.title || a.article_id,
+        url: 'article:' + a.article_id,
+      }));
       const rawUrls = Array.isArray(r.urls) && r.urls.length > 0
         ? r.urls
         : (r.url ? [r.url] : []);
-      const urls = rawUrls.map(u => {
+      const urls = articleLinks.concat(rawUrls.map(u => {
         if (typeof u === 'string') {
           return { type: 'external', source: '', label: u, url: u };
         }
@@ -1038,7 +1046,7 @@
           };
         }
         return null;
-      }).filter(Boolean);
+      }).filter(Boolean));
       if (urls.length > 0) {
         const linkList = document.createElement('div');
         linkList.className = 'route-links';
@@ -1102,6 +1110,12 @@
     const list = (window.manatane.data && window.manatane.data.articles) || [];
     for (let i = 0; i < list.length; i += 1) if (list[i].article_id === articleId) return list[i];
     return null;
+  }
+
+  // target_routes に routeId を含む読み物を、articles.json の記載順で返す
+  function articlesForRoute(routeId) {
+    const list = (window.manatane.data && window.manatane.data.articles) || [];
+    return list.filter(a => a && Array.isArray(a.target_routes) && a.target_routes.indexOf(routeId) !== -1);
   }
 
   // 1.3: 内部リンクのスキーム article:/guide:/route: を解釈する
