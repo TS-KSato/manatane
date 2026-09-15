@@ -14,6 +14,9 @@
      routes.json に存在する。routes.json に type=internal の要素が残っていれば注意として列挙する。
   5. すべての読み物が、target_routes を持つ読み物から article: リンクを辿って到達できる。
   6. 一本の読み物から出る内部リンクが 5 本を超える場合は注意(エラーにはしない)。
+  7. data/links.json: link_id の形式と重複、同じ URL が複数の link_id に重複していないこと、
+     routes.json の links が参照する link_id がすべて存在すること。どこからも参照されていない
+     link_id は注意として列挙する。
 
 「編集メモ」で始まる見出しのセクションは画面に表示されないため、
 リンク抽出の対象からも除外する(表示上の到達可能性と一致させるため)。
@@ -31,6 +34,7 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ARTICLES_JSON = os.path.join(REPO_ROOT, "data", "articles.json")
 GUIDES_JSON = os.path.join(REPO_ROOT, "data", "guides.json")
 ROUTES_JSON = os.path.join(REPO_ROOT, "data", "routes.json")
+LINKS_JSON = os.path.join(REPO_ROOT, "data", "links.json")
 
 REQUIRED_KEYS = ("article_id", "title", "theme", "role", "target_routes", "verified_at", "file")
 ID_RE = re.compile(r"^[a-z0-9_]+$")
@@ -79,6 +83,7 @@ def main():
     articles = load(ARTICLES_JSON)
     guides = load(GUIDES_JSON)
     routes = load(ROUTES_JSON)
+    link_defs = load(LINKS_JSON)
     guide_ids = {g.get("guide_id") for g in guides}
     route_ids = {r.get("route_id") for r in routes}
 
@@ -197,8 +202,42 @@ def main():
     for aid in unreachable:
         errors.append("%s: target_routes を持つ読み物から article: リンクで到達できない" % aid)
 
+    # 7. links.json と routes.json の links 参照
+    link_ids, url_to_ids = set(), {}
+    for i, l in enumerate(link_defs):
+        lid = l.get("link_id", "(index %d)" % i)
+        missing = [k for k in ("link_id", "type", "source", "label", "url") if not l.get(k)]
+        if missing:
+            errors.append("links.json %s: 必須キー欠落/空 %s" % (lid, ", ".join(missing)))
+        if not ID_RE.match(str(lid)):
+            errors.append("links.json %s: link_id は半角英小文字・数字・アンダースコアのみ" % lid)
+        if lid in link_ids:
+            errors.append("links.json %s: link_id が重複" % lid)
+        link_ids.add(lid)
+        url_to_ids.setdefault(l.get("url"), []).append(lid)
+    for url, ids in url_to_ids.items():
+        if len(ids) > 1:
+            errors.append("links.json: 同じ URL が複数の link_id にある %s: %s" % (", ".join(ids), url))
+    referenced_links = set()
+    for r in routes:
+        rid = r.get("route_id")
+        if isinstance(r.get("links"), list):
+            for lid in r["links"]:
+                referenced_links.add(lid)
+                if lid not in link_ids:
+                    errors.append("routes.json %s: link_id %r が links.json に存在しない" % (rid, lid))
+            if r.get("urls"):
+                warnings.append("routes.json %s: links と旧形式の urls が両方ある(links を優先して表示)" % rid)
+            if not r["links"]:
+                warnings.append("routes.json %s: links が 0 件" % rid)
+        elif not r.get("urls") and not r.get("url"):
+            warnings.append("routes.json %s: links も urls もない" % rid)
+    for lid in sorted(link_ids - referenced_links):
+        warnings.append("links.json %s: どのルートからも参照されていない" % lid)
+
     # 出力
-    print("articles: %d, guides: %d, routes: %d" % (len(articles), len(guides), len(routes)))
+    print("articles: %d, guides: %d, routes: %d, links: %d (referenced: %d)" % (
+        len(articles), len(guides), len(routes), len(link_defs), len(referenced_links & link_ids)))
     for a in articles:
         aid = a.get("article_id")
         links = links_by_article.get(aid, [])

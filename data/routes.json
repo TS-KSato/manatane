@@ -11,25 +11,10 @@
     "description": "短い記事や無料教材で、自分の考え方の傾向を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "厚生労働省 (jobtag)",
-        "label": "職業能力診断・仕事探し",
-        "url": "https://shigoto.mhlw.go.jp/User/"
-      },
-      {
-        "type": "external",
-        "source": "厚生労働省 こころの耳",
-        "label": "働く人のメンタルヘルス・ポータル",
-        "url": "https://kokoromimi.mhlw.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "厚生労働省 e-ヘルスネット",
-        "label": "健康情報サイト",
-        "url": "https://www.e-healthnet.mhlw.go.jp/"
-      }
+    "links": [
+      "jobtag_shigoto",
+      "mhlw_kokoromimi",
+      "mhlw_ehealthnet"
     ]
   },
   {
@@ -44,19 +29,9 @@
     "description": "低価格の教材で、自分の考え方の傾向を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Udemy",
-        "label": "実務スキル特化型講座配信",
-        "url": "https://www.udemy.com/"
-      }
+    "links": [
+      "schoo_top",
+      "udemy_top"
     ]
   },
   {
@@ -71,19 +46,9 @@
     "description": "短時間でも密度のある教材で、自分の考え方の傾向に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "urls": [
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "しゅみナビ",
-        "label": "心理学・カウンセリング体験講座",
-        "url": "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
-      }
+    "links": [
+      "manapass_top",
+      "shuminavi_psychology_trials"
     ]
   },
   {
@@ -98,25 +63,10 @@
     "description": "無料教材を数週間続けて、自分の考え方の傾向に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "厚生労働省 こころの耳",
-        "label": "働く人のメンタルヘルス・ポータル",
-        "url": "https://kokoromimi.mhlw.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "文部科学省",
-        "label": "学習支援情報ポータル",
-        "url": "https://www.mext.go.jp/a_menu/01_g.htm"
-      },
-      {
-        "type": "external",
-        "source": "厚生労働省 (jobtag)",
-        "label": "職業能力診断・仕事探し",
-        "url": "https://shigoto.mhlw.go.jp/User/"
-      }
+    "links": [
+      "mhlw_kokoromimi",
+      "mext_lifelong_learning_portal",
+      "jobtag_shigoto"
     ]
   },
   {
@@ -131,25 +81,10 @@
     "description": "低価格の継続教材で、数週間かけて自分の考え方の傾向を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Coursera",
-        "label": "世界の大学専門オンライン講座",
-        "url": "https://www.coursera.org/"
-      },
-      {
-        "type": "external",
-        "source": "Udemy",
-        "label": "実務スキル特化型講座配信",
-        "url": "https://www.udemy.com/"
-      }
+    "links": [
+      "schoo_top",
+      "coursera_top",
+      "udemy_top"
     ]
   },
   {
@@ -164,25 +99,10 @@
     "description": "体系的な教材で、数ヶ月かけて自分の考え方の傾向を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "放送大学",
-        "label": "放送大学(心理学・教育の科目)",
-        "url": "https://www.ouj.ac.jp/"
-      },
-      {
-        "type": "external",
-        "source": "しゅみナビ",
-        "label": "心理学・カウンセリング体験講座",
-        "url": "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
-      }
+    "links": [
+      "manapass_top",
+      "ouj_top",
+      "shuminavi_psychology_trials"
     ]
   },
   {
@@ -197,25 +117,10 @@
     "description": "無料教材から始めて、長期的に自分の考え方の傾向を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "国立国会図書館",
-        "label": "デジタルコレクション(専門資料)",
-        "url": "https://dl.ndl.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "CiNii",
-        "label": "学術論文検索",
-        "url": "https://cir.nii.ac.jp/"
-      }
+    "links": [
+      "manapass_top",
+      "ndl_digital_collection",
+      "cinii_research"
     ]
   },
   {
@@ -230,25 +135,10 @@
     "description": "低価格の教材を継続し、年単位で自分の考え方の傾向に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Coursera",
-        "label": "世界の大学専門オンライン講座",
-        "url": "https://www.coursera.org/"
-      },
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "edX",
-        "label": "大学レベル専門オンライン講座",
-        "url": "https://www.edx.org/"
-      }
+    "links": [
+      "coursera_top",
+      "schoo_top",
+      "edx_top"
     ]
   },
   {
@@ -263,25 +153,10 @@
     "description": "本格的な教材で、長期にわたり自分の考え方の傾向を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "urls": [
-      {
-        "type": "external",
-        "source": "放送大学",
-        "label": "放送大学(心理学・教育の科目)",
-        "url": "https://www.ouj.ac.jp/"
-      },
-      {
-        "type": "external",
-        "source": "日本心理学会",
-        "label": "心理学をまなぶ",
-        "url": "https://psych.or.jp/"
-      },
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      }
+    "links": [
+      "ouj_top",
+      "jpa_psych_top",
+      "manapass_top"
     ]
   },
   {
@@ -296,25 +171,10 @@
     "description": "短い記事や無料教材で、自分に合った技能の身につけ方を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "StudyHacker",
-        "label": "社会人のための学習術メディア",
-        "url": "https://studyhacker.net/"
-      },
-      {
-        "type": "external",
-        "source": "Duolingo",
-        "label": "ゲーミフィケーション語学学習",
-        "url": "https://www.duolingo.com/"
-      },
-      {
-        "type": "external",
-        "source": "Udemy",
-        "label": "無料ビジネス講座一覧",
-        "url": "https://www.udemy.com/courses/free/"
-      }
+    "links": [
+      "studyhacker_top",
+      "duolingo_top",
+      "udemy_free_courses"
     ]
   },
   {
@@ -329,25 +189,10 @@
     "description": "低価格の教材で、自分に合った技能の身につけ方を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Notion",
-        "label": "タスク・学習管理ツール",
-        "url": "https://www.notion.so/ja-jp"
-      },
-      {
-        "type": "external",
-        "source": "Habitify",
-        "label": "習慣トラッキングアプリ",
-        "url": "https://habitify.me/"
-      },
-      {
-        "type": "external",
-        "source": "Coursera",
-        "label": "世界の大学専門オンライン講座",
-        "url": "https://www.coursera.org/"
-      }
+    "links": [
+      "notion_top",
+      "habitify_top",
+      "coursera_top"
     ]
   },
   {
@@ -362,13 +207,8 @@
     "description": "短時間でも密度のある教材で、自分に合った技能の身につけ方に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "urls": [
-      {
-        "type": "external",
-        "source": "LinkedInラーニング",
-        "label": "ビジネススキル定額学習",
-        "url": "https://www.linkedin.com/learning/"
-      }
+    "links": [
+      "linkedin_learning"
     ]
   },
   {
@@ -383,19 +223,9 @@
     "description": "無料教材を数週間続けて、自分に合った技能の身につけ方に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Notion",
-        "label": "学習計画テンプレート",
-        "url": "https://www.notion.so/ja/templates/category/free-study-planner-templates"
-      },
-      {
-        "type": "external",
-        "source": "Notion",
-        "label": "学習管理テンプレート",
-        "url": "https://www.notion.so/ja/templates/category/free-learning-templates"
-      }
+    "links": [
+      "notion_study_planner_templates",
+      "notion_learning_templates"
     ]
   },
   {
@@ -410,19 +240,9 @@
     "description": "低価格の継続教材で、数週間かけて自分に合った技能の身につけ方を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Notion",
-        "label": "学習管理テンプレート",
-        "url": "https://www.notion.so/ja/templates/category/free-learning-templates"
-      }
+    "links": [
+      "schoo_top",
+      "notion_learning_templates"
     ]
   },
   {
@@ -437,19 +257,9 @@
     "description": "体系的な教材で、数ヶ月かけて自分に合った技能の身につけ方を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Notion",
-        "label": "学習管理テンプレート",
-        "url": "https://www.notion.so/ja/templates/category/free-learning-templates"
-      }
+    "links": [
+      "schoo_top",
+      "notion_learning_templates"
     ]
   },
   {
@@ -464,19 +274,9 @@
     "description": "無料教材から始めて、長期的に自分に合った技能の身につけ方を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "文部科学省",
-        "label": "生涯学習白書データ",
-        "url": "https://www.mext.go.jp/b_menu/hakusho/html/hpab201901/detail/1421865.htm"
-      },
-      {
-        "type": "external",
-        "source": "文部科学省",
-        "label": "社会人の学び直しに関する答申",
-        "url": "https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo2/toushin/04032902.htm"
-      }
+    "links": [
+      "mext_hakusho_lifelong_learning_2019",
+      "mext_chukyo_toushin_relearning"
     ]
   },
   {
@@ -491,25 +291,10 @@
     "description": "低価格の教材を継続し、年単位で自分に合った技能の身につけ方に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Notion",
-        "label": "学習管理テンプレート",
-        "url": "https://www.notion.so/ja/templates/category/free-learning-templates"
-      },
-      {
-        "type": "external",
-        "source": "Notion",
-        "label": "学習計画テンプレート",
-        "url": "https://www.notion.so/ja/templates/category/free-study-planner-templates"
-      }
+    "links": [
+      "schoo_top",
+      "notion_learning_templates",
+      "notion_study_planner_templates"
     ]
   },
   {
@@ -524,19 +309,9 @@
     "description": "本格的な教材で、長期にわたり自分に合った技能の身につけ方を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Coursera",
-        "label": "世界の大学専門オンライン講座",
-        "url": "https://www.coursera.org/"
-      }
+    "links": [
+      "schoo_top",
+      "coursera_top"
     ]
   },
   {
@@ -551,19 +326,9 @@
     "description": "短い記事や無料教材で、自分の暮らしの習慣を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "厚生労働省 スマートライフプロジェクト",
-        "label": "健康習慣改善プロジェクト概要",
-        "url": "https://kennet.mhlw.go.jp/slp/about/index"
-      },
-      {
-        "type": "external",
-        "source": "厚生労働省 スマートライフプロジェクト",
-        "label": "スマートライフプロジェクトの仕組み",
-        "url": "https://kennet.mhlw.go.jp/slp/about/slp.html"
-      }
+    "links": [
+      "mhlw_slp_about",
+      "mhlw_slp_mechanism"
     ]
   },
   {
@@ -578,25 +343,10 @@
     "description": "低価格の教材で、自分の暮らしの習慣を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "あすけん",
-        "label": "AI食事管理アプリ",
-        "url": "https://www.asken.jp/"
-      },
-      {
-        "type": "external",
-        "source": "厚生労働省 e-ヘルスネット",
-        "label": "健康情報サイト",
-        "url": "https://www.e-healthnet.mhlw.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "厚生労働省 スマートライフプロジェクト",
-        "label": "健康習慣改善プロジェクト概要",
-        "url": "https://kennet.mhlw.go.jp/slp/about/index"
-      }
+    "links": [
+      "asken_top",
+      "mhlw_ehealthnet",
+      "mhlw_slp_about"
     ]
   },
   {
@@ -611,19 +361,9 @@
     "description": "短時間でも密度のある教材で、自分の暮らしの習慣に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "urls": [
-      {
-        "type": "external",
-        "source": "ユーキャン",
-        "label": "通信教育・専門スキル講座",
-        "url": "https://www.u-can.co.jp/"
-      },
-      {
-        "type": "external",
-        "source": "スタディング",
-        "label": "資格対策専門オンライン講座",
-        "url": "https://studying.jp/"
-      }
+    "links": [
+      "ucan_top",
+      "studying_top"
     ]
   },
   {
@@ -638,13 +378,8 @@
     "description": "無料教材を数週間続けて、自分の暮らしの習慣に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "厚生労働省 スマートライフプロジェクト",
-        "label": "健康習慣改善プロジェクト概要",
-        "url": "https://kennet.mhlw.go.jp/slp/about/index"
-      }
+    "links": [
+      "mhlw_slp_about"
     ]
   },
   {
@@ -659,25 +394,10 @@
     "description": "低価格の継続教材で、数週間かけて自分の暮らしの習慣を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "あすけん",
-        "label": "AI食事管理アプリ",
-        "url": "https://www.asken.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Habitify",
-        "label": "習慣トラッキングアプリ",
-        "url": "https://habitify.me/"
-      },
-      {
-        "type": "external",
-        "source": "厚生労働省 e-ヘルスネット",
-        "label": "健康情報サイト",
-        "url": "https://www.e-healthnet.mhlw.go.jp/"
-      }
+    "links": [
+      "asken_top",
+      "habitify_top",
+      "mhlw_ehealthnet"
     ]
   },
   {
@@ -692,19 +412,9 @@
     "description": "体系的な教材で、数ヶ月かけて自分の暮らしの習慣を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "厚生労働省 スマートライフプロジェクト",
-        "label": "健康習慣改善プロジェクト概要",
-        "url": "https://kennet.mhlw.go.jp/slp/about/index"
-      },
-      {
-        "type": "external",
-        "source": "厚生労働省 スマートライフプロジェクト",
-        "label": "健康習慣改善のメリット",
-        "url": "https://kennet.mhlw.go.jp/slp/about/merit.html"
-      }
+    "links": [
+      "mhlw_slp_about",
+      "mhlw_slp_merit"
     ]
   },
   {
@@ -719,19 +429,9 @@
     "description": "無料教材から始めて、長期的に自分の暮らしの習慣を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "厚生労働省 スマートライフプロジェクト",
-        "label": "スマートライフプロジェクトの仕組み",
-        "url": "https://kennet.mhlw.go.jp/slp/about/slp.html"
-      },
-      {
-        "type": "external",
-        "source": "厚生労働省 スマートライフプロジェクト",
-        "label": "健康習慣改善のメリット",
-        "url": "https://kennet.mhlw.go.jp/slp/about/merit.html"
-      }
+    "links": [
+      "mhlw_slp_mechanism",
+      "mhlw_slp_merit"
     ]
   },
   {
@@ -746,25 +446,10 @@
     "description": "低価格の教材を継続し、年単位で自分の暮らしの習慣に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "urls": [
-      {
-        "type": "external",
-        "source": "あすけん",
-        "label": "AI食事管理アプリ",
-        "url": "https://www.asken.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "厚生労働省 e-ヘルスネット",
-        "label": "健康情報サイト",
-        "url": "https://www.e-healthnet.mhlw.go.jp/"
-      }
+    "links": [
+      "asken_top",
+      "schoo_top",
+      "mhlw_ehealthnet"
     ]
   },
   {
@@ -779,19 +464,9 @@
     "description": "本格的な教材で、長期にわたり自分の暮らしの習慣を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "urls": [
-      {
-        "type": "external",
-        "source": "ユーキャン",
-        "label": "通信教育・専門スキル講座",
-        "url": "https://www.u-can.co.jp/"
-      },
-      {
-        "type": "external",
-        "source": "厚生労働省 スマートライフプロジェクト",
-        "label": "スマートライフプロジェクトの仕組み",
-        "url": "https://kennet.mhlw.go.jp/slp/about/slp.html"
-      }
+    "links": [
+      "ucan_top",
+      "mhlw_slp_mechanism"
     ]
   },
   {
@@ -806,25 +481,10 @@
     "description": "短い記事や無料教材で、世の中についての見方を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "政府統計 (e-Stat)",
-        "label": "統計ポータルサイト",
-        "url": "https://www.e-stat.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "総務省統計局",
-        "label": "統計データ・調査案内",
-        "url": "https://www.stat.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "経済産業省",
-        "label": "産業・統計情報ポータル",
-        "url": "https://www.meti.go.jp/"
-      }
+    "links": [
+      "estat_top",
+      "stat_bureau_top",
+      "meti_top"
     ]
   },
   {
@@ -839,25 +499,10 @@
     "description": "低価格の教材で、世の中についての見方を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "日本経済新聞",
-        "label": "時事経済ニュース",
-        "url": "https://www.nikkei.com/"
-      },
-      {
-        "type": "external",
-        "source": "NewsPicks",
-        "label": "社会課題解説プラットフォーム",
-        "url": "https://newspicks.com/"
-      },
-      {
-        "type": "external",
-        "source": "現代ビジネス",
-        "label": "時事解説・論評記事",
-        "url": "https://gendai.media/"
-      }
+    "links": [
+      "nikkei_top",
+      "newspicks_top",
+      "gendai_business_top"
     ]
   },
   {
@@ -872,19 +517,9 @@
     "description": "短時間でも密度のある教材で、世の中についての見方に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "urls": [
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "しゅみナビ",
-        "label": "心理学・カウンセリング体験講座",
-        "url": "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
-      }
+    "links": [
+      "manapass_top",
+      "shuminavi_psychology_trials"
     ]
   },
   {
@@ -899,25 +534,10 @@
     "description": "無料教材を数週間続けて、世の中についての見方に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "政府統計 (e-Stat)",
-        "label": "統計ポータルサイト",
-        "url": "https://www.e-stat.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "総務省統計局",
-        "label": "統計データ・調査案内",
-        "url": "https://www.stat.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "経済産業省",
-        "label": "産業・統計情報ポータル",
-        "url": "https://www.meti.go.jp/"
-      }
+    "links": [
+      "estat_top",
+      "stat_bureau_top",
+      "meti_top"
     ]
   },
   {
@@ -932,25 +552,10 @@
     "description": "低価格の継続教材で、数週間かけて世の中についての見方を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "NewsPicks",
-        "label": "社会課題解説プラットフォーム",
-        "url": "https://newspicks.com/"
-      },
-      {
-        "type": "external",
-        "source": "日本経済新聞",
-        "label": "時事経済ニュース",
-        "url": "https://www.nikkei.com/"
-      },
-      {
-        "type": "external",
-        "source": "毎日新聞",
-        "label": "ニュース解説・論説",
-        "url": "https://mainichi.jp/"
-      }
+    "links": [
+      "newspicks_top",
+      "nikkei_top",
+      "mainichi_top"
     ]
   },
   {
@@ -965,13 +570,8 @@
     "description": "体系的な教材で、数ヶ月かけて世の中についての見方を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      }
+    "links": [
+      "manapass_top"
     ]
   },
   {
@@ -986,25 +586,10 @@
     "description": "無料教材から始めて、長期的に世の中についての見方を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "国立国会図書館",
-        "label": "デジタルコレクション(専門資料)",
-        "url": "https://dl.ndl.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "内閣府",
-        "label": "公的白書・政策情報",
-        "url": "https://www.cao.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "文化庁",
-        "label": "文化・著作権関連情報",
-        "url": "https://www.bunka.go.jp/"
-      }
+    "links": [
+      "ndl_digital_collection",
+      "cao_top",
+      "bunka_top"
     ]
   },
   {
@@ -1019,19 +604,9 @@
     "description": "低価格の教材を継続し、年単位で世の中についての見方に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "urls": [
-      {
-        "type": "external",
-        "source": "日経ビジネス",
-        "label": "ビジネス経済専門誌",
-        "url": "https://business.nikkei.com/"
-      },
-      {
-        "type": "external",
-        "source": "プレジデントオンライン",
-        "label": "キャリア・ビジネス教養記事",
-        "url": "https://president.jp/"
-      }
+    "links": [
+      "nikkei_business_top",
+      "president_online_top"
     ]
   },
   {
@@ -1046,25 +621,10 @@
     "description": "本格的な教材で、長期にわたり世の中についての見方を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "urls": [
-      {
-        "type": "external",
-        "source": "政策研究大学院大学",
-        "label": "専門的政策研究プログラム",
-        "url": "https://www.grips.ac.jp/"
-      },
-      {
-        "type": "external",
-        "source": "慶應義塾大学SFC研究所",
-        "label": "先端研究機関・専門知",
-        "url": "https://www.kri.sfc.keio.ac.jp/"
-      },
-      {
-        "type": "external",
-        "source": "東京大学",
-        "label": "学術専門プログラム",
-        "url": "https://www.u-tokyo.ac.jp/"
-      }
+    "links": [
+      "grips_top",
+      "keio_sfc_kri_top",
+      "utokyo_top"
     ]
   },
   {
@@ -1079,25 +639,10 @@
     "description": "短い記事や無料教材で、世の中で役立つ技能を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "厚生労働省 (jobtag)",
-        "label": "職業能力診断・仕事探し",
-        "url": "https://shigoto.mhlw.go.jp/User/"
-      },
-      {
-        "type": "external",
-        "source": "厚生労働省",
-        "label": "雇用・労働政策総合ポータル",
-        "url": "https://www.mhlw.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "リクナビNEXT",
-        "label": "職種別仕事図鑑",
-        "url": "https://job.rikunabi.com/"
-      }
+    "links": [
+      "jobtag_shigoto",
+      "mhlw_top",
+      "rikunabi_next_jobs"
     ]
   },
   {
@@ -1112,25 +657,10 @@
     "description": "低価格の教材で、世の中で役立つ技能を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "グロービス学び放題",
-        "label": "ビジネススキル定額学習",
-        "url": "https://globis.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Duolingo",
-        "label": "ゲーミフィケーション語学学習",
-        "url": "https://www.duolingo.com/"
-      }
+    "links": [
+      "globis_manabihodai_top",
+      "schoo_top",
+      "duolingo_top"
     ]
   },
   {
@@ -1145,25 +675,10 @@
     "description": "短時間でも密度のある教材で、世の中で役立つ技能に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Udemy",
-        "label": "実務スキル特化型講座配信",
-        "url": "https://www.udemy.com/"
-      },
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "ストアカ",
-        "label": "スキル体験・単発講座マッチング",
-        "url": "https://www.street-academy.com/"
-      }
+    "links": [
+      "udemy_top",
+      "schoo_top",
+      "street_academy_top"
     ]
   },
   {
@@ -1178,25 +693,10 @@
     "description": "無料教材を数週間続けて、世の中で役立つ技能に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "マナビDX (IPA)",
-        "label": "デジタルスキル習得ポータル",
-        "url": "https://manabi-dx.ipa.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "IPA (独立行政法人情報処理推進機構)",
-        "label": "IT人材育成・スキル標準",
-        "url": "https://www.ipa.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "政府広報オンライン",
-        "label": "キャリア・生活支援情報",
-        "url": "https://www.gov-online.go.jp/"
-      }
+    "links": [
+      "manabi_dx_top",
+      "ipa_top",
+      "gov_online_top"
     ]
   },
   {
@@ -1211,25 +711,10 @@
     "description": "低価格の継続教材で、数週間かけて世の中で役立つ技能を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Udemy",
-        "label": "実務スキル特化型講座配信",
-        "url": "https://www.udemy.com/"
-      },
-      {
-        "type": "external",
-        "source": "Coursera",
-        "label": "世界の大学専門オンライン講座",
-        "url": "https://www.coursera.org/"
-      },
-      {
-        "type": "external",
-        "source": "LinkedInラーニング",
-        "label": "ビジネススキル定額学習",
-        "url": "https://www.linkedin.com/learning/"
-      }
+    "links": [
+      "udemy_top",
+      "coursera_top",
+      "linkedin_learning"
     ]
   },
   {
@@ -1244,25 +729,10 @@
     "description": "体系的な教材で、数ヶ月かけて世の中で役立つ技能を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "資格の大原",
-        "label": "専門資格・実務養成コース",
-        "url": "https://www.o-hara.ac.jp/"
-      },
-      {
-        "type": "external",
-        "source": "スタディング",
-        "label": "資格対策専門オンライン講座",
-        "url": "https://studying.jp/"
-      },
-      {
-        "type": "external",
-        "source": "ユーキャン",
-        "label": "通信教育・専門スキル講座",
-        "url": "https://www.u-can.co.jp/"
-      }
+    "links": [
+      "ohara_top",
+      "studying_top",
+      "ucan_top"
     ]
   },
   {
@@ -1277,25 +747,10 @@
     "description": "無料教材から始めて、長期的に世の中で役立つ技能を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "ハローワーク",
-        "label": "公的職業訓練情報",
-        "url": "https://www.hellowork.mhlw.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "厚生労働省",
-        "label": "雇用・労働政策総合ポータル",
-        "url": "https://www.mhlw.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "中央職業能力開発協会",
-        "label": "技能検定・職業能力開発",
-        "url": "https://www.javada.or.jp/"
-      }
+    "links": [
+      "hellowork_top",
+      "mhlw_top",
+      "javada_top"
     ]
   },
   {
@@ -1310,25 +765,10 @@
     "description": "低価格の教材を継続し、年単位で世の中で役立つ技能に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Udemy",
-        "label": "実務スキル特化型講座配信",
-        "url": "https://www.udemy.com/"
-      },
-      {
-        "type": "external",
-        "source": "グロービス学び放題",
-        "label": "ビジネススキル定額学習",
-        "url": "https://globis.jp/"
-      }
+    "links": [
+      "schoo_top",
+      "udemy_top",
+      "globis_manabihodai_top"
     ]
   },
   {
@@ -1343,25 +783,10 @@
     "description": "本格的な教材で、長期にわたり世の中で役立つ技能を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "urls": [
-      {
-        "type": "external",
-        "source": "ユーキャン",
-        "label": "通信教育・専門スキル講座",
-        "url": "https://www.u-can.co.jp/"
-      },
-      {
-        "type": "external",
-        "source": "スタディング",
-        "label": "資格対策専門オンライン講座",
-        "url": "https://studying.jp/"
-      },
-      {
-        "type": "external",
-        "source": "資格の大原",
-        "label": "専門資格・実務養成コース",
-        "url": "https://www.o-hara.ac.jp/"
-      }
+    "links": [
+      "ucan_top",
+      "studying_top",
+      "ohara_top"
     ]
   },
   {
@@ -1376,25 +801,10 @@
     "description": "短い記事や無料教材で、世の中の知識を暮らしに生かす方法を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "消費者庁",
-        "label": "消費者保護・金融教育",
-        "url": "https://www.caa.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "金融庁",
-        "label": "NISA制度解説",
-        "url": "https://www.fsa.go.jp/policy/nisa2/"
-      },
-      {
-        "type": "external",
-        "source": "国民生活センター",
-        "label": "消費生活トラブル相談",
-        "url": "https://www.kokusen.go.jp/"
-      }
+    "links": [
+      "caa_top",
+      "fsa_nisa",
+      "kokusen_top"
     ]
   },
   {
@@ -1409,19 +819,9 @@
     "description": "低価格の教材で、世の中の知識を暮らしに生かす方法を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "マネーフォワード",
-        "label": "家計・資産管理アプリ",
-        "url": "https://moneyforward.com/"
-      },
-      {
-        "type": "external",
-        "source": "Zaim",
-        "label": "家計簿管理アプリ",
-        "url": "https://zaim.net/"
-      }
+    "links": [
+      "moneyforward_top",
+      "zaim_top"
     ]
   },
   {
@@ -1436,25 +836,10 @@
     "description": "短時間でも密度のある教材で、世の中の知識を暮らしに生かす方法に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "urls": [
-      {
-        "type": "external",
-        "source": "日本FP協会",
-        "label": "ライフプラン・金融教育",
-        "url": "https://www.jafp.or.jp/"
-      },
-      {
-        "type": "external",
-        "source": "ユーキャン",
-        "label": "通信教育・専門スキル講座",
-        "url": "https://www.u-can.co.jp/"
-      },
-      {
-        "type": "external",
-        "source": "スタディング",
-        "label": "資格対策専門オンライン講座",
-        "url": "https://studying.jp/"
-      }
+    "links": [
+      "jafp_top",
+      "ucan_top",
+      "studying_top"
     ]
   },
   {
@@ -1469,25 +854,10 @@
     "description": "無料教材を数週間続けて、世の中の知識を暮らしに生かす方法に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "消費者庁",
-        "label": "消費者保護・金融教育",
-        "url": "https://www.caa.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "国民生活センター",
-        "label": "消費生活トラブル相談",
-        "url": "https://www.kokusen.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "金融庁",
-        "label": "NISA制度解説",
-        "url": "https://www.fsa.go.jp/policy/nisa2/"
-      }
+    "links": [
+      "caa_top",
+      "kokusen_top",
+      "fsa_nisa"
     ]
   },
   {
@@ -1502,25 +872,10 @@
     "description": "低価格の継続教材で、数週間かけて世の中の知識を暮らしに生かす方法を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "ユーキャン",
-        "label": "通信教育・専門スキル講座",
-        "url": "https://www.u-can.co.jp/"
-      },
-      {
-        "type": "external",
-        "source": "スタディング",
-        "label": "資格対策専門オンライン講座",
-        "url": "https://studying.jp/"
-      },
-      {
-        "type": "external",
-        "source": "資格の大原",
-        "label": "専門資格・実務養成コース",
-        "url": "https://www.o-hara.ac.jp/"
-      }
+    "links": [
+      "ucan_top",
+      "studying_top",
+      "ohara_top"
     ]
   },
   {
@@ -1535,25 +890,10 @@
     "description": "体系的な教材で、数ヶ月かけて世の中の知識を暮らしに生かす方法を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "日本FP協会",
-        "label": "ライフプラン・金融教育",
-        "url": "https://www.jafp.or.jp/"
-      },
-      {
-        "type": "external",
-        "source": "ユーキャン",
-        "label": "通信教育・専門スキル講座",
-        "url": "https://www.u-can.co.jp/"
-      },
-      {
-        "type": "external",
-        "source": "スタディング",
-        "label": "資格対策専門オンライン講座",
-        "url": "https://studying.jp/"
-      }
+    "links": [
+      "jafp_top",
+      "ucan_top",
+      "studying_top"
     ]
   },
   {
@@ -1568,25 +908,10 @@
     "description": "無料教材から始めて、長期的に世の中の知識を暮らしに生かす方法を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "政府統計 (e-Stat)",
-        "label": "統計ポータルサイト",
-        "url": "https://www.e-stat.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "総務省統計局",
-        "label": "統計データ・調査案内",
-        "url": "https://www.stat.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "金融庁",
-        "label": "金融政策・金融行政情報",
-        "url": "https://www.fsa.go.jp/"
-      }
+    "links": [
+      "estat_top",
+      "stat_bureau_top",
+      "fsa_top"
     ]
   },
   {
@@ -1601,19 +926,9 @@
     "description": "低価格の教材を継続し、年単位で世の中の知識を暮らしに生かす方法に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "urls": [
-      {
-        "type": "external",
-        "source": "マネーフォワード",
-        "label": "家計・資産管理アプリ",
-        "url": "https://moneyforward.com/"
-      },
-      {
-        "type": "external",
-        "source": "Zaim",
-        "label": "家計簿管理アプリ",
-        "url": "https://zaim.net/"
-      }
+    "links": [
+      "moneyforward_top",
+      "zaim_top"
     ]
   },
   {
@@ -1628,25 +943,10 @@
     "description": "本格的な教材で、長期にわたり世の中の知識を暮らしに生かす方法を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "urls": [
-      {
-        "type": "external",
-        "source": "日本FP協会",
-        "label": "ライフプラン・金融教育",
-        "url": "https://www.jafp.or.jp/"
-      },
-      {
-        "type": "external",
-        "source": "ユーキャン",
-        "label": "通信教育・専門スキル講座",
-        "url": "https://www.u-can.co.jp/"
-      },
-      {
-        "type": "external",
-        "source": "スタディング",
-        "label": "資格対策専門オンライン講座",
-        "url": "https://studying.jp/"
-      }
+    "links": [
+      "jafp_top",
+      "ucan_top",
+      "studying_top"
     ]
   },
   {
@@ -1661,25 +961,10 @@
     "description": "短い記事や無料教材で、専門分野の考え方を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "文部科学省",
-        "label": "学習支援情報ポータル",
-        "url": "https://www.mext.go.jp/a_menu/01_g.htm"
-      },
-      {
-        "type": "external",
-        "source": "国立国会図書館",
-        "label": "デジタルコレクション(専門資料)",
-        "url": "https://dl.ndl.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "文化庁",
-        "label": "文化・著作権関連情報",
-        "url": "https://www.bunka.go.jp/"
-      }
+    "links": [
+      "mext_lifelong_learning_portal",
+      "ndl_digital_collection",
+      "bunka_top"
     ]
   },
   {
@@ -1694,25 +979,10 @@
     "description": "低価格の教材で、専門分野の考え方を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Notion",
-        "label": "学習管理テンプレート",
-        "url": "https://www.notion.so/ja/templates/category/free-learning-templates"
-      },
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Udemy",
-        "label": "実務スキル特化型講座配信",
-        "url": "https://www.udemy.com/"
-      }
+    "links": [
+      "notion_learning_templates",
+      "schoo_top",
+      "udemy_top"
     ]
   },
   {
@@ -1727,19 +997,9 @@
     "description": "短時間でも密度のある教材で、専門分野の考え方に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "urls": [
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "しゅみナビ",
-        "label": "心理学・カウンセリング体験講座",
-        "url": "https://coto.shuminavi.net/school_trials/category/fortune-therapy/psychology"
-      }
+    "links": [
+      "manapass_top",
+      "shuminavi_psychology_trials"
     ]
   },
   {
@@ -1754,25 +1014,10 @@
     "description": "無料教材を数週間続けて、専門分野の考え方に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "国立国会図書館",
-        "label": "デジタルコレクション(専門資料)",
-        "url": "https://dl.ndl.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "CiNii",
-        "label": "学術論文検索",
-        "url": "https://cir.nii.ac.jp/"
-      },
-      {
-        "type": "external",
-        "source": "J-STAGE",
-        "label": "科学技術情報アーカイブ",
-        "url": "https://www.jstage.jst.go.jp/"
-      }
+    "links": [
+      "ndl_digital_collection",
+      "cinii_research",
+      "jstage_top"
     ]
   },
   {
@@ -1787,25 +1032,10 @@
     "description": "低価格の継続教材で、数週間かけて専門分野の考え方を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Udemy",
-        "label": "実務スキル特化型講座配信",
-        "url": "https://www.udemy.com/"
-      },
-      {
-        "type": "external",
-        "source": "Coursera",
-        "label": "世界の大学専門オンライン講座",
-        "url": "https://www.coursera.org/"
-      }
+    "links": [
+      "schoo_top",
+      "udemy_top",
+      "coursera_top"
     ]
   },
   {
@@ -1820,25 +1050,10 @@
     "description": "体系的な教材で、数ヶ月かけて専門分野の考え方を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Coursera",
-        "label": "世界の大学専門オンライン講座",
-        "url": "https://www.coursera.org/"
-      },
-      {
-        "type": "external",
-        "source": "edX",
-        "label": "大学レベル専門オンライン講座",
-        "url": "https://www.edx.org/"
-      },
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      }
+    "links": [
+      "coursera_top",
+      "edx_top",
+      "manapass_top"
     ]
   },
   {
@@ -1853,25 +1068,10 @@
     "description": "無料教材から始めて、長期的に専門分野の考え方を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "国立国会図書館",
-        "label": "デジタルコレクション(専門資料)",
-        "url": "https://dl.ndl.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "J-STAGE",
-        "label": "科学技術情報アーカイブ",
-        "url": "https://www.jstage.jst.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "CiNii",
-        "label": "学術論文検索",
-        "url": "https://cir.nii.ac.jp/"
-      }
+    "links": [
+      "ndl_digital_collection",
+      "jstage_top",
+      "cinii_research"
     ]
   },
   {
@@ -1886,25 +1086,10 @@
     "description": "低価格の教材を継続し、年単位で専門分野の考え方に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "グロービス学び放題",
-        "label": "ビジネススキル定額学習",
-        "url": "https://globis.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Udemy",
-        "label": "実務スキル特化型講座配信",
-        "url": "https://www.udemy.com/"
-      }
+    "links": [
+      "schoo_top",
+      "globis_manabihodai_top",
+      "udemy_top"
     ]
   },
   {
@@ -1919,25 +1104,10 @@
     "description": "本格的な教材で、長期にわたり専門分野の考え方を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "urls": [
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Coursera",
-        "label": "世界の大学専門オンライン講座",
-        "url": "https://www.coursera.org/"
-      },
-      {
-        "type": "external",
-        "source": "edX",
-        "label": "大学レベル専門オンライン講座",
-        "url": "https://www.edx.org/"
-      }
+    "links": [
+      "manapass_top",
+      "coursera_top",
+      "edx_top"
     ]
   },
   {
@@ -1952,25 +1122,10 @@
     "description": "短い記事や無料教材で、専門分野の技能を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "ドットインストール",
-        "label": "初心者向けプログラミング学習",
-        "url": "https://dotinstall.com/"
-      },
-      {
-        "type": "external",
-        "source": "IPA (独立行政法人情報処理推進機構)",
-        "label": "IT人材育成・スキル標準",
-        "url": "https://www.ipa.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Progate",
-        "label": "インタラクティブプログラミング学習",
-        "url": "https://prog-8.com/"
-      }
+    "links": [
+      "dotinstall_top",
+      "ipa_top",
+      "progate_top"
     ]
   },
   {
@@ -1985,25 +1140,10 @@
     "description": "低価格の教材で、専門分野の技能を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Udemy",
-        "label": "実務スキル特化型講座配信",
-        "url": "https://www.udemy.com/"
-      },
-      {
-        "type": "external",
-        "source": "Progate",
-        "label": "インタラクティブプログラミング学習",
-        "url": "https://prog-8.com/"
-      }
+    "links": [
+      "schoo_top",
+      "udemy_top",
+      "progate_top"
     ]
   },
   {
@@ -2018,25 +1158,10 @@
     "description": "短時間でも密度のある教材で、専門分野の技能に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Udemy",
-        "label": "実務スキル特化型講座配信",
-        "url": "https://www.udemy.com/"
-      },
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "ストアカ",
-        "label": "スキル体験・単発講座マッチング",
-        "url": "https://www.street-academy.com/"
-      }
+    "links": [
+      "udemy_top",
+      "schoo_top",
+      "street_academy_top"
     ]
   },
   {
@@ -2051,25 +1176,10 @@
     "description": "無料教材を数週間続けて、専門分野の技能に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "IPA (独立行政法人情報処理推進機構)",
-        "label": "IT人材育成・スキル標準",
-        "url": "https://www.ipa.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "マナビDX (IPA)",
-        "label": "デジタルスキル習得ポータル",
-        "url": "https://manabi-dx.ipa.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "政府広報オンライン",
-        "label": "キャリア・生活支援情報",
-        "url": "https://www.gov-online.go.jp/"
-      }
+    "links": [
+      "ipa_top",
+      "manabi_dx_top",
+      "gov_online_top"
     ]
   },
   {
@@ -2084,25 +1194,10 @@
     "description": "低価格の継続教材で、数週間かけて専門分野の技能を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Udemy",
-        "label": "実務スキル特化型講座配信",
-        "url": "https://www.udemy.com/"
-      },
-      {
-        "type": "external",
-        "source": "Coursera",
-        "label": "世界の大学専門オンライン講座",
-        "url": "https://www.coursera.org/"
-      },
-      {
-        "type": "external",
-        "source": "LinkedInラーニング",
-        "label": "ビジネススキル定額学習",
-        "url": "https://www.linkedin.com/learning/"
-      }
+    "links": [
+      "udemy_top",
+      "coursera_top",
+      "linkedin_learning"
     ]
   },
   {
@@ -2117,19 +1212,9 @@
     "description": "体系的な教材で、数ヶ月かけて専門分野の技能を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Aidemy",
-        "label": "AI・データサイエンス特化型講座",
-        "url": "https://aidemy.net/"
-      },
-      {
-        "type": "external",
-        "source": "キカガク",
-        "label": "AI・機械学習専門教育",
-        "url": "https://www.kikagaku.ai/"
-      }
+    "links": [
+      "aidemy_top",
+      "kikagaku_top"
     ]
   },
   {
@@ -2144,25 +1229,10 @@
     "description": "無料教材から始めて、長期的に専門分野の技能を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "ハローワーク",
-        "label": "公的職業訓練情報",
-        "url": "https://www.hellowork.mhlw.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "厚生労働省",
-        "label": "雇用・労働政策総合ポータル",
-        "url": "https://www.mhlw.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "中央職業能力開発協会",
-        "label": "技能検定・職業能力開発",
-        "url": "https://www.javada.or.jp/"
-      }
+    "links": [
+      "hellowork_top",
+      "mhlw_top",
+      "javada_top"
     ]
   },
   {
@@ -2177,25 +1247,10 @@
     "description": "低価格の教材を継続し、年単位で専門分野の技能に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "グロービス学び放題",
-        "label": "ビジネススキル定額学習",
-        "url": "https://globis.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Udemy",
-        "label": "実務スキル特化型講座配信",
-        "url": "https://www.udemy.com/"
-      }
+    "links": [
+      "schoo_top",
+      "globis_manabihodai_top",
+      "udemy_top"
     ]
   },
   {
@@ -2210,25 +1265,10 @@
     "description": "本格的な教材で、長期にわたり専門分野の技能を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "urls": [
-      {
-        "type": "external",
-        "source": "ユーキャン",
-        "label": "通信教育・専門スキル講座",
-        "url": "https://www.u-can.co.jp/"
-      },
-      {
-        "type": "external",
-        "source": "スタディング",
-        "label": "資格対策専門オンライン講座",
-        "url": "https://studying.jp/"
-      },
-      {
-        "type": "external",
-        "source": "資格の大原",
-        "label": "専門資格・実務養成コース",
-        "url": "https://www.o-hara.ac.jp/"
-      }
+    "links": [
+      "ucan_top",
+      "studying_top",
+      "ohara_top"
     ]
   },
   {
@@ -2243,25 +1283,10 @@
     "description": "短い記事や無料教材で、専門知識の暮らしへの応用を軽くつかみます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "5〜10分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "厚生労働省",
-        "label": "雇用・労働政策総合ポータル",
-        "url": "https://www.mhlw.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "気象庁",
-        "label": "防災情報・気象データ",
-        "url": "https://www.jma.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "消費者庁",
-        "label": "消費者保護・金融教育",
-        "url": "https://www.caa.go.jp/"
-      }
+    "links": [
+      "mhlw_top",
+      "jma_top",
+      "caa_top"
     ]
   },
   {
@@ -2276,19 +1301,9 @@
     "description": "低価格の教材で、専門知識の暮らしへの応用を少し試します。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "10〜20分",
-    "urls": [
-      {
-        "type": "external",
-        "source": "厚生労働省 e-ヘルスネット",
-        "label": "健康情報サイト",
-        "url": "https://www.e-healthnet.mhlw.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "あすけん",
-        "label": "AI食事管理アプリ",
-        "url": "https://www.asken.jp/"
-      }
+    "links": [
+      "mhlw_ehealthnet",
+      "asken_top"
     ]
   },
   {
@@ -2303,25 +1318,10 @@
     "description": "短時間でも密度のある教材で、専門知識の暮らしへの応用に集中して触れます。",
     "suitable_for": "今日は軽く試したい人向け",
     "estimated_time": "30分前後",
-    "urls": [
-      {
-        "type": "external",
-        "source": "ストアカ",
-        "label": "スキル体験・単発講座マッチング",
-        "url": "https://www.street-academy.com/"
-      },
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      }
+    "links": [
+      "street_academy_top",
+      "schoo_top",
+      "manapass_top"
     ]
   },
   {
@@ -2336,25 +1336,10 @@
     "description": "無料教材を数週間続けて、専門知識の暮らしへの応用に取り組みます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "数日〜1週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "厚生労働省",
-        "label": "雇用・労働政策総合ポータル",
-        "url": "https://www.mhlw.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "気象庁",
-        "label": "防災情報・気象データ",
-        "url": "https://www.jma.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "消費者庁",
-        "label": "消費者保護・金融教育",
-        "url": "https://www.caa.go.jp/"
-      }
+    "links": [
+      "mhlw_top",
+      "jma_top",
+      "caa_top"
     ]
   },
   {
@@ -2369,25 +1354,10 @@
     "description": "低価格の継続教材で、数週間かけて専門知識の暮らしへの応用を進めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "2〜4週間",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Udemy",
-        "label": "実務スキル特化型講座配信",
-        "url": "https://www.udemy.com/"
-      },
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "note",
-        "label": "実践的ナレッジ共有",
-        "url": "https://note.com/"
-      }
+    "links": [
+      "udemy_top",
+      "schoo_top",
+      "note_top"
     ]
   },
   {
@@ -2402,25 +1372,10 @@
     "description": "体系的な教材で、数ヶ月かけて専門知識の暮らしへの応用を深めます。",
     "suitable_for": "数週間かけて続けたい人向け",
     "estimated_time": "1〜3ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "ユーキャン",
-        "label": "通信教育・専門スキル講座",
-        "url": "https://www.u-can.co.jp/"
-      },
-      {
-        "type": "external",
-        "source": "スタディング",
-        "label": "資格対策専門オンライン講座",
-        "url": "https://studying.jp/"
-      }
+    "links": [
+      "manapass_top",
+      "ucan_top",
+      "studying_top"
     ]
   },
   {
@@ -2435,25 +1390,10 @@
     "description": "無料教材から始めて、長期的に専門知識の暮らしへの応用を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "お試し1ヶ月",
-    "urls": [
-      {
-        "type": "external",
-        "source": "政府統計 (e-Stat)",
-        "label": "統計ポータルサイト",
-        "url": "https://www.e-stat.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "総務省統計局",
-        "label": "統計データ・調査案内",
-        "url": "https://www.stat.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "内閣府",
-        "label": "公的白書・政策情報",
-        "url": "https://www.cao.go.jp/"
-      }
+    "links": [
+      "estat_top",
+      "stat_bureau_top",
+      "cao_top"
     ]
   },
   {
@@ -2468,25 +1408,10 @@
     "description": "低価格の教材を継続し、年単位で専門知識の暮らしへの応用に取り組みます。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "数ヶ月継続",
-    "urls": [
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Notion",
-        "label": "タスク・学習管理ツール",
-        "url": "https://www.notion.so/ja-jp"
-      },
-      {
-        "type": "external",
-        "source": "Google Workspace",
-        "label": "業務効率化ツール群",
-        "url": "https://workspace.google.com/"
-      }
+    "links": [
+      "schoo_top",
+      "notion_top",
+      "google_workspace_top"
     ]
   },
   {
@@ -2501,25 +1426,10 @@
     "description": "本格的な教材で、長期にわたり専門知識の暮らしへの応用を探究します。",
     "suitable_for": "じっくり長く取り組みたい人向け",
     "estimated_time": "半年〜年単位",
-    "urls": [
-      {
-        "type": "external",
-        "source": "ユーキャン",
-        "label": "通信教育・専門スキル講座",
-        "url": "https://www.u-can.co.jp/"
-      },
-      {
-        "type": "external",
-        "source": "マナパス",
-        "label": "社会人のための学び直し検索サイト",
-        "url": "https://manapass.mext.go.jp/"
-      },
-      {
-        "type": "external",
-        "source": "Schoo",
-        "label": "大人向け定額動画学習サービス",
-        "url": "https://schoo.jp/"
-      }
+    "links": [
+      "ucan_top",
+      "manapass_top",
+      "schoo_top"
     ]
   }
 ]

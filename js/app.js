@@ -190,6 +190,7 @@
     results: 'data/results.json',
     guides: 'data/guides.json',
     routes: 'data/routes.json',
+    links: 'data/links.json',
     articles: 'data/articles.json',
   };
 
@@ -977,6 +978,30 @@
     return routes.filter(r => Array.isArray(r.target_results) && r.target_results.indexOf(resultId) !== -1);
   }
 
+  // links.json を link_id で引くための索引(初回描画時に作る)
+  let linkIndexCache = null;
+  function linkIndex() {
+    if (linkIndexCache) return linkIndexCache;
+    const list = (window.manatane.data && window.manatane.data.links) || [];
+    const idx = {};
+    list.forEach(l => { if (l && typeof l.link_id === 'string') idx[l.link_id] = l; });
+    if (list.length > 0) linkIndexCache = idx;
+    return idx;
+  }
+
+  // ルートの links 配列(link_id の配列)を links.json から引き、従来の {type, source, label, url} に解決する。
+  // 存在しない link_id は表示せず、コンソールに警告を出す。
+  function resolveLinkIds(ids, routeId) {
+    const idx = linkIndex();
+    const out = [];
+    ids.forEach(id => {
+      const l = (typeof id === 'string') ? idx[id] : null;
+      if (!l) { console.warn('[manatane] unknown link_id "' + id + '" in route ' + routeId); return; }
+      out.push({ type: l.type, source: l.source, label: l.label, url: l.url });
+    });
+    return out;
+  }
+
   // resultIdOverride: 読み物内の route: リンクから、現在の結果に含まれないルートへ遷移する際に
   // 一時的に用いる result_id。STATE.resultId は変更しない。
   function renderRoutesScreen(resultIdOverride) {
@@ -1030,9 +1055,14 @@
         label: a.title || a.article_id,
         url: 'article:' + a.article_id,
       }));
-      const rawUrls = Array.isArray(r.urls) && r.urls.length > 0
-        ? r.urls
-        : (r.url ? [r.url] : []);
+      // リンクは links 配列(link_id)で links.json を参照する。旧形式の urls 配列 / url フィールドが
+      // 残っている場合は従来どおり読み込む(links と urls の両方があれば links を優先)。
+      let rawUrls;
+      if (Array.isArray(r.links)) {
+        rawUrls = resolveLinkIds(r.links, r.route_id);
+      } else {
+        rawUrls = Array.isArray(r.urls) && r.urls.length > 0 ? r.urls : (r.url ? [r.url] : []);
+      }
       const urls = articleLinks.concat(rawUrls.map(u => {
         if (typeof u === 'string') {
           return { type: 'external', source: '', label: u, url: u };

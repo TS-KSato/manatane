@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-data/routes.json の urls 配列に含まれる全リンクの生存確認スクリプト。
+data/links.json に登録された全リンクの生存確認スクリプト。
 
 データは変更せず、報告のみ行う。
 
 処理:
-  1. 全ルートの urls[].url を集め、重複を除いた一覧を作る(どの route_id が
-     参照しているか、そのリンクを削除するとルートの urls が 0 件になるかも記録)。
+  1. links.json の全要素(URL ごとに 1 件)を対象にし、routes.json の links 配列から
+     どの route_id が参照しているか、そのリンクを外すとルートの links が 0 件になるかも記録する。
   2. 各 URL にブラウザ相当の User-Agent で HEAD → 拒否/失敗時は GET で再試行し、
      最終ステータスとリダイレクト後の到達先 URL を記録する。
   3. 次の 4 分類に判定する。
@@ -46,6 +46,7 @@ except ImportError:  # pragma: no cover
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROUTES_PATH = os.path.join(REPO_ROOT, "data", "routes.json")
+LINKS_PATH = os.path.join(REPO_ROOT, "data", "links.json")
 
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -72,22 +73,30 @@ STATUS_BLOCKED = "遮断"
 
 
 # ---------------------------------------------------------------- data ----
-def collect_urls(routes):
-    """URL -> {'refs': [(route_id, source, label, would_empty)], ...} を返す。"""
+def collect_urls(routes, links):
+    """URL -> {'refs': [{route_id, source, label, would_empty}, ...]} を返す(links.json の順)。"""
+    by_id = {l["link_id"]: l for l in links if isinstance(l, dict) and l.get("link_id")}
     table = {}
+    for l in links:
+        if not isinstance(l, dict) or not l.get("url"):
+            continue
+        table.setdefault(l["url"], {"refs": []})
     for r in routes:
-        urls = r.get("urls") or []
-        n = len([u for u in urls if isinstance(u, dict) and u.get("url")])
-        for u in urls:
-            if not isinstance(u, dict) or not u.get("url"):
+        ids = r.get("links") if isinstance(r.get("links"), list) else []
+        for lid in ids:
+            l = by_id.get(lid)
+            if not l or not l.get("url"):
                 continue
-            entry = table.setdefault(u["url"], {"refs": []})
-            entry["refs"].append({
+            table[l["url"]]["refs"].append({
                 "route_id": r.get("route_id", ""),
-                "source": u.get("source", ""),
-                "label": u.get("label", ""),
-                "would_empty": n <= 1,
+                "source": l.get("source", ""),
+                "label": l.get("label", ""),
+                "would_empty": len(ids) <= 1,
             })
+    for l in links:
+        if isinstance(l, dict) and l.get("url") and not table[l["url"]]["refs"]:
+            table[l["url"]]["refs"].append({"route_id": "(未参照)", "source": l.get("source", ""),
+                                             "label": l.get("label", ""), "would_empty": False})
     return table
 
 
@@ -248,6 +257,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--routes", default=ROUTES_PATH)
+    ap.add_argument("--links", default=LINKS_PATH)
     ap.add_argument("--timeout", type=float, default=20.0)
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--get", action="store_true", help="最初から GET を使う")
@@ -257,10 +267,12 @@ def main():
 
     with open(args.routes, encoding="utf-8") as f:
         routes = json.load(f)
-    table = collect_urls(routes)
+    with open(args.links, encoding="utf-8") as f:
+        links = json.load(f)
+    table = collect_urls(routes, links)
     urls = list(table.keys())
-    print("routes: %d, url elements: %d, unique urls: %d" % (
-        len(routes), sum(len(v["refs"]) for v in table.values()), len(urls)))
+    print("routes: %d, links.json: %d, link refs: %d, unique urls: %d" % (
+        len(routes), len(links), sum(len(r.get("links") or []) for r in routes), len(urls)))
     print("timeout=%ss workers=%d method=%s" % (args.timeout, args.workers,
                                                  "GET" if args.get else "HEAD→GET"))
     print()
