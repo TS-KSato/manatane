@@ -1226,11 +1226,51 @@
     return imgs > 0;
   }
 
-  // 1: verified_at (YYYY-MM-DD) を「YYYY年M月D日にたしかめました」の一文にする(欄名は付けない)
+  // 1: verified_at (YYYY-MM-DD) を「YYYY年M月D日時点の情報をもとにしています。」の一文にする(欄名は付けない)
   function formatVerifiedAt(iso) {
+    const v = parseIsoDate(iso);
+    if (!v) return '';
+    return v.y + '年' + v.m + '月' + v.d + '日時点の情報をもとにしています。';
+  }
+
+  // verified_at からの経過日数(端末の現在日付との差、日単位)。判定は表示時に行い、データは書き換えない。
+  const VERIFIED_STALE_DAYS = 365; // これを超えたら、たしかめた日の一文に補足を続ける
+  const VERIFIED_OLD_DAYS = 730;   // これを超えたら、各 h2 見出しの直前にも一行を置く
+  function parseIsoDate(iso) {
     const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || ''));
-    if (!m) return '';
-    return m[1] + '年' + parseInt(m[2], 10) + '月' + parseInt(m[3], 10) + '日にたしかめました';
+    return m ? { y: +m[1], m: +m[2], d: +m[3] } : null;
+  }
+  function daysSinceVerified(iso, today) {
+    const v = parseIsoDate(iso);
+    if (!v) return null;
+    const t = today || new Date();
+    return Math.floor((Date.UTC(t.getFullYear(), t.getMonth(), t.getDate()) - Date.UTC(v.y, v.m - 1, v.d)) / 86400000);
+  }
+  function formatVerifiedMonth(iso) {
+    const v = parseIsoDate(iso);
+    return v ? v.y + '年' + v.m + '月' : '';
+  }
+  // 「YYYY年M月D日時点の情報をもとにしています。」+ 365日超なら補足の一文(同じ書式で続ける)
+  function verifiedInfoText(iso, today) {
+    const base = formatVerifiedAt(iso);
+    if (!base) return '';
+    const days = daysSinceVerified(iso, today);
+    if (days !== null && days > VERIFIED_STALE_DAYS) {
+      return base + 'その後、制度や数字が変わっている場合があります。最新の情報は、文末の「この話のもと」からたしかめられます。';
+    }
+    return base;
+  }
+  // 730日超なら、本文の各 h2 見出しの直前に小さな一行を置く
+  function insertSectionNotes(bodyEl, iso, today) {
+    const days = daysSinceVerified(iso, today);
+    if (days === null || days <= VERIFIED_OLD_DAYS) return;
+    const text = 'この節は、' + formatVerifiedMonth(iso) + '時点の制度や数字にもとづいています。';
+    Array.prototype.forEach.call(bodyEl.querySelectorAll('h2'), h => {
+      const p = document.createElement('p');
+      p.className = 'article-section-note';
+      p.textContent = text;
+      h.parentNode.insertBefore(p, h);
+    });
   }
 
   // 4: 変換後の HTML を許可タグだけで組み直す(script 等の混入防止)。属性は a の href 以外を捨てる。
@@ -1300,7 +1340,7 @@
     if (!a) return;
     currentArticleId = articleId;
     setText('article-title', a.title || '');
-    setText('article-verified', formatVerifiedAt(a.verified_at));
+    setText('article-verified', verifiedInfoText(a.verified_at));
     const bodyEl = document.getElementById('article-body');
     if (!bodyEl) return;
     bodyEl.innerHTML = '';
@@ -1312,6 +1352,7 @@
       if (currentArticleId !== articleId) return; // 表示中に別の読み物へ移動した
       bodyEl.innerHTML = '';
       bodyEl.appendChild(renderMarkdown(md));
+      insertSectionNotes(bodyEl, a.verified_at);
     }).catch(err => {
       console.error('[manatane] article load failed:', err);
       if (currentArticleId !== articleId) return;

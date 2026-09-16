@@ -831,6 +831,19 @@ body {
   clear: both;
 }
 
+/* たしかめた日から730日を超えたとき、各 h2 の直前に置く小さな一行(本文より小さく) */
+.article-body .article-section-note {
+  clear: both;
+  margin: 28px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text-sub);
+}
+
+.article-body .article-section-note + h2 {
+  margin-top: 6px;
+}
+
 /* bottom nav (15) */
 .bottom-nav {
   position: fixed;

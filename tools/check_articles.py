@@ -14,6 +14,7 @@
      routes.json に存在する。routes.json に type=internal の要素が残っていれば注意として列挙する。
   5. すべての読み物が、target_routes を持つ読み物から article: リンクを辿って到達できる。
   6. 一本の読み物から出る内部リンクが 5 本を超える場合は注意(エラーにはしない)。
+     verified_at から 365 日を超えて経過した読み物も注意として列挙する(エラーにはしない)。
   7. data/links.json: link_id の形式と重複、同じ URL が複数の link_id に重複していないこと、
      routes.json の links が参照する link_id がすべて存在すること。どこからも参照されていない
      link_id は注意として列挙する。
@@ -25,6 +26,7 @@
 使い方: python3 tools/check_articles.py
 """
 
+import datetime
 import json
 import os
 import re
@@ -49,6 +51,7 @@ GUIDE_IMAGES_DIR = os.path.join(REPO_ROOT, "images", "guides")
 HEADING_RE = re.compile(r"^(#{1,6})\s*(.*?)\s*#*\s*$")
 MEMO_PREFIX = "編集メモ"
 MAX_LINKS_NOTE = 5
+VERIFIED_STALE_DAYS = 365  # verified_at からこれを超えて経過した読み物は注意として列挙
 
 
 def load(path):
@@ -114,6 +117,15 @@ def main():
                     errors.append("%s: target_routes の %s が routes.json に存在しない" % (aid, rid))
         if not DATE_RE.match(str(a["verified_at"])):
             errors.append("%s: verified_at は YYYY-MM-DD (現在: %r)" % (aid, a["verified_at"]))
+        else:
+            try:
+                age = (datetime.date.today() - datetime.date.fromisoformat(a["verified_at"])).days
+            except ValueError:
+                age = None
+                errors.append("%s: verified_at が日付として不正 (%r)" % (aid, a["verified_at"]))
+            if age is not None and age > VERIFIED_STALE_DAYS:
+                warnings.append("%s: verified_at (%s) から %d 日経過(%d 日超)。画面には補足の一文が出る"
+                                % (aid, a["verified_at"], age, VERIFIED_STALE_DAYS))
         expected_file = "content/articles/%s.md" % a["article_id"]
         if a["file"] != expected_file:
             errors.append("%s: file は %s であるべき (現在: %s)" % (aid, expected_file, a["file"]))
